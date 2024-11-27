@@ -1,0 +1,10 @@
+[27-Nov-2024 08:41:40 UTC] PHP Warning:  require(/home/minwbeyr/mkhzin.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/minwbeyr/mkhzin.com/public/index.php on line 13
+[27-Nov-2024 08:41:40 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/minwbeyr/mkhzin.com/public/../vendor/autoload.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/minwbeyr/mkhzin.com/public/index.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/minwbeyr/mkhzin.com/public/index.php on line 13
+[27-Nov-2024 08:45:15 UTC] PHP Warning:  require(/home/minwbeyr/mkhzin.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/minwbeyr/mkhzin.com/public/index.php on line 13
+[27-Nov-2024 08:45:15 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/minwbeyr/mkhzin.com/public/../vendor/autoload.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/minwbeyr/mkhzin.com/public/index.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/minwbeyr/mkhzin.com/public/index.php on line 13
