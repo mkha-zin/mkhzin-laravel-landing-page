@@ -1,0 +1,327 @@
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: #000000;
+  }
+}
+
+.rkit-animated-heading p {
+  position: relative;
+  /* Menentukan posisi relatif untuk memposisikan pseudo-elemen */
+}
+
+.rkit-animated-heading {
+  position: relative;
+  
+}
+
+.text-writing {
+  display: inline-block;
+}
+
+.text-writing::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background-color: #000000;
+  animation: blink-caret 1s infinite;
+}
+
+.rkit-animated-heading p {
+  margin-bottom: 0;
+}
+
+@keyframes typing-cursor {
+
+  from,
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: #000000;
+  }
+}
+
+.text-flipping {
+  transition: 0.5s;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  display: inline-block;
+}
+
+.flip-out {
+  transform: perspective(400px) rotateX(90deg);
+  animation-name: flipOut;
+  transform-origin: bottom;
+  opacity: 0;
+}
+
+.flip-in {
+  transform: perspective(400px) rotateX(0deg);
+  animation-name: flipIn;
+  transform-origin: bottom;
+  opacity: 1;
+}
+
+@keyframes flipOut {
+  0% {
+    transform: perspective(400px) rotateX(0deg);
+    transform-origin: bottom;
+    opacity: 1;
+  }
+
+  40% {
+    transform: perspective(400px) rotateX(-20deg);
+    transform-origin: bottom;
+  }
+
+  100% {
+    transform: perspective(400px) rotateX(90deg);
+    transform-origin: bottom;
+    opacity: 0;
+  }
+}
+
+@keyframes flipIn {
+  0% {
+    transform: perspective(400px) rotateX(-90deg);
+    transform-origin: bottom;
+    opacity: 0;
+  }
+
+  60% {
+    transform: perspective(400px) rotateX(-20deg);
+    transform-origin: bottom;
+  }
+
+  100% {
+    transform: perspective(400px) rotateX(0deg);
+    transform-origin: bottom;
+    opacity: 1;
+  }
+}
+
+.text-sliding_up,
+.text-sliding_down {
+  overflow: hidden;
+  transition: opacity 0.5s;
+  display: inline-flex;
+}
+
+.text-sliding_down.slide-down_in {
+  height: auto;
+  animation: slideDown_In 0.5s;
+}
+
+.text-sliding_down.slide-down_out {
+  height: auto;
+  animation: slideDown_Out 0.5s;
+}
+
+.text-sliding_up.slide-up_in {
+  height: auto;
+  animation: slideUp_In 0.5s;
+}
+
+.text-sliding_up.slide-up_out {
+  height: auto;
+  animation: slideUp_Out 0.5s;
+}
+
+
+@keyframes slideUp_In {
+  0% {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateY(-5px);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp_Out {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+}
+
+@keyframes slideDown_In {
+  0% {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateY(5px);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown_Out {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+}
+
+
+@keyframes handdrawn {
+  0% {
+    stroke-dashoffset: 1500;
+    opacity: 0;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.rkit-animated-heading__text svg {
+  fill: none;
+  stroke: black;
+  stroke-width: 12px;
+  stroke-miterlimit: 10;
+  stroke-dasharray: 1500;
+  stroke-dashoffset: 1500;
+  stroke-linecap: round;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(100% + 20px);
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  height: calc(100% + 15px);
+  overflow: visible;
+}
+
+.rkit-highlighted.in_front svg{
+  z-index: 2 !important;
+}
+
+.highlighted_in svg {
+  animation: handdrawn 1s forwards;
+}
+
+.highlighted_out svg {
+  stroke-dashoffset: 0;
+  animation: opacity 1s;
+}
+
+.rkit-highlighted {
+  display: inline-flex;
+}
+
+.text-drop-in, .text-drop-out {
+  overflow: hidden;
+  display: inline-flex;
+}
+
+.text-drop-in.drop-in_out {
+  animation: dropIn_Out 0.5s;
+  opacity: 0;
+}
+
+.text-drop-in.drop-in_in {
+  animation: dropIn_In 0.5s;
+  opacity: 1;
+}
+
+@keyframes dropIn_Out {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+}
+
+@keyframes dropIn_In {
+  0% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.text-drop-out.drop-out_out {
+  animation: dropOut_Out 0.5s;
+  opacity: 0;
+}
+
+.text-drop-out.drop-out_in {
+  animation: dropOut_In 0.5s;
+  opacity: 1;
+}
+
+@keyframes dropOut_Out {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+@keyframes dropOut_In {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

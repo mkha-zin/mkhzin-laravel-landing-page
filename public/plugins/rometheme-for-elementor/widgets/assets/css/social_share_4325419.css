@@ -1,0 +1,12 @@
+.rkit-social-media__list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.rkit-social-media__list .rkit-social-share__link{
+    width: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}

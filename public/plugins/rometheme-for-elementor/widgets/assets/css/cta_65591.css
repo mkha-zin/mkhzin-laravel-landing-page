@@ -1,0 +1,195 @@
+.rkit-cta {
+    overflow: hidden;
+    position: relative;
+}
+
+.rkit-cta-container-classic {
+    display: flex;
+}
+
+.rkit-cta-container-cover {
+    display: block;
+}
+
+.rkit-cta-img__wrapper {
+    background-size: cover;
+    background-position: 50%;
+    min-width: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.rkit-cta-img__image {
+    transition: all 1.5s;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    background-size: cover;
+    background-position: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.rkit-cta-container-cover .rkit-cta-img__wrapper {
+    min-height: 350px;
+}
+
+.rkit-cta-container-classic .rkit-cta-img__wrapper {
+    min-height: 350px;
+}
+
+
+.rkit-cta-container-cover .rkit-cta-content__wrapper {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.rkit-cta-description {
+    margin-bottom: 1rem;
+}
+
+.rkit-cta-container-classic .rkit-cta-content__wrapper {
+    min-height: 350px;
+}
+
+.rkit-cta-ribbon {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: auto;
+    right: 0;
+    transform: rotate(90deg);
+    width: 150px;
+    overflow: hidden;
+    height: 150px;
+}
+
+.rkit-cta-ribbon.rkit-cta-ribbon__left {
+    transform: rotate(0);
+    left: 0;
+    right: auto;
+}
+
+.rkit-cta-ribbon.rkit-cta-ribbon__right {
+    transform: rotate(90deg);
+    left: auto;
+    right: 0;
+}
+
+.rkit-cta-ribbon__inner {
+    text-align: center;
+    left: 0;
+    width: 200%;
+    transform: translateY(-50%) translateX(-50%) translateX(35px) rotate(-45deg);
+    margin-top: 35px;
+    font-size: 13px;
+    background: #00cea6;
+    color: #000;
+    line-height: 2;
+    font-weight: 700;
+}
+
+.rkit-cta-content__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding : 30px;
+}
+
+.rkit-cta-container-classic .rkit-cta-content__wrapper {
+    background-color: white;
+}
+
+.rkit-cta .rkit-cta-title {
+    transition: all 0.5s;
+}
+
+.rkit-cta-img__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transition: all 0.5s;
+}
+
+.rkit-cta:hover .rkit-cta-img__overlay {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.rkit-cta:hover .zoom-in {
+    transform: scale(1.2);
+}
+
+.zoom-out {
+    transform: scale(1.2);
+}
+
+.rkit-cta:hover .zoom-out {
+    transform: scale(1);
+}
+
+.rkit-cta-icon__graphic_element {
+    font-size: 70px;
+}
+
+.move-left {
+    transform: scale(1.2) translateX(8%);
+}
+
+.move-right {
+    transform: scale(1.2) translateX(-8%);
+}
+
+.move-up {
+    transform: scale(1.2) translateY(8%);
+}
+
+.move-down {
+    transform: scale(1.2) translateY(-8%);
+}
+
+.rkit-cta:hover .move-left,
+.rkit-cta:hover .move-right,
+.rkit-cta:hover .move-up,
+.rkit-cta:hover .move-down {
+    transform: scale(1.2) translateX(0%);
+}
+
+.rkit-cta__graphic_element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.rkit-cta__graphic_element:has(.rkit-cta-icon__graphic_element) {
+    aspect-ratio: 1/1;
+}
+
+.rkit-cta-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.rkit-cta a.rkit-cta-button {
+    background-color: #535353;
+    border-radius: 5px;
+    padding: 16px 32px 16px 32px;
+    text-align: center;
+    font-size: 15px;
+    color: white;
+    transition: all 0.5s;
+    border: none;
+}
+
+.rkit-cta a.rkit-cta-button:hover {
+    background-color: #00cea6;
+    color: #535353;
+}

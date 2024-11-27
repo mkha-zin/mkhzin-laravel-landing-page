@@ -1,0 +1,331 @@
+
+.rkit-pricelist-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    position: relative; 
+}
+
+.rkit-pricelist-item {
+    /* flex: 1 1 calc(100% - 20px); 3 items per row with 20px gap */
+    flex: 1 1 auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0px;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Ensure positioning for ribbon */
+}
+
+.rkit-pricelist-item-inner {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    height: 100%;
+    /* overflow: hidden; */
+}
+
+.rkit-pricelist-item-inner-price {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.rkit-pricelist-item-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.rkit-pricelist-item-title {
+    /* font-size: 1.5em; */
+    color: #000000;
+    font-size: 35px;
+    font-weight: 800;
+    font-style: normal; 
+    line-height: 0px !important;
+    letter-spacing: 0.5px;
+    word-spacing: 15px;
+    text-align: center;
+    padding-top:25px
+}
+
+.pricelist-item-footer{
+    color: #9e9d9d;
+    font-size: 12px;
+}
+
+.rkit-pricelist-item-subheading {
+    /* font-size: 1.5em; */
+    color: #626665;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal; 
+    letter-spacing: 0.5px;
+    word-spacing: 15px;
+    text-align: center;
+    margin-bottom: 8px;
+    padding-bottom: 20px;
+}
+
+.rkit-pricelist-item-price {
+    /* font-size: 1.5em;
+    margin-bottom: 0px; */
+
+    font-family: "Verdana", Sans-serif;
+    font-size: 41px;
+    letter-spacing: -1.1px;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+
+.rkit-pricelist-item-sale-price {
+    /* font-size: 1.5em;
+    margin-bottom: 0px; */
+
+    font-family: "Verdana", Sans-serif;
+    font-size: 24px;
+    letter-spacing: -1.1px;
+    text-align: center;
+    margin-bottom: 0px;
+    text-decoration: line-through;
+    color: #818e8e;
+    
+    
+}
+.rkit-pricelist-item-currency {
+    /* font-size: 1.5em;
+    margin-bottom: 0px; */
+
+    font-family: "Verdana", Sans-serif;
+    font-size: 41px;
+    letter-spacing: -1.1px;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.rkit-pricelist-item-price-section-row {
+    display: flex;
+    align-items: center;
+}
+
+.price-container-row {
+    display: flex;
+    flex-direction: column;
+}
+
+.sale-price-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: center;  
+    padding-top: 0px;   
+    margin-bottom: -30px;
+}
+
+.sale-price-container-inline {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: center;  
+    padding-top: 0px;   
+    padding : 10px;
+}
+
+.price-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: center;  
+    padding-top: 20px;   
+}
+
+.rkit-pricelist-item-currency,
+.rkit-pricelist-item-price {
+    margin: 0;  
+    padding: 0 0px;  
+}
+
+
+
+.rkit-pricelist-item-sub-title {
+    color: #777;
+    margin-bottom: 15px;
+}
+.rkit-pricelist-item-sub-title-center {
+    margin-left: 5px;  
+    margin-top:30px
+}
+
+
+.rkit-pricelist-item-description {
+    flex-grow: 1;
+    margin-bottom: 20px;
+    /* padding-left: 2.5px; */
+
+    color: #000000;
+    font-family: "Amiko", Sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 27px;
+    letter-spacing: -0.1px;
+    word-spacing: 2px;
+    padding: 10px 0px 0px 0px;
+}
+
+.rkit-pricelist-item-button .elementor-button {
+    align-self: flex-start;
+    margin-top: auto;
+    background-color:  #00cea6;
+    /* color :#00cea6;  */
+}
+
+.rkit-pricelist-item-description-icon{
+    color: #56d4c4;  
+}
+
+.rkit-pricelist-item-button-icon{
+    color: #56d4c4;  
+}
+
+.rkit-pricelist-item-title-section {
+    background-color: #00cea6;
+}
+.rkit-pricelist-item-price-section {
+    background-color: #ffffff;
+}
+
+/* .rtmicon{
+    font-size: 13px;
+    font-weight: 700;
+} */
+
+.no-icon {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* CSS for ribbon */
+.rkit-wrap {
+    width: 100%;
+    height: 188px;
+    position: absolute;
+    top: -8px;
+    left: 0px;
+    overflow: hidden;
+}
+
+
+.rkit-wrap .content {
+    position: relative;
+    padding: 10px;
+    color: #fff; /* Default text color */
+}
+
+.rkit-wrap:before, .wrap:after {
+    content: ""; 
+    position: absolute;
+}
+
+.rkit-wrap:before {
+    width: 40px;
+    height: 8px;
+    right: 100px;
+    background: #4D6530;
+    border-radius: 8px 8px 0px 0px;
+}
+
+.rkit-wrap:after {
+    width: 8px;
+    height: 40px;
+    right: 0px;
+    top: 100px;
+    background: #4D6530;
+    border-radius: 0px 8px 8px 0px;
+}
+
+
+.rkit-ribbon-right{
+    width: 160px;
+    height: 35px;
+    line-height: 33px;
+    position: absolute;
+    top: 30px;
+    right: -38px;
+    z-index: 0;
+    overflow: hidden;
+    -webkit-transform: rotate(95deg);
+    transform: rotate(45deg);
+    /* border: 0.1px dashed; */
+    /* box-shadow: 0 0 0 3px #121312, 0px 21px 5px -18px rgba(0, 0, 0, 0.6); */
+    background: #95a5a1;
+    text-align: center;
+}
+
+/* left ribbon */
+
+.rkit-ribbon-left{
+    width: 160px;
+    height: 35px;
+    line-height: 33px;
+    position: absolute;
+    top: 30px;
+    left: -38px;
+    z-index: 0;
+    overflow: hidden;
+    /* -webkit-transform: rotate(130deg); */
+    transform: rotate(315deg);
+    /* border: 0.1px dashed; */
+    /* box-shadow: 0 0 0 3px #57DD43, 0px 21px 5px -18px rgba(0, 0, 0, 0.6); */
+    background: #95a5a1;
+    text-align: center;
+}
+
+
+/* end ribbon */
+        
+ 
+
+        .divider_desc:not(:last-child)
+            {
+            border-bottom : 1px;
+            border-bottom-style : solid;
+            border-color :#726b6b;
+        }
+
+     
+    .divider_desc:last-child{
+        border-bottom: 0px; 
+        margin: 10px 0 ;
+        margin-left : 25px;
+        margin-right: 25px; 
+        list-style: none; 
+    }
+
+    @media (max-width: 1200px) {
+        .rkit-pricelist-item {
+            flex: 1 1 calc(33.333% - 20px); /* 3 items per row on medium screens */
+        }
+    }
+
+    @media (max-width: 768px) {
+        .rkit-pricelist-item {
+            flex: 1 1 calc(50% - 20px); /* 2 items per row on small screens */
+        }
+    }
+
+    @media (max-width: 576px) {
+        .rkit-pricelist-item {
+            flex: 1 1 100%; /* 1 item per row on extra small screens */
+        }
+
+    
+        
+
+    }

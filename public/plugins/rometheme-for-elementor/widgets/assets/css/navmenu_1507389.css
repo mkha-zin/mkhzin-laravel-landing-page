@@ -1,0 +1,21 @@
+.menu-horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+a.submenu-item-text {
+    width: 100%;
+    display: inline-block;
+    border-bottom: none;
+    height: 100%;
+}
+
+.expand-content{
+    overflow: hidden;
+    height: auto;
+}

@@ -1,0 +1,13 @@
+.rform-button-container{
+    display: flex;
+    width: 100%;
+}
+
+.rform-button-submit{
+    position: relative;
+    transition: all 1s;
+}
+
+.rform-btn-fullwidth{
+    width: 100% !important;
+}

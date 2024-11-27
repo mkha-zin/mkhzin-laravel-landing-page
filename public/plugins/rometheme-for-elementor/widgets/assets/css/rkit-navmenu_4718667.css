@@ -1,0 +1,384 @@
+.rkit-navmenu-container {
+    z-index: 99;
+    position: relative;
+}
+
+.rkit-btn-hamburger {
+    display: inline-flex;
+    align-items: center;
+}
+
+.rkit-btn-hamburger:focus {
+    outline: none;
+}
+
+.rkit-hamburger-tablet,
+.rkit-hamburger-mobile {
+    display: none;
+    transition: all 1.5s;
+}
+
+.rkit-navmenu-tablet,
+.rkit-navmenu-mobile {
+    display: flex;
+    transition: all 1.5s;
+}
+
+.rkit-responsive-tablet,
+.rkit-responsive-mobile {
+    display: none;
+    overflow: hidden;
+}
+
+.rkit-responsive-menu {
+    transition: all;
+}
+
+.rkit-menu {
+    transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    position: relative;
+}
+
+.rkit-menu-text{
+    color: black;
+}
+
+
+
+.rkit-navmenu a {
+    border-bottom: none;
+}
+
+.rkit-dropdown-hover-tablet,
+.rkit-dropdown-hover-mobile,
+.rkit-dropdown-click-mobile,
+.rkit-dropdown-click-tablet,
+.rkit-submenu-hover-tablet,
+.rkit-submenu-hover-mobile,
+.rkit-submenu-click-tablet,
+.rkit-submenu-click-mobile {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    transition: all 1.5s;
+}
+
+.rkit-dropdown:hover>.rkit-dropdown-hover-tablet,
+.rkit-dropdown:hover>.rkit-dropdown-hover-mobile {
+    display: flex;
+    animation: scale_animation 0.5s;
+    animation-timing-function: ease;
+}
+
+.rkit-dropdown-open>.rkit-dropdown-click-tablet,
+.rkit-dropdown-open>.rkit-dropdown-click-mobile {
+    display: flex;
+}
+
+.rkit-submenu-open .rkit-submenu-click-tablet,
+.rkit-submenu-open .rkit-submenu-click-mobile {
+    display: inline-flex;
+    white-space: nowrap;
+    top: 0;
+
+}
+
+.rkit-dropdownopen-tablet,
+.rkit-dropdownopen-mobile {
+    display: flex;
+    white-space: nowrap;
+}
+
+.rkit-submenuopen-tablet,
+.rkit-submenuopen-mobile {
+    display: inline-flex;
+    white-space: nowrap;
+}
+
+.rkit-dropdown:hover>.rkit-submenu-hover-tablet,
+.rkit-dropdown:hover>.rkit-submenu-hover-mobile {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: scale_animation 0.5s;
+    animation-timing-function: ease;
+    top: 0;
+}
+
+.rkit-p-relative {
+    position: relative;
+}
+
+.left-100 {
+    left: 100%;
+}
+
+.right-100 {
+    right: 100%;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rkit-submenu-text {
+    flex-grow: 2;
+}
+
+.rkit-navmenu-fullwidth {
+    width: 100vw;
+}
+
+.rkit-submenu-icon {
+    cursor: pointer;
+}
+.rkit-submenu {
+    cursor: pointer;
+}
+
+.rkit-dropdown-submenu .rkit-submenu-icon {
+    position: absolute;
+    display: inline;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+
+.rkit-dropdown-unres.rkit-submenu i {
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+
+.pointer-underline::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    left: 0;
+    bottom: 0;
+    border-style: solid;
+    border-color: rgb(42, 42, 186);
+    border-width: 0px 0px 5px 0px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.pointer-underline:hover::after{
+    opacity: 1;
+}
+
+.pointer-overline::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    left: 0;
+    bottom: 0;
+    border-style: solid;
+    border-color: rgb(42, 42, 186);
+    border-width: 5px 0px 0px 0px;
+    transition: opacity 0.5s;
+    opacity: 0;
+}
+
+.pointer-overline:hover::after{
+    opacity: 1;
+}
+
+.pointer-doubleline::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    left: 0;
+    bottom: 0;
+    border-style: solid;
+    border-width: 5px 0px 5px 0px;
+    border-color: rgb(42, 42, 186);
+    transition: opacity 0.5s;
+    opacity: 0;
+}
+
+.pointer-doubleline:hover::after{
+    opacity: 1;
+}
+
+.pointer-framed::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    left: 0;
+    bottom: 0;
+    border-style: solid;
+    border-width: 5px;
+    border-color: rgb(42, 42, 186);
+    transition: opacity 0.5s;
+    opacity: 0;
+}
+
+.pointer-framed:hover::after{
+    opacity: 1;
+}
+
+.rkit-menu:has(.pointer-bg):hover{
+    background-color:  rgb(42, 42, 186);
+}
+
+.rkit-menu-active .pointer-underline::after , .rkit-menu-active .pointer-overline::after , .rkit-menu-active .pointer-doubleline::after , .rkit-menu-active .pointer-framed::after{
+    opacity: 1;
+}
+
+@media only screen and (max-width:1024px) {
+    .rkit-hamburger-tablet {
+        display: flex;
+    }
+
+    .rkit-navmenu-tablet {
+        display: none;
+    }
+
+    .rkit-responsive-open-tablet {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        animation: scale_animation 0.5s;
+        animation-timing-function: ease;
+    }
+
+    .rkit-dropdown-click-tablet {
+        position: relative;
+    }
+
+    .rkit-submenu-open .rkit-submenu-click-tablet {
+        display: flex;
+        white-space: nowrap;
+        position: relative;
+        animation: navmenu_animation 1.5s;
+        animation-timing-function: ease;
+    }
+
+    .rkit-responsive-tablet .rkit-menu {
+        background-color: white;
+        color: black;
+    }
+
+    .rkit-responsive-tablet .rkit-menu-text {
+        color: black;
+    }
+
+    .rkit-responsive-tablet .rkit-menu:hover {
+        background-color: black;
+        color: white;
+    }
+
+    .rkit-responsive-tablet .rkit-menu:hover .rkit-menu-text {
+        color: white;
+    }
+}
+
+@media only screen and (max-width:767px) {
+    .rkit-hamburger-mobile {
+        display: flex;
+    }
+
+    .rkit-navmenu-mobile {
+        display: none;
+    }
+
+    .rkit-responsive-open-mobile {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        animation: scale_animation 0.5s;
+        animation-timing-function: ease;
+    }
+
+    .rkit-dropdown-click-mobile {
+        position: relative;
+    }
+
+    .rkit-submenu-click-mobile {
+        position: relative;
+    }
+
+    .rkit-submenu-open .rkit-submenu-click-mobile {
+        display: flex;
+        white-space: nowrap;
+        position: relative;
+        animation: navmenu_animation 1.5s;
+        animation-timing-function: ease;
+    }
+
+    .rkit-responsive-mobile .rkit-menu {
+        background-color: white;
+        color: black;
+    }
+
+    .rkit-responsive-mobile .rkit-menu-text {
+        color: black;
+    }
+
+    .rkit-responsive-mobile .rkit-menu:hover {
+        background-color: black;
+        color: white;
+    }
+
+    .rkit-responsive-mobile .rkit-menu:hover .rkit-menu-text {
+        color: white;
+    }
+}
+
+@keyframes rotate_out {
+    to {
+        transform: rotate(0deg);
+    }
+
+    from {
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes rotate_in {
+    to {
+        transform: rotate(90deg);
+    }
+
+    from {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes navmenu_animation {
+    from {
+        max-height: 0vmax;
+        height: 0px;
+    }
+
+    to {
+        max-height: 100vmax;
+        height: 100%;
+    }
+}
+
+@keyframes scale_animation {
+    from {
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+
+    to {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+}

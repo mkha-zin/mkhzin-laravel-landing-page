@@ -1,0 +1,48 @@
+.rkit-blockquote{
+    display: flex;
+    position: relative;
+}
+
+.blockquote-top{
+    flex-direction: column;
+}
+
+.rkit-quote-icon{
+    font-size: 4rem;
+    margin : 0px 0px 20px 0px;
+}
+
+.blockquote-top .rkit-quote-icon{
+    display: flex;  
+    align-items: center;
+}
+
+.blockquote-inline .rkit-quote-icon {
+    float: left;
+    line-height: 1em;
+    width: 1em;
+    height: 1em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 .5em 0 0;
+}
+
+.blockquote-inline , .blockquote-absolute {
+    flex-direction: column;
+}
+
+.rkit-quote-author {
+    font-weight: 700;
+}
+
+.blockquote-absolute .rkit-quote-icon {
+    position: absolute;
+    z-index: -1;
+    left : 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+}

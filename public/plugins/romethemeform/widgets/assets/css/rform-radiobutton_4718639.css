@@ -1,0 +1,63 @@
+/* Style radio button rform-radiobtn-container */
+.rform-radiobtn-container {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  flex-direction: row;
+  gap: 0.375rem;
+}
+
+.rform-radio-button{
+    display: flex;
+    flex-direction: row;
+}
+
+/* Hide default radio button */
+.rform-radiobtn-container input {
+  opacity: 0;
+  cursor: pointer;
+  width: 0;
+}
+
+/* Style custom radio button */
+.rform-radio-checkmark {
+  position: relative;
+  display: inline-flex;
+  aspect-ratio: 1/1;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+
+}
+
+/* On mouse-over, add a grey background color */
+.rform-radiobtn-container:hover input ~ .rform-radio-checkmark {
+  background-color: #ccc;
+}
+
+/* When radio button is checked, add a blue background */
+.rform-radiobtn-container input:checked ~ .rform-radio-checkmark {
+  background-color: #2196F3;
+}
+
+/* Create a small dot to indicate the selection */
+.rform-radio-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the dot when radio button is checked */
+.rform-radiobtn-container input:checked ~ .rform-radio-checkmark:after {
+  display: block;
+}
+
+/* Style the dot */
+.rform-radiobtn-container .rform-radio-checkmark:after {
+  width: 10px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background: white;
+}

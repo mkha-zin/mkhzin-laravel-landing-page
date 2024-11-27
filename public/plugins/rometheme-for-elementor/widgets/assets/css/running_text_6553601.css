@@ -1,0 +1,14 @@
+.rkit-running-text-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.rkit-running-text{
+    display: flex;
+    flex-direction: row;
+}
+
+.rkit-running-text-item p {
+    margin: 0;
+}

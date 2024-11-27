@@ -1,0 +1,53 @@
+.rform-label-input {
+    color: gray;
+    display: inline-flex;
+    align-items: center;
+    width: 20%;
+}
+
+.rform-input , .rform-select , .rform-input-tel {
+    background-color: rgb(219, 219, 234);
+    width: 100%;
+    border-radius: 6px;
+}
+
+.rform-input:focus, .rform-input-number:focus , .rform-input-tel:focus {
+    outline: none;
+}
+
+.rform-error {
+    display: none;
+}
+
+.rform-control {
+    display: flex;
+}
+
+.rform-label-top {
+    flex-direction: column;
+}
+
+.rform-label-top .rform-label-input{
+    width: 100%;
+}
+
+.rform-label-left {
+    flex-direction: row;
+}
+
+.rform-help-text {
+    font-family: "IBM Plex Sans", Sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 17px;
+    color: #96989F;
+}
+
+.rform-control:has(.rform-input[aria-invalid="true"]) + .rform-error {
+    display: block !important;
+}
+.rform-control:has(.rform-select[aria-invalid="true"]) + .rform-error {
+    display: block !important;
+}
+
+

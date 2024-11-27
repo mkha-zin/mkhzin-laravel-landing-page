@@ -1,0 +1,56 @@
+.rkit-tab-nav {
+    list-style: none;
+    padding: 0;
+}
+
+.rkit-tab-container {
+    display: flex;
+}
+
+.rkit-tab-container.horizontal{
+    flex-direction: column;
+}
+
+.rkit-tab-container.vertical {
+    flex-direction: row;
+}
+
+.rkit-tab-nav{
+    display: flex;
+    width: 100%;
+}
+
+.rkit-tab-container.horizontal .rkit-tab-nav {
+    flex-direction: row;
+}
+
+.rkit-tab-container.vertical .rkit-tab-nav {
+    flex-direction: column;
+}
+
+.rkit-tab-btn-item {
+    width: 100%;
+    background-color: gray;
+    text-align: center;
+    cursor: pointer;
+    padding: 1rem;
+    flex: auto;
+}
+
+.rkit-tab-btn-item.active {
+    background-color: rgb(32, 32, 32);
+    color: white;
+}
+
+.rkit-tab-content {
+    display: none;
+    margin: 20px 0px 0px 0px;
+}
+
+.rkit-tab-content.active{
+    display: block;
+}
+
+.rkit-tab-content-container {
+    flex : 1 ;
+}

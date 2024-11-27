@@ -1,0 +1,58 @@
+.rform-select-div {
+    position: relative;
+    cursor: pointer;
+}
+
+.rform-select-container{
+    width: 100%;
+}
+
+.rform-select-div::after {
+    content: '\25BC';
+    display: inline-flex;
+    position: absolute;
+    right: 0;
+    padding-inline: 0.5rem;
+    font-size: 12px;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    top: 0;
+    /* transition: all 0.5s; */
+}
+
+.rform-select {
+    cursor: pointer;
+}
+
+.rform-options-container {
+    display: none;
+    position: absolute;
+    width: 100%;
+    z-index: 999;
+}
+
+.rform-options-container ul {
+    list-style: none;
+    padding-inline: 0px;
+    overflow: hidden;
+    border: 1px solid rgb(108, 108, 108);
+}
+
+.rform-options-container ul li {
+    overflow: hidden;
+    background-color: white;
+}
+
+.rform-option {
+    padding: 0.3rem;
+}
+
+.rform-option:hover {
+    background-color: rgb(94, 94, 249);
+    color: white;
+}
+
+.rotate::after {
+    transform: rotate(-180deg);
+}

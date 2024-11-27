@@ -1,0 +1,23 @@
+.counter-suffix {
+    white-space: pre-wrap;
+}
+
+.rkit-counter .counter {
+    display: flex;
+    font-size: 69px;
+    font-weight: 600;
+    line-height: 1;
+    justify-content: center;
+}
+
+.rkit-counter {
+    display: flex;
+}
+
+.rkit-counter .counter-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

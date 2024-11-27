@@ -1,0 +1,180 @@
+.rkit-swiper {
+  position: relative;
+  overflow: hidden;
+}
+
+.rkit-card {
+  background-color: #fafafa;
+  overflow: hidden;
+}
+
+.rkit-card-slider {
+  padding : 0px 20px 0px 20px;
+}
+
+.rkit-cardslider-pagination {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.rkit-swiper-button-prev {
+  left: 0;
+  top: 50%;
+}
+
+.rkit-swiper-button-next {
+  right: 0;
+  top: 50%;
+}
+
+.rkit-swiper-button-next,
+.rkit-swiper-button-prev {
+  position: absolute;
+  z-index: 999;
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  background-color: #00cea6;
+  transform: translateY(-50%);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  border-radius: 10px;
+  --swiper-navigation-size: 44px;
+  --swiper-navigation-top-offset: 50%;
+  --swiper-navigation-sides-offset: 10px;
+}
+
+.card-image {
+  width: 100%;
+  max-width: 100%;
+}
+
+.rkit-card .card-image img {
+  width: 100%;
+  display: block;
+}
+
+.rkit-cardslider-bullet {
+  width: 8px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: #aaaaaa;
+  transition: all 0.5s ease;
+}
+
+.rkit-cardslider-bullet-active {
+  background-color: #161616;
+}
+
+.rkit-cardslider-bullet-clickable .rkit-cardslider-bullet {
+  cursor: pointer;
+}
+
+.card-body {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+.card-body::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.card-title {
+  margin: 0;
+
+}
+
+.card-title a {
+  text-decoration: none;
+  color: #161616;
+}
+
+.card-heading {
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.rkit-swiper-button-prev.swiper-button-disabled,
+.rkit-swiper-button-next.swiper-button-disabled {
+  opacity: .35;
+  cursor: auto;
+  pointer-events: none;
+}
+
+.rkit-card .card-button a {
+  background-color: #00cea6;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  color: white;
+  transition: all 0.5s;
+  border-radius: 10   px;
+}
+
+.rkit-card .card-button {
+  display: flex;
+  justify-content: start;
+}
+
+.rkit-card .card-button a .button-icon {
+  transition: color 0.5s;
+}
+
+.rkit-card.overlay {
+  position: relative;
+}
+
+.rkit-card.overlay .card-body {
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: all 0.5s;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+
+
+.rkit-card.overlay .card-button {
+  justify-content: center;
+}
+
+.rkit-card.overlay:hover .card-body {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.rkit-card-slider .swiper-slide {
+  overflow: unset;
+}
+
+.card-button.fullwidth a {
+  width: 100%;
+}
