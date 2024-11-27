@@ -22,7 +22,8 @@
                  {&quot;id&quot;:{{$heroes[0]->id}},&quot;url&quot;:&quot;{{ asset('storage/' . $heroes[0]->image) }}&quot;}
                  @endif
                  ]
-                 ,&quot;background_slideshow_ken_burns&quot;:&quot;yes&quot;,&quot;background_slideshow_loop&quot;:&quot;yes&quot;,&quot;background_slideshow_slide_duration&quot;:5000,&quot;background_slideshow_slide_transition&quot;:&quot;fade&quot;,&quot;background_slideshow_transition_duration&quot;:500,&quot;background_slideshow_ken_burns_zoom_direction&quot;:&quot;in&quot;}">
+                 ,&quot;background_slideshow_ken_burns&quot;:&quot;yes&quot;,&quot;background_slideshow_loop&quot;:&quot;yes&quot;,&quot;background_slideshow_slide_duration&quot;:5000,&quot;background_slideshow_slide_transition&quot;:&quot;fade&quot;,&quot;background_slideshow_transition_duration&quot;:500,&quot;background_slideshow_ken_burns_zoom_direction&quot;:&quot;in&quot;}"
+                 style="height: 60vh !important">
                 <div class="e-con-inner">
                     <div
                         class="elementor-element elementor-element-5a2dc1e5 e-con-full e-flex elementor-invisible e-con e-child"
