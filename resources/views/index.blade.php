@@ -11,6 +11,7 @@
         <div>
             <div class="elementor-element elementor-element-738b7686 e-flex e-con-boxed e-con e-parent"
                  data-element_type="container"
+                 style="height: 60vh !important"
                  data-settings="{&quot;background_background&quot;:&quot;slideshow&quot;,&quot;background_slideshow_gallery&quot;:
                  [
                  @if(!empty($heroes[0]))
@@ -22,8 +23,7 @@
                  {&quot;id&quot;:{{$heroes[0]->id}},&quot;url&quot;:&quot;{{ asset('storage/' . $heroes[0]->image) }}&quot;}
                  @endif
                  ]
-                 ,&quot;background_slideshow_ken_burns&quot;:&quot;yes&quot;,&quot;background_slideshow_loop&quot;:&quot;yes&quot;,&quot;background_slideshow_slide_duration&quot;:5000,&quot;background_slideshow_slide_transition&quot;:&quot;fade&quot;,&quot;background_slideshow_transition_duration&quot;:500,&quot;background_slideshow_ken_burns_zoom_direction&quot;:&quot;in&quot;}"
-                 style="height: 60vh !important">
+                 ,&quot;background_slideshow_ken_burns&quot;:&quot;yes&quot;,&quot;background_slideshow_loop&quot;:&quot;yes&quot;,&quot;background_slideshow_slide_duration&quot;:5000,&quot;background_slideshow_slide_transition&quot;:&quot;fade&quot;,&quot;background_slideshow_transition_duration&quot;:500,&quot;background_slideshow_ken_burns_zoom_direction&quot;:&quot;in&quot;}">
                 <div class="e-con-inner">
                     <div
                         class="elementor-element elementor-element-5a2dc1e5 e-con-full e-flex elementor-invisible e-con e-child"
@@ -140,7 +140,7 @@
                             <div
                                 class="elementor-element elementor-element-4086c309 elementor-widget__width-inherit elementor-widget elementor-widget-text-editor">
                                 <div class="elementor-widget-container">
-                                    <h4 style="color: black; line-height: 1.5;font-weight: normal">
+                                    <h4 style="color: black; line-height: 1.5;font-weight: normal; text-align:justify; word-break:keep-all;">
                                         {{
                                             \Filament\Support\Markdown::block($direction == 'rtl' ? $about->first_text_ar : $about->first_text_ar )
                                         }}
@@ -258,88 +258,6 @@
                                         </h3></div>
                                 </div>
                             </div>
-                            {{--                            <style type="text/css">
-                                                            .cards-wrapper {
-                                                                display: flex;
-                                                                justify-content: center;
-                                                                flex-wrap: wrap;
-                                                            }
-                                                            .card {
-                                                                flex: 1 1 calc(25% - 1em);
-                                                                margin: 0.5em;
-                                                                box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
-                                                                border: none;
-                                                                border-radius: 0;
-                                                            }
-                                                            .card img { max-width: 100%; height: 200px; }
-                                                            @media (min-width: 768px) and (max-width: 1024px) {
-                                                                .card {
-                                                                    flex: 1 1 calc(50% - 1em);
-                                                                }
-                                                            }
-                                                            @media (max-width: 767px) {
-                                                                .card {
-                                                                    flex: 1 1 calc(100% - 1em);
-                                                                }
-                                                            }
-                                                            .carousel-inner {
-                                                                padding: 1em;
-                                                            }
-                                                            .carousel-control-prev,
-                                                            .carousel-control-next {
-                                                                background-color: var(--e-global-color-7cfaca3);
-                                                                width: 5vh;
-                                                                height: 5vh;
-                                                                border-radius: 50%;
-                                                                top: 50%;
-                                                                transform: translateY(-50%);
-                                                            }
-                                                        </style>
-                                                        <div id="carouselExampleControls" class="carousel swiper swiper-slide" data-ride="carousel">
-                                                            <div class="carousel-inner">
-                                                                @foreach($departments->chunk(4) as $chunk)
-                                                                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                                                                        <div class="cards-wrapper">
-                                                                            @foreach($chunk as $department)
-                                                                                <div class="card" style="width: 300px !important; height: 420px !important;">
-                                                                                    <img src="{{ asset('storage/' . $department->image) }}" class="card-img-top" alt="{{ $direction == 'ar' ? $department->title_ar : $department->title_en }}">
-                                                                                    <div class="card-body">
-                                                                                        <h5 class="card-title">
-                                                                                            {{ $direction == 'rtl' ? $department->title_ar : $department->title_en }}
-                                                                                        </h5>
-                                                                                        <p class="card-text" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden; text-overflow: ellipsis;">
-                                                                                            {{ $direction == 'rtl' ? $department->description_ar : $department->description_en }}
-                                                                                        </p>
-                                                                                        <a
-                                                                                           href="{{url('sections/'.$department->id.'/details')}}"
-                                                                                           style="letter-spacing: 0 !important;">
-                                                                                            @if($direction == 'rtl')
-                                                                                                <i aria-hidden="true"
-                                                                                                   class="rkit-icon-readmore rtmicon rtmicon-chevrons-left"></i>
-                                                                                            @elseif($direction == 'ltr')
-                                                                                                <i aria-hidden="true"
-                                                                                                   class="rkit-icon-readmore rtmicon rtmicon-chevrons-right"></i>
-                                                                                            @endif
-                                                                                            {{ __('landing.Know More') }}
-
-                                                                                        </a>
-                                                                                    </div>
-                                                                                </div>
-                                                                            @endforeach
-                                                                        </div>
-                                                                    </div>
-                                                                @endforeach
-                                                            </div>
-                                                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                                <span class="sr-only">Previous</span>
-                                                            </a>
-                                                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                                <span class="sr-only">Next</span>
-                                                            </a>
-                                                        </div>--}}
-
                             <!--______________________________________________________-->
                             <style>
                                 .slider-wrapper {
@@ -542,7 +460,7 @@
                             class="elementor-element elementor-element-60021572 elementor-widget elementor-widget-text-editor"
                             data-id="60021572" data-element_type="widget" data-widget_type="text-editor.default">
                             <div class="elementor-widget-container">
-                                <p>
+                                <p style="display: -webkit-box; text-align:justify; word-break:keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 5; color: black; overflow: hidden; text-overflow: ellipsis;">
                                     {{ $direction == 'rtl' ? $vision->description_ar : $vision->description_en }}
                                 </p>
                             </div>
@@ -609,7 +527,7 @@
                             class="elementor-element elementor-element-60021572 elementor-widget elementor-widget-text-editor"
                             data-id="60021572" data-element_type="widget" data-widget_type="text-editor.default">
                             <div class="elementor-widget-container">
-                                <p>
+                                <p style="display: -webkit-box; text-align:justify; word-break:keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 5; color: black; overflow: hidden; text-overflow: ellipsis;">
                                     {{ $direction == 'rtl' ? Markdown::block($goals->description_ar) : Markdown::block($goals->description_en) }}
                                 </p>
                             </div>
@@ -721,7 +639,7 @@
                         <h2 style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important">
                             {{ $direction == 'rtl' ? $fleet->title_ar : $fleet->title_en }}
                         </h2>
-                        <p>
+                        <p style="text-align:justify; word-break:keep-all;">
                             {{  Markdown::block($direction == 'rtl' ? $fleet->description_ar : $fleet->description_en) }}
                         </p>
                         <div

@@ -42,7 +42,7 @@
                                 class="elementor-element elementor-element-4086c309 elementor-widget__width-inherit elementor-widget elementor-widget-text-editor"
                                 data-element_type="widget" data-widget_type="text-editor.default">
                                 <div class="elementor-widget-container">
-                                    <h4 style="color: black; line-height: 1.5;font-weight: normal">
+                                    <h4 style="color: black; line-height: 1.5;font-weight: normal; text-align:justify; word-break:keep-all;">
                                         {{
                                             \Filament\Support\Markdown::block($direction == 'rtl' ? $about->first_text_ar : $about->first_text_ar )
                                         }}

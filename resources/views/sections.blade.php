@@ -42,7 +42,7 @@
                                                     </div>
                                                     <div class="rkit-blog-content">
                                                         <p class="rkit-blog-paragraph"
-                                                           style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important;">
+                                                           style="display: -webkit-box; text-align:justify; word-break:keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 4; color: black; overflow: hidden; text-overflow: ellipsis;">
                                                             {{  $direction == 'rtl' ? $department->description_ar : $department->description_en }}
                                                         </p>
                                                     </div>

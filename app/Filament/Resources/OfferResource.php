@@ -66,7 +66,7 @@ class OfferResource extends Resource
                         ->acceptedFileTypes(['application/pdf'])
                         ->label(__('dashboard.file'))
                         ->directory('assets/files/offers')
-                        ->maxSize(10024)
+                        ->maxSize(30072)
                         ->required()
                 ])->columns(2),
                 Forms\Components\Section::make(__(''))->schema([

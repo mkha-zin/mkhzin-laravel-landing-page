@@ -19,7 +19,7 @@
             <h3 style="color: red;">
                 {{$title}}
             </h3>
-            <h4 style="color: black;font-weight: normal; line-height: 1.5;">
+            <h4 style="color: black;font-weight: normal; line-height: 1.5; text-align:justify; word-break:keep-all;">
                 {{\Filament\Support\Markdown::block($description)}}
             </h4>
 
