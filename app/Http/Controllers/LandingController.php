@@ -78,7 +78,8 @@ class LandingController extends Controller
     public function offers()
     {
         $return = Offer::select('offers.*')
-            ->join('branches', 'branches.id', '=', 'offers.branch_id');
+            ->join('branches', 'branches.id', '=', 'offers.branch_id')
+        ->orderBy('offers.end_date', 'desc');
 
         if (!empty(Request::get('city'))) {
             if (Request::get('city') != 'all') {
