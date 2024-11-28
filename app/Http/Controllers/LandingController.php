@@ -96,7 +96,7 @@ class LandingController extends Controller
 
 
 
-    public function visitorMsg(Request $request)
+    public function visitorMsg(HttpRequest $request)
     {
         VisitorMessage::query()->create([
             'first_name' => $request->first_name,
