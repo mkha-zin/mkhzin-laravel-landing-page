@@ -19,7 +19,8 @@ use App\Models\Storage;
 use App\Models\Subscription;
 use App\Models\VisionAndGoal;
 use App\Models\VisitorMessage;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request as HttpRequest;
+use Request;
 
 class LandingController extends Controller
 {
@@ -109,7 +110,7 @@ class LandingController extends Controller
         return redirect('/#contact-us')->with('success', __('landing.Success Message'));
     }
 
-    public function subscribe(Request $request)
+    public function subscribe(HttpRequest $request)
     {
         Subscription::query()->create([
             'email' => $request->email,
