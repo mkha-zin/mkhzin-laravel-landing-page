@@ -19,7 +19,7 @@ use App\Models\Storage;
 use App\Models\Subscription;
 use App\Models\VisionAndGoal;
 use App\Models\VisitorMessage;
-use Request;
+use Illuminate\Http\Request;
 
 class LandingController extends Controller
 {
@@ -157,6 +157,7 @@ class LandingController extends Controller
             ->where('branch_id', $id)
             ->with('branch')
             ->get();
+        $data['cities'] = City::all();
         return view('offers', $data);
     }
 
