@@ -50,7 +50,7 @@ class OffersOverview extends BaseWidget
                 ->description(__('dashboard.All Offers in the database'))
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->chart([7, 2, 10, 3, 15, 4, 17])
-                ->color('success'),
+                ->color(Color::hex('#E22128')),
             Stat::make('Offers', array_sum($dates))
                 ->label(__('dashboard.Last month Offers'))
                 ->icon('heroicon-o-gift')
