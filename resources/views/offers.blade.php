@@ -21,28 +21,35 @@
 
                 {{--@dd($offers)--}}
 
-                <div class="container mt-5" style="margin-bottom: -100px;">
-                    <!-- form start -->
-                    <form method="get" action="">
-                        <div class="card-body">
-                            <div class="row" style="display: flex; justify-content: center; align-items: center; text-align: center">
-                                <div class="form-group col-5">
-                                    <select name="city">
-                                        <option value="all">{{ __('landing.All Cities') }}</option>
-                                        @foreach($cities as $citiy)
-                                            <option
-                                                {{ (Request::get('city') == $citiy->id)? 'selected' : '' }} value="{{ $citiy->id }}">
-                                                {{ $direction == 'rtl' ? $citiy->name_ar : $citiy->name_en }}
-                                            </option>
-                                        @endforeach
-                                    </select>
+                @if(Request::segment(1) == 'offers' ))
+                    <div class="container mt-5" style="margin-bottom: -100px;">
+                        <!-- form start -->
+                        <form method="get" action="">
+                            <div class="card-body">
+                                <div class="row" style="display: flex; justify-content: center; align-items: center; text-align: center">
+                                    <div class="form-group col-5">
+                                        <select name="city">
+                                            <option value="all">{{ __('landing.All Cities') }}</option>
+                                            @foreach($cities as $citiy)
+                                                <option
+                                                    {{ (Request::get('city') == $citiy->id)? 'selected' : '' }} value="{{ $citiy->id }}">
+                                                    {{ $direction == 'rtl' ? $citiy->name_ar : $citiy->name_en }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <button class="btn text-white form-group col-2" type="submit" style="letter-spacing: 0 !important;">{{ __('landing.Search') }}</button>
                                 </div>
-                                <button class="btn text-white form-group col-2" type="submit" style="letter-spacing: 0 !important;">{{ __('landing.Search') }}</button>
                             </div>
-                        </div>
-                        <!-- /.card-body -->
-                    </form>
-                </div>
+                            <!-- /.card-body -->
+                        </form>
+                    </div>
+                @elseif(Request::segment(1) == 'branch' )
+
+                    <h2 class="text-center mt-5" style="margin-bottom: -60px !important;">
+                        {{App::currentLocale()=='ar'?'عروض ' . trim($offers[0]->branch->name_ar):trim($offers[0]->branch->name_en) . '\'s offers'}}
+                    </h2>
+                @endif
 
                 <div class="e-con-inner">
                     <div class="elementor-element elementor-element-76860287 e-con-full e-flex e-con e-child"
