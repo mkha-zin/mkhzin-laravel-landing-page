@@ -216,7 +216,7 @@
         }
 
         .floating-btn:hover {
-            width: 200px;
+            width: 190px;
             border-radius: 15px !important;
             transition-duration: 0.3s;
         }
@@ -257,11 +257,12 @@
         .floating-btn:hover .text {
             opacity: 1;
             width: 70%;
+            letter-spacing: 0 !important;
             transition-duration: 0.3s;
         }
 
         .arabic {
-            padding: 45px !important;
+            padding-right: 50px !important;
         }
 
         .floating-btn:active {
