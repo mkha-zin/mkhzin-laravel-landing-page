@@ -116,7 +116,7 @@
              data-element_type="container">
             <div class="e-con-inner">
                 <div class="elementor-element elementor-element-5cdbe7a1 e-con-full e-flex e-con e-child"
-                     data-id="5cdbe7a1" data-element_type="container">
+                     data-id="5cdbe7a1" data-element_type="container" style="{{ $aboutCards->isNotEmpty() ? '' : 'margin-bottom: -80px' }}">
                     @if(!empty($about))
                         <div
                             class="elementor-element elementor-element-3eecd385 e-con-full e-flex elementor-invisible e-con e-child"
@@ -151,9 +151,9 @@
                         </div>
                     @endif
                 </div>
-                <div class="elementor-element elementor-element-645bc71d e-con-full e-flex e-con e-child"
-                     data-id="645bc71d" data-element_type="container">
-                    @if(!empty($aboutCards))
+                @if($aboutCards->isNotEmpty())
+                    <div class="elementor-element elementor-element-645bc71d e-con-full e-flex e-con e-child"
+                         data-id="645bc71d" data-element_type="container">
                         @foreach($aboutCards as $aboutCard)
                             <div
                                 class="elementor-element elementor-element-7370b0d7 e-con-full e-flex elementor-invisible e-con e-child"
@@ -186,9 +186,8 @@
                                 </div>
                             </div>
                         @endforeach
-                    @endif
-
-                </div>
+                    </div>
+                @endif
             </div>
         </div>
 
