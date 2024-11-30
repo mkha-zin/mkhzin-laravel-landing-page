@@ -114,6 +114,10 @@ return [
     'subscriptions'=>'Subscription Requests',
     'contactImages'=>'Contact Images',
 
+    'All Branches in the database' => 'The Number of Makhazin International\'s Branches ',
+    'All Sections in the database' => 'The Number of All Sections in our Branches',
+    'All Cities in the database' => 'The Number of Cities Where we Serve',
+
 
     'showInHome'=>'Show this section In Home Page',
 

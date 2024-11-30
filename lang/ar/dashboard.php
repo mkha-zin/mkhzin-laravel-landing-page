@@ -113,6 +113,10 @@ return [
     'subscriptions'=>' طلبات الاشتراك',
     'contactImages'=>'صور قسم التواصل',
 
+    'All Branches in the database' => 'عدد فروع شركة مخازن العالمية',
+    'All Sections in the database' => 'عدد الأقسام المتنوعة في فروعنا',
+    'All Cities in the database' => 'عدد المدن التي نتواجد فيها',
+
     'showInHome'=>'عرض هذا القسم في الصفحة الرئيسية',
 
 ];
