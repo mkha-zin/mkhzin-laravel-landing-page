@@ -30,7 +30,7 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->colors([
-                'primary' => Color::hex('#DF4D1B'),
+                'primary' => Color::hex('#E22128'),
             ])
             ->favicon(asset('uploads/mkhazin/logo900.png'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
