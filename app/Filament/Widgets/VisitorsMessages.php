@@ -21,7 +21,8 @@ class VisitorsMessages extends BaseWidget
     public function table(Table $table): Table
     {
         return $table
-            ->selectable()
+            ->defaultSort('created_at', 'desc')
+
             ->striped()
             ->query(
                 fn() => VisitorMessage::query()->latest()
