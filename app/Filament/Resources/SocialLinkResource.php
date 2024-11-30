@@ -88,9 +88,8 @@ class SocialLinkResource extends Resource
                     App::currentLocale() === 'ar' ? 'comment_ar' : 'comment_en'
                 )
                     ->label(__('dashboard.comment')),
-                Tables\Columns\IconColumn::make('is_active')
-                    ->label(__('dashboard.status'))
-                    ->boolean(),
+                Tables\Columns\CheckboxColumn::make('is_active')
+                    ->label(__('dashboard.status')),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

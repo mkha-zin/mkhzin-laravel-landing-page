@@ -14,8 +14,6 @@ use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\App;
 
 class HeroResource extends Resource
@@ -26,7 +24,6 @@ class HeroResource extends Resource
     {
         return static::getModel()::count();
     }
-
 
 
 //    protected static ?int $navigationSort = 11;
@@ -58,13 +55,14 @@ class HeroResource extends Resource
                         ->columnSpanFull()
                         ->required(),
                 ]),
-
                 Forms\Components\Section::make(__('dashboard.titles'))->schema([
                     Forms\Components\TextInput::make('title_ar')->label(__('dashboard.title_ar'))
-                        ->required(),
+                        ->required()
+                        ->maxValue(45),
                     Forms\Components\TextInput::make('title_en')->label(__('dashboard.title_en'))
-                        ->required(),
-                ]),
+                        ->required()
+                        ->maxValue(45),
+                ])->columns(2),
 
             ]);
     }
@@ -103,22 +101,22 @@ class HeroResource extends Resource
                 ]),
             ]);
     }
+
     public static function infolist(Infolist $infolist): Infolist
     {
         return $infolist->schema([
 
 
-                ImageEntry::make('image')->label(__('dashboard.image')),
-                Section::make(__('dashboard.titles'))->schema([
-                    TextEntry::make('title_ar')->label(__('dashboard.title_ar')),
-                    TextEntry::make('title_en')->label(__('dashboard.title_en')),
-                ])->columns(2)
-
-
+            ImageEntry::make('image')->label(__('dashboard.image')),
+            Section::make(__('dashboard.titles'))->schema([
+                TextEntry::make('title_ar')->label(__('dashboard.title_ar')),
+                TextEntry::make('title_en')->label(__('dashboard.title_en')),
+            ])->columns(2)
 
 
         ]);
     }
+
     public static function getRelations(): array
     {
         return [

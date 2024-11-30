@@ -72,12 +72,11 @@ class SectionResource extends Resource
                         ->label(__('dashboard.description_en'))
                         ->required(),
                 ])->columns(2),
-                Forms\Components\Section::make()->schema([
+                /*Forms\Components\Section::make()->schema([
                     Forms\Components\Toggle::make('show_in_home')
                         ->label(__('dashboard.showInHome'))
                         ->default(false),
-                ])->columns(1),
-
+                ])->columns(1),*/
             ]);
     }
 
@@ -100,10 +99,10 @@ class SectionResource extends Resource
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image')
                     ->label(__('dashboard.image')),
-                Tables\Columns\IconColumn::make('show_in_home')
+                /*Tables\Columns\IconColumn::make('show_in_home')
                     ->label(__('dashboard.showInHome'))
                     ->boolean()
-                ->alignCenter(),
+                ->alignCenter(),*/
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -145,8 +144,6 @@ class SectionResource extends Resource
                 TextEntry::make('description_ar')->label(__('dashboard.description_ar')),
                 TextEntry::make('description_en')->label(__('dashboard.description_en')),
             ])->columns(2)
-
-
         ]);
     }
 
