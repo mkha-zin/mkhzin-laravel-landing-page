@@ -258,7 +258,10 @@
             opacity: 1;
             width: 70%;
             transition-duration: 0.3s;
-            padding-right: 10px;
+        }
+
+        .arabic {
+            padding: 45px !important;
         }
 
         .floating-btn:active {
@@ -307,7 +310,7 @@
                     </path>
                 </svg>
             </div>
-            <div class="text">Whatsapp</div>
+            <div class="text {{ App::currentLocale() == 'ar' ? 'arabic' : '' }}">Whatsapp</div>
         </button>
     </a>
 
