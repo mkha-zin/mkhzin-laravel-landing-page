@@ -216,7 +216,7 @@
         }
 
         .floating-btn:hover {
-            width: 180px;
+            width: 200px;
             border-radius: 15px !important;
             transition-duration: 0.3s;
         }
@@ -310,7 +310,9 @@
                     </path>
                 </svg>
             </div>
-            <div class="text {{ App::currentLocale() == 'ar' ? 'arabic' : '' }}">Whatsapp</div>
+            <div class="text {{ App::currentLocale() == 'ar' ? 'arabic' : '' }}">
+                {{  __('landing.Contact Us') }}
+            </div>
         </button>
     </a>
 
