@@ -172,31 +172,6 @@
           href='{{ asset('uploads/sites/82/elementor/css/post-1244_6684730.css') }}' media='all'/>
     <!-- Style the button using CSS -->
     <style>
-        /*.whatsapp-button {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: #25d366;
-            color: #fff;
-            border-radius: 50%;
-            padding: 10px;
-            font-size: 40px;
-            text-decoration: none;
-            z-index: 1000;
-        }
-
-        .whatsapp-button:hover {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: #25d366;
-            color: #fff;
-            border-radius: 50%;
-            padding: 10px;
-            font-size: 45px;
-            text-decoration: none;
-        }*/
-
         .floating-btn {
             display: flex;
             align-items: center;
@@ -274,6 +249,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <meta name="google-site-verification" content="gOAvYgjJkpiE7MXHMfifJ_lGGLHnpJwDBjxU2o4TQI4" />
 
 </head>
 
