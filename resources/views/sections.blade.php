@@ -26,7 +26,7 @@
                                 <div class="elementor-widget-container">
                                     <div class="rkit-blog">
                                         @foreach($departments as $department)
-                                            <div class="rkit-blog-card  elementor-animation-">
+                                            <div class="rkit-blog-card  elementor-animation-" style="border-radius: 10px;">
                                                 <div class="rkit-image-container">
                                                     <a class="rkit-image-link" style="overflow: hidden;" href="#">
                                                         <img decoding="async" class="rkit-blog-img"

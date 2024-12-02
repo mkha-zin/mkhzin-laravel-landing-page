@@ -20,7 +20,7 @@
 
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('uploads/mkhazin/logo.png') }}">
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('uploads/mkhazin/logo900.png') }}">
+    {{--<link rel="icon" type="image/x-icon" href="{{ asset('uploads/mkhazin/logo900.png') }}">--}}
     <link rel='stylesheet' href='{{ asset('css/landing.css') }}'/>
     <script src="{{ asset('js/landing.js') }}"></script>
 
