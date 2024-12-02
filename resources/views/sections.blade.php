@@ -1,14 +1,15 @@
+@php use App\Models\Header; @endphp
 @extends('layouts.app')
 @section('content')
 
     @php
-        $direction = app()->currentLocale() == 'ar' ? 'rtl' : 'ltr'
+        $direction = app()->currentLocale() == 'ar' ? 'rtl' : 'ltr';
+        $sectionHeader = Header::where('key', 'sections')->first();
     @endphp
-
 
     @include('includes.header_image',[
     'title'=> __('landing.Departments'),
-    'image'=>'../uploads/mkhazin/tmp/header_image.png',
+    'image'=> $sectionHeader->image,
     ])
 
     <div dir="{{$direction}}" data-elementor-type="wp-page" data-elementor-id="1222" class="elementor elementor-1222">

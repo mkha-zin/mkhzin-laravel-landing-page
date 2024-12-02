@@ -1,16 +1,17 @@
 @php
-    use Illuminate\Support\Facades\App;
+    use App\Models\Header;use Illuminate\Support\Facades\App;
     use Carbon\Carbon
 @endphp
 @extends('layouts.app')
 @section('content')
 
     @php
-        $direction = app()->currentLocale() == 'ar' ? 'rtl' : 'ltr'
+        $direction = app()->currentLocale() == 'ar' ? 'rtl' : 'ltr';
+        $contaceUsHeader = Header::where('key', 'contact-us')->first();
     @endphp
 
 
-    @include('includes.header_image',['title'=>__('landing.Contact Us'), 'image' => '../uploads/mkhazin/tmp/7.png'])
+    @include('includes.header_image',['title'=>__('landing.Contact Us'), 'image' => $contaceUsHeader->image ])
 
     <div dir="{{$direction}}" data-elementor-type="wp-page" data-elementor-id="1222" class="elementor elementor-1222">
         <!-- Contact Us Aside -->
@@ -152,13 +153,16 @@
                     <div class="elementor-element elementor-element-3738182a elementor-widget elementor-widget-heading"
                          data-id="3738182a" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                            <h6 class="elementor-heading-title elementor-size-default" style="color: white; letter-spacing: 0 !important;">{{ __('landing.Contact Us') }}</h6></div>
+                            <h6 class="elementor-heading-title elementor-size-default"
+                                style="color: white; letter-spacing: 0 !important;">{{ __('landing.Contact Us') }}</h6>
+                        </div>
                     </div>
                     <div
                         class="elementor-element elementor-element-5292ea15 elementor-widget__width-inherit elementor-widget elementor-widget-heading"
                         data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                            <h2 class="elementor-heading-title elementor-size-default">{{ __('landing.Keep in touch') }}</h2></div>
+                            <h2 class="elementor-heading-title elementor-size-default">{{ __('landing.Keep in touch') }}</h2>
+                        </div>
                     </div>
                     <div class="elementor-element elementor-element-4c6beca6 elementor-widget elementor-widget-rform">
                         <div class="elementor-widget-container">
@@ -220,7 +224,9 @@
                                         <div class="elementor-element elementor-element-3e2d7b7 elementor-widget">
                                             <div class="elementor-widget-container">
                                                 <div class="rform-control">
-                                                    <textarea name="message" required placeholder="{{ __('landing.Message') }}" class="rform-input">
+                                                    <textarea name="message" required
+                                                              placeholder="{{ __('landing.Message') }}"
+                                                              class="rform-input">
                                                     </textarea>
                                                 </div>
                                             </div>
@@ -228,7 +234,8 @@
                                         <div class="elementor-element elementor-widget">
                                             <div class="elementor-widget-container">
                                                 <div class="rform-button-container">
-                                                    <button class="rform-button-submit " type="submit" style="color: white; letter-spacing: 0 !important;">
+                                                    <button class="rform-button-submit " type="submit"
+                                                            style="color: white; letter-spacing: 0 !important;">
                                                         @if($direction == 'rtl')
                                                             {{  __('landing.Send Message') }}
                                                             <i aria-hidden="true"
@@ -280,7 +287,8 @@
                                         <div class="elementor-widget-container">
                                             <div class="rform-button-container">
                                                 <button class="rform-button-submit rform-btn-fullwidth" type="submit"
-                                                        id="rform-button-submit" style="color : white; letter-spacing: 0 !important;">
+                                                        id="rform-button-submit"
+                                                        style="color : white; letter-spacing: 0 !important;">
                                                     @if($direction == 'rtl')
                                                         {{  __('landing.Subscribe Now') }}
                                                         <i aria-hidden="true"

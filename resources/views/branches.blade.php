@@ -1,16 +1,20 @@
 @php
-    use Illuminate\Support\Facades\App;
+    use App\Models\Header;use Illuminate\Support\Facades\App;
     use Carbon\Carbon
 @endphp
 @extends('layouts.app')
 @section('content')
 
     @php
-        $direction = app()->currentLocale() == 'ar' ? 'rtl' : 'ltr'
+        $direction = app()->currentLocale() == 'ar' ? 'rtl' : 'ltr';
+        $branchHeader = Header::where('key', 'branches')->first();
     @endphp
 
 
-    @include('includes.header_image',['title'=>__('landing.Branches'), 'image' => '../uploads/mkhazin/tmp/header_image.png'])
+    @include('includes.header_image',[
+    'title'=>__('landing.Branches'),
+    'image' => $branchHeader->image,
+    ])
 
     <div dir="{{$direction}}" data-elementor-type="wp-page" data-elementor-id="1222" class="elementor elementor-1222">
         <div data-elementor-type="wp-post" data-elementor-id="1244" class="elementor elementor-1244">
@@ -21,7 +25,8 @@
                     <!-- form start -->
                     <form method="get" action="">
                         <div class="card-body">
-                            <div class="row" style="display: flex; justify-content: center; align-items: center; text-align: center">
+                            <div class="row"
+                                 style="display: flex; justify-content: center; align-items: center; text-align: center">
                                 <div class="form-group col-5">
                                     <select name="city">
                                         <option value="all">{{ __('landing.All Cities') }}</option>
@@ -33,7 +38,8 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <button class="btn text-white form-group col-2" type="submit" style="letter-spacing: 0 !important;">{{ __('landing.Search') }}</button>
+                                <button class="btn text-white form-group col-2" type="submit"
+                                        style="letter-spacing: 0 !important;">{{ __('landing.Search') }}</button>
                             </div>
                         </div>
                         <!-- /.card-body -->

@@ -12,6 +12,7 @@ use App\Models\City;
 use App\Models\ContactImage;
 use App\Models\ContactInfo;
 use App\Models\Fleet;
+use App\Models\Header;
 use App\Models\Hero;
 use App\Models\Offer;
 use App\Models\OurValue;

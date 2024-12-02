@@ -5,6 +5,7 @@ return [
 
     //nav
     'hero' => 'Hero',
+    'Headers' => 'Pages\' Headers',
     'ourValues'=>'Our Values',
 
     'home' => 'Home',

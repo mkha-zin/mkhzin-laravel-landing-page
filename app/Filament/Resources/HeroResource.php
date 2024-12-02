@@ -26,7 +26,7 @@ class HeroResource extends Resource
     }
 
 
-//    protected static ?int $navigationSort = 11;
+    protected static ?int $navigationSort = 1;
 
     public static function getNavigationGroup(): ?string
     {

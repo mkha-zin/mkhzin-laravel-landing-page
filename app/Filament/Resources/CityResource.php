@@ -31,6 +31,8 @@ class CityResource extends Resource
         return __('dashboard.pageManagement');
     }
 
+    protected static ?int $navigationSort = 2;
+
     public static function getPluralLabel(): ?string
     {
         return __('dashboard.cities');

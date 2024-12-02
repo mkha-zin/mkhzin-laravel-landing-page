@@ -4,6 +4,7 @@ return [
     'app_name'=>'مخازن',
     //navbar
     'hero' => 'الترويسة',
+    'Headers' => 'ترويسات الصفحات',
     'ourValues'=>'قيمنا',
     'admins' => 'المسؤلين',
     'about' => 'عن الشركة',
