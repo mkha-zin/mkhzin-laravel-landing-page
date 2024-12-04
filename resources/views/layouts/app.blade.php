@@ -176,8 +176,8 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            width: 65px;
-            height: 65px;
+            width: 45px;
+            height: 45px;
             padding: 0 !important;
             border: none;
             border-radius: 50% !important;
@@ -185,7 +185,7 @@
             position: fixed;
             bottom: 20px; /* Adjust the position as needed */
             left: 20px; /* Adjust the position as needed */
-            background-color: #00d757 !important;
+            background-color: #09974b !important;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
             transition-duration: 0.3s;
         }
@@ -197,7 +197,7 @@
         }
 
         .floating-btn .sign {
-            width: 100px;
+            width: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -205,7 +205,7 @@
         }
 
         .floating-btn .sign svg {
-            width: 40px;
+            width: 30px;
         }
 
         .floating-btn .sign svg path {

@@ -66,7 +66,7 @@ class LandingController extends Controller
         ->orderBy('offers.end_date', 'desc');
 
         if (!empty(Request::get('city'))) {
-            if (Request::get('city') != 'all') {
+            if (Request::get('city') !== 'all') {
                 $return = $return->where('branches.city_id', Request::get('city'));
             }
         }
