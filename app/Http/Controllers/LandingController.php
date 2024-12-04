@@ -57,28 +57,11 @@ class LandingController extends Controller
         return view('section_details', $data);
     }
 
-    /*public function offers()
-    {
-        $data['offers'] = Offer::query()
-            ->get();
-        return view('offers', $data);
-
-        $return = Offer::select('offers.*');
-
-        if (!empty(Request::get('city'))) {
-            if (Request::get('city') != 'all') {
-                $return = $return->where('offers.branch.city_id', Request::get('city') );
-            }
-        }
-
-        $data['cities'] = City::all();
-        $data['offers'] = $return->get();
-        return view('offers', $data);
-    }*/
-
     public function offers()
     {
         $return = Offer::select('offers.*')
+            ->where('offers.end_date', '>=', date('Y-m-d'))
+            ->where('offers.is_active', 1)
             ->join('branches', 'branches.id', '=', 'offers.branch_id')
         ->orderBy('offers.end_date', 'desc');
 

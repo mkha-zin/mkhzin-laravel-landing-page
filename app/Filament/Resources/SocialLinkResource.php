@@ -83,10 +83,12 @@ class SocialLinkResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('link')
                     ->label(__('dashboard.link'))
+                    ->limit(20)
                     ->searchable(),
                 Tables\Columns\TextColumn::make(
                     App::currentLocale() === 'ar' ? 'comment_ar' : 'comment_en'
                 )
+                    ->limit(30)
                     ->label(__('dashboard.comment')),
                 Tables\Columns\CheckboxColumn::make('is_active')
                     ->label(__('dashboard.status')),

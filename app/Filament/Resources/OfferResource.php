@@ -88,7 +88,9 @@ class OfferResource extends Resource
                         ->required(),
                 ])->columns(2),
 
-                Forms\Components\Section::make(__('dashboard.duration'))->schema([
+                Forms\Components\Section::make(
+                    __('dashboard.duration')
+                )->schema([
                     Forms\Components\DatePicker::make('start_date')
                         ->label(__('dashboard.start_date'))
                         ->required(),
@@ -96,6 +98,9 @@ class OfferResource extends Resource
                         ->label(__('dashboard.end_date'))
                         ->required(),
                 ])->columns(2),
+
+                Forms\Components\Toggle::make('is_active')
+                    ->label(__('dashboard.status')),
 
             ]);
     }
@@ -131,6 +136,8 @@ class OfferResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\CheckboxColumn::make('is_active')
+                    ->label(__('dashboard.status')),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
