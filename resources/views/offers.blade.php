@@ -125,8 +125,12 @@
                         <div
                             class="elementor-element elementor-element-21105bf4 elementor-widget__width-inherit elementor-widget elementor-widget-rkit-blog-post"
                             data-id="21105bf4" data-element_type="widget" data-widget_type="rkit-blog-post.default">
-                            <div class="elementor-widget-container">
-                                <h4> {{__('landing.No Offers Found')}} </h4>
+                            <div class="elementor-widget-container" style="display: flex; justify-content: center ">
+                                <h4 style="text-align: center">
+                                    {{__('landing.No Offers Found')}}
+                                    <br>
+                                    {{__('landing.Soon Offers')}}
+                                </h4>
                             </div>
                         </div>
                     </div>

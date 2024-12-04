@@ -21,7 +21,8 @@ return [
     'All Cities'=>'كل المدن',
     'All Branches' => 'كل الفروع',
     'Search' => 'بحث',
-    'No Offers Found' => 'لا يوجد عروض',
+    'No Offers Found' => 'لا يوجد عروض في الوقت الحالي',
+    'Soon Offers' => 'ترقبوا المزيد من العروض المدهشة قريباً',
 
     'hero_title' => 'نسعى إلى رضا عملائنا، وسعادتهم هي غايتنا',
     'Subscribe Now' => 'اشترك الآن',

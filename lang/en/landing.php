@@ -21,7 +21,8 @@ return [
     'All Cities'=>'All Cities',
     'All Branches' => 'All Branches',
     'Search' => 'Search',
-    'No Offers Found' => 'No Offers Found',
+    'No Offers Found' => 'No Offers Found at the moment',
+    'Soon Offers' => 'Stay Tuned for More Amazing Offers Soon',
 
 
     'hero_title' => 'We Always seek to make our clients satisfied and happy',
