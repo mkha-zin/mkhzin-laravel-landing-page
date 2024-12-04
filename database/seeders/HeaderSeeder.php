@@ -13,7 +13,7 @@ class HeaderSeeder extends Seeder
      */
     public function run(): void
     {
-        Header::factory()->create(
+        /*Header::factory()->create(
             [
                 'key' => 'sections',
                 'title_ar'=>'ترويسة صفحة الأقسام',
@@ -34,6 +34,14 @@ class HeaderSeeder extends Seeder
                 'key' => 'contact-us',
                 'title_ar'=>'ترويسة صفحة تواصل معنا',
                 'title_en'=>'Contact Us Page\'s Header',
+                'image'=> 'https://picsum.photos/200/300',
+            ]
+        );*/
+        Header::factory()->create(
+            [
+                'key' => 'offers',
+                'title_ar'=>'ترويسة صفحة العروض',
+                'title_en'=>'Offers Page\'s Header',
                 'image'=> 'https://picsum.photos/200/300',
             ]
         );

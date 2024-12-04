@@ -1,18 +1,19 @@
 @php
-    use Illuminate\Support\Facades\App;
+    use App\Models\Header;use Illuminate\Support\Facades\App;
     use Carbon\Carbon
- @endphp
+@endphp
 @extends('layouts.app')
 @section('content')
 
     @php
-        $direction = app()->currentLocale() == 'ar' ? 'rtl' : 'ltr'
+        $direction = app()->currentLocale() == 'ar' ? 'rtl' : 'ltr';
+        $offersHeader = Header::where('key', 'offers')->first();
     @endphp
 
 
     @include('includes.header_image',[
     'title'=>__('landing.offers_title'),
-    'image' => $offers->isNotEmpty() ?  $offers[0]->branch->image : '../uploads/mkhazin/tmp/offers.jpg'])
+    'image' => $offers->isNotEmpty() ?  $offers[0]->branch->image : $offersHeader->image])
 
     <div dir="{{$direction}}" data-elementor-type="wp-page" data-elementor-id="1222" class="elementor elementor-1222">
         @if($offers->isNotEmpty())
@@ -21,12 +22,14 @@
 
                 {{--@dd($offers)--}}
 
-                @if(Request::segment(1) == 'offers' ))
+                @if(Request::segment(1) == 'offers' )
+                    )
                     <div class="container mt-5" style="margin-bottom: -100px;">
                         <!-- form start -->
                         <form method="get" action="">
                             <div class="card-body">
-                                <div class="row" style="display: flex; justify-content: center; align-items: center; text-align: center">
+                                <div class="row"
+                                     style="display: flex; justify-content: center; align-items: center; text-align: center">
                                     <div class="form-group col-5">
                                         <select name="city">
                                             <option value="all">{{ __('landing.All Cities') }}</option>
@@ -38,7 +41,8 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <button class="btn text-white form-group col-2" type="submit" style="letter-spacing: 0 !important;">{{ __('landing.Search') }}</button>
+                                    <button class="btn text-white form-group col-2" type="submit"
+                                            style="letter-spacing: 0 !important;">{{ __('landing.Search') }}</button>
                                 </div>
                             </div>
                             <!-- /.card-body -->
@@ -74,7 +78,8 @@
                                                         <i aria-hidden="true"
                                                            class="rkit-meta-icon rtmicon rtmicon-home mx-1"></i>
                                                         <a rel="author">
-                                                            {{App::currentLocale()=='ar'?$offer->branch->name_ar:$offer->branch->name_en}},
+                                                            {{App::currentLocale()=='ar'?$offer->branch->name_ar:$offer->branch->name_en}}
+                                                            ,
                                                             {{App::currentLocale()=='ar'?$offer->branch->city->name_ar:$offer->branch->city->name_en}}
                                                         </a>
                                                     </div>
@@ -85,17 +90,20 @@
                                                     </div>
                                                 </div>
                                                 <div class="rkit-blog-title-container">
-                                                    <h3 class="rkit-blog-title" style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }}">
+                                                    <h3 class="rkit-blog-title"
+                                                        style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }}">
                                                         {{$direction=='rtl'?$offer->name_ar:$offer->name_en}}
                                                     </h3>
                                                 </div>
                                                 <div class="rkit-blog-content">
-                                                    <p class="rkit-blog-paragraph" style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }}">
+                                                    <p class="rkit-blog-paragraph"
+                                                       style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }}">
                                                         {{$direction=='rtl'?$offer->description_ar:$offer->description_en}}&hellip;
                                                     </p>
                                                 </div>
                                                 <div class="rkit-readmore-div" dir="{{ $direction }}">
-                                                    <a class="rkit-readmore-btn" type="button" href="{{ url('/view-pdf/' . $offer->id) }}"
+                                                    <a class="rkit-readmore-btn" type="button"
+                                                       href="{{ url('/view-pdf/' . $offer->id) }}"
                                                        target="_blank" style="letter-spacing: 0 !important;">
                                                         @if($direction == 'rtl')
                                                             <i aria-hidden="true"
