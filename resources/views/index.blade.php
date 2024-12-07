@@ -751,7 +751,7 @@
                                                     <div class="elementor-icon-box-icon"
                                                          style="display: flex; justify-content: center; align-items: center;">
                                                             <span class="elementor-icon elementor-animation-">
-                                                                <i aria-hidden="true" class="rtmicon rtmicon-globe"></i>
+                                                                <i aria-hidden="true" class="rtmicon rtmicon-store"></i>
                                                             </span>
                                                     </div>
                                                     <div class="elementor-icon-box-content">

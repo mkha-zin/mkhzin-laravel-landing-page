@@ -93,7 +93,7 @@
                                                 <div class="elementor-icon-box-wrapper">
                                                     <div class="elementor-icon-box-icon">
                                                             <span class="elementor-icon elementor-animation-">
-                                                                <i aria-hidden="true" class="rtmicon rtmicon-globe"></i>
+                                                                <i aria-hidden="true" class="rtmicon rtmicon-store"></i>
                                                             </span>
                                                     </div>
                                                     <div class="elementor-icon-box-content">
