@@ -52,6 +52,7 @@
                                                             <span>{{ __('landing.Phone') }}</span>
                                                         </h5>
                                                         <a target="_blank" class="elementor-icon-box-description"
+                                                           style="display: flex; justify-content: center; align-items: center;"
                                                            href="tel:{{ $contactInfo->content }}">
                                                             {{ $contactInfo->content }}
                                                         </a>
@@ -80,6 +81,7 @@
                                                             <span>{{  __('landing.Email') }}</span>
                                                         </h5>
                                                         <a target="_blank" class="elementor-icon-box-description"
+                                                           style="display: flex; justify-content: center; align-items: center;"
                                                            href="mailto:{{ $contactInfo->content }}">
                                                             {{ $contactInfo->content }}
                                                         </a>
@@ -107,7 +109,8 @@
                                                             <span>{{ __('landing.Website') }}</span>
                                                         </h5>
                                                         <a target="_blank" href="{{ $contactInfo->content }}"
-                                                           class="elementor-icon-box-description">
+                                                           class="elementor-icon-box-description"
+                                                           style="display: flex; justify-content: center; align-items: center;">
                                                             {{ $contactInfo->content }}
                                                         </a>
                                                     </div>
@@ -136,7 +139,8 @@
                                                         </h5>
                                                         <a target="_blank"
                                                            href="https://wa.me/{{ $contactInfo->content }}"
-                                                           class="elementor-icon-box-description">
+                                                           class="elementor-icon-box-description"
+                                                           style="display: flex; justify-content: center; align-items: center;">
                                                             {{ $contactInfo->content }}
                                                         </a>
                                                     </div>
