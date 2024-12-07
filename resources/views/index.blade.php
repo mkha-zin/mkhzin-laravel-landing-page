@@ -110,15 +110,15 @@
         </div>
         <!-- / Our Values -->
 
-        <div class="container" style="margin-top: 130px; margin-bottom: -100px">
-            <h1 class="text-center" style="color: black">
+        <div class="container" style="margin-top: 130px; margin-bottom: -80px">
+            <h2 class="text-center" style="color: black">
                 شركة مخازن المملكة العالمية&reg;
-            </h1>
+            </h2>
             <nav class="nav nav-pills flex-column flex-sm-row"
                  style="background-color: var(--e-global-color-7cfaca3); border-radius: 10px;">
-                <a class="flex-sm-fill text-sm-center nav-link" style="color: white">سوبر ماركت</a>
-                <a class="flex-sm-fill text-sm-center nav-link" style="color: white">هايبر ماركت</a>
-                <a class="flex-sm-fill text-sm-center nav-link" style="color: white">مخازن الجملة</a>
+                <a class="flex-sm-fill text-sm-center nav-link" style="text-align: center; color: white">سوبر ماركت</a>
+                <a class="flex-sm-fill text-sm-center nav-link" style="text-align: center; color: white">هايبر ماركت</a>
+                <a class="flex-sm-fill text-sm-center nav-link" style="text-align: center; color: white">مخازن الجملة</a>
             </nav>
         </div>
 
