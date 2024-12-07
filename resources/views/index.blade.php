@@ -111,7 +111,7 @@
         <!-- / Our Values -->
 
         <div class="container" style="margin-top: 130px; margin-bottom: -80px">
-            <h2 class="text-center" style="color: black">
+            <h2 class="main-company-name text-center" style="color: black">
                 شركة مخازن المملكة العالمية&reg;
             </h2>
             <nav class="nav nav-pills flex-column flex-sm-row"
