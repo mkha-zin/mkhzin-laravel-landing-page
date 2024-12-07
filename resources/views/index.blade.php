@@ -110,13 +110,26 @@
         </div>
         <!-- / Our Values -->
 
+        <div class="container" style="margin-top: 130px; margin-bottom: -100px">
+            <h1 class="text-center" style="color: black">
+                شركة مخازن المملكة العالمية&reg;
+            </h1>
+            <nav class="nav nav-pills flex-column flex-sm-row"
+                 style="background-color: var(--e-global-color-7cfaca3); border-radius: 10px;">
+                <a class="flex-sm-fill text-sm-center nav-link" style="color: white">سوبر ماركت</a>
+                <a class="flex-sm-fill text-sm-center nav-link" style="color: white">هايبر ماركت</a>
+                <a class="flex-sm-fill text-sm-center nav-link" style="color: white">مخازن الجملة</a>
+            </nav>
+        </div>
+
         <!-- About Us -->
         <div class="elementor-element elementor-element-5a2cb0dc e-flex e-con-boxed e-con e-parent"
              id="about-us"
              data-element_type="container">
             <div class="e-con-inner">
                 <div class="elementor-element elementor-element-5cdbe7a1 e-con-full e-flex e-con e-child"
-                     data-id="5cdbe7a1" data-element_type="container" style="{{ $aboutCards->isNotEmpty() ? '' : 'margin-bottom: -80px' }}">
+                     data-id="5cdbe7a1" data-element_type="container"
+                     style="{{ $aboutCards->isNotEmpty() ? '' : 'margin-bottom: -80px' }}">
                     @if(!empty($about))
                         <div
                             class="elementor-element elementor-element-3eecd385 e-con-full e-flex elementor-invisible e-con e-child"
