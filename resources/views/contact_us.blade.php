@@ -47,7 +47,8 @@
                                                         </span>
                                                     </div>
                                                     <div class="elementor-icon-box-content">
-                                                        <h5 class="elementor-icon-box-title">
+                                                        <h5 class="elementor-icon-box-title"
+                                                            style="display: flex; justify-content: center; align-items: center;">
                                                             <span>{{ __('landing.Phone') }}</span>
                                                         </h5>
                                                         <a target="_blank" class="elementor-icon-box-description"
@@ -74,7 +75,8 @@
                                                             </span>
                                                     </div>
                                                     <div class="elementor-icon-box-content">
-                                                        <h5 class="elementor-icon-box-title">
+                                                        <h5 class="elementor-icon-box-title"
+                                                            style="display: flex; justify-content: center; align-items: center;">
                                                             <span>{{  __('landing.Email') }}</span>
                                                         </h5>
                                                         <a target="_blank" class="elementor-icon-box-description"
@@ -100,7 +102,8 @@
                                                             </span>
                                                     </div>
                                                     <div class="elementor-icon-box-content">
-                                                        <h5 class="elementor-icon-box-title">
+                                                        <h5 class="elementor-icon-box-title"
+                                                            style="display: flex; justify-content: center; align-items: center;">
                                                             <span>{{ __('landing.Website') }}</span>
                                                         </h5>
                                                         <a target="_blank" href="{{ $contactInfo->content }}"
@@ -127,7 +130,8 @@
                                                             </span>
                                                     </div>
                                                     <div class="elementor-icon-box-content">
-                                                        <h5 class="elementor-icon-box-title">
+                                                        <h5 class="elementor-icon-box-title"
+                                                            style="display: flex; justify-content: center; align-items: center;">
                                                             <span>{{ __('landing.Whatsapp') }}</span>
                                                         </h5>
                                                         <a target="_blank"
