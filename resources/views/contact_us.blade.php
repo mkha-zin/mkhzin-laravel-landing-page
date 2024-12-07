@@ -39,7 +39,8 @@
                                             data-element_type="widget" data-widget_type="icon-box.default">
                                             <div class="elementor-widget-container">
                                                 <div class="elementor-icon-box-wrapper">
-                                                    <div class="elementor-icon-box-icon">
+                                                    <div class="elementor-icon-box-icon"
+                                                         style="display: flex; justify-content: center; align-items: center;">
                                                         <span class="elementor-icon elementor-animation-">
                                                             <i aria-hidden="true"
                                                                class="rtmicon rtmicon-classic-phone"></i>
@@ -65,7 +66,8 @@
                                             data-element_type="widget" data-widget_type="icon-box.default">
                                             <div class="elementor-widget-container">
                                                 <div class="elementor-icon-box-wrapper">
-                                                    <div class="elementor-icon-box-icon"><span
+                                                    <div class="elementor-icon-box-icon"
+                                                         style="display: flex; justify-content: center; align-items: center;"><span
                                                             class="elementor-icon elementor-animation-">
                                                                 <i aria-hidden="true"
                                                                    class="rtmicon rtmicon-email-spam"></i>
@@ -91,7 +93,8 @@
                                             data-element_type="widget" data-widget_type="icon-box.default">
                                             <div class="elementor-widget-container">
                                                 <div class="elementor-icon-box-wrapper">
-                                                    <div class="elementor-icon-box-icon">
+                                                    <div class="elementor-icon-box-icon"
+                                                         style="display: flex; justify-content: center; align-items: center;">
                                                             <span class="elementor-icon elementor-animation-">
                                                                 <i aria-hidden="true" class="rtmicon rtmicon-store"></i>
                                                             </span>
@@ -116,7 +119,8 @@
                                             data-element_type="widget" data-widget_type="icon-box.default">
                                             <div class="elementor-widget-container">
                                                 <div class="elementor-icon-box-wrapper">
-                                                    <div class="elementor-icon-box-icon">
+                                                    <div class="elementor-icon-box-icon"
+                                                         style="display: flex; justify-content: center; align-items: center;">
                                                             <span class="elementor-icon elementor-animation-">
                                                                 <i aria-hidden="true"
                                                                    class="rtmicon rtmicon-text-area-form"></i>
