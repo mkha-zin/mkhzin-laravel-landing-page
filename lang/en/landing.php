@@ -39,7 +39,7 @@ return [
     'Subject' => 'Subject',
     'Message' => 'Right Your Message Here',
 
-    'Website' => 'Website',
+    'Website' => 'Web Store',
     'Whatsapp' => 'Whatsapp',
 
     'Keep in touch' => 'Let\'s Connect and Keep in touch',
