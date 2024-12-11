@@ -17,6 +17,10 @@ return [
     'brows offers' => 'تصفح العروض',
     'end offer'=>'العرض لغاية',
 
+    'features' => 'المميزات',
+    'gallery' => 'المعرض',
+    'Download' => 'حمل التطبيق',
+
     'offers_title'=>'عروضنا',
     'All Cities'=>'كل المدن',
     'All Branches' => 'كل الفروع',

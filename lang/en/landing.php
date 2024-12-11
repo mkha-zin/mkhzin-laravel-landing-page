@@ -16,6 +16,10 @@ return [
     'Our Vision' => 'Our Vision',
     'Quick Links' => 'Quick Links',
 
+    'features' => 'Features',
+    'gallery' => 'Gallery',
+    'Download' => 'Download',
+
     'offers_title'=>'Offers',
     'end offer'=>'Offer until',
     'All Cities'=>'All Cities',

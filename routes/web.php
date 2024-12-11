@@ -11,6 +11,7 @@ Route::group(['middleware' => 'localization'], function () {
     Route::post('subscribe', [LandingController::class, 'subscribe'])->name('subscribe');
     Route::get('sections', [LandingController::class, 'sections']);
     Route::get('sections/{id}/details', [LandingController::class, 'sectionDetails']);
+    Route::get('mkhazin-store', [LandingController::class, 'viewStore']);
     Route::get('offers', [LandingController::class, 'offers']);
     Route::get('about', [LandingController::class, 'about']);
     Route::get('jobs', [LandingController::class, 'jobs']);
@@ -26,6 +27,9 @@ Route::group(['middleware' => 'localization'], function () {
     Route::get('storages', [LandingController::class, 'storage'])->name('storage');
 });
 
+Route::get('vouchers', [LandingController::class, 'vouchers']);
+Route::post('vouchers', [LandingController::class, 'checkVouchers']);
+Route::post('use_voucher', [LandingController::class, 'useVoucher'])->name('use_voucher');
 
 
 Route::get('set-locale/{locale}', function ($locale) {

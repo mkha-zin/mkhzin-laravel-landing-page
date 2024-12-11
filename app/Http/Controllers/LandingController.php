@@ -19,6 +19,7 @@ use App\Models\Storage;
 use App\Models\Subscription;
 use App\Models\VisionAndGoal;
 use App\Models\VisitorMessage;
+use App\Models\Voucher;
 use Illuminate\Http\Request as HttpRequest;
 use Request;
 
@@ -63,7 +64,7 @@ class LandingController extends Controller
             ->where('offers.end_date', '>=', date('Y-m-d'))
             ->where('offers.is_active', 1)
             ->join('branches', 'branches.id', '=', 'offers.branch_id')
-        ->orderBy('offers.end_date', 'desc');
+            ->orderBy('offers.end_date', 'desc');
 
         if (!empty(Request::get('city'))) {
             if (Request::get('city') !== 'all') {
@@ -76,7 +77,6 @@ class LandingController extends Controller
         $data['offers'] = $return->get();
         return view('offers', $data);
     }
-
 
 
     public function visitorMsg(HttpRequest $request)
@@ -115,19 +115,21 @@ class LandingController extends Controller
         $data['aboutCards'] = AboutCard::query()->get();
         return view('about_us', $data);
     }
+
     public function jobs()
     {
         $data['job'] = Career::query()
             ->first();
         return view('jobs', $data);
     }
+
     public function branches()
     {
         $return = Branch::select('branches.*');
 
         if (!empty(Request::get('city'))) {
             if (Request::get('city') != 'all') {
-                $return = $return->where('branches.city_id', Request::get('city') );
+                $return = $return->where('branches.city_id', Request::get('city'));
             }
         }
 
@@ -135,6 +137,7 @@ class LandingController extends Controller
         $data['branches'] = $return->get();
         return view('branches', $data);
     }
+
     public function branchOffers($id)
     {
         $data['offers'] = Offer::query()
@@ -152,6 +155,7 @@ class LandingController extends Controller
         $data['contact_second_image'] = ContactImage::all()->last();
         return view('contact_us', $data);
     }
+
     public function vision()
     {
         $data['vision'] = VisionAndGoal::query()
@@ -159,6 +163,7 @@ class LandingController extends Controller
             ->first();
         return view('vision', $data);
     }
+
     public function goals()
     {
         $data['goals'] = VisionAndGoal::query()
@@ -166,12 +171,14 @@ class LandingController extends Controller
             ->first();
         return view('goals', $data);
     }
+
     public function fleet()
     {
         $data['fleet'] = Fleet::query()
             ->first();
         return view('fleet', $data);
     }
+
     public function storage()
     {
         $data['storage'] = Storage::query()
@@ -189,6 +196,66 @@ class LandingController extends Controller
         }
 
         return view('404');
+    }
+
+    public function viewStore()
+    {
+        return view('store');
+    }
+
+    public function vouchers()
+    {
+        return view('vouchers');
+    }
+
+    public function checkVouchers()
+    {
+        $vocherNumber = request()->voucher_number;
+        $is_allowed = Voucher::query()
+            ->where('voucher', $vocherNumber)
+            ->where('used', false)
+            ->exists();
+
+        if ($is_allowed)
+        {
+            session()->put('voucher', $vocherNumber);
+            return redirect()->back()->with('success', __('landing.Voucher Found'));
+        }else{
+            return redirect()->back()->with('error', __('landing.Not Found or Already Used'));
+        }
+    }
+
+
+    public function useVoucher()
+    {
+        $voucher = session()->get('voucher');
+        $c_name = request()->c_name;
+        $phone = request()->phone;
+
+        if ($voucher) {
+            $is_allowed = Voucher::query()
+                ->where('voucher', $voucher)
+                ->where('used', false)
+                ->exists();
+            if ($is_allowed) {
+                Voucher::query()
+                    ->where('voucher', $voucher)
+                    ->update([
+                        'used' => true,
+                        'c_name' => $c_name,
+                        'phone' => $phone,
+                        'using_date' => now(),
+                    ]);
+                session()->remove('voucher');
+                return redirect()->back()->with('success', __('landing.Used Successfully'));
+            }else
+            {
+                session()->remove('voucher');
+                return redirect()->back()->with('error', __('landing.Already Used'));
+            }
+        }
+
+        return redirect()->back();
     }
 }
 

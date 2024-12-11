@@ -120,6 +120,12 @@ return [
     'All Cities in the database' => 'The Number of Cities Where we Serve',
 
 
+    'voucher' => 'Voucher',
+    'vouchers' => 'Vouchers',
+    'Used' => 'Is used?',
+    'using_date' => 'Using Date',
+
+
     'showInHome'=>'Show this section In Home Page',
 
 ];
