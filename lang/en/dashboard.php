@@ -123,6 +123,7 @@ return [
     'voucher details' => 'Voucher Details',
     'beneficiary details' => 'Beneficiary Details',
 
+    'voucher1' => 'Voucher',
     'voucher' => 'Voucher Number',
     'vouchers' => 'Vouchers',
     'Used' => 'Is used?',
