@@ -181,9 +181,9 @@ class OfferResource extends Resource
                 TextEntry::make('name_ar')->label(__('dashboard.name_ar')),
                 TextEntry::make('name_en')->label(__('dashboard.name_en')),
             ])->columns(2),
-            Section::make(__('dashboard.addresses'))->schema([
-                TextEntry::make('address_ar')->label(__('dashboard.address_ar')),
-                TextEntry::make('address_en')->label(__('dashboard.address_en')),
+            Section::make(__('dashboard.description'))->schema([
+                TextEntry::make('description_ar')->label(__('dashboard.description_ar')),
+                TextEntry::make('description_en')->label(__('dashboard.description_en')),
 
             ])->columns(2),
 

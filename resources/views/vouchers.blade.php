@@ -25,70 +25,77 @@
 <body
     style="background-image:url('{{ asset('uploads/mkhazin/offers_background.jpg') }}'); background-attachment:fixed; background-repeat: no-repeat; background-size: cover;">
 <div class="container">
-<div class="container mt-5">
+    <div class="container mt-5">
 
-    <div class="row mt-5 justify-content-center">
-
-        <img class="img img-fluid vouchers-logo" src="{{ asset('store/images/logo.png') }}">
-
-    </div>
-
-    <div class="card w-100 mt-5">
-        <div class="card-header justify-content-center">
-            <h5 class="card-title text-center">{{ __('landing.Mkhazin Vouchers') }}</h5>
+        <div class="row mt-5 justify-content-center">
+            <img class="img img-fluid vouchers-logo" src="{{ asset('store/images/logo.png') }}">
         </div>
-        <div class="card-body">
-            <form method="post" action="">
-                @csrf
-                <div class="row g-3">
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="voucher_number" required name="voucher_number" placeholder="{{ __('landing.Enter Voucher Number') }}">
-                    </div>
-                    <div class="col-sm-3">
-                        <button type="submit" class="btn btn-primary w-100">{{  __('landing.Check Voucher') }}</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="card-footer text-muted">
-            @include('_message')
-{{--            @dd( session()->has('success') . ' - ' .  session()->has('error') )--}}
-            @if( session()->has('voucher') )
-                <form method="post" action="{{ url('use_voucher') }}">
+        <div class="card w-100 mt-5">
+            <div class="card-header justify-content-center">
+                <h5 class="card-title text-center">{{ __('landing.Mkhazin Vouchers') }}</h5>
+            </div>
+            <div class="card-body">
+                <form method="post" action="">
                     @csrf
-                    <div class="row g-3 mt-1">
+                    <div class="row g-3">
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="voucher_number" required name="voucher_number"
+                                   placeholder="{{ __('landing.Enter Voucher Number') }}">
+                        </div>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control text-center" disabled id="voucher_number" value="{{ session()->get('voucher') }}" required name="voucher_number" placeholder="Enter Voucher Number">
-                        </div>
-                        <div class="col-sm-5">
-                            <input type="text" class="form-control" id="c_name" required name="c_name" placeholder="{{ __('landing.Enter Client Name') }}">
-                        </div>
-                        <div class="col-sm-4">
-                            <input type="number" class="form-control" id="phone" required name="phone" placeholder="{{ __('landing.Enter Client Phone') }}"
-                                   min="0500000000" max="0599999999" oninput="validateLength(this)" >
-                        </div>
-                        <script>
-                            function validateLength(input) {
-                                if (input.value.length > 10) {
-                                    input.value = input.value.slice(0, 10);
-                                }
-                            }
-                        </script>
-
-                    </div>
-                    <div class="row g-3 mt-1">
-                        <div class="col-sm w-50">
-                            <button type="submit" class="btn btn-success w-100">{{ __('landing.Use Voucher') }}</button>
-                        </div>
-                        <div class="col-sm w-50">
-                            <a type="submit" href="{{  url('cancel_voucher')}}" class="btn btn-danger w-100">{{ __('landing.Cancel using') }}</a>
+                            <button type="submit"
+                                    class="btn btn-primary w-100">{{  __('landing.Check Voucher') }}</button>
                         </div>
                     </div>
                 </form>
-            @endif
+            </div>
+            <div class="card-footer text-muted">
+                @include('_message')
+                {{--            @dd( session()->has('success') . ' - ' .  session()->has('error') )--}}
+                @if( session()->has('voucher') )
+                    <form method="post" action="{{ url('use_voucher') }}">
+                        @csrf
+                        <div class="row g-3 mt-1">
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control text-center" disabled id="voucher_number"
+                                       value="{{ session()->get('voucher') }}" required name="voucher_number"
+                                       placeholder="Enter Voucher Number">
+                            </div>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" id="c_name" required name="c_name"
+                                       placeholder="{{ __('landing.Enter Client Name') }}">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="phone" required name="phone"
+                                       placeholder="{{ __('landing.Enter Client Phone') }}"
+                                       min="0500000000" max="0599999999" oninput="validateLength(this)">
+                            </div>
+                            <script>
+                                function validateLength(input) {
+                                    if (input.value.length > 10) {
+                                        input.value = input.value.slice(0, 10);
+                                    }
+                                }
+                            </script>
+
+                        </div>
+                        <div class="row g-3 mt-1">
+                            <div class="col-sm w-50">
+                                <button type="submit"
+                                        class="btn btn-success w-100">{{ __('landing.Use Voucher') }}</button>
+                            </div>
+                            <div class="col-sm w-50">
+                                <a type="submit" href="{{  url('cancel_voucher')}}"
+                                   class="btn btn-danger w-100">{{ __('landing.Cancel using') }}</a>
+                            </div>
+                        </div>
+                    </form>
+                @endif
+            </div>
         </div>
+
+
     </div>
-</div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
