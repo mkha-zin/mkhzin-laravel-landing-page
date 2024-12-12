@@ -74,6 +74,8 @@ class VoucherResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('id')
+            ->striped()
             ->columns([
                 Tables\Columns\TextColumn::make('id')
                     ->label('#')
