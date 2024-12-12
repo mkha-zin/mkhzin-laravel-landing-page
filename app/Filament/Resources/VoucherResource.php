@@ -130,7 +130,6 @@ class VoucherResource extends Resource
 //                    Tables\Actions\DeleteBulkAction::make(),
                     Tables\Actions\ExportBulkAction::make()
                         ->exporter(VoucherExporter::class)
-
                         ->formats([
                             ExportFormat::Xlsx,
                             ExportFormat::Csv,
