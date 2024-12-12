@@ -2,14 +2,19 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Exports\VoucherExporter;
 use App\Filament\Resources\VoucherResource\Pages;
 use App\Filament\Resources\VoucherResource\RelationManagers;
 use App\Models\Voucher;
+use Filament\Actions\Exports\Enums\ExportFormat;
+use Filament\Actions\Exports\Models\Export;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Infolists\Infolist;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\ExportAction;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 
@@ -121,9 +126,26 @@ class VoucherResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                /*Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),*/
+                Tables\Actions\BulkActionGroup::make([
+//                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\ExportBulkAction::make()
+                        ->exporter(VoucherExporter::class)
+
+                        ->formats([
+                            ExportFormat::Xlsx,
+                            ExportFormat::Csv,
+                        ])
+                        ->fileDisk('local')
+                        ->fileName(fn (Export $export): string => "vouchers-{$export->getKey()}.csv")
+                        ->successNotification(
+                            Notification::make()
+                                ->title(__('dashboard.voucher exported successfully'))
+                                ->success()
+                                ->body(__('dashboard.you can download it from your computer'))
+                                ->duration(1500)
+                                ->send()
+                        )
+                ]),
             ]);
     }
 
