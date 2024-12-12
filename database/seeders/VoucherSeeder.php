@@ -27,7 +27,7 @@ class VoucherSeeder extends Seeder
 
     public function generateUniqueVoucher() {
         do {
-            $voucher = Random::generate(10, 'abcdefghijklmnopqrstuvwxyz0123456789');
+            $voucher = Random::generate(5, 'abcdefghijklmnopqrstuvwxyz0123456789');
         } while (DB::table('vouchers')->where('voucher', $voucher)->exists());
 
         return $voucher;
