@@ -75,6 +75,10 @@ class VoucherResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                    ->label('#')
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('voucher')
                     ->label(__('dashboard.voucher'))
                     ->searchable()
