@@ -7,9 +7,11 @@ use App\Filament\Resources\VoucherResource\RelationManagers;
 use App\Models\Voucher;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 
 class VoucherResource extends Resource
 {
@@ -27,19 +29,45 @@ class VoucherResource extends Resource
 
     public static function getModelLabel(): string
     {
-        return __('dashboard.voucher');
+        return __('dashboard.voucher1');
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return false;
     }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('voucher')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Toggle::make('used')
-                    ->required(),
-                Forms\Components\DateTimePicker::make('using_date'),
+                Forms\Components\Section::make(__('dashboard.voucher details'))
+                    ->collapsible()
+                    ->schema([
+                    Forms\Components\TextInput::make('voucher')
+                        ->label(__('dashboard.voucher'))
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\Toggle::make('used')
+                        ->label(__('dashboard.Used'))
+                        ->required(),
+                ])->columns(2),
+
+                Forms\Components\Section::make(__('dashboard.beneficiary details'))
+                    ->collapsible()
+                    ->schema([
+                    Forms\Components\TextInput::make('c_name')
+                        ->label(__('dashboard.customer name'))
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('phone')
+                        ->label(__('dashboard.customer phone'))
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\DateTimePicker::make('using_date')
+                        ->label(__('dashboard.using_date')),
+                ])->columns(3),
+
             ]);
     }
 
@@ -48,19 +76,26 @@ class VoucherResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('voucher')
+                    ->label(__('dashboard.voucher'))
                     ->searchable()
                     ->copyable(),
                 Tables\Columns\IconColumn::make('used')
-                    ->boolean(),
+                    ->label(__('dashboard.Used'))
+                    ->boolean()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('c_name')
-                    ->label('Customer Name')
+                    ->label(__('dashboard.customer name'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('phone')
+                    ->label(__('dashboard.customer phone'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('using_date')
-                    ->dateTime()
+                    ->label(__('dashboard.using_date'))
+                    ->date()
+                    ->dateTimeTooltip()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('dashboard.created_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -77,9 +112,9 @@ class VoucherResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
+                /*Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                ]),*/
             ]);
     }
 
@@ -94,9 +129,9 @@ class VoucherResource extends Resource
     {
         return [
             'index' => Pages\ListVouchers::route('/'),
-            'create' => Pages\CreateVoucher::route('/create'),
+/*            'create' => Pages\CreateVoucher::route('/create'),
             'view' => Pages\ViewVoucher::route('/{record}'),
-            'edit' => Pages\EditVoucher::route('/{record}/edit'),
+            'edit' => Pages\EditVoucher::route('/{record}/edit'),*/
         ];
     }
 }

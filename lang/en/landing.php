@@ -57,5 +57,18 @@ return [
 
     'footer_text' => 'Our goal is to satisfy our customers and their happiness',
 
+    'Mkhazin Vouchers' => 'Mkhazin Vouchers',
+    'Enter Voucher Number' => 'Enter Voucher Number',
+    'Check Voucher' => 'Check Voucher',
+    'Use Voucher' => 'Use Voucher',
+    'Cancel using' => 'Cancel using',
+    'Enter Client Phone' => 'Enter Client Phone',
+    'Enter Client Name' => 'Enter Client Name',
+
+    'Voucher Found' => 'Voucher Found',
+    'Not Found or Already Used' => 'Not Found or Already Used!',
+    'Used Successfully' => 'Used Successfully',
+    'Already Used' => 'Already Used',
+
 
 ];

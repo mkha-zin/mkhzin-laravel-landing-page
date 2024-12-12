@@ -257,6 +257,11 @@ class LandingController extends Controller
 
         return redirect()->back();
     }
+
+    public function cancelVoucher(){
+        session()->remove('voucher');
+        return redirect()->back();
+    }
 }
 
 

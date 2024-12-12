@@ -120,4 +120,16 @@ return [
 
     'showInHome'=>'عرض هذا القسم في الصفحة الرئيسية',
 
+
+    'voucher details' => 'تفاصيل القسيمة',
+    'beneficiary details' => 'تفاصيل المستفيد',
+
+    'voucher1' => 'قسيمة',
+    'voucher' => 'رقم القسيمة',
+    'vouchers' => 'القسائم',
+    'Used' => 'مستخدمة؟',
+    'using_date' => 'تاريخ الاستخدام',
+    'customer name' => 'اسم العميل',
+    'customer phone' => 'رقم هاتف العميل',
+
 ];

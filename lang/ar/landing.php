@@ -57,5 +57,18 @@ return [
     'footer_text' => 'نسعى إلى رضا عملائنا وسعادتهم هي غايتنا',
 
 
+    'Mkhazin Vouchers' => 'قسائم شركة مخازن',
+    'Enter Voucher Number' => ' يرجى ادخال رقم القسيمة',
+    'Check Voucher' => 'تحقق من القسيمة',
+    'Use Voucher' => 'استخدام القسيمة',
+    'Cancel using' => 'الغاء الاستخدام',
+    'Enter Client Phone' => 'أدخل رقم هاتف العميل',
+    'Enter Client Name' => 'أدخل اسم العميل',
+
+    'Voucher Found' => 'تم العثور على القسيمة',
+    'Not Found or Already Used' => 'القسيمة غير موجودة او مستخدمة مسبقاً',
+    'Used Successfully' => 'تم استخدام القسيمة بنجاح',
+    'Already Used' => 'القسيمة مستخدمة مسبقاً',
+
 
 ];

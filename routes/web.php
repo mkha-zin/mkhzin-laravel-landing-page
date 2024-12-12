@@ -25,11 +25,14 @@ Route::group(['middleware' => 'localization'], function () {
     Route::get('goals', [LandingController::class, 'goals']);
     Route::get('fleet', [LandingController::class, 'fleet']);
     Route::get('storages', [LandingController::class, 'storage'])->name('storage');
+
+    Route::get('vouchers', [LandingController::class, 'vouchers']);
+    Route::post('vouchers', [LandingController::class, 'checkVouchers']);
+    Route::post('use_voucher', [LandingController::class, 'useVoucher'])->name('use_voucher');
+    Route::get('cancel_voucher', [LandingController::class, 'cancelVoucher']);
 });
 
-Route::get('vouchers', [LandingController::class, 'vouchers']);
-Route::post('vouchers', [LandingController::class, 'checkVouchers']);
-Route::post('use_voucher', [LandingController::class, 'useVoucher'])->name('use_voucher');
+
 
 
 Route::get('set-locale/{locale}', function ($locale) {

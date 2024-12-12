@@ -120,10 +120,15 @@ return [
     'All Cities in the database' => 'The Number of Cities Where we Serve',
 
 
-    'voucher' => 'Voucher',
+    'voucher details' => 'Voucher Details',
+    'beneficiary details' => 'Beneficiary Details',
+
+    'voucher' => 'Voucher Number',
     'vouchers' => 'Vouchers',
     'Used' => 'Is used?',
     'using_date' => 'Using Date',
+    'customer name' => 'Customer Name',
+    'customer phone' => 'Customer Phone',
 
 
     'showInHome'=>'Show this section In Home Page',
