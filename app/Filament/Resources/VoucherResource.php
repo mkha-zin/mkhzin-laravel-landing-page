@@ -46,6 +46,7 @@ class VoucherResource extends Resource
                     ->schema([
                     Forms\Components\TextInput::make('voucher')
                         ->label(__('dashboard.voucher'))
+                        ->unique()
                         ->required()
                         ->maxLength(255),
                     Forms\Components\Toggle::make('used')
