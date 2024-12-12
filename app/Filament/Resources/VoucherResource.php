@@ -55,14 +55,13 @@ class VoucherResource extends Resource
 
                 Forms\Components\Section::make(__('dashboard.beneficiary details'))
                     ->collapsible()
+                    ->collapsed()
                     ->schema([
                     Forms\Components\TextInput::make('c_name')
                         ->label(__('dashboard.customer name'))
-                        ->required()
                         ->maxLength(255),
                     Forms\Components\TextInput::make('phone')
                         ->label(__('dashboard.customer phone'))
-                        ->required()
                         ->maxLength(255),
                     Forms\Components\DateTimePicker::make('using_date')
                         ->label(__('dashboard.using_date')),
