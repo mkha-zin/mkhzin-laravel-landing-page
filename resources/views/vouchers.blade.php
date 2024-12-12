@@ -7,6 +7,20 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('uploads/mkhazin/logo900.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        .vouchers-logo {
+            width: 300px;
+            height: auto;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .vouchers-logo {
+                width: 200px;
+                height: auto;
+            }
+        }
+    </style>
 </head>
 <body
     style="background-image:url('{{ asset('uploads/mkhazin/offers_background.jpg') }}'); background-attachment:fixed; background-repeat: no-repeat; background-size: cover;">
@@ -15,11 +29,11 @@
 
     <div class="row mt-5 justify-content-center">
 
-        <img class="img img-fluid" style="width: 300px; height: auto" src="{{ asset('store/images/logo.png') }}">
+        <img class="img img-fluid vouchers-logo" src="{{ asset('store/images/logo.png') }}">
 
     </div>
 
-    <div class="card w-100 mt-5 ">
+    <div class="card w-100 mt-5">
         <div class="card-header justify-content-center">
             <h5 class="card-title text-center">{{ __('landing.Mkhazin Vouchers') }}</h5>
         </div>
