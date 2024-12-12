@@ -84,7 +84,10 @@ class VoucherResource extends Resource
                 Tables\Columns\TextColumn::make('voucher')
                     ->label(__('dashboard.voucher'))
                     ->searchable()
-                    ->copyable(),
+                    ->badge()
+                    ->copyable()
+                    ->copyMessage(__('dashboard.Copied!'))
+                    ->copyMessageDuration(1500),
                 Tables\Columns\IconColumn::make('used')
                     ->label(__('dashboard.Used'))
                     ->boolean()

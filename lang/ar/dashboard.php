@@ -132,4 +132,7 @@ return [
     'customer name' => 'اسم العميل',
     'customer phone' => 'رقم هاتف العميل',
 
+    'Click to Copy' => 'انقر للنسخ',
+    'Copied!' => 'تم النسخ!',
+
 ];

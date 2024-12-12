@@ -130,6 +130,9 @@ return [
     'customer name' => 'Customer Name',
     'customer phone' => 'Customer Phone',
 
+    'Click to Copy' => 'Click to Copy',
+    'Copied!' => 'Copied!',
+
 
     'showInHome'=>'Show this section In Home Page',
 
