@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->string('voucher')->unique();
             $table->string('c_name')->nullable();
-            $table->string('phone')->unique()->nullable();
+            $table->string('phone')->nullable();
             $table->boolean('used')->default(false);
             $table->timestamp('using_date')->nullable();
 

@@ -8,12 +8,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
-<body>
+<body
+    style="background-image:url('{{ asset('uploads/mkhazin/offers_background.jpg') }}'); background-attachment:fixed; background-repeat: no-repeat; background-size: cover;">
 <div class="container">
 <div class="container mt-5">
+
+    <div class="row mt-5 justify-content-center">
+
+        <img class="img img-fluid" style="width: 300px; height: auto" src="{{ asset('store/images/logo.png') }}">
+
+    </div>
+
     <div class="card w-100 mt-5 ">
-        <div class="card-header">
-            <h5 class="card-title">{{ __('landing.Mkhazin Vouchers') }}</h5>
+        <div class="card-header justify-content-center">
+            <h5 class="card-title text-center">{{ __('landing.Mkhazin Vouchers') }}</h5>
         </div>
         <div class="card-body">
             <form method="post" action="">
@@ -36,7 +44,7 @@
                     @csrf
                     <div class="row g-3 mt-1">
                         <div class="col-sm-3">
-                            <input type="text" class="form-control" disabled id="voucher_number" value="{{ session()->get('voucher') }}" required name="voucher_number" placeholder="Enter Voucher Number">
+                            <input type="text" class="form-control text-center" disabled id="voucher_number" value="{{ session()->get('voucher') }}" required name="voucher_number" placeholder="Enter Voucher Number">
                         </div>
                         <div class="col-sm-5">
                             <input type="text" class="form-control" id="c_name" required name="c_name" placeholder="{{ __('landing.Enter Client Name') }}">
