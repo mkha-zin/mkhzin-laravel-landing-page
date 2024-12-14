@@ -9,6 +9,7 @@ use App\Models\Career;
 use App\Models\City;
 use App\Models\ContactImage;
 use App\Models\ContactInfo;
+use App\Models\Export;
 use App\Models\Fleet;
 use App\Models\Hero;
 use App\Models\Offer;
@@ -261,6 +262,17 @@ class LandingController extends Controller
     public function cancelVoucher(){
         session()->remove('voucher');
         return redirect()->back();
+    }
+
+    public function download()
+    {
+        $filePath = public_path("storage/filament_exports/". request()->key . "/" . request()->record);
+
+        if (!file_exists($filePath)) {
+            abort(404);
+        }
+
+        return response()->download($filePath);
     }
 }
 

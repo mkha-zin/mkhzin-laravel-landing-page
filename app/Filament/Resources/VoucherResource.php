@@ -132,18 +132,9 @@ class VoucherResource extends Resource
                         ->exporter(VoucherExporter::class)
                         ->formats([
                             ExportFormat::Xlsx,
-                            ExportFormat::Csv,
                         ])
-                        ->fileDisk('local')
-                        ->fileName(fn (Export $export): string => "vouchers-{$export->getKey()}.csv")
-                        ->successNotification(
-                            Notification::make()
-                                ->title(__('dashboard.voucher exported successfully'))
-                                ->success()
-                                ->body(__('dashboard.you can download it from your computer'))
-                                ->duration(1500)
-                                ->send()
-                        )
+                        ->fileDisk('public')
+                        ->fileName(fn (Export $export): string => "vouchers-{$export->getKey()}")
                 ]),
             ]);
     }

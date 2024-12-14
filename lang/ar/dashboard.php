@@ -135,4 +135,19 @@ return [
     'Click to Copy' => 'انقر للنسخ',
     'Copied!' => 'تم النسخ!',
 
+
+    'exports' => 'التصديرات',
+    'export' => 'تصدير',
+    'completed at' => 'انتهى في',
+    'file disk' => 'مجلد التصدير',
+    'file name' => 'اسم الملف',
+    'exporter' => 'التصدير',
+    'processed rows' => 'عدد الصفوف المعالجة',
+    'total rows' => 'عدد الصفوف الكلية',
+    'successful rows' => 'عدد الصفوف المنجزة',
+    'user id' => 'رقم المستخدم',
+    'download' => 'تحميل',
+    'created at' => 'انشئت في',
+    'updated at' => 'تم التحديث في',
+
 ];

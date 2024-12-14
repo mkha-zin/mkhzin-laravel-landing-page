@@ -30,6 +30,8 @@ Route::group(['middleware' => 'localization'], function () {
     Route::post('vouchers', [LandingController::class, 'checkVouchers']);
     Route::post('use_voucher', [LandingController::class, 'useVoucher'])->name('use_voucher');
     Route::get('cancel_voucher', [LandingController::class, 'cancelVoucher']);
+
+    Route::get('/download_csv', [LandingController::class, 'download'])->name('document.download');
 });
 
 

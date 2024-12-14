@@ -137,4 +137,19 @@ return [
 
     'showInHome'=>'Show this section In Home Page',
 
+
+    'exports' => 'Exports',
+    'export' => 'Export',
+    'completed at' => 'Completed At',
+    'file disk' => 'File Disk',
+    'file name' => 'File Name',
+    'exporter' => 'Exporter',
+    'processed rows' => 'Processed Rows',
+    'total rows' => 'Total Rows',
+    'successful rows' => 'Successful Rows',
+    'user id' => 'User Id',
+    'download' => 'Download',
+    'created at' => 'Created At',
+    'updated at' => 'Updated At',
+
 ];
