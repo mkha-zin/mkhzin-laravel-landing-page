@@ -13,7 +13,8 @@
 
     @include('includes.header_image',[
     'title'=>__('landing.offers_title'),
-    'image' => $offers->isNotEmpty() ?  $offers[0]->branch->image : $offersHeader->image])
+    'image' => $offersHeader->image
+    ])
 
     <div dir="{{$direction}}" data-elementor-type="wp-page" data-elementor-id="1222" class="elementor elementor-1222">
         @if($offers->isNotEmpty())
