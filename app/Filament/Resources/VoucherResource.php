@@ -136,6 +136,8 @@ class VoucherResource extends Resource
                         ->label(__('dashboard.exports'))
                         ->icon('heroicon-o-arrow-down-circle')
                         ->url('exports')
+                        ->color('primary')
+                        ->openUrlInNewTab(),
                 ]),
             ]);
     }
