@@ -267,7 +267,7 @@ class LandingController extends Controller
 
     public function download()
     {
-        $filePath = public_path("storage/filament_exports/". request()->key . "/" . request()->record);
+        $filePath = public_path("storage/filament_exports/". request()->key . "/" . request()->record . ".xlsx");
 
         dd($filePath . " - " . file_exists($filePath));
         if (!file_exists($filePath)) {
