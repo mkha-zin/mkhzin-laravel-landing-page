@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Exports\VoucherExporter;
 use App\Filament\Resources\VoucherResource\Pages;
 use App\Filament\Resources\VoucherResource\RelationManagers;
+use App\Models\User;
 use App\Models\Voucher;
 use Filament\Actions\Exports\Enums\ExportFormat;
 use Filament\Actions\Exports\Models\Export;
@@ -13,6 +14,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class VoucherResource extends Resource
@@ -125,20 +127,20 @@ class VoucherResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
 //                    Tables\Actions\DeleteBulkAction::make(),
-                    Tables\Actions\ExportBulkAction::make()
-                        ->exporter(VoucherExporter::class)
-                        ->formats([
-                            ExportFormat::Xlsx,
-                        ])
-                        ->fileDisk('public')
-                        ->fileName(fn(Export $export): string => "vouchers-{$export->getKey()}"),
-                    Tables\Actions\Action::make('exports')
-                        ->label(__('dashboard.exports'))
-                        ->icon('heroicon-o-arrow-down-circle')
-                        ->url('exports')
-                        ->color('primary')
-                        ->openUrlInNewTab(),
                 ]),
+                Tables\Actions\ExportBulkAction::make()
+                    ->exporter(VoucherExporter::class)
+                    ->formats([
+                        ExportFormat::Xlsx,
+                    ])
+                    ->fileDisk('public')
+                    ->fileName(fn(Export $export): string => "vouchers-{$export->getKey()}"),
+                Tables\Actions\BulkAction::make('exports')
+                    ->label(__('dashboard.exports'))
+                    ->icon('heroicon-o-arrow-down-circle')
+                    ->url('exports')
+                    ->color('primary')
+                    ->openUrlInNewTab(),
             ]);
     }
 
