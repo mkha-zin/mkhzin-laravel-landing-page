@@ -10,11 +10,8 @@ use Filament\Actions\Exports\Enums\ExportFormat;
 use Filament\Actions\Exports\Models\Export;
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Infolists\Infolist;
-use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Actions\ExportAction;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 
@@ -49,29 +46,29 @@ class VoucherResource extends Resource
                 Forms\Components\Section::make(__('dashboard.voucher details'))
                     ->collapsible()
                     ->schema([
-                    Forms\Components\TextInput::make('voucher')
-                        ->label(__('dashboard.voucher'))
-                        ->unique()
-                        ->required()
-                        ->maxLength(255),
-                    Forms\Components\Toggle::make('used')
-                        ->label(__('dashboard.Used'))
-                        ->required(),
-                ])->columns(2),
+                        Forms\Components\TextInput::make('voucher')
+                            ->label(__('dashboard.voucher'))
+                            ->unique()
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\Toggle::make('used')
+                            ->label(__('dashboard.Used'))
+                            ->required(),
+                    ])->columns(2),
 
                 Forms\Components\Section::make(__('dashboard.beneficiary details'))
                     ->collapsible()
                     ->collapsed()
                     ->schema([
-                    Forms\Components\TextInput::make('c_name')
-                        ->label(__('dashboard.customer name'))
-                        ->maxLength(255),
-                    Forms\Components\TextInput::make('phone')
-                        ->label(__('dashboard.customer phone'))
-                        ->maxLength(255),
-                    Forms\Components\DateTimePicker::make('using_date')
-                        ->label(__('dashboard.using_date')),
-                ])->columns(3),
+                        Forms\Components\TextInput::make('c_name')
+                            ->label(__('dashboard.customer name'))
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('phone')
+                            ->label(__('dashboard.customer phone'))
+                            ->maxLength(255),
+                        Forms\Components\DateTimePicker::make('using_date')
+                            ->label(__('dashboard.using_date')),
+                    ])->columns(3),
 
             ]);
     }
@@ -134,7 +131,11 @@ class VoucherResource extends Resource
                             ExportFormat::Xlsx,
                         ])
                         ->fileDisk('public')
-                        ->fileName(fn (Export $export): string => "vouchers-{$export->getKey()}")
+                        ->fileName(fn(Export $export): string => "vouchers-{$export->getKey()}"),
+                    Tables\Actions\Action::make('exports')
+                        ->label(__('dashboard.exports'))
+                        ->icon('heroicon-o-arrow-down-circle')
+                        ->url('exports')
                 ]),
             ]);
     }
@@ -150,9 +151,9 @@ class VoucherResource extends Resource
     {
         return [
             'index' => Pages\ListVouchers::route('/'),
-/*            'create' => Pages\CreateVoucher::route('/create'),
-            'view' => Pages\ViewVoucher::route('/{record}'),
-            'edit' => Pages\EditVoucher::route('/{record}/edit'),*/
+            /*            'create' => Pages\CreateVoucher::route('/create'),
+                        'view' => Pages\ViewVoucher::route('/{record}'),
+                        'edit' => Pages\EditVoucher::route('/{record}/edit'),*/
         ];
     }
 }
