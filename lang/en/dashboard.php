@@ -151,5 +151,6 @@ return [
     'download' => 'Download',
     'created at' => 'Created At',
     'updated at' => 'Updated At',
+    'file not found' => 'File Not Found',
 
 ];

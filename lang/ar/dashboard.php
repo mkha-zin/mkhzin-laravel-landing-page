@@ -149,5 +149,6 @@ return [
     'download' => 'تحميل',
     'created at' => 'انشئت في',
     'updated at' => 'تم التحديث في',
+    'file not found' => 'الملف غير موجود',
 
 ];

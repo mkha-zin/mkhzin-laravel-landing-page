@@ -21,6 +21,7 @@ use App\Models\Subscription;
 use App\Models\VisionAndGoal;
 use App\Models\VisitorMessage;
 use App\Models\Voucher;
+use Filament\Notifications\Notification;
 use Illuminate\Http\Request as HttpRequest;
 use Request;
 
@@ -266,10 +267,16 @@ class LandingController extends Controller
 
     public function download()
     {
-        $filePath = public_path("storage/filament_exports/". request()->key . "/" . request()->record);
+        $filePath = storage_path("app/public/filament_exports/". request()->key . "/" . request()->record);
 
+//        dd($filePath . " - " . file_exists($filePath));
         if (!file_exists($filePath)) {
-            abort(404);
+            Notification::make()
+                ->title(__('dashboard.file not found'))
+                ->danger()
+                ->send();
+
+            return redirect()->back();
         }
 
         return response()->download($filePath);
