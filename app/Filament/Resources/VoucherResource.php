@@ -134,10 +134,11 @@ class VoucherResource extends Resource
                         ExportFormat::Xlsx,
                     ])
                     ->fileDisk('public')
+                    ->icon('heroicon-o-arrow-down-circle')
                     ->fileName(fn(Export $export): string => "vouchers-{$export->getKey()}"),
                 Tables\Actions\BulkAction::make('exports')
                     ->label(__('dashboard.exports'))
-                    ->icon('heroicon-o-arrow-down-circle')
+                    ->icon('heroicon-o-newspaper')
                     ->url('exports')
                     ->color('primary')
                     ->openUrlInNewTab(),
