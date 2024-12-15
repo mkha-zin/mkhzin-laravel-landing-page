@@ -61,9 +61,11 @@ class DepartmentResource extends Resource
                     ->label(__('dashboard.description_en'))
                     ->required(),
                 Forms\Components\TagsInput::make('tags_ar')
-                    ->label(__('dashboard.tags')),
+                    ->label(__('dashboard.tags'))
+                ->reorderable(),
                 Forms\Components\TagsInput::make('tags_en')
-                    ->label(__('dashboard.tags')),
+                    ->label(__('dashboard.tags'))
+                ->reorderable(),
             ]);
     }
 
