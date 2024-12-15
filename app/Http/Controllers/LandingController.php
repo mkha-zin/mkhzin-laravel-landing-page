@@ -9,6 +9,7 @@ use App\Models\Career;
 use App\Models\City;
 use App\Models\ContactImage;
 use App\Models\ContactInfo;
+use App\Models\Department;
 use App\Models\Export;
 use App\Models\Fleet;
 use App\Models\Hero;
@@ -280,6 +281,14 @@ class LandingController extends Controller
         }
 
         return response()->download($filePath);
+    }
+
+    public function departments($key)
+    {
+        $data['department'] = Department::query()->where('key', $key)->first();
+        $data['branches'] = Branch::query()->where('type', $key)->get();
+
+        return view('departments', $data);
     }
 }
 

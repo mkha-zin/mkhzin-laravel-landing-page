@@ -25,7 +25,8 @@ return [
     'Last month Offers' => 'عروض الشهر الماضي',
     'Last year Offers' => 'عروض العام الماضي',
 
-    'departments' => 'الأقسام',
+    'departments' => 'أقسام الشركة',
+    'department' => 'قسم',
     'store' => 'المتجر',
     'contact us' => 'تواصل معنا',
 
@@ -135,6 +136,8 @@ return [
     'Click to Copy' => 'انقر للنسخ',
     'Copied!' => 'تم النسخ!',
 
+    'address'=>'العنوان',
+    'tags'=>'الوسوم',
 
     'exports' => 'التصديرات',
     'export' => 'تصدير',
@@ -150,5 +153,10 @@ return [
     'created at' => 'انشئت في',
     'updated at' => 'تم التحديث في',
     'file not found' => 'الملف غير موجود',
+
+    'type' => 'النوع',
+    'super' => 'سوبر ماركت',
+    'hyper' => 'هايبر ماركت',
+    'wholesale' => 'البيع بالجملة',
 
 ];

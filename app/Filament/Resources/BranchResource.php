@@ -52,7 +52,14 @@ class BranchResource extends Resource
                         ->relationship('city',
                             App::currentLocale() === 'ar' ? 'name_ar' : 'name_en')
                         ->default(null),
-                ]),
+                    Forms\Components\Select::make('type')
+                        ->label(__('dashboard.type'))
+                        ->options([
+                            'super' => __('dashboard.super'),
+                            'hyper' => __('dashboard.hyper'),
+                            'wholesale' => __('dashboard.wholesale'),
+                        ]),
+                ])->columns(2),
                 Forms\Components\Section::make()->schema([
                     Forms\Components\TextInput::make('name_ar')
                         ->label(__('dashboard.name_ar'))
@@ -73,7 +80,7 @@ class BranchResource extends Resource
                         ->required()
                         ->maxLength(255),
                 ])->columns(2),
-                Forms\Components\Section::make(__())->schema([
+                Forms\Components\Section::make(__('dashboard.files'))->schema([
                     Forms\Components\FileUpload::make('image')
                         ->label(__('dashboard.image'))
                         ->directory('assets/images/branches')
@@ -91,16 +98,19 @@ class BranchResource extends Resource
                 Tables\Columns\TextColumn::make(
                     App::currentLocale() == 'ar' ? 'city.name_ar' : 'city.name_en'
                 )
+                    ->label(__('dashboard.city'))
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make(
                     App::currentLocale() == 'ar' ? 'name_ar' : 'name_en'
                 )
+                    ->label(__('dashboard.name'))
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make(
                     App::currentLocale() == 'ar' ? 'address_ar' : 'address_en'
                 )
+                    ->label(__('dashboard.address'))
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('created_at')

@@ -28,6 +28,7 @@ class CareerResource extends Resource
         return __('dashboard.others');
     }
 
+
     public static function getPluralLabel(): ?string
     {
         return __('dashboard.jobs');

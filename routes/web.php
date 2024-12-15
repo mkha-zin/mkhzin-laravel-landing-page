@@ -32,6 +32,9 @@ Route::group(['middleware' => 'localization'], function () {
     Route::get('cancel_voucher', [LandingController::class, 'cancelVoucher']);
 
     Route::get('/download_csv', [LandingController::class, 'download'])->name('document.download');
+
+    Route::get('/departments/{key}', [LandingController::class, 'departments'])->name('departments');
+
 });
 
 

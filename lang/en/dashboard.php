@@ -28,7 +28,8 @@ return [
     'Last month Offers' => 'Last month Offers',
     'Last year Offers' => 'Last year Offers',
 
-    'departments' => 'Departments',
+    'departments' => 'Company Departments',
+    'department' => 'Company Department',
     'store' => 'Store',
     'contact us' => 'Contact Us',
 
@@ -84,6 +85,9 @@ return [
     'name'=>'Name',
     'name_ar'=>'Arabic Name',
     'name_en'=>'English Name',
+
+    'address'=>'Address',
+    'tags'=>'Tags',
 
     'addresses'=>'Addresses',
     'address_ar'=>'Arabic Address',
@@ -152,5 +156,10 @@ return [
     'created at' => 'Created At',
     'updated at' => 'Updated At',
     'file not found' => 'File Not Found',
+
+    'type' => 'Type',
+    'super' => 'Super Market',
+    'hyper' => 'Hyper Market',
+    'wholesale' => 'Wholesale',
 
 ];

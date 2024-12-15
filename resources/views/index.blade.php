@@ -115,10 +115,22 @@
                 شركة مخازن المملكة العالمية&reg;
             </h2>
             <nav class="nav nav-pills flex-column flex-sm-row"
-                 style="background-color: var(--e-global-color-7cfaca3); border-radius: 10px;">
-                <a class="flex-sm-fill text-sm-center nav-link" style="text-align: center; color: white">سوبر ماركت</a>
-                <a class="flex-sm-fill text-sm-center nav-link" style="text-align: center; color: white">هايبر ماركت</a>
-                <a class="flex-sm-fill text-sm-center nav-link" style="text-align: center; color: white">مخازن الجملة</a>
+                 style=" border-radius: 10px;">
+                <a href="{{ url('/departments/super') }}"
+                   class="flex-sm-fill text-sm-center nav-link m-1"
+                   style="background-color: var(--e-global-color-7cfaca3); text-align: center; color: white; z-index: 200">
+                    سوبر ماركت
+                </a>
+                <a class="flex-sm-fill text-sm-center nav-link m-1"
+                   href="{{ route('departments', ['key' => 'hyper']) }}"
+                   style="background-color: var(--e-global-color-7cfaca3); text-align: center; color: white; z-index: 200">
+                    هايبر ماركت
+                </a>
+                <a class="flex-sm-fill text-sm-center nav-link m-1"
+                   href="{{ url('/departments/wholesale') }}"
+                   style="background-color: var(--e-global-color-7cfaca3); text-align: center; color: white; z-index: 200">
+                    مخازن الجملة
+                </a>
             </nav>
         </div>
 
@@ -129,7 +141,7 @@
             <div class="e-con-inner">
                 <div class="elementor-element elementor-element-5cdbe7a1 e-con-full e-flex e-con e-child"
                      data-id="5cdbe7a1" data-element_type="container"
-                     style="{{ $aboutCards->isNotEmpty() ? '' : 'margin-bottom: -80px' }}">
+                     style="{{ $aboutCards->isNotEmpty() ? '' : 'margin-bottom: 20px' }}">
                     @if(!empty($about))
                         <div
                             class="elementor-element elementor-element-3eecd385 e-con-full e-flex elementor-invisible e-con e-child"
