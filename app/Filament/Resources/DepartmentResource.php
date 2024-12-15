@@ -83,7 +83,7 @@ class DepartmentResource extends Resource
                     App::currentLocale() == 'ar' ? 'description_ar' : 'description_en'
                 )
                     ->label(__('dashboard.description'))
-                    ->width(300)
+                    ->width(400)
                     ->words(50)
                     ->wrap()
                     ->searchable(),
@@ -91,6 +91,7 @@ class DepartmentResource extends Resource
                     App::currentLocale() == 'ar' ? 'tags_ar' : 'tags_en'
                 )
                     ->label(__('dashboard.tags'))
+                    ->limitList(50)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
