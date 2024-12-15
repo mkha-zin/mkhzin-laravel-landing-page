@@ -18,7 +18,7 @@
     <link rel="alternate" type="application/rss+xml" title="Boxx &raquo; Comments Feed"
           href="comments/feed/3342385.rss"/>
 
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('uploads/mkhazin/logo-no-bg.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('uploads/mkhazin/fav.png') }}">
 
     {{--<link rel="icon" type="image/x-icon" href="{{ asset('uploads/mkhazin/logo900.png') }}">--}}
     <link rel='stylesheet' href='{{ asset('css/landing.css') }}'/>
