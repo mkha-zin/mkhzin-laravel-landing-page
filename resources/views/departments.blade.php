@@ -119,7 +119,7 @@
             @endforeach
         @elseif($direction == 'ltr' && $department->tags_en)
             @foreach($department->tags_en as $tag)
-                <h3 class="badge" style="font-size: 20px">{{'#' . $tag}}</h3>
+                <h4 class="badge" style="border: 1px solid red">{{$tag}}</h4>
             @endforeach
         @endif
     </div>
