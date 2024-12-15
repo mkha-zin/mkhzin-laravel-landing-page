@@ -91,7 +91,7 @@ class DepartmentResource extends Resource
                     App::currentLocale() == 'ar' ? 'tags_ar' : 'tags_en'
                 )
                     ->label(__('dashboard.tags'))
-                    ->limitList(50)
+                    ->limitList(35)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
