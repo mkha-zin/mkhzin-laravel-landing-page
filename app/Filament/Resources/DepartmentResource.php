@@ -83,7 +83,9 @@ class DepartmentResource extends Resource
                     App::currentLocale() == 'ar' ? 'description_ar' : 'description_en'
                 )
                     ->label(__('dashboard.description'))
-                    ->words(5)
+                    ->width(300)
+                    ->words(50)
+                    ->wrap()
                     ->searchable(),
                 Tables\Columns\TagsColumn::make(
                     App::currentLocale() == 'ar' ? 'tags_ar' : 'tags_en'
