@@ -50,15 +50,17 @@ class Offer extends Model
 
             if ($zip->open($zipFilePath) === TRUE) {
                 // Create the extraction directory if it doesn't exist
-                if (!mkdir($extractedDirPath, 0755, true) && !is_dir($extractedDirPath)) {
-                    throw new \RuntimeException(sprintf('Directory "%s" was not created', $extractedDirPath));
+                if (!file_exists($extractedDirPath)) {
+                    if (!mkdir($extractedDirPath, 0755, true) && !is_dir($extractedDirPath)) {
+                        throw new \RuntimeException(sprintf('Directory "%s" was not created', $extractedDirPath));
+                    }
                 }
 
                 // Extract all files from the ZIP archive
                 $zip->extractTo($extractedDirPath);
                 $zip->close();
 
-                // TODO: delete the zip file
+                // TODO: delete zip file
 
             }
         }

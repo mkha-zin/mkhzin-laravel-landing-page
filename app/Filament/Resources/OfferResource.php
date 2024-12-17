@@ -19,6 +19,7 @@ use Filament\Tables\Actions\ReplicateAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\App;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
@@ -72,14 +73,21 @@ class OfferResource extends Resource
                         ->helperText('Only zip files are allowed') // TODO: translate this & restrict file types
 
                         ->label(__('dashboard.file'))
-                        ->getUploadedFileNameForStorageUsing(
-                            fn (TemporaryUploadedFile $file, Offer $record): string => (string) str($file->getClientOriginalName())
-                                ->prepend('offer-' . $record->id . '-' . $record->name_en . '-'),
-                        )
-                        ->after( fn(Offer $record) => $record->extractZip($record->id, $record->pdf_file) )
+                        ->getUploadedFileNameForStorageUsing(function (UploadedFile $file, ?Offer $record) {
+                            if ($record) {
+                                return 'offer-' . $record->id . '-' . $record->name_en . '-' . $file->getClientOriginalName();
+                            }
+                            return $file->getClientOriginalName();
+                        })
+                        ->directory(fn(Offer $record) => 'zips/' . $record->id)
+                        ->after(function (Offer $record) {
+                            // Ensure the record is available before calling the method
+                            if ($record && $record->pdf_file) {
+                                $record->extractZip($record->id, $record->pdf_file);
+                            }
+                        })
                         ->disk('zip')
                         ->acceptedFileTypes(['zip','application/octet-stream','application/zip','application/x-zip','application/x-zip-compressed'])
-                        ->directory(fn(Offer $record) => 'zips/' . $record->id)
                         ->maxSize(30072)
                         ->required()
                 ])->columns(2),
