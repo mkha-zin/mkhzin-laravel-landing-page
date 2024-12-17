@@ -80,12 +80,6 @@ class OfferResource extends Resource
                             return $file->getClientOriginalName();
                         })
                         ->directory(fn(Offer $record) => 'zips/' . $record->id)
-                        ->after(function (Offer $record) {
-                            // Ensure the record is available before calling the method
-                            if ($record && $record->pdf_file) {
-                                $record->extractZip($record->id, $record->pdf_file);
-                            }
-                        })
                         ->disk('zip')
                         ->acceptedFileTypes(['zip','application/octet-stream','application/zip','application/x-zip','application/x-zip-compressed'])
                         ->maxSize(30072)
