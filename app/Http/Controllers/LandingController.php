@@ -294,21 +294,6 @@ class LandingController extends Controller
         return view('departments', $data);
     }
 
-/*
-//    test
-    public function test(){
-        $process = new Process(['start' . public_path('offers/a/flipbook.exe')]);
-        $process->run(null, ['MESSAGE' => 'Something to output']);
-//        $process = Process::fromShellCommandline('start' . public_path('offers/a/flipbook.exe'));
-//        $process->run();
-
-        if (!$process->isSuccessful()) {
-            throw new ProcessFailedException($process);
-        }
-
-        $output = $process->getOutput();
-        dd($output);
-    }*/
 }
 
 
