@@ -9,7 +9,8 @@
         "bezhansalleh/filament-language-switch": "^3.1",
         "filament/filament": "^3.2",
         "laravel/framework": "^11.9",
-        "laravel/tinker": "^2.9"
+        "laravel/tinker": "^2.9",
+        "ext-zip": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

@@ -20,6 +20,7 @@ use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class OfferResource extends Resource
 {
@@ -68,9 +69,16 @@ class OfferResource extends Resource
                         ->image()
                         ->required(),
                     Forms\Components\FileUpload::make('pdf_file')
-                        ->acceptedFileTypes(['application/pdf'])
+                        ->helperText('Only zip files are allowed') // TODO: translate this & restrict file types
+
                         ->label(__('dashboard.file'))
-                        ->directory('assets/files/offers')
+                        ->getUploadedFileNameForStorageUsing(
+                            fn (TemporaryUploadedFile $file, Offer $record): string => (string) str($file->getClientOriginalName())
+                                ->prepend('offer-' . $record->id . '-' . $record->name_en . '-'),
+                        )
+                        ->after( fn(Offer $record) => $record->extractZip($record->pdf_file) )
+                        ->disk('zip')
+                        ->directory(fn(Offer $record) => 'zips/' . $record->id)
                         ->maxSize(30072)
                         ->required()
                 ])->columns(2),

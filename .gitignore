@@ -3,6 +3,7 @@
 /public/build
 /public/hot
 /public/storage
+/public/offers
 /storage/*.key
 /vendor
 .env
@@ -19,3 +20,4 @@ yarn-error.log
 /.idea
 /.vscode
 /storage
+

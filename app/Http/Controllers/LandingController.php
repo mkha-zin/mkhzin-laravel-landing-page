@@ -25,6 +25,8 @@ use App\Models\Voucher;
 use Filament\Notifications\Notification;
 use Illuminate\Http\Request as HttpRequest;
 use Request;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
 
 class LandingController extends Controller
 {
@@ -289,6 +291,22 @@ class LandingController extends Controller
         $data['branches'] = Branch::query()->where('type', $key)->get();
 
         return view('departments', $data);
+    }
+
+
+//    test
+    public function test(){
+        $process = new Process(['start' . public_path('offers/a/flipbook.exe')]);
+        $process->run(null, ['MESSAGE' => 'Something to output']);
+//        $process = Process::fromShellCommandline('start' . public_path('offers/a/flipbook.exe'));
+//        $process->run();
+
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
+        }
+
+        $output = $process->getOutput();
+        dd($output);
     }
 }
 
