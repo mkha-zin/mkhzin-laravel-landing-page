@@ -79,7 +79,7 @@ class OfferResource extends Resource
                             }
                             return $file->getClientOriginalName();
                         })
-                        ->directory(fn(Offer $record) => 'zips/' . $record->id)
+                        ->directory('zips')
                         ->disk('zip')
                         ->acceptedFileTypes(['zip','application/octet-stream','application/zip','application/x-zip','application/x-zip-compressed'])
                         ->maxSize(30072)

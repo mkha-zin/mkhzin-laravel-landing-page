@@ -42,7 +42,7 @@ class Offer extends Model
     public function extractZip($id, $pdf_file)
     {
         $zipFilePath = public_path('offersfiles/' . $pdf_file);
-        $extractedDirPath = public_path('offersfiles/extrcs/' . $this->getDirectoryName($zipFilePath));
+        $extractedDirPath = public_path('offersfiles/extrcs/' . $id);
 
         // Check if the ZIP file exists
         if (Storage::exists($zipFilePath)) {
@@ -64,11 +64,5 @@ class Offer extends Model
 
             }
         }
-    }
-
-    public function getDirectoryName($path): string
-    {
-        $pathParts = explode('/', $path);
-        return $pathParts[count($pathParts) - 2];
     }
 }
