@@ -39,13 +39,6 @@ Route::group(['middleware' => 'localization'], function () {
 
 });
 
-// test
-Route::get('test', function () {
-    return Redirect::to(url('offers\extrcs\a\index.html'));
-});
-
-Route::get('test1', [LandingController::class, 'test']);
-
 
 
 Route::get('set-locale/{locale}', function ($locale) {

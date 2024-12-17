@@ -28,8 +28,9 @@ class Offer extends Model
     {
         static::saved(function ($file) {
             // Call the extractZip method after the file is saved
-            $file->extractZip($file->pdf_file);
+            $file->extractZip($file->id, $file->pdf_file);
         });
+
     }
 
     public function branch(): BelongsTo
@@ -38,10 +39,10 @@ class Offer extends Model
     }
 
 
-    public function extractZip($pdf_file)
+    public function extractZip($id, $pdf_file)
     {
-        $zipFilePath = public_path('offers/' . $pdf_file);
-        $extractedDirPath = public_path('offers/extrcs/' . $this->getDirectoryName($zipFilePath));
+        $zipFilePath = public_path('offersfiles/' . $pdf_file);
+        $extractedDirPath = public_path('offersfiles/extrcs/' . $this->getDirectoryName($zipFilePath));
 
         // Check if the ZIP file exists
         if (Storage::exists($zipFilePath)) {

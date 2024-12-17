@@ -46,7 +46,7 @@ return [
 
         'zip' => [
             'driver' => 'local',
-            'root' => public_path('offers'),
+            'root' => public_path('offersfiles'),
             'url' => env('APP_URL').'/public',
             'visibility' => 'public',
             'throw' => false,

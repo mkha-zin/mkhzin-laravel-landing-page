@@ -76,8 +76,9 @@ class OfferResource extends Resource
                             fn (TemporaryUploadedFile $file, Offer $record): string => (string) str($file->getClientOriginalName())
                                 ->prepend('offer-' . $record->id . '-' . $record->name_en . '-'),
                         )
-                        ->after( fn(Offer $record) => $record->extractZip($record->pdf_file) )
+                        ->after( fn(Offer $record) => $record->extractZip($record->id, $record->pdf_file) )
                         ->disk('zip')
+                        ->acceptedFileTypes(['zip','application/octet-stream','application/zip','application/x-zip','application/x-zip-compressed'])
                         ->directory(fn(Offer $record) => 'zips/' . $record->id)
                         ->maxSize(30072)
                         ->required()

@@ -24,6 +24,7 @@ use App\Models\VisitorMessage;
 use App\Models\Voucher;
 use Filament\Notifications\Notification;
 use Illuminate\Http\Request as HttpRequest;
+use Illuminate\Support\Facades\Redirect;
 use Request;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
@@ -197,7 +198,7 @@ class LandingController extends Controller
             ->where('id', $id)
             ->first();
         if ($offer->pdf_file) {
-            return response()->file('storage/' . $offer->pdf_file);
+            return Redirect::to('offersfiles/extrcs/' . $offer->id . '/' . 'index.html');
         }
 
         return view('404');
@@ -293,7 +294,7 @@ class LandingController extends Controller
         return view('departments', $data);
     }
 
-
+/*
 //    test
     public function test(){
         $process = new Process(['start' . public_path('offers/a/flipbook.exe')]);
@@ -307,7 +308,7 @@ class LandingController extends Controller
 
         $output = $process->getOutput();
         dd($output);
-    }
+    }*/
 }
 
 
