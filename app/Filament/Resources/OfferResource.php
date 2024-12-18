@@ -70,8 +70,7 @@ class OfferResource extends Resource
                         ->image()
                         ->required(),
                     Forms\Components\FileUpload::make('pdf_file')
-                        ->helperText('Only zip files are allowed') // TODO: translate this & restrict file types
-
+                        ->helperText(__('dashboard.Only Compressed files are allowed'))
                         ->label(__('dashboard.file'))
                         ->getUploadedFileNameForStorageUsing(function (UploadedFile $file, ?Offer $record) {
                             if ($record) {
@@ -83,6 +82,7 @@ class OfferResource extends Resource
                         ->disk('zip')
                         ->acceptedFileTypes(['zip','application/octet-stream','application/zip','application/x-zip','application/x-zip-compressed'])
                         ->maxSize(30072)
+                        ->downloadable()
                         ->required()
                 ])->columns(2),
                 Forms\Components\Section::make(__(''))->schema([

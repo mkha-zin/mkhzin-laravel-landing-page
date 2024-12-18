@@ -97,6 +97,7 @@ return [
 
     'files'=>'Files',
     'file'=>'File',
+    'Only Compressed files are allowed'=>'Only Compressed files are allowed',
     'duration'=>'Duration',
 
     'action'=>'Action',

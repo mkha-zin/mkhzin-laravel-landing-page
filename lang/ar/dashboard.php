@@ -87,6 +87,7 @@ return [
 
     'files'=>'الملفات',
     'file'=>'الملف',
+    'Only Compressed files are allowed'=>'يسمح فقط بالملفات المضغوطة',
     'duration'=>'المدة',
     'start_date'=>'تاريخ البدء',
     'end_date'=>'تاريخ الانتهاء',
