@@ -68,6 +68,7 @@ class OfferResource extends Resource
                         ->directory('assets/images/offers')
                         ->imageEditor()
                         ->image()
+                        ->downloadable()
                         ->required(),
                     Forms\Components\FileUpload::make('pdf_file')
                         ->helperText(__('dashboard.Only Compressed files are allowed'))
