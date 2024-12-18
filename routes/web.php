@@ -37,6 +37,7 @@ Route::group(['middleware' => 'localization'], function () {
 
     Route::get('/departments/{key}', [LandingController::class, 'departments'])->name('departments');
 
+//    Route::get('view-store', [LandingController::class, 'viewStore']);
 });
 
 

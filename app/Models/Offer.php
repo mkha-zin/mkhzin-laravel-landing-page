@@ -26,9 +26,15 @@ class Offer extends Model
 
     protected static function booted()
     {
-        static::saved(function ($file) {
+        static::saved(function ($offer) {
             // Call the extractZip method after the file is saved
-            $file->extractZip($file->id, $file->pdf_file);
+            $offer->extractZip($offer->id, $offer->pdf_file);
+        });
+
+        // Trigger before update to delete related files
+        static::updating(function ($offer) {
+            // Call method to delete related files before updating
+            $offer->deleteOldRelatedFiles();
         });
 
     }
@@ -63,6 +69,53 @@ class Offer extends Model
                 // TODO: delete zip file
 
             }
+        }
+    }
+
+    /**
+     * Delete the old related files before updating the offer
+     */
+    public function deleteOldRelatedFiles()
+    {
+        // Get the old file's name, assuming it's a property on the model like $this->old_pdf_file
+        $oldPdfFile = $this->getOriginal('pdf_file');  // This gets the old PDF file name (before update)
+
+        // Path to the old ZIP file
+        $oldZipFilePath = public_path('offersfiles/' . $oldPdfFile);
+
+        // Path to the old extracted files
+        $oldExtractedDirPath = public_path('offersfiles/extrcs/' . $this->id);
+
+        // Check if the old ZIP file exists and delete it
+        if (file_exists($oldZipFilePath)) {
+            unlink($oldZipFilePath);  // Delete the old ZIP file
+        }
+
+        // Check if the old extracted directory exists and delete it
+        if (is_dir($oldExtractedDirPath)) {
+            // Recursively delete all files and subdirectories
+            $this->deleteDirectory($oldExtractedDirPath);
+        }
+    }
+
+    /**
+     * Recursively delete a directory and its contents
+     *
+     * @param string $dirPath
+     */
+    private function deleteDirectory($dirPath)
+    {
+        if (is_dir($dirPath)) {
+            $files = array_diff(scandir($dirPath), array('.', '..'));
+            foreach ($files as $file) {
+                $filePath = $dirPath . DIRECTORY_SEPARATOR . $file;
+                if (is_dir($filePath)) {
+                    $this->deleteDirectory($filePath); // Recursively delete subdirectories
+                } else {
+                    unlink($filePath); // Delete file
+                }
+            }
+            rmdir($dirPath); // Remove the directory itself
         }
     }
 }
