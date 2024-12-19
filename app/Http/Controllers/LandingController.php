@@ -288,8 +288,11 @@ class LandingController extends Controller
 
     public function departments($key)
     {
-        $data['department'] = Department::query()->where('key', $key)->first();
+        $department = Department::query()->where('key', $key)->first();
+        $data['department'] = $department;
         $data['branches'] = Branch::query()->where('type', $key)->get();
+
+        $data['header_title'] = $department->title_ar . ' - ' . $department->title_en;
 
         return view('departments', $data);
     }

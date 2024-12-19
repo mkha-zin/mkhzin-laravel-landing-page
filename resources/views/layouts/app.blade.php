@@ -11,7 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="profile" href="http/gmpgorg/xfn/11_3604524.html"/>
     <link rel="pingback" href="xmlrpc_php.html"/>
-    <title>{{  config('app.name') }}</title>
+    <title>
+        {{  $header_title  ?? config('app.name') }}
+    </title>
     <meta name='robots' content='max-image-preview:large'/>
     <link rel='dns-prefetch' href='https/cdnjs.cloudflare_com_4456457.html'/>
     <link rel="alternate" type="application/rss+xml" title="Boxx &raquo; Feed" href="feed/3014659.rss"/>
