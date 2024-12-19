@@ -119,8 +119,8 @@ class ExportResource extends Resource
                     ->label(__('dashboard.successful rows'))
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('user_id')
-                    ->label(__('dashboard.user id'))
+                Tables\Columns\TextColumn::make('user.name')
+                    ->label(__('dashboard.username'))
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')

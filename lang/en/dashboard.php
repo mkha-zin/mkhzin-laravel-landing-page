@@ -153,6 +153,7 @@ return [
     'total rows' => 'Total Rows',
     'successful rows' => 'Successful Rows',
     'user id' => 'User Id',
+    'username' => 'Username',
     'download' => 'Download',
     'created at' => 'Created At',
     'updated at' => 'Updated At',

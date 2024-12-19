@@ -150,6 +150,7 @@ return [
     'total rows' => 'عدد الصفوف الكلية',
     'successful rows' => 'عدد الصفوف المنجزة',
     'user id' => 'رقم المستخدم',
+    'username' => 'اسم المستخدم',
     'download' => 'تحميل',
     'created at' => 'انشئت في',
     'updated at' => 'تم التحديث في',
