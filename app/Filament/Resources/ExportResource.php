@@ -110,7 +110,8 @@ class ExportResource extends Resource
                 Tables\Columns\TextColumn::make('processed_rows')
                     ->label(__('dashboard.processed rows'))
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('total_rows')
                     ->label(__('dashboard.total rows'))
                     ->numeric()
@@ -118,7 +119,8 @@ class ExportResource extends Resource
                 Tables\Columns\TextColumn::make('successful_rows')
                     ->label(__('dashboard.successful rows'))
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('user.name')
                     ->label(__('dashboard.username'))
                     ->numeric()
