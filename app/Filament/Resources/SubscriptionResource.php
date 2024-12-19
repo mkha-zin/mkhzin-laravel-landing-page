@@ -2,10 +2,15 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Exports\SubscriptionExporter;
+use App\Filament\Exports\VoucherExporter;
 use App\Filament\Resources\UbscriptionResource\Pages;
 use App\Filament\Resources\UbscriptionResource\RelationManagers;
 use App\Models\Subscription;
 use App\Models\Ubscription;
+use Filament\Actions\ExportAction;
+use Filament\Actions\Exports\Enums\ExportFormat;
+use Filament\Actions\Exports\Models\Export;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\Section;
@@ -85,9 +90,15 @@ class SubscriptionResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\ExportBulkAction::make()
+                    ->exporter(SubscriptionExporter::class)
+                    ->formats([
+                        ExportFormat::Xlsx,
+                    ])
+                    ->fileDisk('public')
+                    ->icon('heroicon-o-arrow-down-circle')
+                    ->fileName(fn(Export $export): string => "subscriptions-{$export->getKey()}"),
             ]);
     }
 
