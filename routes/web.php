@@ -37,9 +37,10 @@ Route::group(['middleware' => 'localization'], function () {
 
     Route::get('/departments/{key}', [LandingController::class, 'departments'])->name('departments');
 
-//    Route::get('view-store', [LandingController::class, 'viewStore']);
+    /*Route::get('test', function () {
+        return view('test');
+    });*/
 });
-
 
 
 Route::get('set-locale/{locale}', function ($locale) {

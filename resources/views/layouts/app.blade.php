@@ -16,9 +16,6 @@
     </title>
     <meta name='robots' content='max-image-preview:large'/>
     <link rel='dns-prefetch' href='https/cdnjs.cloudflare_com_4456457.html'/>
-    <link rel="alternate" type="application/rss+xml" title="Boxx &raquo; Feed" href="feed/3014659.rss"/>
-    <link rel="alternate" type="application/rss+xml" title="Boxx &raquo; Comments Feed"
-          href="comments/feed/3342385.rss"/>
 
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('uploads/mkhazin/fav.png') }}">
 
