@@ -132,7 +132,7 @@ class SectionResource extends Resource
     {
         return $infolist->schema([
 
-            \Filament\Infolists\Components\Section::make(__('dashboard.imageAndIcon'))->schema([
+            \Filament\Infolists\Components\Section::make(__('dashboard.image'))->schema([
                 ImageEntry::make('image')
                     ->label(__('dashboard.image')),
 
