@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'localization'], function () {
-    Route::get('/', [LandingController::class, 'index']);
+    Route::get('/', [LandingController::class, 'index'])->name('home');
     Route::post('save-visitor-msg', [LandingController::class, 'visitorMsg'])->name('save-visitor-msg');
     Route::post('subscribe', [LandingController::class, 'subscribe'])->name('subscribe');
     Route::get('sections', [LandingController::class, 'sections']);
