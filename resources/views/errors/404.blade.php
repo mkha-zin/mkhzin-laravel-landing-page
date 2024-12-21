@@ -389,6 +389,9 @@
           href='{{ asset('uploads/sites/82/elementor/css/post-4_4718631.css') }}' media='all'/>
     <link rel='stylesheet' id='swiper-css'
           href='{{ asset('plugins/elementor/assets/lib/swiper/v8/css/swiper.min_3407988.css') }}' media='all'/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
     <link rel='stylesheet' id='elementor-post-1246-css'
           href='{{ asset('uploads/sites/82/elementor/css/post-1246_6422587.css') }}' media='all'/>
     <style>
@@ -414,7 +417,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 </head>
 
-<body class="envato_tk_templates-template envato_tk_templates-template-elementor_canvas single single-envato_tk_templates postid-1246 elementor-default elementor-template-canvas elementor-kit-4 elementor-page elementor-page-1246">
+<body style="font-family: Cairo, sans-serif !important;" class="envato_tk_templates-template envato_tk_templates-template-elementor_canvas single single-envato_tk_templates postid-1246 elementor-default elementor-template-canvas elementor-kit-4 elementor-page elementor-page-1246">
 <div data-elementor-type="wp-post" data-elementor-id="1246" class="elementor elementor-1246">
     <div class="elementor-element elementor-element-5a23dd4 e-flex e-con-boxed e-con e-parent" data-id="5a23dd4"
          style="background-image: url({{ asset('uploads/mkhazin/tmp/404bg.jpg') }})"
@@ -493,7 +496,9 @@
                             display: inline-block
                         }</style>
                     <p>
-                        <span style="color: white; text-shadow: 0 0 3px black, 0 0 5px red">The page you are looking for doesn't exist.</span>
+                        <span style="color: white; text-shadow: 0 0 3px black, 0 0 5px red">
+                            {{ __('landing.404') }}
+                        </span>
                     </p>
                 </div>
             </div>
@@ -503,7 +508,9 @@
                     <div class="elementor-button-wrapper">
                         <a class="elementor-button elementor-button-link elementor-size-sm" href="{{ route('home') }}">
 						<span class="elementor-button-content-wrapper">
-									<span class="elementor-button-text" style="color: white;">Back to Home</span>
+									<span class="elementor-button-text" style="color: white; letter-spacing: 0 !important;">
+                                        {{ __('landing.Back To Home') }}
+                                    </span>
 					</span>
                         </a>
                     </div>

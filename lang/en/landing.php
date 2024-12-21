@@ -71,4 +71,7 @@ return [
     'Already Used' => 'Already Used',
 
 
+    '404' => 'Dear customer, This Page is Not Found.',
+    'Back to Home' => 'Back to Home',
+
 ];
