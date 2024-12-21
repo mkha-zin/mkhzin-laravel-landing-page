@@ -51,6 +51,7 @@ class SectionResource extends Resource
                         ->directory('assets/images/sections')
                         ->columnSpanFull()
                         ->imageEditor()
+                        ->downloadable()
                         ->image()
                         ->required(),
                 ])->columns(2),
