@@ -71,6 +71,9 @@ return [
     'Used Successfully' => 'Used Successfully',
     'Already Used' => 'Already Used',
 
+    'supermarket' => 'Supermarket',
+    'hypermarket' => 'Hypermarket',
+    'wholesale' => 'Wholesale',
 
     '404' => 'Dear customer, This Page is Not Found.',
     'Back to Home' => 'Back to Home',

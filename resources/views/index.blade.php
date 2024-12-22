@@ -119,17 +119,18 @@
                 <a href="{{ url('/departments/super') }}"
                    class="flex-sm-fill text-sm-center nav-link m-1"
                    style="background-color: var(--e-global-color-7cfaca3); text-align: center; color: white; z-index: 200">
-                    سوبر ماركت
+                    {{  __('landing.supermarket') }}
                 </a>
                 <a class="flex-sm-fill text-sm-center nav-link m-1"
                    href="{{ route('departments', ['key' => 'hyper']) }}"
                    style="background-color: var(--e-global-color-7cfaca3); text-align: center; color: white; z-index: 200">
-                    هايبر ماركت
+                    {{  __('landing.hypermarket') }}
                 </a>
                 <a class="flex-sm-fill text-sm-center nav-link m-1"
                    href="{{ url('/departments/wholesale') }}"
                    style="background-color: var(--e-global-color-7cfaca3); text-align: center; color: white; z-index: 200">
-                    مخازن الجملة
+                    {{  __('landing.wholesale') }}
+
                 </a>
             </nav>
         </div>
