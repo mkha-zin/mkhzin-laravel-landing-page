@@ -112,7 +112,7 @@
 
         <div class="container" style="margin-top: 130px; margin-bottom: -80px">
             <h2 class="main-website-title text-center" style="color: black">
-                شركة مخازن المملكة العالمية&reg;
+                {{ __('landing.company name') }}&reg;
             </h2>
             <nav class="nav nav-pills flex-column flex-sm-row"
                  style=" border-radius: 10px;">

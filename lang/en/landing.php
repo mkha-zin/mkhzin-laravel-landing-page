@@ -71,6 +71,7 @@ return [
     'Used Successfully' => 'Used Successfully',
     'Already Used' => 'Already Used',
 
+    'company name' => 'Makhazin Al-Mamlaka Al-Alamia',
     'supermarket' => 'Supermarket',
     'hypermarket' => 'Hypermarket',
     'wholesale' => 'Wholesale',

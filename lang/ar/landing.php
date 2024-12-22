@@ -71,6 +71,7 @@ return [
     'Used Successfully' => 'تم استخدام القسيمة بنجاح',
     'Already Used' => 'القسيمة مستخدمة مسبقاً',
 
+    'company name' => 'شركة مخازن المملكة العالمية',
     'supermarket' => 'سوبر ماركت',
     'hypermarket' => 'هايبر ماركت',
     'wholesale' => 'البيع بالجملة',
