@@ -10,28 +10,10 @@
     @endphp
 
     <div class="container mt-5 justify-content-center">
-        <style>
-            .vouchers-logo {
-                width: 300px;
-                height: auto;
-            }
-
-            @media only screen and (max-width: 600px) {
-                .vouchers-logo {
-                    width: 200px;
-                    height: auto;
-                }
-            }
-        </style>
-
-        {{--<div class="row mt-5 justify-content-center">
-            <img class="img img-fluid vouchers-logo" src="{{ asset('uploads/mkhazin/logo300.png') }}">
-        </div>--}}
-
         @if($department)
-            <h2 class="text-center mb-5">
+            <h1 id="page_title" class="page_title text-center mb-5" style="color: black; font-size: 50px;">
                 {{ $direction == 'rtl' ? $department->title_ar : $department->title_en }}
-            </h2>
+            </h1>
 
             <p class="m-1"
                style="font-size: 20px; line-height: 1.5;font-weight: normal; text-align:justify; word-break:keep-all;">
