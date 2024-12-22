@@ -663,8 +663,8 @@
                         <h2 style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important">
                             {{ $direction == 'rtl' ? $fleet->title_ar : $fleet->title_en }}
                         </h2>
-                        <p style="text-align:justify; word-break:keep-all;">
-                            {{  Markdown::block($direction == 'rtl' ? $fleet->description_ar : $fleet->description_en) }}
+                        <p style="display: -webkit-box; text-align:justify; word-break:keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 5; color: black; overflow: hidden; text-overflow: ellipsis;">
+                            {{  Markdown::inline($direction == 'rtl' ? $fleet->description_ar : $fleet->description_en) }}
                         </p>
                         <div
                             class="elementor-element elementor-element-7e66f724 elementor-align-left elementor-mobile-align-center elementor-widget elementor-widget-button"
