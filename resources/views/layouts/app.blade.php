@@ -14,6 +14,10 @@
     <title>
         {{  $header_title  ?? config('app.name') }}
     </title>
+    <meta name="name" content="{{ $header_title ?? config('app.name') }}">
+    <meta name="author" content="{{ config('app.name') }}">
+    <meta name="keywords" content="{{ $header_keywords ?? config('app.name') }}">
+    <meta name="description" content="{{ $header_description ?? config('app.name') }}">
     <meta name='robots' content='max-image-preview:large'/>
     <link rel='dns-prefetch' href='https/cdnjs.cloudflare_com_4456457.html'/>
 
