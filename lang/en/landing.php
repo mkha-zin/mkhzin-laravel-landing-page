@@ -5,6 +5,7 @@ return [
     'Home' => 'Home',
     'About' => 'About',
     'Departments' => 'Sections',
+    'Visit Us' => 'Visit Us',
     'All Departments' => 'View All Departments',
     'Store' => 'Store',
     'Jobs' => 'Jobs',

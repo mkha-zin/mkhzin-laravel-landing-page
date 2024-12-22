@@ -7,7 +7,8 @@
     $snapchat = \App\Models\SocialLink::query()->where('title_en', 'Snapchat')->where('is_active', 1)->first();
     $tiktok = \App\Models\SocialLink::query()->where('title_en', 'TikTok')->where('is_active', 1)->first();
     $whatsChannel = \App\Models\SocialLink::query()->where('title_en', 'Whatsapp Channel')->where('is_active', 1)->first();
-    $sections = \App\Models\Section::query()->limit(6)->get();
+    $sections = \App\Models\Section::query()->inRandomOrder()->limit(6)->get();
+    $depars = \App\Models\Department::query()->get();
 
     $direction = app()->currentLocale() == 'ar' ? 'rtl' : 'ltr';
 @endphp
@@ -313,6 +314,44 @@
                         </div>
                     </div>
                 @endif
+                @if(!empty($depars))
+                    <div class="elementor-element elementor-element-403ecc6 e-con-full e-flex e-con e-child"
+                         data-id="403ecc6" data-element_type="container">
+                        <div
+                            class="elementor-element elementor-element-873b3cd elementor-widget elementor-widget-heading"
+                            data-id="873b3cd" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h3 class="elementor-heading-title elementor-size-default">{{ __('landing.Visit Us') }}</h3>
+                            </div>
+                        </div>
+                        <div
+                            class="elementor-element elementor-element-2653389 elementor-align-left elementor-mobile-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                            data-id="2653389" data-element_type="widget" data-widget_type="icon-list.default">
+                            <div class="elementor-widget-container">
+                                <ul class="elementor-icon-list-items" style="list-style: none">
+                                    @foreach($depars as $depar)
+                                        <li class="elementor-icon-list-item"
+                                            style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important;">
+                                        <span class="elementor-icon-list-icon">
+                                            <svg aria-hidden="true" width="20" height="20"
+                                                 class="e-font-icon-svg e-fas-check-circle" viewBox="0 0 512 512"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"></path>
+                                            </svg>
+                                        </span>
+                                            <span class="elementor-icon-list-text">
+                                        <a href="{{ url( 'departments/'.$depar->key ) }}">
+                                            {{ $direction == 'rtl' ? $depar->title_ar : $depar->title_en  }}
+                                        </a>
+                                        </span>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
         <div class="elementor-element elementor-element-43bbb4d e-flex e-con-boxed e-con e-parent" data-id="43bbb4d"
@@ -326,12 +365,6 @@
                             <a href="https://mkhzin.com" target="_blank">Mkhazin</a>.
                             All Rights Reserved
                         </h6>
-                        <p class="elementor-heading-title elementor-size-default">
-                            Made with
-                            &hearts;
-                            by:
-                            <a href="https://ymnin.com" target="_blank">in Technology</a>
-                        </p>
                     </div>
                 </div>
             </div>

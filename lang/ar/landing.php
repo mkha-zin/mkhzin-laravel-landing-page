@@ -5,6 +5,7 @@ return [
     'Home' => 'الرئيسية',
     'About' => 'عن الشركة',
     'Departments' => 'الأقسام',
+    'Visit Us' => 'زورونا',
     'All Departments' => 'مشاهدة كل الأقسام',
     'Store' => 'المتجر',
     'Jobs' => 'الوظائف',
