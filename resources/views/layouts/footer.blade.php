@@ -361,9 +361,9 @@
                      data-id="0097140" data-element_type="widget" data-widget_type="heading.default">
                     <div class="elementor-widget-container">
                         <h6 class="elementor-heading-title elementor-size-default">
-                            Copyright © 2024
-                            <a href="https://mkhzin.com" target="_blank">{{ __('dashboard.app_name') }}</a>.
-                            All Rights Reserved
+                            {{  __('dashboard.copyright') }}
+                            <a href="https://mkhzin.com" class="hover:underline">{{ __('dashboard.app_name') }}</a>
+                            © 2024
                         </h6>
                     </div>
                 </div>
