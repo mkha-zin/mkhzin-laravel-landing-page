@@ -1,7 +1,7 @@
 <?php
 return [
 
-    'app_name'=>'Makhazin',
+    'app_name'=>'Commercial Makhazin Al-Mamlaka Al-Alamia Company',
 
     //nav
     'hero' => 'Hero',

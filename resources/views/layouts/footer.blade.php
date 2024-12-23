@@ -362,7 +362,7 @@
                     <div class="elementor-widget-container">
                         <h6 class="elementor-heading-title elementor-size-default">
                             Copyright © 2024
-                            <a href="https://mkhzin.com" target="_blank">Mkhazin</a>.
+                            <a href="https://mkhzin.com" target="_blank">{{ __('dashboard.app_name') }}</a>.
                             All Rights Reserved
                         </h6>
                     </div>
