@@ -23,7 +23,7 @@
     </style>
 </head>
 <body
-    style="background-image:url('{{ asset('uploads/mkhazin/offers_background.jpg') }}'); background-attachment:fixed; background-repeat: no-repeat; background-size: cover;">
+        style="background-image:url('{{ asset('uploads/mkhazin/offers_background.jpg') }}'); background-attachment:fixed; background-repeat: no-repeat; background-size: cover;">
 <div class="container">
     <div class="container mt-5">
 
@@ -50,7 +50,7 @@
                 </form>
             </div>
             <div class="card-footer text-muted">
-                @include('_message')
+                @include('includes._message')
                 {{--            @dd( session()->has('success') . ' - ' .  session()->has('error') )--}}
                 @if( session()->has('voucher') )
                     <form method="post" action="{{ url('use_voucher') }}">
