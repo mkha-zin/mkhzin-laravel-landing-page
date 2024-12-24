@@ -2,11 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Header;
 use App\Models\Voucher;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 use Nette\Utils\Random;
 
 class VoucherSeeder extends Seeder
@@ -25,7 +23,8 @@ class VoucherSeeder extends Seeder
         }
     }
 
-    public function generateUniqueVoucher() {
+    public function generateUniqueVoucher(): string
+    {
         do {
             $voucher = Random::generate(10, '0123456789');
         } while (DB::table('vouchers')->where('voucher', $voucher)->exists());

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ App::currentLocale() }}" dir="{{ App::currentLocale() == 'ar'? 'rtl': 'ltr' }}">
+<html lang="{{ App::currentLocale() }}" dir="{{ App::currentLocale() === 'ar'? 'rtl': 'ltr' }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

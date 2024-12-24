@@ -10,7 +10,6 @@ use App\Models\City;
 use App\Models\ContactImage;
 use App\Models\ContactInfo;
 use App\Models\Department;
-use App\Models\Export;
 use App\Models\Fleet;
 use App\Models\Hero;
 use App\Models\Offer;
@@ -23,15 +22,17 @@ use App\Models\VisionAndGoal;
 use App\Models\VisitorMessage;
 use App\Models\Voucher;
 use Filament\Notifications\Notification;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Redirect;
 use Request;
-use Symfony\Component\Process\Exception\ProcessFailedException;
-use Symfony\Component\Process\Process;
 
 class LandingController extends Controller
 {
-    public function index()
+    public function index(): Factory|View|Application|\Illuminate\View\View
     {
         $data['heroes'] = Hero::query()->get();
         $data['ourValues'] = OurValue::query()->get();
@@ -52,19 +53,19 @@ class LandingController extends Controller
         return view('index', $data, compact('socialLinks'));
     }
 
-    public function sections()
+    public function sections(): Factory|View|Application|\Illuminate\View\View
     {
         $data['departments'] = Section::query()->get();
         return view('sections', $data);
     }
 
-    public function sectionDetails($id)
+    public function sectionDetails($id): Factory|View|Application|\Illuminate\View\View
     {
         $data['section'] = Section::query()->where('id', $id)->first();
         return view('section_details', $data);
     }
 
-    public function offers()
+    public function offers(): Factory|View|Application|\Illuminate\View\View
     {
         $return = Offer::select('offers.*')
             ->where('offers.end_date', '>=', date('Y-m-d'))
@@ -85,7 +86,7 @@ class LandingController extends Controller
     }
 
 
-    public function visitorMsg(HttpRequest $request)
+    public function visitorMsg(HttpRequest $request): RedirectResponse
     {
         VisitorMessage::query()->create([
             'first_name' => $request->first_name,
@@ -99,7 +100,7 @@ class LandingController extends Controller
         return redirect('/#contact-us')->with('success', __('landing.Success Message'));
     }
 
-    public function subscribe(HttpRequest $request)
+    public function subscribe(HttpRequest $request): RedirectResponse
     {
         Subscription::query()->create([
             'email' => $request->email,
@@ -115,28 +116,26 @@ class LandingController extends Controller
 
     }
 
-    public function about()
+    public function about(): Factory|View|Application|\Illuminate\View\View
     {
         $data['about'] = About::query()->first();
         $data['aboutCards'] = AboutCard::query()->get();
         return view('about_us', $data);
     }
 
-    public function jobs()
+    public function jobs(): Factory|View|Application|\Illuminate\View\View
     {
         $data['job'] = Career::query()
             ->first();
         return view('jobs', $data);
     }
 
-    public function branches()
+    public function branches(): Factory|View|Application|\Illuminate\View\View
     {
         $return = Branch::select('branches.*');
 
-        if (!empty(Request::get('city'))) {
-            if (Request::get('city') != 'all') {
-                $return = $return->where('branches.city_id', Request::get('city'));
-            }
+        if (!empty(Request::get('city')) && Request::get('city') != 'all') {
+            $return = $return->where('branches.city_id', Request::get('city'));
         }
 
         $data['cities'] = City::all();
@@ -144,7 +143,7 @@ class LandingController extends Controller
         return view('branches', $data);
     }
 
-    public function branchOffers($id)
+    public function branchOffers($id): Factory|View|Application|\Illuminate\View\View
     {
         $data['offers'] = Offer::query()
             ->where('branch_id', $id)
@@ -154,7 +153,7 @@ class LandingController extends Controller
         return view('offers', $data);
     }
 
-    public function contact()
+    public function contact(): Factory|View|Application|\Illuminate\View\View
     {
         $data['contactInfos'] = ContactInfo::query()->get();
         $data['contact_first_image'] = ContactImage::query()->first();
@@ -162,7 +161,7 @@ class LandingController extends Controller
         return view('contact_us', $data);
     }
 
-    public function vision()
+    public function vision(): Factory|View|Application|\Illuminate\View\View
     {
         $data['vision'] = VisionAndGoal::query()
             ->where('slug', 'vision')
@@ -170,7 +169,7 @@ class LandingController extends Controller
         return view('vision', $data);
     }
 
-    public function goals()
+    public function goals(): Factory|View|Application|\Illuminate\View\View
     {
         $data['goals'] = VisionAndGoal::query()
             ->where('slug', 'goals')
@@ -178,14 +177,14 @@ class LandingController extends Controller
         return view('goals', $data);
     }
 
-    public function fleet()
+    public function fleet(): Factory|View|Application|\Illuminate\View\View
     {
         $data['fleet'] = Fleet::query()
             ->first();
         return view('fleet', $data);
     }
 
-    public function storage()
+    public function storage(): Factory|View|Application|\Illuminate\View\View
     {
         $data['storage'] = Storage::query()
             ->first();
@@ -201,20 +200,20 @@ class LandingController extends Controller
             return Redirect::to('offersfiles/extrcs/' . $offer->id . '/' . 'index.html');
         }
 
-        return view('404');
+        return view('errors.404');
     }
 
-    public function viewStore()
+    public function viewStore(): Factory|View|Application|\Illuminate\View\View
     {
         return view('store');
     }
 
-    public function vouchers()
+    public function vouchers(): Factory|View|Application|\Illuminate\View\View
     {
         return view('vouchers');
     }
 
-    public function checkVouchers()
+    public function checkVouchers(): RedirectResponse
     {
         $vocherNumber = request()->voucher_number;
         $is_allowed = Voucher::query()
@@ -226,13 +225,13 @@ class LandingController extends Controller
         {
             session()->put('voucher', $vocherNumber);
             return redirect()->back()->with('success', __('landing.Voucher Found'));
-        }else{
-            return redirect()->back()->with('error', __('landing.Not Found or Already Used'));
         }
+
+        return redirect()->back()->with('error', __('landing.Not Found or Already Used'));
     }
 
 
-    public function useVoucher()
+    public function useVoucher(): RedirectResponse
     {
         $voucher = session()->get('voucher');
         $c_name = request()->c_name;
@@ -254,17 +253,17 @@ class LandingController extends Controller
                     ]);
                 session()->remove('voucher');
                 return redirect()->back()->with('success', __('landing.Used Successfully'));
-            }else
-            {
-                session()->remove('voucher');
-                return redirect()->back()->with('error', __('landing.Already Used'));
             }
+
+            session()->remove('voucher');
+            return redirect()->back()->with('error', __('landing.Already Used'));
         }
 
         return redirect()->back();
     }
 
-    public function cancelVoucher(){
+    public function cancelVoucher(): RedirectResponse
+    {
         session()->remove('voucher');
         return redirect()->back();
     }
@@ -286,7 +285,7 @@ class LandingController extends Controller
         return response()->download($filePath);
     }
 
-    public function departments($key)
+    public function departments($key): Factory|View|Application|\Illuminate\View\View
     {
         $department = Department::query()->where('key', $key)->first();
         $data['department'] = $department;

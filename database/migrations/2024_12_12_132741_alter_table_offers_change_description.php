@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('offers', function (Blueprint $table) {
+        Schema::table('offers', static function (Blueprint $table) {
             $table->longText('description_ar')->change();
             $table->longText('description_en')->change();
         });
@@ -22,7 +22,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('offers', function (Blueprint $table) {
+        Schema::table('offers', static function (Blueprint $table) {
             $table->string('description_ar')->change();
             $table->string('description_en')->change();
         });

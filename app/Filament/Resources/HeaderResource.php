@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\HeaderResource\Pages;
-use App\Filament\Resources\HeaderResource\RelationManagers;
 use App\Models\Header;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -79,7 +78,7 @@ class HeaderResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'title_ar' : 'title_en'
+                    App::currentLocale() === 'ar' ? 'title_ar' : 'title_en'
                 )->label(__('dashboard.title'))
                     ->searchable()
                     ->sortable(),

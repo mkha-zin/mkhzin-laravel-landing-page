@@ -14,7 +14,7 @@ class ListOffers extends ListRecords
     protected function getHeaderWidgets(): array
     {
         return [
-//            OffersOverview::class,
+            OffersOverview::class,
         ];
     }
 

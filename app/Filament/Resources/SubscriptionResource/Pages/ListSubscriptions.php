@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\UbscriptionResource\Pages;
+namespace App\Filament\Resources\SubscriptionResource\Pages;
 
 use App\Filament\Resources\SubscriptionResource;
 use Filament\Actions;

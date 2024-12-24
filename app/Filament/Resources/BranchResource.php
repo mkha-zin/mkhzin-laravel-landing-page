@@ -14,8 +14,6 @@ use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\App;
 
 class BranchResource extends Resource
@@ -96,19 +94,19 @@ class BranchResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'city.name_ar' : 'city.name_en'
+                    App::currentLocale() === 'ar' ? 'city.name_ar' : 'city.name_en'
                 )
                     ->label(__('dashboard.city'))
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'name_ar' : 'name_en'
+                    App::currentLocale() === 'ar' ? 'name_ar' : 'name_en'
                 )
                     ->label(__('dashboard.name'))
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'address_ar' : 'address_en'
+                    App::currentLocale() === 'ar' ? 'address_ar' : 'address_en'
                 )
                     ->label(__('dashboard.address'))
                     ->searchable(),
@@ -155,7 +153,7 @@ class BranchResource extends Resource
             ])->columns(2) ,
         Section::make(__(''))->schema([
                 TextEntry::make(
-                    App::currentLocale() == 'ar' ? 'city.name_ar' : 'city.name_en'
+                    App::currentLocale() === 'ar' ? 'city.name_ar' : 'city.name_en'
                 )->label(__('dashboard.city')),
             ])->columns(2)
 

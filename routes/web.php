@@ -3,11 +3,9 @@
 use App\Http\Controllers\LandingController;
 use App\Http\Middleware\Localization;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['middleware' => 'localization'], function () {
+Route::group(['middleware' => 'localization'], static function () {
     Route::get('/', [LandingController::class, 'index'])->name('home');
     Route::post('save-visitor-msg', [LandingController::class, 'visitorMsg'])->name('save-visitor-msg');
     Route::post('subscribe', [LandingController::class, 'subscribe'])->name('subscribe');
@@ -44,7 +42,7 @@ Route::group(['middleware' => 'localization'], function () {
 });
 
 
-Route::get('set-locale/{locale}', function ($locale) {
+Route::get('set-locale/{locale}', static function ($locale) {
     App::setLocale($locale);
     session()->put('locale', $locale);
     return redirect()->back();

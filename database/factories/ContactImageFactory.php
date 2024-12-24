@@ -3,10 +3,11 @@
 namespace Database\Factories;
 
 use App\Http\Controllers\util\Common;
+use App\Models\ContactImage;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ContactImage>
+ * @extends Factory<ContactImage>
  */
 class ContactImageFactory extends Factory
 {

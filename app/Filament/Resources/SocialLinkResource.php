@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\SocialLinkResource\Pages;
-use App\Filament\Resources\SocialLinkResource\RelationManagers;
 use App\Models\SocialLink;
 use Filament\Forms;
 use Filament\Forms\Form;

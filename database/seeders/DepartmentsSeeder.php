@@ -3,10 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Department;
-use App\Models\Voucher;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Nette\Utils\Random;
 
 class DepartmentsSeeder extends Seeder
 {

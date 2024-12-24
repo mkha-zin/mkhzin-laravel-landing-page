@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('branches', function (Blueprint $table) {
+        Schema::table('branches', static function (Blueprint $table) {
             $table->enum('type', ['super', 'hyper', 'wholesale'])->nullable();
         });
     }
@@ -21,7 +21,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('branches', function (Blueprint $table) {
+        Schema::table('branches', static function (Blueprint $table) {
             $table->dropColumn('type');
         });
     }

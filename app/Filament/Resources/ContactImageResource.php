@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ContactImageResource\Pages;
-use App\Filament\Resources\ContactImageResource\RelationManagers;
 use App\Models\ContactImage;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -14,9 +13,7 @@ use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\App;
 
 class ContactImageResource extends Resource
@@ -71,7 +68,7 @@ class ContactImageResource extends Resource
                     ->label(__('dashboard.image')),
 
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'view_title_ar' : 'view_title_en'
+                    App::currentLocale() === 'ar' ? 'view_title_ar' : 'view_title_en'
                 )
                     ->label(__('dashboard.title'))
                     ->searchable(),
@@ -107,7 +104,7 @@ class ContactImageResource extends Resource
             Section::make()->schema([
                 ImageEntry::make('image')->label(__('dashboard.image')),
                 TextEntry::make(
-                    App::currentLocale() == 'ar' ? 'view_title_ar' : 'view_title_en'
+                    App::currentLocale() === 'ar' ? 'view_title_ar' : 'view_title_en'
                 )->label(__('dashboard.title')),
             ])->columns(2),
 

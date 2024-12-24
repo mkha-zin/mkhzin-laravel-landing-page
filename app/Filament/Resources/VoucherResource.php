@@ -4,8 +4,6 @@ namespace App\Filament\Resources;
 
 use App\Filament\Exports\VoucherExporter;
 use App\Filament\Resources\VoucherResource\Pages;
-use App\Filament\Resources\VoucherResource\RelationManagers;
-use App\Models\User;
 use App\Models\Voucher;
 use Filament\Actions\Exports\Enums\ExportFormat;
 use Filament\Actions\Exports\Models\Export;
@@ -13,9 +11,7 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Actions\ReplicateAction;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class VoucherResource extends Resource

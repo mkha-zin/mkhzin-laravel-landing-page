@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\HeroResource\Pages;
-use App\Filament\Resources\HeroResource\RelationManagers;
 use App\Models\Hero;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -72,7 +71,7 @@ class HeroResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'title_ar' : 'title_en'
+                    App::currentLocale() === 'ar' ? 'title_ar' : 'title_en'
                 )->label(__('dashboard.title')),
 
                 Tables\Columns\ImageColumn::make('image')

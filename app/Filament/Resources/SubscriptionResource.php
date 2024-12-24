@@ -3,15 +3,10 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Exports\SubscriptionExporter;
-use App\Filament\Exports\VoucherExporter;
-use App\Filament\Resources\UbscriptionResource\Pages;
-use App\Filament\Resources\UbscriptionResource\RelationManagers;
+use App\Filament\Resources\SubscriptionResource\Pages;
 use App\Models\Subscription;
-use App\Models\Ubscription;
-use Filament\Actions\ExportAction;
 use Filament\Actions\Exports\Enums\ExportFormat;
 use Filament\Actions\Exports\Models\Export;
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
@@ -19,9 +14,7 @@ use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class SubscriptionResource extends Resource
 {

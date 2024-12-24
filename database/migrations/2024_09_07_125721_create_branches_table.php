@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('branches', function (Blueprint $table) {
+        Schema::create('branches', static function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(City::class,'city_id')
                 ->nullable()

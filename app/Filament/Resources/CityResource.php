@@ -3,19 +3,15 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\CityResource\Pages;
-use App\Filament\Resources\CityResource\RelationManagers;
 use App\Models\City;
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\App;
 
 class CityResource extends Resource
@@ -65,7 +61,7 @@ class CityResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'name_ar' : 'name_en'
+                    App::currentLocale() === 'ar' ? 'name_ar' : 'name_en'
                 )
                     ->label(__('dashboard.name'))
                     ->searchable(),
@@ -80,7 +76,7 @@ class CityResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])->defaultSort(
-                App::currentLocale() == 'ar' ? 'name_ar' : 'name_en'
+                App::currentLocale() === 'ar' ? 'name_ar' : 'name_en'
             )
             ->filters([
                 //

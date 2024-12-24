@@ -20,4 +20,4 @@ yarn-error.log
 /.idea
 /.vscode
 /storage
-
+qodana.yaml

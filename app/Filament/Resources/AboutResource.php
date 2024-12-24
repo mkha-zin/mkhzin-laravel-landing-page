@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\AboutResource\Pages;
-use App\Filament\Resources\AboutResource\RelationManagers;
 use App\Models\About;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -14,9 +13,7 @@ use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\App;
 
 class AboutResource extends Resource
@@ -95,18 +92,18 @@ class AboutResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'title_ar' : 'title_en'
+                    App::currentLocale() === 'ar' ? 'title_ar' : 'title_en'
                 )->label(__('dashboard.title'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'first_text_ar' : 'first_text_en'
+                    App::currentLocale() === 'ar' ? 'first_text_ar' : 'first_text_en'
                 )
                     ->label(__('dashboard.first_text'))
                     ->words(5)
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'second_text_ar' : 'second_text_en'
+                    App::currentLocale() === 'ar' ? 'second_text_ar' : 'second_text_en'
                 )
                     ->label(__('dashboard.second_text'))
                     ->words(5)

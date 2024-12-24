@@ -38,7 +38,7 @@
                                     @if(!empty($heroes))
                                         @foreach($heroes as $hero)
                                             <h1 class="slide {{ $loop->first ? 'active' : '' }} elementor-heading-title elementor-size-default">
-                                                {{ \Illuminate\Support\Facades\App::currentLocale() == 'ar' ? $hero->title_ar : $hero->title_en }}
+                                                {{ \Illuminate\Support\Facades\App::currentLocale() === 'ar' ? $hero->title_ar : $hero->title_en }}
                                             </h1>
                                         @endforeach
                                     @else
@@ -91,12 +91,12 @@
                                     <div class="elementor-icon-box-content">
                                         <h3 class="elementor-icon-box-title">
                                             <span style="color: black">
-                                                {{ \Illuminate\Support\Facades\App::currentLocale() == 'ar' ? $ourValue->title_ar : $ourValue->title_en }}
+                                                {{ \Illuminate\Support\Facades\App::currentLocale() === 'ar' ? $ourValue->title_ar : $ourValue->title_en }}
                                             </span>
 
                                         </h3>
                                         <span style="color: black">
-                                            {{ \Illuminate\Support\Facades\App::currentLocale() == 'ar' ? $ourValue->description_ar : $ourValue->description_en }}
+                                            {{ \Illuminate\Support\Facades\App::currentLocale() === 'ar' ? $ourValue->description_ar : $ourValue->description_en }}
                                         </span>
                                     </div>
 
@@ -157,7 +157,7 @@
                                             <h3 class="elementor-icon-box-description"
                                                 style="width: 100%; text-align: {{ $direction == 'rtl' ? 'right' : 'left' }}"
                                                 dir="{{ $direction }}">
-                                                {{ \Illuminate\Support\Facades\App::currentLocale() == 'ar' ? $about->title_ar : $about->title_en }}
+                                                {{ \Illuminate\Support\Facades\App::currentLocale() === 'ar' ? $about->title_ar : $about->title_en }}
                                             </h3>
                                         </div>
                                     </div>
@@ -200,11 +200,11 @@
                                             <div class="elementor-icon-box-content">
                                                 <h4 class="elementor-icon-box-title">
                                                     <span>
-                                                        {{  \Illuminate\Support\Facades\App::currentLocale() == 'ar' ? $aboutCard->title_ar : $aboutCard->title_en }}
+                                                        {{  \Illuminate\Support\Facades\App::currentLocale() === 'ar' ? $aboutCard->title_ar : $aboutCard->title_en }}
                                                     </span>
                                                 </h4>
                                                 <p class="elementor-icon-box-description">
-                                                    {{ \Illuminate\Support\Facades\App::currentLocale() == 'ar' ? $aboutCard->description_ar : $aboutCard->description_en }}
+                                                    {{ \Illuminate\Support\Facades\App::currentLocale() === 'ar' ? $aboutCard->description_ar : $aboutCard->description_en }}
                                                 </p>
                                             </div>
                                         </div>

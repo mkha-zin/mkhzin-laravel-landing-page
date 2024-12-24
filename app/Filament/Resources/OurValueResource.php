@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\OurValueResource\Pages;
-use App\Filament\Resources\OurValueResource\RelationManagers;
 use App\Models\OurValue;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -14,8 +13,6 @@ use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\App;
 
 class OurValueResource extends Resource
@@ -89,13 +86,13 @@ class OurValueResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'title_ar' : 'title_en'
+                    App::currentLocale() === 'ar' ? 'title_ar' : 'title_en'
                 )
                     ->label(__('dashboard.title'))
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'description_ar' : 'description_en'
+                    App::currentLocale() === 'ar' ? 'description_ar' : 'description_en'
                 )
                     ->label(__('dashboard.description'))
                     ->words(5)

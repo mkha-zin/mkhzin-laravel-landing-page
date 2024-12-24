@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('sections', function (Blueprint $table) {
+        Schema::table('sections', static function (Blueprint $table) {
             $table->boolean('show_in_home')->default(false);
         });
     }

@@ -11,8 +11,6 @@ use Filament\Infolists\Infolist;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\App;
 
 class OfferRelationManager extends RelationManager
@@ -90,13 +88,13 @@ class OfferRelationManager extends RelationManager
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'name_ar' : 'name_en'
+                    App::currentLocale() === 'ar' ? 'name_ar' : 'name_en'
                 )
                     ->label(__('dashboard.name'))
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'description_ar' : 'description_en'
+                    App::currentLocale() === 'ar' ? 'description_ar' : 'description_en'
                 )
                     ->label(__('dashboard.description'))
                     ->words(5)

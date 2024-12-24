@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contact_images', function (Blueprint $table) {
+        Schema::create('contact_images', static function (Blueprint $table) {
             $table->id();
             $table->string('image');
             $table->string('slug')->unique();

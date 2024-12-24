@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use RuntimeException;
 use ZipArchive;
 
 class Offer extends Model
@@ -24,15 +25,15 @@ class Offer extends Model
         'branch'
     ];
 
-    protected static function booted()
+    protected static function booted(): void
     {
-        static::saved(function ($offer) {
+        static::saved(static function ($offer) {
             // Call the extractZip method after the file is saved
             $offer->extractZip($offer->id, $offer->pdf_file);
         });
 
         // Trigger before update to delete related files
-        static::updating(function ($offer) {
+        static::updating(static function ($offer) {
             // Call method to delete related files before updating
             $offer->deleteOldRelatedFiles();
         });
@@ -45,7 +46,7 @@ class Offer extends Model
     }
 
 
-    public function extractZip($id, $pdf_file)
+    public function extractZip($id, $pdf_file): void
     {
         $zipFilePath = public_path('offersfiles/' . $pdf_file);
         $extractedDirPath = public_path('offersfiles/extrcs/' . $id);
@@ -58,7 +59,7 @@ class Offer extends Model
                 // Create the extraction directory if it doesn't exist
                 if (!file_exists($extractedDirPath)) {
                     if (!mkdir($extractedDirPath, 0755, true) && !is_dir($extractedDirPath)) {
-                        throw new \RuntimeException(sprintf('Directory "%s" was not created', $extractedDirPath));
+                        throw new RuntimeException(sprintf('Directory "%s" was not created', $extractedDirPath));
                     }
                 }
 
@@ -75,7 +76,7 @@ class Offer extends Model
     /**
      * Delete the old related files before updating the offer
      */
-    public function deleteOldRelatedFiles()
+    public function deleteOldRelatedFiles(): void
     {
         // Get the old file's name, assuming it's a property on the model like $this->old_pdf_file
         $oldPdfFile = $this->getOriginal('pdf_file');  // This gets the old PDF file name (before update)
@@ -103,7 +104,7 @@ class Offer extends Model
      *
      * @param string $dirPath
      */
-    private function deleteDirectory($dirPath)
+    private function deleteDirectory($dirPath): void
     {
         if (is_dir($dirPath)) {
             $files = array_diff(scandir($dirPath), array('.', '..'));

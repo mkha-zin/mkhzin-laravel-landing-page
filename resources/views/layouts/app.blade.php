@@ -2,7 +2,7 @@
     <!DOCTYPE html>
 <html
     lang="{{ App::currentLocale() }}"
-    dir="{{ App::currentLocale() == 'ar'? 'rtl': 'ltr' }}"
+    dir="{{ App::currentLocale() === 'ar'? 'rtl': 'ltr' }}"
 >
 
 <head>
@@ -292,7 +292,7 @@
                     </path>
                 </svg>
             </div>
-            <div class="text {{ App::currentLocale() == 'ar' ? 'arabic' : '' }}">
+            <div class="text {{ App::currentLocale() === 'ar' ? 'arabic' : '' }}">
                 {{  __('landing.Contact Us') }}
             </div>
         </button>

@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Storage;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Storage>
+ * @extends Factory<Storage>
  */
 class StorageFactory extends Factory
 {

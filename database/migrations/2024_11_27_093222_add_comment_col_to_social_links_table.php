@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('social_links', function (Blueprint $table) {
+        Schema::table('social_links', static function (Blueprint $table) {
             $table->string('comment_en')->nullable();
             $table->string('comment_ar')->nullable();
         });
@@ -22,7 +22,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('social_links', function (Blueprint $table) {
+        Schema::table('social_links', static function (Blueprint $table) {
             $table->dropColumn('comment_en');
             $table->dropColumn('comment_ar');
         });

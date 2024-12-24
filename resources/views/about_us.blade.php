@@ -32,7 +32,7 @@
                                     <div class="elementor-icon-box-wrapper">
                                         <div class="elementor-icon-box-content">
                                             <h1 class="elementor-icon-box-description" style="width: 100%; text-align: {{ $direction == 'rtl' ? 'right' : 'left' }}" dir="{{ $direction }}">
-                                                {{ App::currentLocale() == 'ar' ? $about->title_ar : $about->title_en }}
+                                                {{ App::currentLocale() === 'ar' ? $about->title_ar : $about->title_en }}
                                             </h1>
                                         </div>
                                     </div>
@@ -76,11 +76,11 @@
                                             <div class="elementor-icon-box-content">
                                                 <h4 class="elementor-icon-box-title">
                                                     <span>
-                                                        {{  App::currentLocale() == 'ar' ? $aboutCard->title_ar : $aboutCard->title_en }}
+                                                        {{  App::currentLocale() === 'ar' ? $aboutCard->title_ar : $aboutCard->title_en }}
                                                     </span>
                                                 </h4>
                                                 <p class="elementor-icon-box-description">
-                                                    {{ App::currentLocale() == 'ar' ? $aboutCard->description_ar : $aboutCard->description_en }}
+                                                    {{ App::currentLocale() === 'ar' ? $aboutCard->description_ar : $aboutCard->description_en }}
                                                 </p>
                                             </div>
                                         </div>

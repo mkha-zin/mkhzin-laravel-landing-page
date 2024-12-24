@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\UbscriptionResource\Pages;
+namespace App\Filament\Resources\SubscriptionResource\Pages;
 
 use App\Filament\Resources\SubscriptionResource;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateSubscription extends CreateRecord

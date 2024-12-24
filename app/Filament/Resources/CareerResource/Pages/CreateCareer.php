@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\JopResource\Pages;
+namespace App\Filament\Resources\CareerResource\Pages;
 
 use App\Filament\Resources\CareerResource;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateCareer extends CreateRecord

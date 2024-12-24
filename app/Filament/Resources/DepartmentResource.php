@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\DepartmentResource\Pages;
-use App\Filament\Resources\DepartmentResource\RelationManagers;
 use App\Models\Department;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -74,13 +73,13 @@ class DepartmentResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'title_ar' : 'title_en'
+                    App::currentLocale() === 'ar' ? 'title_ar' : 'title_en'
                 )
                     ->label(__('dashboard.title'))
                     ->words(5)
                     ->searchable(),
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'description_ar' : 'description_en'
+                    App::currentLocale() === 'ar' ? 'description_ar' : 'description_en'
                 )
                     ->label(__('dashboard.description'))
                     ->width(400)
@@ -88,7 +87,7 @@ class DepartmentResource extends Resource
                     ->wrap()
                     ->searchable(),
                 Tables\Columns\TagsColumn::make(
-                    App::currentLocale() == 'ar' ? 'tags_ar' : 'tags_en'
+                    App::currentLocale() === 'ar' ? 'tags_ar' : 'tags_en'
                 )
                     ->label(__('dashboard.tags'))
                     ->limitList(30)

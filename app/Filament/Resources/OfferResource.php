@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\OfferResource\Pages;
-use App\Filament\Resources\OfferResource\RelationManagers;
 use App\Models\Offer;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -21,7 +20,6 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\App;
-use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class OfferResource extends Resource
 {
@@ -56,7 +54,7 @@ class OfferResource extends Resource
                     Forms\Components\Select::make('branch_id')
                         ->label(__('dashboard.branch'))
                         ->relationship('branch',
-                            App::currentLocale() == 'ar' ? 'name_ar' : 'name_en'
+                            App::currentLocale() === 'ar' ? 'name_ar' : 'name_en'
                         )
                         ->columnSpanFull()
                         ->required(),
@@ -127,13 +125,13 @@ class OfferResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'name_ar' : 'name_en'
+                    App::currentLocale() === 'ar' ? 'name_ar' : 'name_en'
                 )
                     ->label(__('dashboard.name'))
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'description_ar' : 'description_en'
+                    App::currentLocale() === 'ar' ? 'description_ar' : 'description_en'
                 )
                     ->label(__('dashboard.description'))
                     ->words(5)
@@ -180,7 +178,7 @@ class OfferResource extends Resource
                             Forms\Components\Select::make('branch_id')
                                 ->label(__('dashboard.branch'))
                                 ->relationship('branch',
-                                    App::currentLocale() == 'ar' ? 'name_ar' : 'name_en'
+                                    App::currentLocale() === 'ar' ? 'name_ar' : 'name_en'
                                 )
                                 ->columnSpanFull()
                                 ->required(),
@@ -257,7 +255,7 @@ class OfferResource extends Resource
 
             Section::make()->schema([
                 TextEntry::make(
-                    App::currentLocale() == 'ar' ? 'branch.name_ar' : 'branch.name_en'
+                    App::currentLocale() === 'ar' ? 'branch.name_ar' : 'branch.name_en'
                 )->label(__('dashboard.branch')),
             ])->columns(2),
             Section::make(__('dashboard.image'))->schema([

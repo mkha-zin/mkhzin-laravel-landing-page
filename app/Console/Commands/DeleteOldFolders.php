@@ -41,7 +41,7 @@ class DeleteOldFolders extends Command
             $creationDate = Carbon::createFromTimestamp(File::lastModified($dir));
 
             // Check if the directory is older than 1 week
-            if ($creationDate->lt(Carbon::now()->subSecond(5))) {
+            if ($creationDate->lt(Carbon::now()->subWeek())) {
                 // Delete the directory and its contents
                 File::deleteDirectory($dir);
                 $this->info("Deleted folder: $dir");

@@ -6,13 +6,11 @@ use App\Models\About;
 use App\Models\AboutCard;
 use App\Models\Action;
 use App\Models\Branch;
-use App\Models\Branche;
 use App\Models\Career;
 use App\Models\City;
 use App\Models\ContactImage;
 use App\Models\ContactInfo;
 use App\Models\Fleet;
-use App\Models\Header;
 use App\Models\Hero;
 use App\Models\Offer;
 use App\Models\OurValue;
@@ -22,7 +20,6 @@ use App\Models\Storage;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\VisionAndGoal;
-use App\Models\VisitorMessage;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

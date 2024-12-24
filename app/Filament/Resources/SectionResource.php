@@ -86,14 +86,14 @@ class SectionResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'title_ar' : 'title_en'
+                    App::currentLocale() === 'ar' ? 'title_ar' : 'title_en'
                 )
                     ->label(__('dashboard.title'))
                     ->words(5)
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'description_ar' : 'description_en'
+                    App::currentLocale() === 'ar' ? 'description_ar' : 'description_en'
                 )
                     ->label(__('dashboard.description'))
                     ->words(5)

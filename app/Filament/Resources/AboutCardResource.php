@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\AboutCardResource\Pages;
-use App\Filament\Resources\AboutCardResource\RelationManagers;
 use App\Models\AboutCard;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -11,12 +10,9 @@ use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
-use Filament\Navigation\NavigationGroup;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\App;
 
 class AboutCardResource extends Resource
@@ -49,7 +45,7 @@ class AboutCardResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
+            ->schema(components: [
                 Forms\Components\Section::make(__('dashboard.titles'))->schema([
                     Forms\Components\TextInput::make('title_ar')
                         ->label(__('dashboard.title_ar'))
@@ -84,13 +80,13 @@ class AboutCardResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'title_ar' : 'title_en'
+                    App::currentLocale() === 'ar' ? 'title_ar' : 'title_en'
                 )
                     ->label(__('dashboard.title'))
                     ->words(5)
                     ->searchable(),
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() == 'ar' ? 'description_ar' : 'description_en'
+                    App::currentLocale() === 'ar' ? 'description_ar' : 'description_en'
                 )
                     ->label(__('dashboard.description'))
                     ->words(5)

@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\AboutCardResource\Pages;
 
 use App\Filament\Resources\AboutCardResource;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateAboutCard extends CreateRecord
