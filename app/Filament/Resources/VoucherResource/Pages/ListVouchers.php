@@ -32,7 +32,7 @@ class ListVouchers extends ListRecords
             'Used' => Tab::make()
                 ->label(__('dashboard.used vouchers'))
                 ->extraAttributes([
-                    'style' => 'min-width: 170px',
+                    'style' => 'min-width: 180px',
                 ])
                 ->modifyQueryUsing(
                     fn(Builder $query) => $query
