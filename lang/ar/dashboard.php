@@ -134,6 +134,10 @@ return [
     'customer name' => 'اسم العميل',
     'customer phone' => 'رقم هاتف العميل',
 
+    'all vouchers' => 'كل القسائم',
+    'used vouchers' => 'القسائم المستخدمة',
+    'unused vouchers' => 'القسائم الغير مستخدمة',
+
     'Click to Copy' => 'انقر للنسخ',
     'Copied!' => 'تم النسخ!',
 

@@ -136,6 +136,10 @@ return [
     'customer name' => 'Customer Name',
     'customer phone' => 'Customer Phone',
 
+    'all vouchers' => 'All Vouchers',
+    'used vouchers' => 'Used Vouchers',
+    'unused vouchers' => 'UnUsed Vouchers',
+
     'Click to Copy' => 'Click to Copy',
     'Copied!' => 'Copied!',
 
