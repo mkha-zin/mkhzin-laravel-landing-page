@@ -9,8 +9,9 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 
-/*class UserResource extends Resource
+class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
@@ -27,6 +28,26 @@ use Filament\Tables\Table;
     public static function getModelLabel(): string
     {
         return __('dashboard.admins');
+    }
+
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->isSuperAdmin();
+    }
+
+    public static function canCreate(): bool
+    {
+        return auth()->user()?->isSuperAdmin();
+    }
+
+    public static function canEdit(Model $record): bool
+    {
+        return auth()->user()?->isSuperAdmin();
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return auth()->user()?->isSuperAdmin();
     }
 
     public static function form(Form $form): Form
@@ -100,4 +121,4 @@ use Filament\Tables\Table;
             'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
     }
-}*/
+}

@@ -33,6 +33,15 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function isAdmin(): bool
+    {
+        return auth()->user()->role === 'admin';
+    }
+    public function isSuperAdmin(): bool
+    {
+        return auth()->user()->role === 'super';
+    }
+
     /**
      * Get the attributes that should be cast.
      *
