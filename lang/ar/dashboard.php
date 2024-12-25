@@ -74,6 +74,8 @@ return [
     'admin'=>'مسؤول',
     'employee'=>'موظف',
 
+    'actions' => 'الأجراءات',
+
     'link'=>'الرابط',
 
     'comment'=>'التعليق',

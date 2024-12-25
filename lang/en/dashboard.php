@@ -78,6 +78,8 @@ return [
     'admin'=>'Admin',
     'employee'=>'Employee',
 
+    'actions'=>'Actions',
+
     'link'=>'Link',
 
     'comment'=>'Comment',
