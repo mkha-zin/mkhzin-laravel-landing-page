@@ -38,6 +38,11 @@ class VoucherResource extends Resource
         return false;
     }
 
+    public static function canCreate(): bool
+    {
+        return auth()->user()?->isSuperAdmin();
+    }
+
     public static function form(Form $form): Form
     {
         return $form

@@ -54,27 +54,40 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->label(__('dashboard.name'))
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('email')
-                    ->label(__('dashboard.email'))
-                    ->email()
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\DateTimePicker::make('email_verified_at'),
-                Forms\Components\TextInput::make('password')
-                    ->label(__('dashboard.password'))
-                    ->password()
-                    ->required()
-                    ->maxLength(255),
+                Forms\Components\Section::make()->schema([
+                    Forms\Components\TextInput::make('name')
+                        ->label(__('dashboard.name'))
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('email')
+                        ->label(__('dashboard.email'))
+                        ->email()
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\Select::make('role')
+                        ->label(__('dashboard.role'))
+                        ->options([
+                            'super' => __('dashboard.super admin'),
+                            'admin' => __('dashboard.admin'),
+                            'employee' => __('dashboard.employee'),
+                        ])
+                        ->required(),
+                    Forms\Components\DateTimePicker::make('email_verified_at')
+                    ->label( __('dashboard.email verified at') ),
+                    Forms\Components\TextInput::make('password')
+                        ->label(__('dashboard.password'))
+                        ->password()
+                        ->required()
+                        ->maxLength(255),
+                ])->columns(2),
+
             ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
+            ->query(User::where('id', '!=', auth()->id()))
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->label(__('dashboard.name'))
@@ -82,6 +95,14 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('email')
                     ->label(__('dashboard.email'))
                     ->searchable(),
+                Tables\Columns\SelectColumn::make('role')
+                    ->label(__('dashboard.role'))
+                    ->options([
+                        'super' => __('dashboard.super admin'),
+                        'admin' => __('dashboard.admin'),
+                        'employee' => __('dashboard.employee'),
+                    ])
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->dateTime()
@@ -116,9 +137,6 @@ class UserResource extends Resource
     {
         return [
             'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
-            'view' => Pages\ViewUser::route('/{record}'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
     }
 }

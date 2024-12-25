@@ -64,12 +64,19 @@ return [
     'first_name'=>'First Name',
     'last_name'=>'Last Name',
     'email'=>'Email',
+    'password'=>'Password',
+    'email verified at'=>'Email Verified At',
     'phone'=>'Phone',
     'subject'=>'Subject',
     'message'=>'Message',
     'details'=>'Details',
     'contact_info'=>'Contact Info',
     'subject_and_message'=>'Subject and Message',
+
+    'role'=>'Role',
+    'super admin'=>'Super Admin',
+    'admin'=>'Admin',
+    'employee'=>'Employee',
 
     'link'=>'Link',
 

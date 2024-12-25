@@ -60,12 +60,19 @@ return [
     'first_name'=>'الاسم الأول',
     'last_name'=>'الاسم الأخير',
     'email'=>'البريد الألكتروني',
+    'password'=>'كلمة المرور',
+    'email verified at' => 'تم التحقق من الإيميل في',
     'phone'=>'الهاتف',
     'subject'=>'الموضوع',
     'message'=>'الرسالة',
     'details'=>'التفاصيل',
     'contact_info'=>'معلومات التواصل',
     'subject_and_message'=>'الموضوع والرسالة',
+
+    'role' => 'الوظيفة',
+    'super admin'=>'مدير',
+    'admin'=>'مسؤول',
+    'employee'=>'موظف',
 
     'link'=>'الرابط',
 
