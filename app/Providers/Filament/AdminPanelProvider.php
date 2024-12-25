@@ -2,6 +2,10 @@
 
 namespace App\Providers\Filament;
 
+use Awcodes\Curator\CuratorPlugin;
+use Awcodes\FilamentGravatar\GravatarPlugin;
+use BezhanSalleh\FilamentExceptions\FilamentExceptionsPlugin;
+use Croustibat\FilamentJobsMonitor\FilamentJobsMonitorPlugin;
 use Exception;
 use Filament\FontProviders\GoogleFontProvider;
 use Filament\Http\Middleware\Authenticate;
@@ -18,6 +22,8 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Jeffgreco13\FilamentBreezy\BreezyCore;
+use Pboivin\FilamentPeek\FilamentPeekPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -34,6 +40,15 @@ class AdminPanelProvider extends PanelProvider
 //            ->registration()
             ->colors([
                 'primary' => Color::hex('#E22128'),
+            ])
+            ->plugins([
+                BreezyCore::make()
+                    ->myProfile(
+                        shouldRegisterUserMenu: true,
+                        shouldRegisterNavigation: false,
+                        hasAvatars: false,
+                        navigationGroup: __('dashboard.others'),
+                    )->enableTwoFactorAuthentication(),
             ])
             ->font('Cairo', provider: GoogleFontProvider::class)
             ->favicon(asset('uploads/mkhazin/fav.png'))
