@@ -4,7 +4,7 @@
     </IfModule>
 
     RewriteEngine On
-    RewriteCond %{HTTPS} !=on    
+    RewriteCond %{HTTPS} !=on
     RewriteCond %{REQUEST_URI} !^public
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
     RewriteRule ^(.*)$ public/$1 [L]
@@ -21,6 +21,11 @@
     # Send Requests To Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L] 
+    RewriteRule ^ index.php [L]
+
+    php_value max_input_vars 60000
+    php_value suhosin.get.max_vars 60000
+    php_value suhosin.post.max_vars 60000
+    php_value suhosin.request.max_vars 60000
 
 </IfModule>
