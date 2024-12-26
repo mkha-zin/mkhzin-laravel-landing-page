@@ -127,7 +127,7 @@ class OfferResource extends Resource
                                         if ($record) {
                                             return 'offer-' . $record->id . '-' . $record->name_en . '-' . $file->getClientOriginalName();
                                         }
-                                        return $file->getClientOriginalName();
+                                        return 'offer-' . now() . $file->getClientOriginalName();
                                     })
                                     ->directory('zips')
                                     ->disk('zip')
