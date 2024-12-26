@@ -132,7 +132,7 @@ class OfferResource extends Resource
                                     ->directory('zips')
                                     ->disk('zip')
                                     ->acceptedFileTypes(['zip', 'application/octet-stream', 'application/zip', 'application/x-zip', 'application/x-zip-compressed'])
-                                    ->maxSize(40072)
+                                    ->maxSize(500072)
                                     ->downloadable()
                                     ->required()
                             ])->columns(2),
