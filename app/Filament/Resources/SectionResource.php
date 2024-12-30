@@ -14,6 +14,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
+use LaraZeus\Delia\Filament\Actions\BookmarkHeaderAction;
 
 class SectionResource extends Resource
 {
@@ -56,6 +57,13 @@ class SectionResource extends Resource
         return [
             __('dashboard.name') => App::currentLocale() === 'ar' ? $record->title_ar : $record->title_en,
             __('dashboard.description') => App::currentLocale() === 'ar' ? $record->description_ar : $record->description_en,
+        ];
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            BookmarkHeaderAction::make()
         ];
     }
 

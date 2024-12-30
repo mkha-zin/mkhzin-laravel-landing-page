@@ -23,6 +23,9 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Jeffgreco13\FilamentBreezy\BreezyCore;
+use LaraZeus\Delia\DeliaPlugin;
+use LaraZeus\Delia\Filament\Resources\BookmarkResource;
+use LaraZeus\Delia\Models\Bookmark;
 use Pboivin\FilamentPeek\FilamentPeekPlugin;
 
 class AdminPanelProvider extends PanelProvider
@@ -49,6 +52,15 @@ class AdminPanelProvider extends PanelProvider
                         hasAvatars: false,
                         navigationGroup: __('dashboard.others'),
                     )->enableTwoFactorAuthentication(),
+                DeliaPlugin::make()
+                    ->models([
+                        'User' => config('auth.providers.users.model'),
+                        'Bookmark' => Bookmark::class,
+                    ])
+                    ->navigationGroupLabel('Delia')
+                    ->hideResources([
+                        BookmarkResource::class,
+                    ])
             ])
             ->font('Cairo', provider: GoogleFontProvider::class)
             ->favicon(asset('uploads/mkhazin/fav.png'))

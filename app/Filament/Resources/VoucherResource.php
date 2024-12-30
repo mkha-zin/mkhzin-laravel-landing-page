@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
+use LaraZeus\Delia\Filament\Actions\BookmarkHeaderAction;
 
 class VoucherResource extends Resource
 {
@@ -41,6 +42,13 @@ class VoucherResource extends Resource
     public static function canCreate(): bool
     {
         return auth()->user()?->isSuperAdmin();
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            BookmarkHeaderAction::make()
+        ];
     }
 
     public static function form(Form $form): Form

@@ -20,6 +20,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\App;
+use LaraZeus\Delia\Filament\Actions\BookmarkHeaderAction;
 use Webbingbrasil\FilamentAdvancedFilter\Filters\BooleanFilter;
 use Webbingbrasil\FilamentAdvancedFilter\Filters\DateFilter;
 
@@ -46,6 +47,13 @@ class OfferResource extends Resource
     public static function getGloballySearchableAttributes(): array
     {
         return ['name_ar', 'name_en', 'description_ar', 'description_en'];
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            BookmarkHeaderAction::make()
+        ];
     }
 
     public static function getGlobalSearchResultDetails(Model $record): array

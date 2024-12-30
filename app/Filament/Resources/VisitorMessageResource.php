@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
+use LaraZeus\Delia\Filament\Actions\BookmarkHeaderAction;
 
 class VisitorMessageResource extends Resource
 {
@@ -67,6 +68,13 @@ class VisitorMessageResource extends Resource
             __('dashboard.phone') => $record->phone,
             __('dashboard.subject') => $record->subject,
             __('dashboard.message') => $record->message,
+        ];
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            BookmarkHeaderAction::make()
         ];
     }
 

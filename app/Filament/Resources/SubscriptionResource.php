@@ -16,6 +16,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
+use LaraZeus\Delia\Filament\Actions\BookmarkHeaderAction;
 
 class SubscriptionResource extends Resource
 {
@@ -53,6 +54,13 @@ class SubscriptionResource extends Resource
     public static function getRecordTitleAttribute(): ?string
     {
         return 'email';
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            BookmarkHeaderAction::make()
+        ];
     }
 
     public static function form(Form $form): Form
