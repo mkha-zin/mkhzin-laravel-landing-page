@@ -38,6 +38,24 @@ class OfferResource extends Resource
         return __('dashboard.offers');
     }
 
+    public static function getRecordTitleAttribute(): ?string
+    {
+        return App::currentLocale() === 'ar' ? 'name_ar' : 'name_en';
+    }
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['name_ar', 'name_en', 'description_ar', 'description_en'];
+    }
+
+    public static function getGlobalSearchResultDetails(Model $record): array
+    {
+        return [
+            __('dashboard.name') => App::currentLocale() === 'ar' ? $record->name_ar : $record->name_en,
+            __('dashboard.description') => App::currentLocale() === 'ar' ? $record->description_ar : $record->description_en,
+        ];
+    }
+
     public static function getModelLabel(): string
     {
         return __('dashboard.offers');

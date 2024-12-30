@@ -15,6 +15,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
 
 class SubscriptionResource extends Resource
 {
@@ -47,6 +48,11 @@ class SubscriptionResource extends Resource
     public static function canEdit(Model $record): bool
     {
         return false;
+    }
+
+    public static function getRecordTitleAttribute(): ?string
+    {
+        return 'email';
     }
 
     public static function form(Form $form): Form

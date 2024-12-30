@@ -22,6 +22,7 @@ class VisitorMessageResource extends Resource
     {
         return static::getModel()::count();
     }
+
     public static function getNavigationGroup(): ?string
     {
         return __('dashboard.contactSettings');
@@ -45,6 +46,28 @@ class VisitorMessageResource extends Resource
     public static function canCreate(): bool
     {
         return false;
+    }
+
+    public static function getRecordTitleAttribute(): ?string
+    {
+        return 'first_name';
+    }
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['first_name', 'last_name', 'email', 'phone', 'subject', 'message',];
+    }
+
+
+    public static function getGlobalSearchResultDetails(Model $record): array
+    {
+        return [
+            __('dashboard.name') => $record->first_name . ' ' . $record->last_name,
+            __('dashboard.email') => $record->email,
+            __('dashboard.phone') => $record->phone,
+            __('dashboard.subject') => $record->subject,
+            __('dashboard.message') => $record->message,
+        ];
     }
 
     public static function form(Form $form): Form
@@ -134,7 +157,7 @@ class VisitorMessageResource extends Resource
                 TextEntry::make('phone')->label(__('dashboard.phone')),
                 TextEntry::make('email')->label(__('dashboard.email')),
             ])->columns(2),
-        Section::make(__('dashboard.subject_and_message'))->schema([
+            Section::make(__('dashboard.subject_and_message'))->schema([
                 TextEntry::make('subject')->label(__('dashboard.subject')),
                 TextEntry::make('message')->label(__('dashboard.message')),
             ])->columns(1)

@@ -41,6 +41,24 @@ class DepartmentResource extends Resource
         return false;
     }
 
+    public static function getRecordTitleAttribute(): ?string
+    {
+        return App::currentLocale() === 'ar' ? 'title_ar' : 'title_en';
+    }
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['title_ar', 'title_en', 'description_ar', 'description_en', 'tags_ar', 'tags_en'];
+    }
+
+    public static function getGlobalSearchResultDetails(Model $record): array
+    {
+        return [
+            __('dashboard.name') => App::currentLocale() === 'ar' ? $record->title_ar : $record->title_en,
+            __('dashboard.description') => App::currentLocale() === 'ar' ? $record->description_ar : $record->description_en,
+        ];
+    }
+
     public static function form(Form $form): Form
     {
         return $form

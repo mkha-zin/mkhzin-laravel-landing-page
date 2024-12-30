@@ -10,6 +10,7 @@ return [
     'about' => 'عن الشركة',
     'about_cards' => 'بطاقات الشركة التعريفية',
     'sections' => 'الأقسام',
+    'section' => 'قسم',
     'VisionAndGoals' => 'الرؤية والاهداف',
     'storage' => 'التخزين',
     'fleet' => 'اسطول النقل',

@@ -12,7 +12,7 @@ use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
 
 class SectionResource extends Resource
@@ -33,12 +33,30 @@ class SectionResource extends Resource
 
     public static function getModelLabel(): string
     {
-        return __('dashboard.sections');
+        return __('dashboard.section');
     }
 
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
+    }
+
+    public static function getRecordTitleAttribute(): ?string
+    {
+        return App::currentLocale() === 'ar' ? 'title_ar' : 'title_en';
+    }
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['title_ar', 'title_en', 'description_ar', 'description_en'];
+    }
+
+    public static function getGlobalSearchResultDetails(Model $record): array
+    {
+        return [
+            __('dashboard.name') => App::currentLocale() === 'ar' ? $record->title_ar : $record->title_en,
+            __('dashboard.description') => App::currentLocale() === 'ar' ? $record->description_ar : $record->description_en,
+        ];
     }
 
     public static function form(Form $form): Form
