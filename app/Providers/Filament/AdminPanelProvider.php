@@ -2,8 +2,7 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Widgets\BranchesAndSections;
-use App\Filament\Widgets\OffersOverview;
+use App\Filament\Pages\Dashboard;
 use Awcodes\Curator\CuratorPlugin;
 use Awcodes\FilamentGravatar\GravatarPlugin;
 use BezhanSalleh\FilamentExceptions\FilamentExceptionsPlugin;
@@ -13,7 +12,6 @@ use Filament\FontProviders\GoogleFontProvider;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
-use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -58,13 +56,11 @@ class AdminPanelProvider extends PanelProvider
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->brandName(__('dashboard.app_name'))
             ->pages([
-                Pages\Dashboard::class,
+                Dashboard::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
 //                Widgets\AccountWidget::class,
-                OffersOverview::class,
-                BranchesAndSections::class,
             ])
             ->renderHook(
             // This line tells us where to render it
