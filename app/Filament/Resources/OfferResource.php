@@ -20,6 +20,8 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\App;
+use Webbingbrasil\FilamentAdvancedFilter\Filters\BooleanFilter;
+use Webbingbrasil\FilamentAdvancedFilter\Filters\DateFilter;
 
 class OfferResource extends Resource
 {
@@ -91,7 +93,10 @@ class OfferResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])->defaultSort('created_at', 'desc')
             ->filters([
-                //
+                BooleanFilter::make('is_active')
+                    ->label(__('dashboard.status')),
+                DateFilter::make('created_at')
+                    ->label(__('dashboard.created at')),
             ])
             ->actions([
                 ViewAction::make(),
@@ -183,6 +188,7 @@ class OfferResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
+
 
     public static function form(Form $form): Form
     {

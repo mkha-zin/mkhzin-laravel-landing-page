@@ -424,9 +424,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            {{--href="{{ url('mkhazin-store') }}"--}}
 
-                            <a class="nav-link {{ request()->segment(1) == 'store' ? 'active' : '' }}">
+
+                            <a href="{{ url('mkhazin-store') }}" class="nav-link {{ request()->segment(1) == 'store' ? 'active' : '' }}">
                                 {{  __('landing.Store')}}
                             </a>
                         </li>
