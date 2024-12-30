@@ -66,6 +66,7 @@ return [
     'phone'=>'الهاتف',
     'subject'=>'الموضوع',
     'message'=>'الرسالة',
+    'message from'=>'رسالة من',
     'details'=>'التفاصيل',
     'contact_info'=>'معلومات التواصل',
     'subject_and_message'=>'الموضوع والرسالة',

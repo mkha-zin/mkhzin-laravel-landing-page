@@ -70,6 +70,7 @@ return [
     'phone'=>'Phone',
     'subject'=>'Subject',
     'message'=>'Message',
+    'message from'=>'Message from',
     'details'=>'Details',
     'contact_info'=>'Contact Info',
     'subject_and_message'=>'Subject and Message',

@@ -2,6 +2,8 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Widgets\BranchesAndSections;
+use App\Filament\Widgets\OffersOverview;
 use Awcodes\Curator\CuratorPlugin;
 use Awcodes\FilamentGravatar\GravatarPlugin;
 use BezhanSalleh\FilamentExceptions\FilamentExceptionsPlugin;
@@ -61,6 +63,8 @@ class AdminPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
 //                Widgets\AccountWidget::class,
+                OffersOverview::class,
+                BranchesAndSections::class,
             ])
             ->renderHook(
             // This line tells us where to render it
