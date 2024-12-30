@@ -76,9 +76,9 @@ return [
     'subject_and_message'=>'Subject and Message',
 
     'role'=>'Role',
-    'super admin'=>'Super Admin',
-    'admin'=>'Admin',
-    'employee'=>'Employee',
+    'super admin'=>'Super Admin 👨🏻‍💻',
+    'admin'=>'Admin 👮🏻',
+    'employee'=>'Employee 🤵🏻',
 
     'actions'=>'Actions',
 
