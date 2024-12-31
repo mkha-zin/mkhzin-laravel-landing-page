@@ -12,6 +12,7 @@
         "lara-zeus/delia": "^1.0",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
+        "tomatophp/filament-pwa": "^1.0",
         "webbingbrasil/filament-advancedfilter": "3.0"
     },
     "require-dev": {

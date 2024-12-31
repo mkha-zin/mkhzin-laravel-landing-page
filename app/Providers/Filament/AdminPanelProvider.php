@@ -27,6 +27,7 @@ use LaraZeus\Delia\DeliaPlugin;
 use LaraZeus\Delia\Filament\Resources\BookmarkResource;
 use LaraZeus\Delia\Models\Bookmark;
 use Pboivin\FilamentPeek\FilamentPeekPlugin;
+use TomatoPHP\FilamentPWA\FilamentPWAPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -60,7 +61,9 @@ class AdminPanelProvider extends PanelProvider
                     ->navigationGroupLabel('Delia')
                     ->hideResources([
                         BookmarkResource::class,
-                    ])
+                    ]),
+                FilamentPWAPlugin::make()
+                    ->allowPWASettings(),
             ])
             ->font('Cairo', provider: GoogleFontProvider::class)
             ->favicon(asset('uploads/mkhazin/fav.png'))

@@ -124,6 +124,7 @@ return [
     'servicesManagement'=>'إدارة الخدمات',
     'pageManagement'=>'إدارة الصفحة',
     'others'=>'أخرى',
+    'Settings'=>'الإعدادات',
     'subscriptions'=>' طلبات الاشتراك',
     'contactImages'=>'صور قسم التواصل',
 

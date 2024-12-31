@@ -128,6 +128,7 @@ return [
     'servicesManagement'=>'Services Management',
     'pageManagement'=>'Page Management',
     'others'=>'Other Settings',
+    'Settings'=>'Settings',
     'subscriptions'=>'Subscription Requests',
     'contactImages'=>'Contact Images',
 

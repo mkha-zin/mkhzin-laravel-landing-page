@@ -53,6 +53,8 @@ class AppServiceProvider extends ServiceProvider
                 NavigationGroup::make()
                     ->label(__('dashboard.others'))
                     ->icon('heroicon-o-adjustments-horizontal'),
+                NavigationGroup::make()
+                    ->label(__('dashboard.Settings'))
             ]);
         });
     }
