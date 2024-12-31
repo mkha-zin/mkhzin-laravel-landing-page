@@ -109,7 +109,6 @@ class ContactImageResource extends Resource
             ])->columns(2),
 
 
-
         ]);
     }
 

@@ -19,14 +19,13 @@ use Illuminate\Support\Facades\App;
 class FleetResource extends Resource
 {
     protected static ?string $model = Fleet::class;
-
+    protected static ?int $navigationSort = 5;
 
     public static function canCreate(): bool
     {
         return false;
     }
 
-    protected static ?int $navigationSort = 5;
     public static function canDelete(Model $record): bool
     {
         return false;

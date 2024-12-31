@@ -78,7 +78,7 @@ class AdminPanelProvider extends PanelProvider
             // This line tells us where to render it
                 'panels::body.end',
                 // This is the view that will be rendered
-                fn () => view('filament-panels::components.custom_footer'),
+                fn() => view('filament-panels::components.custom_footer'),
             )
             ->middleware([
                 EncryptCookies::class,

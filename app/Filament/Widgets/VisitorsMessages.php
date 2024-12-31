@@ -11,18 +11,12 @@ use Illuminate\Contracts\Support\Htmlable;
 class VisitorsMessages extends BaseWidget
 {
 
-    protected int | string | array $columnSpan = 'full';
-
-    protected function getTableHeading(): string|Htmlable|null
-    {
-        return __('dashboard.visitor_message');
-    }
+    protected int|string|array $columnSpan = 'full';
 
     public function table(Table $table): Table
     {
         return $table
             ->defaultSort('created_at', 'desc')
-
             ->striped()
             ->query(
                 fn() => VisitorMessage::query()->latest()
@@ -56,5 +50,10 @@ class VisitorsMessages extends BaseWidget
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ]);
+    }
+
+    protected function getTableHeading(): string|Htmlable|null
+    {
+        return __('dashboard.visitor_message');
     }
 }

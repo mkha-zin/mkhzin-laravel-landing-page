@@ -71,13 +71,6 @@ class VisitorMessageResource extends Resource
         ];
     }
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            BookmarkHeaderAction::make()
-        ];
-    }
-
     public static function form(Form $form): Form
     {
         return $form
@@ -188,6 +181,13 @@ class VisitorMessageResource extends Resource
             'create' => Pages\CreateVisitorMessage::route('/create'),
             'view' => Pages\ViewVisitorMessage::route('/{record}'),
             'edit' => Pages\EditVisitorMessage::route('/{record}/edit'),
+        ];
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            BookmarkHeaderAction::make()
         ];
     }
 }

@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\App;
 class CityResource extends Resource
 {
     protected static ?string $model = City::class;
+    protected static ?int $navigationSort = 3;
+
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
@@ -26,8 +28,6 @@ class CityResource extends Resource
     {
         return __('dashboard.pageManagement');
     }
-
-    protected static ?int $navigationSort = 3;
 
     public static function getPluralLabel(): ?string
     {
@@ -99,7 +99,6 @@ class CityResource extends Resource
                 TextEntry::make('name_ar')->label(__('dashboard.name_ar')),
                 TextEntry::make('name_en')->label(__('dashboard.name_en')),
             ])->columns(2),
-
 
 
         ]);

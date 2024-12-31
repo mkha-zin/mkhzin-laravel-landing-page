@@ -15,7 +15,6 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\App;
 use LaraZeus\Delia\Filament\Actions\BookmarkHeaderAction;
 
 class SubscriptionResource extends Resource
@@ -26,6 +25,7 @@ class SubscriptionResource extends Resource
     {
         return static::getModel()::count();
     }
+
     public static function getNavigationGroup(): ?string
     {
         return __('dashboard.contactSettings');
@@ -54,13 +54,6 @@ class SubscriptionResource extends Resource
     public static function getRecordTitleAttribute(): ?string
     {
         return 'email';
-    }
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            BookmarkHeaderAction::make()
-        ];
     }
 
     public static function form(Form $form): Form
@@ -117,7 +110,6 @@ class SubscriptionResource extends Resource
             ])->columns(2),
 
 
-
         ]);
     }
 
@@ -135,6 +127,13 @@ class SubscriptionResource extends Resource
             'create' => Pages\CreateSubscription::route('/create'),
             'view' => Pages\ViewSubscription::route('/{record}'),
             'edit' => Pages\EditSubscription::route('/{record}/edit'),
+        ];
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            BookmarkHeaderAction::make()
         ];
     }
 }

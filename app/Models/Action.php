@@ -10,7 +10,7 @@ class Action extends Model
 {
     use HasFactory;
 
-    public function contactInfo():HasMany
+    public function contactInfo(): HasMany
     {
         return $this->hasMany(ContactInfo::class);
     }

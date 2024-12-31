@@ -122,7 +122,7 @@ class OfferRelationManager extends RelationManager
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-            ])->defaultSort('created_at','desc')
+            ])->defaultSort('created_at', 'desc')
             ->filters([
                 //
             ])
@@ -142,7 +142,7 @@ class OfferRelationManager extends RelationManager
             ]);
     }
 
-    public  function infolist(Infolist $infolist): Infolist
+    public function infolist(Infolist $infolist): Infolist
     {
         return $infolist->schema([
 
@@ -160,7 +160,7 @@ class OfferRelationManager extends RelationManager
                 TextEntry::make('address_ar')->label(__('dashboard.address_ar')),
                 TextEntry::make('address_en')->label(__('dashboard.address_en')),
 
-            ])->columns(2) ,
+            ])->columns(2),
 
             Section::make(__('dashboard.duration'))->schema([
                 TextEntry::make('start_date')->label(__('dashboard.start_date')),
@@ -170,7 +170,6 @@ class OfferRelationManager extends RelationManager
 
         ]);
     }
-
 
 
 }

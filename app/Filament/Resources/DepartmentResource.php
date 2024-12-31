@@ -79,10 +79,10 @@ class DepartmentResource extends Resource
                     ->required(),
                 Forms\Components\TagsInput::make('tags_ar')
                     ->label(__('dashboard.tags'))
-                ->reorderable(),
+                    ->reorderable(),
                 Forms\Components\TagsInput::make('tags_en')
                     ->label(__('dashboard.tags'))
-                ->reorderable(),
+                    ->reorderable(),
             ]);
     }
 

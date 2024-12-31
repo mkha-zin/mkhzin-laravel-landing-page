@@ -15,13 +15,12 @@ use Illuminate\Support\Facades\App;
 class HeaderResource extends Resource
 {
     protected static ?string $model = Header::class;
+    protected static ?int $navigationSort = 2;
 
     public static function getNavigationGroup(): ?string
     {
         return __('dashboard.pageManagement');
     }
-
-    protected static ?int $navigationSort = 2;
 
     public static function getPluralLabel(): ?string
     {

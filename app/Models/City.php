@@ -15,12 +15,12 @@ class City extends Model
         'name_en',
     ];
 
-    protected $hidden=[
+    protected $hidden = [
         'created_at',
         'updated_at'
     ];
 
-    public function branch():HasMany
+    public function branch(): HasMany
     {
         return $this->hasMany(Branch::class);
     }

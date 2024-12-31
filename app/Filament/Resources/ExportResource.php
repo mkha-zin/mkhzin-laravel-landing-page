@@ -50,7 +50,7 @@ class ExportResource extends Resource
         return $form
             ->schema([
                 Forms\Components\DateTimePicker::make('completed_at')
-                ->label(__('dashboard.completed at')),
+                    ->label(__('dashboard.completed at')),
                 Forms\Components\TextInput::make('file_disk')
                     ->label(__('dashboard.file disk'))
                     ->required()

@@ -18,14 +18,12 @@ use Illuminate\Support\Facades\App;
 class HeroResource extends Resource
 {
     protected static ?string $model = Hero::class;
+    protected static ?int $navigationSort = 1;
 
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
     }
-
-
-    protected static ?int $navigationSort = 1;
 
     public static function getNavigationGroup(): ?string
     {

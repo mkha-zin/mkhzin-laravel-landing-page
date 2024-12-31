@@ -49,13 +49,6 @@ class OfferResource extends Resource
         return ['name_ar', 'name_en', 'description_ar', 'description_en'];
     }
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            BookmarkHeaderAction::make()
-        ];
-    }
-
     public static function getGlobalSearchResultDetails(Model $record): array
     {
         return [
@@ -215,7 +208,6 @@ class OfferResource extends Resource
             ]);
     }
 
-
     public static function form(Form $form): Form
     {
         return $form
@@ -324,7 +316,6 @@ class OfferResource extends Resource
         ]);
     }
 
-
     public static function getRelations(): array
     {
         return [
@@ -339,6 +330,13 @@ class OfferResource extends Resource
             'create' => Pages\CreateOffer::route('/create'),
             'view' => Pages\ViewOffer::route('/{record}'),
             'edit' => Pages\EditOffer::route('/{record}/edit'),
+        ];
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            BookmarkHeaderAction::make()
         ];
     }
 }

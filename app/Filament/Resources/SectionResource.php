@@ -60,13 +60,6 @@ class SectionResource extends Resource
         ];
     }
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            BookmarkHeaderAction::make()
-        ];
-    }
-
     public static function form(Form $form): Form
     {
         return $form
@@ -189,6 +182,13 @@ class SectionResource extends Resource
             'create' => Pages\CreateSection::route('/create'),
             'view' => Pages\ViewSection::route('/{record}'),
             'edit' => Pages\EditSection::route('/{record}/edit'),
+        ];
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            BookmarkHeaderAction::make()
         ];
     }
 }

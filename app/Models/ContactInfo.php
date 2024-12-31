@@ -10,11 +10,11 @@ class ContactInfo extends Model
 {
     use HasFactory;
 
-    protected $guarded=[
+    protected $guarded = [
         'id'
     ];
 
-    public function action():BelongsTo
+    public function action(): BelongsTo
     {
         return $this->belongsTo(Action::class);
     }

@@ -40,12 +40,6 @@ class Offer extends Model
 
     }
 
-    public function branch(): BelongsTo
-    {
-        return $this->belongsTo(Branch::class);
-    }
-
-
     public function extractZip($id, $pdf_file): void
     {
         $zipFilePath = public_path('offersfiles/' . $pdf_file);
@@ -118,5 +112,10 @@ class Offer extends Model
             }
             rmdir($dirPath); // Remove the directory itself
         }
+    }
+
+    public function branch(): BelongsTo
+    {
+        return $this->belongsTo(Branch::class);
     }
 }

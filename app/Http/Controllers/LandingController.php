@@ -221,8 +221,7 @@ class LandingController extends Controller
             ->where('used', false)
             ->exists();
 
-        if ($is_allowed)
-        {
+        if ($is_allowed) {
             session()->put('voucher', $vocherNumber);
             return redirect()->back()->with('success', __('landing.Voucher Found'));
         }
@@ -270,7 +269,7 @@ class LandingController extends Controller
 
     public function download()
     {
-        $filePath = public_path("storage/filament_exports/". request()->key . "/" . request()->record . ".xlsx");
+        $filePath = public_path("storage/filament_exports/" . request()->key . "/" . request()->record . ".xlsx");
 
 //        dd($filePath . " - " . file_exists($filePath));
         if (!file_exists($filePath)) {

@@ -27,9 +27,9 @@ class VoucherExporter extends Exporter
             ExportColumn::make('using_date')
                 ->label(__('dashboard.using_date')),
             ExportColumn::make('created_at')
-            ->enabledByDefault(false),
+                ->enabledByDefault(false),
             ExportColumn::make('updated_at')
-            ->enabledByDefault(false),
+                ->enabledByDefault(false),
         ];
     }
 

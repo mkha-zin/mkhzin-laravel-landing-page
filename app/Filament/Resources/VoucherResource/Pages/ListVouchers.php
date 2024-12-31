@@ -13,13 +13,6 @@ class ListVouchers extends ListRecords
 {
     protected static string $resource = VoucherResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
-
     public function getTabs(): array
     {
         return [
@@ -47,6 +40,13 @@ class ListVouchers extends ListRecords
                     fn(Builder $query) => $query
                         ->where('used', false))
                 ->badge(Voucher::query()->where('used', false)->count()),
+        ];
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Actions\CreateAction::make(),
         ];
     }
 

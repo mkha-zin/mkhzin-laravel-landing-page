@@ -73,7 +73,7 @@ class UserResource extends Resource
                         ])
                         ->required(),
                     Forms\Components\DateTimePicker::make('email_verified_at')
-                    ->label( __('dashboard.email verified at') ),
+                        ->label(__('dashboard.email verified at')),
                     Forms\Components\TextInput::make('password')
                         ->label(__('dashboard.password'))
                         ->password()

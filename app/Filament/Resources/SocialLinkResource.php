@@ -59,7 +59,7 @@ class SocialLinkResource extends Resource
                     ->label(__('dashboard.link'))
                     ->required()
                     ->url()
-                ->columnSpanFull(),
+                    ->columnSpanFull(),
                 Forms\Components\TextInput::make('comment_en')
                     ->label(__('dashboard.comment_en'))
                     ->maxValue(255),

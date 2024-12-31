@@ -61,13 +61,13 @@ class ContactInfoResource extends Resource
                     ->hint(__('dashboard.content_hint'))
                     ->required()
                     ->maxLength(255),
-/*                Forms\Components\FileUpload::make('icon')
-                    ->directory('assets/icons')
-                    ->label(__('dashboard.icon'))
-                    ->required()
-                    ->imageEditor()
-                    ->image()
-                    ->columnSpanFull(),*/
+                /*                Forms\Components\FileUpload::make('icon')
+                                    ->directory('assets/icons')
+                                    ->label(__('dashboard.icon'))
+                                    ->required()
+                                    ->imageEditor()
+                                    ->image()
+                                    ->columnSpanFull(),*/
             ]);
     }
 
@@ -80,9 +80,9 @@ class ContactInfoResource extends Resource
                 )
                     ->numeric()
                     ->sortable(),
-/*                Tables\Columns\TextColumn::make('icon')
-                    ->label(__('dashboard.icon'))
-                    ->searchable(),*/
+                /*                Tables\Columns\TextColumn::make('icon')
+                                    ->label(__('dashboard.icon'))
+                                    ->searchable(),*/
                 Tables\Columns\TextColumn::make('content')
                     ->label(__('dashboard.content'))
                     ->searchable(),
@@ -124,7 +124,6 @@ class ContactInfoResource extends Resource
                     App::currentLocale() === 'ar' ? 'action.name_ar' : 'action.name_en'
                 )->label(__('dashboard.action')),
             ])->columns(2),
-
 
 
         ]);

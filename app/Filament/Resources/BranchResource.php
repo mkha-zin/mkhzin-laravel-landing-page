@@ -150,8 +150,8 @@ class BranchResource extends Resource
             Section::make(__('dashboard.addresses'))->schema([
                 TextEntry::make('address_ar')->label(__('dashboard.address_ar')),
                 TextEntry::make('address_en')->label(__('dashboard.address_en')),
-            ])->columns(2) ,
-        Section::make(__(''))->schema([
+            ])->columns(2),
+            Section::make(__(''))->schema([
                 TextEntry::make(
                     App::currentLocale() === 'ar' ? 'city.name_ar' : 'city.name_en'
                 )->label(__('dashboard.city')),

@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        LanguageSwitch::configureUsing( static function (LanguageSwitch $switch) {
+        LanguageSwitch::configureUsing(static function (LanguageSwitch $switch) {
             $switch
                 ->locales(['ar', 'en'])
                 ->flags([
@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Filament::serving(function () {
-            Filament::registerNavigationGroups  ([
+            Filament::registerNavigationGroups([
                 NavigationGroup::make()
                     ->label(__('dashboard.servicesManagement'))
                     ->icon('heroicon-o-wrench-screwdriver'),

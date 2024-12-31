@@ -39,9 +39,15 @@ class User extends Authenticatable implements FilamentUser
     {
         return auth()->user()->role === 'admin';
     }
+
     public function isSuperAdmin(): bool
     {
         return auth()->user()->role === 'super';
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return str_ends_with($this->email, '@mkhzin.com') && $this->hasVerifiedEmail();
     }
 
     /**
@@ -55,11 +61,6 @@ class User extends Authenticatable implements FilamentUser
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    public function canAccessPanel(Panel $panel): bool
-    {
-        return str_ends_with($this->email, '@mkhzin.com') && $this->hasVerifiedEmail();
     }
 
 }

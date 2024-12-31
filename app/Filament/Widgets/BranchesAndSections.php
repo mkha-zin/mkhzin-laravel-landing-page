@@ -20,7 +20,7 @@ class BranchesAndSections extends BaseWidget
                 ->url('/admin/branches')
                 ->description(__('dashboard.All Branches in the database'))
                 ->descriptionIcon('heroicon-m-star')
-                ->chart([0,0,0,0,0,0,0])
+                ->chart([0, 0, 0, 0, 0, 0, 0])
                 ->color(Color::hex('#21AB71')),
             Stat::make('Sections', Section::query()->count())
                 ->label(__('dashboard.sections'))
@@ -28,7 +28,7 @@ class BranchesAndSections extends BaseWidget
                 ->url('/admin/sections')
                 ->description(__('dashboard.All Sections in the database'))
                 ->descriptionIcon('heroicon-m-fire')
-                ->chart([0,0,0,0,0,0,0])
+                ->chart([0, 0, 0, 0, 0, 0, 0])
                 ->color(Color::hex('#F08650')),
             Stat::make('Cities', City::query()->count())
                 ->label(__('dashboard.cities'))
@@ -36,7 +36,7 @@ class BranchesAndSections extends BaseWidget
                 ->url('/admin/cities')
                 ->description(__('dashboard.All Cities in the database'))
                 ->descriptionIcon('heroicon-m-megaphone')
-                ->chart([0,0,0,0,0,0,0])
+                ->chart([0, 0, 0, 0, 0, 0, 0])
                 ->color(Color::hex('#CD37D9')),
         ];
     }

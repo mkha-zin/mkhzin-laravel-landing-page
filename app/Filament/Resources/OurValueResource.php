@@ -18,13 +18,13 @@ use Illuminate\Support\Facades\App;
 class OurValueResource extends Resource
 {
     protected static ?string $model = OurValue::class;
+    protected static ?int $navigationSort = 3;
 
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
     }
 
-    protected static ?int $navigationSort = 3;
     public static function getNavigationGroup(): ?string
     {
         return __('dashboard.aboutCompanySettings');

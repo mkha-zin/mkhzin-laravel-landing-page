@@ -11,21 +11,21 @@ class Branch extends Model
 {
     use HasFactory;
 
-    protected $guarded=[
+    protected $guarded = [
         'id'
     ];
 
-    protected $hidden=[
+    protected $hidden = [
         'created_at',
         'updated_at'
     ];
 
-    public function city():BelongsTo
+    public function city(): BelongsTo
     {
         return $this->belongsTo(City::class);
     }
 
-    public function offer():HasMany
+    public function offer(): HasMany
     {
         return $this->hasMany(Offer::class);
     }

@@ -18,14 +18,13 @@ use Illuminate\Support\Facades\App;
 class AboutCardResource extends Resource
 {
     protected static ?string $model = AboutCard::class;
+    protected static ?int $navigationSort = 2;
 
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
     }
 
-
-    protected static ?int $navigationSort = 2;
     public static function getNavigationGroup(): ?string
     {
         return __('dashboard.aboutCompanySettings');

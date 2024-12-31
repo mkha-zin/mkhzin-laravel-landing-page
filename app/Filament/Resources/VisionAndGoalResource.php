@@ -21,6 +21,7 @@ class VisionAndGoalResource extends Resource
     protected static ?string $model = VisionAndGoal::class;
 
     protected static ?int $navigationSort = 4;
+
     public static function getNavigationGroup(): ?string
     {
         return __('dashboard.aboutCompanySettings');

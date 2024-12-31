@@ -44,13 +44,6 @@ class VoucherResource extends Resource
         return auth()->user()?->isSuperAdmin();
     }
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            BookmarkHeaderAction::make()
-        ];
-    }
-
     public static function form(Form $form): Form
     {
         return $form
@@ -169,6 +162,13 @@ class VoucherResource extends Resource
             /*            'create' => Pages\CreateVoucher::route('/create'),
                         'view' => Pages\ViewVoucher::route('/{record}'),
                         'edit' => Pages\EditVoucher::route('/{record}/edit'),*/
+        ];
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            BookmarkHeaderAction::make()
         ];
     }
 }
