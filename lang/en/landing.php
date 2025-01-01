@@ -78,5 +78,6 @@ return [
 
     '404' => 'Dear customer, This Page is Not Found.',
     'Back to Home' => 'Back to Home',
+    'Back To Previous' => 'Back To Previous Page',
 
 ];

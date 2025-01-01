@@ -39,6 +39,14 @@ Route::group(['middleware' => 'localization'], static function () {
      * Route::get('test', function () {
         return view('test');
     });*/
+
+    /*Route::get('/app', function () {
+       if (!(auth()->check() && auth()->user()->role === 'super')) {
+           return redirect('/');
+       }
+
+       return redirect(view('filament.panel.app'));
+    });*/
 });
 
 

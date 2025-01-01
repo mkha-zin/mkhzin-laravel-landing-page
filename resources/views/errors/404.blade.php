@@ -513,6 +513,13 @@
                                     </span>
 					</span>
                         </a>
+                        <a class="elementor-button elementor-button-link elementor-size-sm" href="{{ url()->previous() }}">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text" style="color: white; letter-spacing: 0 !important;">
+                                        {{ __('landing.Back To Previous') }}
+                                    </span>
+					</span>
+                        </a>
                     </div>
                 </div>
             </div>
