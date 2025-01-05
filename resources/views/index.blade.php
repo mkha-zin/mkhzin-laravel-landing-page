@@ -551,10 +551,10 @@
                         <div
                             class="elementor-element elementor-element-60021572 elementor-widget elementor-widget-text-editor"
                             data-id="60021572" data-element_type="widget" data-widget_type="text-editor.default">
-                            <div class="elementor-widget-container">
-                                <p style="display: -webkit-box; text-align:justify; word-break:keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 5; color: black; overflow: hidden; text-overflow: ellipsis;">
+                            <div class="elementor-widget-container" >
+                                <span style="display: -webkit-box; text-align:justify; word-break:keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 5; color: black; overflow: hidden; text-overflow: ellipsis;">
                                     {{ $direction == 'rtl' ? Markdown::block($goals->description_ar) : Markdown::block($goals->description_en) }}
-                                </p>
+                                </span>
                             </div>
                         </div>
                         <div class="elementor-element elementor-element-7df84b6c e-con-full e-flex e-con e-child"
