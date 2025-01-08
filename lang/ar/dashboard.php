@@ -103,16 +103,11 @@ return [
     'start_date'=>'تاريخ البدء',
     'end_date'=>'تاريخ الانتهاء',
 
-
     'action'=>'الحدث',
     'content'=>'المحتوى',
     'content_hint'=>'رابط او ايميل او رقم هاتف',
 
     'branch' => 'الفرع',
-
-
-
-
 
     // dashboard footer
     'copyright' => 'كل الحقوق محفوظة لدى',

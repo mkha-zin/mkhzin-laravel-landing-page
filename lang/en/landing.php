@@ -47,7 +47,7 @@ return [
     'Website' => 'Web Store',
     'Whatsapp' => 'Whatsapp',
 
-    'Keep in touch' => 'Let\'s Connect and Keep in touch',
+    'Keep in touch' => 'Let\'s Keep in touch',
     'Subscribe to our Newsletter' => 'Subscribe to our Newsletter',
 
     'vision' => 'Vision',

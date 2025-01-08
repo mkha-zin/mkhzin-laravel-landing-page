@@ -417,7 +417,6 @@
                                 </div>
                             </div>
 
-
                             <script>
                                 const swiper = new Swiper('.slider-wrapper', {
                                     loop: true,
@@ -453,7 +452,6 @@
                                 });
                             </script>
                             <!--______________________________________________________-->
-
                         </div>
                     </div>
                 </div>
@@ -1009,5 +1007,4 @@
         </div>
         <!-- / Contact Us Form -->
     </div>
-
 @endsection
