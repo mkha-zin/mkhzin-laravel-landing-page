@@ -178,9 +178,9 @@ class VisitorMessageResource extends Resource
     {
         return [
             'index' => Pages\ListVisitorMessages::route('/'),
-            'create' => Pages\CreateVisitorMessage::route('/create'),
+            /*'create' => Pages\CreateVisitorMessage::route('/create'),
             'view' => Pages\ViewVisitorMessage::route('/{record}'),
-            'edit' => Pages\EditVisitorMessage::route('/{record}/edit'),
+            'edit' => Pages\EditVisitorMessage::route('/{record}/edit'),*/
         ];
     }
 

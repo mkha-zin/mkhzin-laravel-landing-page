@@ -48,9 +48,6 @@ class AdminPanelProvider extends PanelProvider
             ->plugins([
                 BreezyCore::make()
                     ->myProfile(
-                        shouldRegisterUserMenu: true,
-                        shouldRegisterNavigation: false,
-                        hasAvatars: false,
                         navigationGroup: __('dashboard.others'),
                     )->enableTwoFactorAuthentication(),
                 DeliaPlugin::make()
