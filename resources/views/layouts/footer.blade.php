@@ -194,8 +194,8 @@
                         class="elementor-element elementor-element-332dd94 elementor-widget elementor-widget-text-editor"
                         data-element_type="widget" data-widget_type="text-editor.default">
                         <a {{--href="https://profiles.dunsregistered.com/TPSAME-COMP-004.aspx?ListArea=900"--}} target="_blank">
-                            <div class="elementor-widget-container" >
-                                <img style="border-radius: 10px" src="{{ asset('uploads/mkhazin/duns.png') }}"/>
+                            <div class="elementor-widget-container" style="display: flex; justify-content: center">
+                                <img style="border-radius: 10px;" width="250px" src="{{ asset('uploads/mkhazin/duns.png') }}"/>
                             </div>
                         </a>
                     </div>
