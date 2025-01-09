@@ -23,6 +23,8 @@ return [
     'cities' => 'Cities',
     'branches' => 'Branches',
     'offers' => 'Offers',
+    'brand' => 'Brand',
+    'brands' => 'Brands',
     'All Offers in the database' => 'All Offers in the database',
     'Offers in the last month' => 'Offers that started the last month',
     'Offers in the last year' => 'Offers in the last year',

@@ -108,7 +108,7 @@ class VoucherResource extends Resource
                 Tables\Columns\TextColumn::make('using_date')
                     ->label(__('dashboard.using_date'))
                     ->date()
-                    ->dateTimeTooltip()
+                    ->dateTimeTooltip(format: 'Y/m/d h:i:s a')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
