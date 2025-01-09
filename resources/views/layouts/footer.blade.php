@@ -190,6 +190,15 @@
                             </div>
                         </div>
                     </div>
+                    <div
+                        class="elementor-element elementor-element-332dd94 elementor-widget elementor-widget-text-editor"
+                        data-element_type="widget" data-widget_type="text-editor.default">
+                        <a href="https://dunsregistered.dnb.com/DunsRegisteredProfileAnywhere.aspx?Key1=3186635&PaArea=Email" target="_blank">
+                            <div class="elementor-widget-container" >
+                                <img style="border-radius: 10px" src="{{ asset('uploads/mkhazin/duns.png') }}"/>
+                            </div>
+                        </a>
+                    </div>
                 </div>
                 <div class="elementor-element elementor-element-bcb0e83 e-con-full e-flex e-con e-child"
                      data-id="bcb0e83" data-element_type="container">
