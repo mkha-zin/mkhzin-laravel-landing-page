@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Model;
 class BrandResource extends Resource
 {
     protected static ?string $model = Brand::class;
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-finger-print';
 
     public static function getPluralLabel(): ?string
     {
@@ -74,12 +74,14 @@ class BrandResource extends Resource
                     ->circular(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->date()
-                    ->dateTimeTooltip(format: 'Y/m/d h:i:s a')
+                    ->dateTimeTooltip(format: 'Y/m/d h:i:s A')
                     ->label(__('dashboard.created at'))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->date()
+                    ->dateTimeTooltip(format: 'Y/m/d h:i:s A')
+                    ->label(__('dashboard.updated at'))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])

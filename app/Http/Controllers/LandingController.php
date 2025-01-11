@@ -145,10 +145,14 @@ class LandingController extends Controller
 
     public function branchOffers($id): Factory|View|Application|\Illuminate\View\View
     {
-        $data['offers'] = Offer::query()
-            ->where('branch_id', $id)
-            ->with('branch')
+        $data['offers'] = Offer::select('offers.*')
+            ->where('offers.end_date', '>=', date('Y-m-d'))
+            ->where('offers.is_active', 1)
+            ->where('offers.branch_id', $id)
+            ->join('branches', 'branches.id', '=', 'offers.branch_id')
+            ->orderBy('offers.end_date', 'desc')
             ->get();
+
         $data['cities'] = City::all();
         return view('offers', $data);
     }
@@ -201,11 +205,6 @@ class LandingController extends Controller
         }
 
         return view('errors.404');
-    }
-
-    public function viewStore(): Factory|View|Application|\Illuminate\View\View
-    {
-        return view('store');
     }
 
     public function vouchers(): Factory|View|Application|\Illuminate\View\View

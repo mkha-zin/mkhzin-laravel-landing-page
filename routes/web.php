@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppLandingController;
 use App\Http\Controllers\LandingController;
 use App\Http\Middleware\Localization;
 use Illuminate\Support\Facades\App;
@@ -11,7 +12,7 @@ Route::group(['middleware' => 'localization'], static function () {
     Route::post('subscribe', [LandingController::class, 'subscribe'])->name('subscribe');
     Route::get('sections', [LandingController::class, 'sections']);
     Route::get('sections/{id}/details', [LandingController::class, 'sectionDetails']);
-    Route::get('mkhazin-store', [LandingController::class, 'viewStore']);
+    Route::get('mkhazin-store', [AppLandingController::class, 'viewStore']);
     Route::get('offers', [LandingController::class, 'offers']);
     Route::get('about', [LandingController::class, 'about']);
     Route::get('jobs', [LandingController::class, 'jobs']);
