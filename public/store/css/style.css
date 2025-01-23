@@ -20,8 +20,13 @@
 ----------------------*/
 
 body {
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Alexandria', serif;
     position: relative;
+}
+
+*::selection {
+    background: #d10404;
+    color: whitesmoke;
 }
 
 a {
@@ -259,7 +264,7 @@ header {
         font-size: 17px;
     }
     .img-holder {
-        padding-bottom: 100%;
+        padding-bottom: 53%;
     }
 }
 
@@ -627,4 +632,61 @@ header {
         text-align: center;
         margin-top: 2rem;
     }
+}
+
+
+/* Make the brand logos responsive */
+.swiper-container {
+    padding: 20px; /* Add padding for spacing */
+}
+
+.swiper-slide img {
+    width: 80%;
+    height: auto;
+    object-fit: contain; /* Ensure images are contained within their slides */
+    max-width: 180px; /* Set max width for logos */
+}
+
+/* Centering the carousel items */
+.swiper-wrapper {
+    display: flex;
+    justify-content: space-between; /* Space between each brand logo */
+}
+
+
+/* Styling the entire scrollbar */
+::-webkit-scrollbar {
+    width: 12px; /* width of the scrollbar */
+    height: 12px; /* height of horizontal scrollbar */
+}
+
+/* Styling the "track" of the scrollbar (the area the thumb slides within) */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* light gray background */
+    border-radius: 10px;
+}
+
+/* Styling the "thumb" (the draggable part) */
+::-webkit-scrollbar-thumb {
+    background: #888; /* dark gray thumb */
+    border-radius: 10px;
+}
+
+/* Styling the "thumb" when it's hovered */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* darker thumb when hovered */
+}
+
+/* For horizontal scrollbar */
+::-webkit-scrollbar-horizontal {
+    height: 10px; /* Set height of horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track-horizontal {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb-horizontal {
+    background: #888;
+    border-radius: 10px;
 }

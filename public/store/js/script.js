@@ -1,14 +1,3 @@
-/*
-
-Style   : MobApp Script JS
-Version : 1.0
-Author  : Surjith S M
-URI     : https://surjithctly.in/
-
-Copyright © All rights Reserved 
-
-*/
-
 $(function() {
     "use strict";
 
@@ -34,7 +23,7 @@ $(function() {
     $('.navbar-nav > li:not(.dropdown) > a').on('click', function() {
         $('.navbar-collapse').collapse('hide');
     });
-    /* 
+    /*
      * NAVBAR TOGGLE BG
      *-----------------*/
     var siteNav = $('#navbar');
@@ -110,3 +99,40 @@ $(function() {
     }
 
 }); /* End Fn */
+
+function initSwiper() {
+    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
+        let config = {
+            loop: true, // Allow the carousel to loop infinitely
+            autoplay: {
+                delay: 3000, // Auto-slide every 3 seconds
+            },
+            slidesPerView: 5, // Number of slides to show at once
+            spaceBetween: 5, // Space between each slide
+            hideElementsWhenNotNeeded: true, // Hide elements when not needed
+            ariaHidden: true, // Enable ARIA support
+            breakpoints: {
+                320: { // Mobile view (for screens 320px or smaller)
+                    slidesPerView: 1, // Show 1 logo per slide
+                    spaceBetween: 5,
+                },
+                768: { // Tablet view (for screens 768px or smaller)
+                    slidesPerView: 2, // Show 2 logos per slide
+                    spaceBetween: 5,
+                },
+                1024: { // Desktop view (for screens 1024px or larger)
+                    slidesPerView: 4, // Show 4 logos per slide
+                    spaceBetween: 5,
+                }
+            },
+            pagination: {
+                el: ".swiper-pagination", // Show pagination if desired
+                clickable: true,
+            },
+        };
+
+        new Swiper(swiperElement, config); // Initialize Swiper with the config
+    });
+}
+
+window.addEventListener("load", initSwiper);

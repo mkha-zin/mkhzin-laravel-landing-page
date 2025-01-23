@@ -248,6 +248,10 @@
             transform: translate(2px, 2px);
         }
 
+        *::selection {
+            background: #d10404;
+            color: whitesmoke;
+        }
     </style>
 
     <!-- Bootstrap CSS -->

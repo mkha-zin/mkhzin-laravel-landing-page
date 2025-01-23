@@ -25,6 +25,12 @@ return [
     'offers' => 'Offers',
     'brand' => 'Brand',
     'brands' => 'Brands',
+    'feature' => 'Feature',
+    'features' => 'Features',
+    'category' => 'Category',
+    'categories' => 'Categories',
+    'store text' => 'Store Text',
+    'store texts' => 'Store Texts',
     'All Offers in the database' => 'All Offers in the database',
     'Offers in the last month' => 'Offers that started the last month',
     'Offers in the last year' => 'Offers in the last year',
@@ -181,5 +187,7 @@ return [
     'super' => 'Super Market',
     'hyper' => 'Hyper Market',
     'wholesale' => 'Wholesale',
+
+    'icon_src_desc' => 'Go to: https://themify.me/themify-icons to see all icons, and copy the icon name to here.'
 
 ];

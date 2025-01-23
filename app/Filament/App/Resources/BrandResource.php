@@ -70,8 +70,7 @@ class BrandResource extends Resource
                     ->label(__('dashboard.title'))
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image')
-                    ->label(__('dashboard.image'))
-                    ->circular(),
+                    ->label(__('dashboard.image')),
                 Tables\Columns\TextColumn::make('created_at')
                     ->date()
                     ->dateTimeTooltip(format: 'Y/m/d h:i:s A')

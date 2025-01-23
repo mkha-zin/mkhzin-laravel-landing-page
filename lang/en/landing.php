@@ -20,6 +20,7 @@ return [
     'features' => 'Features',
     'gallery' => 'Gallery',
     'Download' => 'Download',
+    'go to store' => 'Go to Store',
 
     'offers_title'=>'Offers',
     'end offer'=>'Offer until',
@@ -79,4 +80,5 @@ return [
     '404' => 'Dear customer, This Page is Not Found.',
     'Back to Home' => 'Back to Home',
 
+    'features_for_you' => 'Features For You',
 ];
