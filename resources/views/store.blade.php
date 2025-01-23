@@ -57,8 +57,12 @@
         .phone {
             position: relative;
             width: 100%;
+            height: 100%;
             max-width: 500px;
             margin-top: -80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .app-interface {
@@ -73,8 +77,6 @@
         .swiper-slide-next .cat_img {
             height: 220%;
             width: 220%;
-            margin-left: 60px;
-            margin-right: 60px;
         }
 
         .swiper-slide .gallery_img {
@@ -184,9 +186,9 @@
 <div class="section" style="background-color: #f3f3f5; height: 500px">
     <div class="container">
         <div class="row flex align-items-center text-center items-center">
-            <div class="col-lg-8 col-md-12 col-sm-12 mx-0">
-                <div class="phone flex align-items-center text-center items-center">
-                    <img src="{{ asset('store/images/cat_phone.png') }}" class="img-fluid" alt="Phone displaying app">
+            <div class="col-lg-8 col-md-12 col-sm-12">
+                <div class="phone" >
+                    <img style="object-fit: cover" src="{{ asset('store/images/cat_phone.png') }}" class="img-fluid" alt="Phone displaying app">
                     <div class="app-interface flex align-items-center text-center items-center">
                         <!-- Add app interface elements here -->
                         @if(!empty($categories))
@@ -195,19 +197,21 @@
                                     <!-- Brands -->
                                     @foreach($categories as $category)
                                         <div class="swiper-slide">
-                                            <img class="cat_img" src="{{ asset('storage/' . $category->image) }}"
-                                                 alt="Category {{  $category->title_en }}">
+                                            <div class="mx-5">
+                                                <img class="cat_img" style="{{  $direction == 'rtl' ? 'margin-left: 180px' : 'margin-right: 180px'}}" src="{{ asset('storage/' . $category->image) }}"
+                                                    alt="Category {{  $category->title_en }}">
+                                                <h6 style="width: 100%; text-align: center; margin-top: 10px"> {{  $direction == 'rtl' ? $category->title_ar : $category->title_en }}</h6>
+                                            </div>
                                         </div>
                                     @endforeach
                                 </div>
                             </div>
                         @endif
                     </div>
-
                 </div>
             </div>
             @if(!empty($storetextcategories))
-                <div class="col-lg-4 col-md-12 col-sm-10">
+                <div class="col-lg-4 col-md-12 col-sm-10 {{ $direction == 'rtl' ? 'text-right' : 'text-left' }}">
                     <h3>
                         {{ $direction == 'rtl' ? $storetextcategories->title_ar : $storetextcategories->title_en }}
                     </h3>
