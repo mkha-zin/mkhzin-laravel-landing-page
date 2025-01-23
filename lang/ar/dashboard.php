@@ -30,6 +30,8 @@ return [
     'store texts' => 'نصوص المتجر',
     'step' => 'خطوة',
     'steps' => 'الخطوات',
+    'app screen' => 'شاشة',
+    'app screens' => 'شاشات التطبيق',
     'All Offers in the database' => 'جميع العروض في قاعدة البيانات',
     'Offers in the last month' => 'العروض التي بدات الشهر الماضي',
     'Offers in the last year' => 'العروض في العام الماضي',

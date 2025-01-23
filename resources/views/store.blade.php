@@ -82,10 +82,6 @@
             height: 100%;
         }
 
-        .swiper-slide-next .gallery_img {
-             width: 200%;
-             height: 200%;
-         }
         .swiper-button-next, .swiper-button-prev {
             color: red;
         }
@@ -101,6 +97,20 @@
 
         .swiper-pagination-bullet-active {
             background: red;
+        }
+
+        .swiper-slide-next .screenshots {
+            padding: 0 !important;
+            margin: 0 !important;
+            width: 100%;
+            background-color: red;
+            height: 800px;
+            overflow-y: visible;
+        }
+
+        .swiper-slide-next .gallery_img {
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
@@ -259,9 +269,11 @@
                         @foreach($steps as $step)
                             <li class="media">
                                 <div class="circle-icon mx-4">{{ $step->order }}</div>
-                                <div class="media-body row d-flex align-self-center {{ $direction == 'rtl' ? 'text-right' : 'text-left' }}">
+                                <div
+                                    class="media-body row d-flex align-self-center {{ $direction == 'rtl' ? 'text-right' : 'text-left' }}">
                                     <h5 class="w-full col-12">{{ $direction == 'rtl' ? $step->title_ar : $step->title_en }}</h5>
-                                    <p class="w-full col-12" style="display: -webkit-box; text-align:justify; word-break:keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis;">
+                                    <p class="w-full col-12"
+                                       style="display: -webkit-box; text-align:justify; word-break:keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis;">
                                         {{ $direction == 'rtl' ? $step->description_ar : $step->description_en }}
                                     </p>
                                 </div>
@@ -282,42 +294,29 @@
 </div>
 <!-- // end .section -->
 
-<div class="section" style="background-color: #f8ebed" id="gallery">
-    <div class="container">
-        <div class="section-title">
-            <small>GALLERY</small>
-            <h3>App Screenshots</h3>
-        </div>
-        <!-- Swiper -->
-        <div class="swiper mySwiper3" style="height: 500px">
-            <div class="swiper-wrapper d-flex align-items-center" style="height: 100%">
-                <div class="swiper-slide">
-                    <img class="gallery_img" src="{{  asset('store/images/screen1.jpg') }}" />
-                </div>
-                <div class="swiper-slide">
-                    <img class="gallery_img" src="{{  asset('store/images/screen2.jpg') }}" />
-                </div>
-                <div class="swiper-slide">
-                    <img class="gallery_img" src="{{  asset('store/images/screen3.jpg') }}" />
-                </div>
-                <div class="swiper-slide">
-                    <img class="gallery_img" src="{{  asset('store/images/screen1.jpg') }}" />
-                </div>
-                <div class="swiper-slide">
-                    <img class="gallery_img" src="{{  asset('store/images/screen2.jpg') }}" />
-                </div>
-                <div class="swiper-slide">
-                    <img class="gallery_img" src="{{  asset('store/images/screen3.jpg') }}" />
-                </div>
+@if(!empty($screens))
+    <div class="section" style="background-color: #f8ebed" id="gallery">
+        <div class="container">
+            <div class="section-title my-0">
+                <small>GALLERY</small>
+                <h3>App Screenshots</h3>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
+            <!-- Swiper -->
+            <div class="swiper mySwiper3 my-0" style="height: 500px">
+                <div class="swiper-wrapper d-flex align-items-center">
+                    @foreach($screens as $screen)
+                        <div class="swiper-slide">
+                            <img class="gallery_img" src="{{  asset('storage/' . $screen->image) }}"/>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
         </div>
-
     </div>
-
-</div>
+@endif
 <!-- // end .section -->
 
 <div class="section bg-gradient" id="download">
@@ -445,8 +444,8 @@
             }
         },
         navigation: {
-            nextEl: ".nav-circle-next",
-            prevEl: ".nav-circle-prev",
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
         },
         pagination: {
             el: ".swiper-pagination",
@@ -457,7 +456,6 @@
         },
     });
 </script>
-
 
 
 <script src="{{ asset('store/js/jquery-3.2.1.min.js') }}"></script>
