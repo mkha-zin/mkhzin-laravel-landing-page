@@ -28,6 +28,8 @@ return [
     'categories' => 'الفئات',
     'store text' => 'نص',
     'store texts' => 'نصوص المتجر',
+    'step' => 'خطوة',
+    'steps' => 'الخطوات',
     'All Offers in the database' => 'جميع العروض في قاعدة البيانات',
     'Offers in the last month' => 'العروض التي بدات الشهر الماضي',
     'Offers in the last year' => 'العروض في العام الماضي',
@@ -56,6 +58,11 @@ return [
     'description'=>'الوصف',
     'description_ar'=>'الوصف بالعربي',
     'description_en'=>'الوصف بالانجليزي',
+
+    'order'=>'الترتيب',
+    'view' => 'عرض',
+    'edit' => 'تعديل',
+    'delete' => 'حذف',
 
     'texts'=>'النصوص',
     'first_text'=>'النص الأول',

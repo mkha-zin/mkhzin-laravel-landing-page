@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Feature;
+use App\Models\StoreStep;
 use App\Models\StoreText;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -21,6 +22,7 @@ class AppLandingController extends Controller
         $data['storetextwelcome'] = StoreText::query()->where('key', 'welcome text')->first();
         $data['storetextcategories'] = StoreText::query()->where('key', 'categories text')->first();
         $data['storetextdownload'] = StoreText::query()->where('key', 'download text')->first();
+        $data['steps'] = StoreStep::query()->orderBy('order', 'asc')->get();
 
         return view('store', $data);
     }
