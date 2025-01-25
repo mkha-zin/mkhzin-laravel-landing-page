@@ -92,6 +92,7 @@ class StoreStepResource extends Resource
                     App::currentLocale() === 'en' ? 'description_en' : 'description_ar'
                 )
                     ->label(__('dashboard.description'))
+                    ->words(8)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))

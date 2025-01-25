@@ -482,8 +482,6 @@
     </div>
 
 </div>
-
-</div>
 <!-- // end .section -->
 
 <footer class="my-5 text-center">
