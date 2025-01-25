@@ -20,6 +20,7 @@ return [
 
     'features' => 'المميزات',
     'gallery' => 'المعرض',
+    'app_screens' => 'شاشات التطبيق',
     'Download' => 'حمل التطبيق',
     'English' => 'English',
     'Arabic' => 'العربية',
