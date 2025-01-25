@@ -31,6 +31,10 @@ return [
     'categories' => 'Categories',
     'store text' => 'Store Text',
     'store texts' => 'Store Texts',
+    'step' => 'Step',
+    'steps' => 'Steps',
+    'app screen' => 'App Screen',
+    'app screens' => 'App Screens',
     'All Offers in the database' => 'All Offers in the database',
     'Offers in the last month' => 'Offers that started the last month',
     'Offers in the last year' => 'Offers in the last year',
@@ -60,6 +64,11 @@ return [
     'description'=>'Description',
     'description_ar'=>'Arabic Description',
     'description_en'=>'English Description',
+
+    'order'=>'Order',
+    'view' => 'View',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
 
     'texts'=>'Texts',
     'first_text'=>'First Text',

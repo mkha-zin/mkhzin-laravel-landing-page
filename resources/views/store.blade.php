@@ -57,8 +57,12 @@
         .phone {
             position: relative;
             width: 100%;
+            height: 100%;
             max-width: 500px;
             margin-top: -80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .app-interface {
@@ -73,8 +77,42 @@
         .swiper-slide-next .cat_img {
             height: 220%;
             width: 220%;
-            margin-left: 60px;
-            margin-right: 60px;
+        }
+
+        .swiper-slide .gallery_img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: red;
+        }
+
+        .swiper-pagination-bullet {
+            width: 30px;
+            height: 6px;
+            margin-top: 50px;
+            border-radius: 10px;
+            opacity: 1;
+            background: rgba(255, 0, 0, 0.4);
+        }
+
+        .swiper-pagination-bullet-active {
+            background: red;
+        }
+
+        .swiper-slide-next .screenshots {
+            padding: 0 !important;
+            margin: 0 !important;
+            width: 100%;
+            background-color: red;
+            height: 800px;
+            overflow-y: visible;
+        }
+
+        .swiper-slide-next .gallery_img {
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
@@ -118,12 +156,12 @@
         style="background-image: url({{ asset('store/images/hero_bg.jpg') }}); background-size: cover">
     <div class="container mt-5">
         @if(!empty($storetextwelcome))
-        <h1 style="font-weight: 500 ; margin-bottom: 40px ">
-            {{ $direction == 'rtl' ? $storetextwelcome->title_ar : $storetextwelcome->title_en }}
-        </h1>
-        <p class="tagline" style="color: white">
-            {{ $direction == 'rtl' ? $storetextwelcome->description_ar : $storetextwelcome->description_en }}
-        </p>
+            <h1 style="font-weight: 500 ; margin-bottom: 40px ">
+                {{ $direction == 'rtl' ? $storetextwelcome->title_ar : $storetextwelcome->title_en }}
+            </h1>
+            <p class="tagline" style="color: white">
+                {{ $direction == 'rtl' ? $storetextwelcome->description_ar : $storetextwelcome->description_en }}
+            </p>
         @endif
     </div>
     <div class="img-holder mt-3"><img src="{{ asset('store/images/store_variants.png') }}" alt="store_variants"
@@ -148,9 +186,9 @@
 <div class="section" style="background-color: #f3f3f5; height: 500px">
     <div class="container">
         <div class="row flex align-items-center text-center items-center">
-            <div class="col-lg-8 col-md-12 col-sm-12 mx-0">
-                <div class="phone flex align-items-center text-center items-center">
-                    <img src="{{ asset('store/images/cat_phone.png') }}" class="img-fluid" alt="Phone displaying app">
+            <div class="col-lg-8 col-md-12 col-sm-12">
+                <div class="phone" >
+                    <img style="object-fit: cover" src="{{ asset('store/images/cat_phone.png') }}" class="img-fluid" alt="Phone displaying app">
                     <div class="app-interface flex align-items-center text-center items-center">
                         <!-- Add app interface elements here -->
                         @if(!empty($categories))
@@ -159,27 +197,30 @@
                                     <!-- Brands -->
                                     @foreach($categories as $category)
                                         <div class="swiper-slide">
-                                            <img class="cat_img" src="{{ asset('storage/' . $category->image) }}"
-                                                 alt="Category {{  $category->title_en }}">
+                                            <div class="mx-5">
+                                                <img class="cat_img" style="{{  $direction == 'rtl' ? 'margin-left: 180px' : 'margin-right: 180px'}}" src="{{ asset('storage/' . $category->image) }}"
+                                                    alt="Category {{  $category->title_en }}">
+                                                <h6 style="width: 100%; text-align: center; margin-top: 10px"> {{  $direction == 'rtl' ? $category->title_ar : $category->title_en }}</h6>
+                                            </div>
                                         </div>
                                     @endforeach
                                 </div>
                             </div>
                         @endif
                     </div>
-
                 </div>
             </div>
             @if(!empty($storetextcategories))
-            <div class="col-lg-4 col-md-12 col-sm-10">
-                <h3>
-                    {{ $direction == 'rtl' ? $storetextcategories->title_ar : $storetextcategories->title_en }}
-                </h3>
-                <p>
-                    {{ $direction == 'rtl' ? $storetextcategories->description_ar : $storetextcategories->description_en }}
-                </p>
-                <a href="#download" class="btn btn-outline-danger my-3 my-sm-0 ml-lg-3">{{ __('landing.go to store') }}</a>
-            </div>
+                <div class="col-lg-4 col-md-12 col-sm-10 {{ $direction == 'rtl' ? 'text-right' : 'text-left' }}">
+                    <h3>
+                        {{ $direction == 'rtl' ? $storetextcategories->title_ar : $storetextcategories->title_en }}
+                    </h3>
+                    <p>
+                        {{ $direction == 'rtl' ? $storetextcategories->description_ar : $storetextcategories->description_en }}
+                    </p>
+                    <a href="#download"
+                       class="btn btn-outline-danger my-3 my-sm-0 ml-lg-3">{{ __('landing.go to store') }}</a>
+                </div>
             @endif
         </div>
     </div>
@@ -223,40 +264,31 @@
 @endif
 <!-- // end .section -->
 
-<div class="section light-bg">
-
+<div class="section" style="background-color: #e7d9d9">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 d-flex align-items-center">
-                <ul class="list-unstyled ui-steps">
-                    <li class="media">
-                        <div class="circle-icon mr-4">1</div>
-                        <div class="media-body">
-                            <h5>Create an Account</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum, urna eu
-                                pellentesque pretium obcaecati vel exercitationem </p>
-                        </div>
-                    </li>
-                    <li class="media my-4">
-                        <div class="circle-icon mr-4">2</div>
-                        <div class="media-body">
-                            <h5>Share with friends</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum, urna eu
-                                pellentesque pretium obcaecati vel exercitationem eveniet</p>
-                        </div>
-                    </li>
-                    <li class="media">
-                        <div class="circle-icon mr-4">3</div>
-                        <div class="media-body">
-                            <h5>Enjoy your life</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum, urna eu
-                                pellentesque pretium obcaecati vel exercitationem </p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+            @if(!empty($steps))
+                <div class="col-md-8 d-flex align-items-center">
+                    <ul class="list-unstyled ui-steps">
+                        @foreach($steps as $step)
+                            <li class="media">
+                                <div class="circle-icon mx-4">{{ $step->order }}</div>
+                                <div
+                                    class="media-body row d-flex align-self-center {{ $direction == 'rtl' ? 'text-right' : 'text-left' }}">
+                                    <h5 class="w-full col-12">{{ $direction == 'rtl' ? $step->title_ar : $step->title_en }}</h5>
+                                    <p class="w-full col-12"
+                                       style="display: -webkit-box; text-align:justify; word-break:keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis;">
+                                        {{ $direction == 'rtl' ? $step->description_ar : $step->description_en }}
+                                    </p>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="col-md-4">
-                <img src="{{ asset('store/images/dualphone.png') }}" alt="iphone" class="img-fluid">
+                <img src="{{ asset('store/images/steps_img.png') }}" style="height: auto; width: 100%" alt="iphone"
+                     class="img-fluid">
             </div>
 
         </div>
@@ -266,23 +298,29 @@
 </div>
 <!-- // end .section -->
 
-<div class="section light-bg" id="gallery">
-    <div class="container">
-        <div class="section-title">
-            <small>GALLERY</small>
-            <h3>App Screenshots</h3>
+@if(!empty($screens))
+    <div class="section" style="background-color: #f8ebed" id="gallery">
+        <div class="container">
+            <div class="section-title my-0">
+                <small>GALLERY</small>
+                <h3>App Screenshots</h3>
+            </div>
+            <!-- Swiper -->
+            <div class="swiper mySwiper3 my-0" style="height: 500px">
+                <div class="swiper-wrapper d-flex align-items-center">
+                    @foreach($screens as $screen)
+                        <div class="swiper-slide">
+                            <img class="gallery_img" src="{{  asset('storage/' . $screen->image) }}"/>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
         </div>
-
-        <div class="img-gallery owl-carousel owl-theme">
-            <img src="{{ asset('store/images/screen1.jpg') }}" alt="image">
-            <img src="{{ asset('store/images/screen2.jpg') }}" alt="image">
-            <img src="{{ asset('store/images/screen3.jpg') }}" alt="image">
-            <img src="{{ asset('store/images/screen1.jpg') }}" alt="image">
-        </div>
-
     </div>
-
-</div>
+@endif
 <!-- // end .section -->
 
 <div class="section bg-gradient" id="download">
@@ -385,6 +423,41 @@
         autoplay: true,
         slidesPerView: 3,
         spaceBetween: 120,
+    });
+</script>
+
+<!-- Initialize Swiper3 -->
+<script>
+    var swiper = new Swiper(".mySwiper3", {
+        grabCursor: true,
+        loop: true,
+        autoplay: true,
+        slidesPerView: 3,
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            640: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 3,
+            },
+            1024: {
+                slidesPerView: 3,
+            }
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            renderBullet: function (index, className) {
+                return '<span class="' + className + '"></span>';
+            },
+        },
     });
 </script>
 

@@ -30,3 +30,7 @@ return new class extends Migration
         Schema::dropIfExists('store_texts');
     }
 };
+
+// php artisan migrate --path=/database/migrations/2025_01_19_104411_create_features_table.php
+// php artisan migrate --path=/database/migrations/2025_01_22_152848_create_categories_table.php
+// php artisan migrate --path=/database/migrations/2025_01_22_163024_create_store_texts_table.php
