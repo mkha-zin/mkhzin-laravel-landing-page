@@ -20,6 +20,8 @@ return [
     'features' => 'Features',
     'gallery' => 'Gallery',
     'Download' => 'Download',
+    'English' => 'English',
+    'Arabic' => 'العربية',
     'go to store' => 'Go to Store',
 
     'offers_title'=>'Offers',

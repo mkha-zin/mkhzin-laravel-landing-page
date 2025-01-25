@@ -25,16 +25,22 @@ return [
     'offers' => 'Offers',
     'brand' => 'Brand',
     'brands' => 'Brands',
+    'All brands in the App Landing Page' => 'All brands in the App Landing Page',
     'feature' => 'Feature',
     'features' => 'Features',
+    'All Features in the App Landing Page' => 'All Features in the App Landing Page',
     'category' => 'Category',
     'categories' => 'Categories',
+    'All Categories in the App Landing Page' => 'All Categories in the App Landing Page',
     'store text' => 'Store Text',
     'store texts' => 'Store Texts',
+    'All Texts in the App Landing Page' => 'All Texts in the App Landing Page',
     'step' => 'Step',
     'steps' => 'Steps',
+    'All Shopping Steps in the App Landing Page' => 'All Shopping Steps in the App Landing Page',
     'app screen' => 'App Screen',
     'app screens' => 'App Screens',
+    'All App Screens in the App Landing Page' => 'All App Screens in the App Landing Page',
     'All Offers in the database' => 'All Offers in the database',
     'Offers in the last month' => 'Offers that started the last month',
     'Offers in the last year' => 'Offers in the last year',
@@ -197,6 +203,7 @@ return [
     'hyper' => 'Hyper Market',
     'wholesale' => 'Wholesale',
 
-    'icon_src_desc' => 'Go to: https://themify.me/themify-icons to see all icons, and copy the icon name to here.'
+    'icon_src_desc' => 'Go to: https://themify.me/themify-icons to see all icons, and copy the icon name to here.',
+    'unotherized' => 'Sorry, You are not authorized to access this panel',
 
 ];

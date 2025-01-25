@@ -48,6 +48,14 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessPanel(Panel $panel): bool
     {
+         if ($panel->getId() === 'app') {
+
+             if ($this->isSuperAdmin()) {
+                 return str_ends_with($this->email, '@mkhzin.com') && $this->hasVerifiedEmail();
+             }
+             $unauthorized = __('dashboard.unotherized');
+             return abort('403', str($unauthorized));
+         }
         return str_ends_with($this->email, '@mkhzin.com') && $this->hasVerifiedEmail();
     }
 

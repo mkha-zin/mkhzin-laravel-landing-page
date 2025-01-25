@@ -21,6 +21,8 @@ return [
     'features' => 'المميزات',
     'gallery' => 'المعرض',
     'Download' => 'حمل التطبيق',
+    'English' => 'English',
+    'Arabic' => 'العربية',
     'go to store' => 'الذهاب إلى المتجر',
 
     'offers_title'=>'عروضنا',
