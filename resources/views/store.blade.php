@@ -42,6 +42,10 @@
 
     <!-- Demo styles -->
     <style>
+        .categories-carousel{
+            background-color: #f3f3f5;
+            height: 500px
+        }
         .swiper {
             width: 100%;
             height: 100px;
@@ -122,6 +126,13 @@
         .swiper-slide-next .gallery_img {
             width: 100%;
             height: 100%;
+        }
+
+        @media screen and (max-height: 720px) {
+            .categories-txt{
+                position: relative;
+            }
+
         }
     </style>
 </head>
@@ -227,7 +238,7 @@
 @endif
 <!-- // end .section -->
 
-<div class="section" style="background-color: #f3f3f5; height: 500px">
+<div class="section categories-carousel">
     <div class="container">
         <div class="row flex align-items-center text-center items-center">
             <div class="col-lg-8 col-md-12 col-sm-12">
@@ -257,8 +268,7 @@
                     </div>
                 </div>
             </div>
-            <div
-                class="position-relative relative col-lg-4 col-md-12 col-sm-10 {{ $direction == 'rtl' ? 'text-right' : 'text-left' }}">
+            <div class="d-none d-sm-block col-lg-4 col-md-12 col-sm-10 {{ $direction == 'rtl' ? 'text-right' : 'text-left' }}">
                 @if(!empty($storetextcategories))
                     <h3>
                         {{ $direction == 'rtl' ? $storetextcategories->title_ar : $storetextcategories->title_en }}
