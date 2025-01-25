@@ -238,7 +238,7 @@
                                                      style="{{  $direction == 'rtl' ? 'margin-left: 180px' : 'margin-right: 180px'}}"
                                                      src="{{ asset('storage/' . $category->image) }}"
                                                      alt="Category {{  $category->title_en }}">
-                                                <h6 style="width: 100%; text-align: center; margin-top: 10px"> {{  $direction == 'rtl' ? $category->title_ar : $category->title_en }}</h6>
+                                                <h6 style="font-size: 14px; width: 100%; text-align: center; margin-top: 10px"> {{  $direction == 'rtl' ? $category->title_ar : $category->title_en }}</h6>
                                             </div>
                                         </div>
                                     @endforeach
@@ -248,8 +248,8 @@
                     </div>
                 </div>
             </div>
+            <div class="position-relative relative col-lg-4 col-md-12 col-sm-10 {{ $direction == 'rtl' ? 'text-right' : 'text-left' }}">
             @if(!empty($storetextcategories))
-                <div class="col-lg-4 col-md-12 col-sm-10 {{ $direction == 'rtl' ? 'text-right' : 'text-left' }}">
                     <h3>
                         {{ $direction == 'rtl' ? $storetextcategories->title_ar : $storetextcategories->title_en }}
                     </h3>
@@ -266,7 +266,7 @@
 <!-- // end .section -->
 
 @if(!empty($features))
-    <div class="section light-bg" id="features" style="background-color: white">
+    <div class="position-relative section light-bg" id="features" style="background-color: white">
         <div class="container">
             <div class="section-title">
                 <small>{{ __('landing.features') }}</small>
