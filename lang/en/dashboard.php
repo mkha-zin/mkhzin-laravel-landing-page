@@ -197,6 +197,7 @@ return [
     'hyper' => 'Hyper Market',
     'wholesale' => 'Wholesale',
 
-    'icon_src_desc' => 'Go to: https://themify.me/themify-icons to see all icons, and copy the icon name to here.'
+    'icon_src_desc' => 'Go to: https://themify.me/themify-icons to see all icons, and copy the icon name to here.',
+    'unotherized' => 'Sorry, You are not authorized to access this panel',
 
 ];

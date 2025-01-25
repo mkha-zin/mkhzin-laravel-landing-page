@@ -103,10 +103,10 @@ p.lead {
 
 .btn-primary {
     border-radius: 3px;
-    background-image: -moz-linear-gradient( 122deg, #e54545 0%, #fd3737 100%);
-    background-image: -webkit-linear-gradient( 122deg, #e54545 0%, #fd3737 100%);
-    background-image: -ms-linear-gradient( 122deg, #e54545 0%, #fd3737 100%);
-    background-image: linear-gradient( 122deg, #e54545 0%, #fd3737 100%);
+    background-image: -moz-linear-gradient(122deg, #e54545 0%, #fd3737 100%);
+    background-image: -webkit-linear-gradient(122deg, #e54545 0%, #fd3737 100%);
+    background-image: -ms-linear-gradient(122deg, #e54545 0%, #fd3737 100%);
+    background-image: linear-gradient(122deg, #e54545 0%, #fd3737 100%);
     box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.2);
     font-weight: 500;
     padding: 0.6rem 2rem;
@@ -118,8 +118,8 @@ p.lead {
 .btn-primary:active,
 .btn-primary:not([disabled]):not(.disabled).active,
 .btn-primary:not([disabled]):not(.disabled):active,
-.show>.btn-primary.dropdown-toggle {
-    background-image: linear-gradient( 122deg, #fd3737 0%, #e54545 100%);
+.show > .btn-primary.dropdown-toggle {
+    background-image: linear-gradient(122deg, #fd3737 0%, #e54545 100%);
     box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.3);
     color: #FFF;
 }
@@ -136,7 +136,7 @@ p.lead {
     line-height: 1.8;
 }
 
-.btn-group-lg>.btn,
+.btn-group-lg > .btn,
 .btn-lg {
     padding: 0.8rem 1rem;
     font-size: 15px;
@@ -159,10 +159,11 @@ p.lead {
     color: #9b8a8a;
 }
 
-@media (max-width:767px) {
+@media (max-width: 767px) {
     h1 {
         font-size: 40px;
     }
+
     h2 {
         font-size: 30px;
     }
@@ -202,7 +203,8 @@ p.lead {
         padding-left: 1rem;
         font-size: 14px;
     }
-    .navbar-nav>.nav-item>.nav-link.active:after {
+
+    .navbar-nav > .nav-item > .nav-link.active:after {
         content: "";
         border-bottom: 2px solid #d49999;
         left: 1rem;
@@ -213,10 +215,11 @@ p.lead {
     }
 }
 
-@media (max-width:991px) {
+@media (max-width: 991px) {
     .navbar-nav.is-scrolling {
         padding-bottom: 1rem;
     }
+
     .navbar-nav .nav-item {
         text-align: center;
     }
@@ -233,10 +236,10 @@ header {
 }
 
 .bg-gradient {
-    background-image: -moz-linear-gradient( 135deg, rgba(118, 8, 8, 0.8) 0%, rgba(250, 0, 0, 0.8) 100%);
-    background-image: -webkit-linear-gradient( 135deg, rgba(118, 8, 8, 0.8) 0%, rgba(250, 0, 0, 0.8) 100%);
-    background-image: -ms-linear-gradient( 135deg, rgba(118, 8, 8, 0.8) 0%, rgba(250, 0, 0, 0.8) 100%);
-    background-image: linear-gradient( 135deg, rgba(118, 8, 8, 0.8) 0%, rgba(250, 0, 0, 0.8) 100%);
+    background-image: -moz-linear-gradient(135deg, rgba(118, 8, 8, 0.8) 0%, rgba(250, 0, 0, 0.8) 100%);
+    background-image: -webkit-linear-gradient(135deg, rgba(118, 8, 8, 0.8) 0%, rgba(250, 0, 0, 0.8) 100%);
+    background-image: -ms-linear-gradient(135deg, rgba(118, 8, 8, 0.8) 0%, rgba(250, 0, 0, 0.8) 100%);
+    background-image: linear-gradient(135deg, rgba(118, 8, 8, 0.8) 0%, rgba(250, 0, 0, 0.8) 100%);
 }
 
 .tagline {
@@ -253,16 +256,17 @@ header {
     overflow: hidden;
 }
 
-@media (max-width:1200px) {
+@media (max-width: 1200px) {
     .img-holder {
         padding-bottom: 50%;
     }
 }
 
-@media (max-width:767px) {
+@media (max-width: 767px) {
     .tagline {
         font-size: 17px;
     }
+
     .img-holder {
         padding-bottom: 53%;
     }
@@ -289,10 +293,11 @@ header {
     transition: all 0.3s ease;
 }
 
-@media (max-width:991px) {
+@media (max-width: 991px) {
     .card.features {
         margin-bottom: 2rem;
     }
+
     [class^="col-"]:last-child .card.features {
         margin-bottom: 0;
     }
@@ -347,7 +352,7 @@ header {
     transition: all 0.3s ease;
 }
 
-@media (max-width:992px) {
+@media (max-width: 992px) {
     .circle-icon {
         width: 70px;
         height: 70px;
@@ -357,10 +362,10 @@ header {
 }
 
 .ui-steps li:hover .circle-icon {
-    background-image: -moz-linear-gradient( 122deg, #e63838 0%, #fb3737 100%);
-    background-image: -webkit-linear-gradient( 122deg, #e63838 0%, #fb3737 100%);
-    background-image: -ms-linear-gradient( 122deg, #e63838 0%, #fb3737 100%);
-    background-image: linear-gradient( 122deg, #e63838 0%, #fb3737 100%);
+    background-image: -moz-linear-gradient(122deg, #e63838 0%, #fb3737 100%);
+    background-image: -webkit-linear-gradient(122deg, #e63838 0%, #fb3737 100%);
+    background-image: -ms-linear-gradient(122deg, #e63838 0%, #fb3737 100%);
+    background-image: linear-gradient(122deg, #e63838 0%, #fb3737 100%);
     box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.09);
     color: #FFF;
 }
@@ -378,7 +383,7 @@ header {
     z-index: -1;
 }
 
-@media (min-width:992px) {
+@media (min-width: 992px) {
     .perspective-phone {
         margin-top: -150px;
     }
@@ -396,7 +401,7 @@ header {
     padding: 3rem;
 }
 
-@media (max-width:992px) {
+@media (max-width: 992px) {
     .tab-content {
         padding: 1.5rem;
     }
@@ -473,7 +478,7 @@ header {
     right: 0;
 }
 
-.owl-theme .owl-nav.disabled+.owl-dots {
+.owl-theme .owl-nav.disabled + .owl-dots {
     margin-top: 60px;
 }
 
@@ -512,11 +517,12 @@ header {
 /*  PRICING
 ----------------------*/
 
-@media (max-width:992px) {
+@media (max-width: 992px) {
     .card-deck {
         -ms-flex-direction: column;
         flex-direction: column;
     }
+
     .card-deck .card {
         margin-bottom: 15px;
     }
@@ -627,7 +633,7 @@ header {
     color: #e38c8c;
 }
 
-@media (max-width:991px) {
+@media (max-width: 991px) {
     .social-icons {
         text-align: center;
         margin-top: 2rem;
@@ -689,4 +695,37 @@ header {
 ::-webkit-scrollbar-thumb-horizontal {
     background: #888;
     border-radius: 10px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+.social-icons a svg {
+    fill: #505050;
+}
+
+.social-icons a svg:hover {
+    fill: #d30000;
+}
+
+.social-icons a:hover {
+    border-color: #d30000;
+    color: #d30000;
 }

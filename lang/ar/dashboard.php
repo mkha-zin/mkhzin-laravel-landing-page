@@ -189,5 +189,6 @@ return [
     'hyper' => 'هايبر ماركت',
     'wholesale' => 'البيع بالجملة',
 
-    'icon_src_desc' => 'اذهب الى: https://themify.me/themify-icons لمشاهدة كل الأيقونات، ثم قم بنسخ اسم الأيقونة الى هنا'
+    'icon_src_desc' => 'اذهب الى: https://themify.me/themify-icons لمشاهدة كل الأيقونات، ثم قم بنسخ اسم الأيقونة الى هنا',
+    'unotherized' => 'عذراً، ليست لديك صلاحية الوصول لهذه الأعدادات',
 ];
