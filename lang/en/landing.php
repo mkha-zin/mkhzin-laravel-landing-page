@@ -19,6 +19,7 @@ return [
 
     'features' => 'Features',
     'gallery' => 'Gallery',
+    'app_screens' => 'App Screenshots',
     'Download' => 'Download',
     'English' => 'English',
     'Arabic' => 'العربية',
