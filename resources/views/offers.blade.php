@@ -65,10 +65,10 @@
                             <div class="elementor-widget-container">
                                 <div class="rkit-blog">
                                     @foreach($offers as $offer)
-                                        <div class="rkit-blog-card  elementor-animation-">
+                                        <div class="rkit-blog-card" style="border-radius: 10px">
                                             <div class="rkit-image-container">
                                                 <a class="rkit-image-link" style="overflow: hidden;">
-                                                    <img decoding="async" class="rkit-blog-img"
+                                                    <img decoding="async" class="rkit-blog-img" style="border-radius: 10px"
                                                          src="{{  asset('storage/' . $offer->image)}}">
                                                 </a>
 

@@ -60,7 +60,9 @@ return [
     'apply now' => 'ارسل سيرتك الذاتية و قدم الآن',
 
     'footer_text' => 'نسعى إلى رضا عملائنا وسعادتهم هي غايتنا',
-
+    'privacy policy' => 'سياسة الخصوصية',
+    'usage policy' => 'سياسة الاستخدام',
+    'terms & conditions' => 'الشروط و الأحكام',
 
     'Mkhazin Vouchers' => 'قسائم شركة مخازن',
     'Enter Voucher Number' => ' يرجى ادخال رقم القسيمة',

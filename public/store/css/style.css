@@ -697,13 +697,13 @@ header {
     border-radius: 10px;
 }
 
-.social-icons {
+.social-icons1 {
     display: flex;
     justify-content: center;
     padding: 5px;
 }
 
-.social-icons a {
+.social-icons1 a {
     width: 40px;
     height: 40px;
     display: flex;
@@ -717,15 +717,15 @@ header {
     transition: all 0.3s ease-in-out;
 }
 
-.social-icons a svg {
+.social-icons1 a svg {
     fill: #505050;
 }
 
-.social-icons a svg:hover {
+.social-icons1 a svg:hover {
     fill: #d30000;
 }
 
-.social-icons a:hover {
+.social-icons1 a:hover {
     border-color: #d30000;
     color: #d30000;
 }

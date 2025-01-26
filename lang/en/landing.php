@@ -61,6 +61,9 @@ return [
     'apply now' => 'Send Your Resume and Apply Now',
 
     'footer_text' => 'Our goal is to satisfy our customers and their happiness',
+    'privacy policy' => 'Privacy Policy',
+    'usage policy' => 'Usage Policy',
+    'terms & conditions' => 'Terms & Conditions',
 
     'Mkhazin Vouchers' => 'Mkhazin Vouchers',
     'Enter Voucher Number' => 'Enter Voucher Number',

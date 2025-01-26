@@ -430,7 +430,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="social-icons">
-                    <div class="social-icons">
+                    <div class="social-icons1">
                         <!-- Whatsapp -->
                         @if(!empty($whatsChannel))
                             <a href="{{  $whatsChannel->link }}" style="margin-left: 1px; margin-right: 1px;">
@@ -530,9 +530,9 @@
     </h6>
 
     <small>
-        <a href="https://mkhzin-store.com/terms/" class="m-2">Terms and conditions</a>
-        <a href="https://mkhzin-store.com/usage-policy/" class="m-2">Usage Policy</a>
-        <a href="https://mkhzin-store.com/privacy" class="m-2">Privacy Policy</a>
+        <a href="https://mkhzin-store.com/terms/" class="m-2">{{  __('landing.terms & conditions') }}</a>
+        <a href="https://mkhzin-store.com/usage-policy/" class="m-2">{{  __('landing.usage policy') }}</a>
+        <a href="https://mkhzin-store.com/privacy" class="m-2">{{  __('landing.privacy policy') }}</a>
     </small>
 </footer>
 
