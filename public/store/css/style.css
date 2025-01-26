@@ -707,7 +707,7 @@ header {
     width: 40px;
     height: 40px;
     display: flex;
-    padding: 8px;
+    padding: 2px;
     align-items: center;
     justify-content: center;
     border: 2px solid #ccc;
@@ -718,6 +718,8 @@ header {
 }
 
 .social-icons1 a svg {
+    width: 80%;
+    height: 80%;
     fill: #505050;
 }
 
@@ -730,10 +732,3 @@ header {
     color: #d30000;
 }
 
-@media screen and (max-width: 512px) {
-    .social-icons1 a svg {
-        width: 20px;
-        height: 20px;
-        fill: #505050;
-    }
-}
