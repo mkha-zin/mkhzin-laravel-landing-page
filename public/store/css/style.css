@@ -729,3 +729,11 @@ header {
     border-color: #d30000;
     color: #d30000;
 }
+
+@media screen and (max-width: 512px) {
+    .social-icons1 a svg {
+        width: 20px;
+        height: 20px;
+        fill: #505050;
+    }
+}
