@@ -44,7 +44,7 @@
     <style>
         .categories-carousel {
             background-color: #f3f3f5;
-            height: 500px
+            height: auto;
         }
 
         .swiper {
@@ -88,10 +88,9 @@
             /* Add additional styling for the app interface */
         }
 
-
         .swiper-slide .gallery_img {
-            width: 100%;
-            height: 100%;
+            width: 50%;
+            height: 50%;
         }
 
         .swiper-button-next, .swiper-button-prev {
@@ -123,13 +122,6 @@
         .swiper-slide-next .gallery_img {
             width: 100%;
             height: 100%;
-        }
-
-        @media screen and (max-height: 720px) {
-            .categories-txt {
-                position: relative;
-            }
-
         }
 
         /* Custom responsive styles */
@@ -172,8 +164,7 @@
         }
 
         .swiper-slide-next .cat_div {
-        {{  $direction == 'rtl' ? 'margin-left: 56px;' : 'margin-right: 56px;' }}
-
+            {{  $direction == 'rtl' ? 'margin-left: 56px;' : 'margin-right: 56px;' }}
         }
 
         @media (min-width: 768px) {
@@ -187,6 +178,10 @@
                 height: 100%;
             }
 
+            .categories-carousel {
+                background-color: #f3f3f5;
+                height: auto;
+            }
 
         }
 
@@ -201,6 +196,11 @@
                 height: 100%;
             }
 
+            .categories-carousel {
+                background-color: #f3f3f5;
+                height: 500px;
+            }
+
         }
 
         @media (min-width: 1201px) {
@@ -212,6 +212,11 @@
             .swiper-slide .brand_img {
                 width: 80%;
                 height: 100%;
+            }
+
+            .categories-carousel {
+                background-color: #f3f3f5;
+                height: 500px;
             }
 
         }
@@ -352,7 +357,7 @@
                 </div>
             </div>
             <div
-                class="d-none d-sm-block col-lg-4 col-md-12 col-sm-10 {{ $direction == 'rtl' ? 'text-right' : 'text-left' }}">
+                class="col-lg-4 col-md-12 col-sm-10 my-3 align-items-center">
                 @if(!empty($storetextcategories))
                     <h3>
                         {{ $direction == 'rtl' ? $storetextcategories->title_ar : $storetextcategories->title_en }}
