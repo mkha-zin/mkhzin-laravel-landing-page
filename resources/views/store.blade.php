@@ -356,8 +356,7 @@
                     </div>
                 </div>
             </div>
-            <div
-                class="col-lg-4 col-md-12 col-sm-10 my-3 align-items-center">
+            <div class="col-lg-4 col-md-10 col-sm-10 my-3 align-items-center">
                 @if(!empty($storetextcategories))
                     <h3>
                         {{ $direction == 'rtl' ? $storetextcategories->title_ar : $storetextcategories->title_en }}
@@ -390,11 +389,11 @@
                                     {{-- https://themify.me/themify-icons --}}
                                     <span class="{{ $feature->icon }} gradient-fill ti-3x mx-3"></span>
                                     <div class="media-body">
-                                        <h4 class="card-title"
+                                        <h4 class="card-title feature_title"
                                             style="display: -webkit-box; text-align:justify; word-break:keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 1; color: black; overflow: hidden; text-overflow: ellipsis;">
                                             {{ $direction == 'rtl' ? $feature->title_ar : $feature->title_en }}
                                         </h4>
-                                        <p class="card-text"
+                                        <p class="card-text feature_desc"
                                            style="display: -webkit-box; text-align:justify; word-break:keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 3; color: black; overflow: hidden; text-overflow: ellipsis;">
                                             {{ $direction == 'rtl' ? $feature->description_ar : $feature->description_en }}
                                         </p>
@@ -515,7 +514,6 @@
                         <span class="ti-headphone-alt mx-2"></span> <a href="tel:+966558888381">(+966) 55-888-8381</a>
                     </p>
                 </div>
-
             </div>
             <div class="col-lg-6">
                 <div class="social-icons">

@@ -703,11 +703,11 @@ header {
     padding: 5px;
 }
 
-.social-icons1 a {
+.social-icons1 a, .social-icons1 svg {
     width: 40px;
     height: 40px;
     display: flex;
-    padding: 2px;
+    padding: 1px;
     align-items: center;
     justify-content: center;
     border: 2px solid #ccc;
@@ -727,8 +727,9 @@ header {
     fill: #d30000;
 }
 
-.social-icons1 a:hover {
+.social-icons1 a:hover, .social-icons1 svg:hover {
     border-color: #d30000;
     color: #d30000;
 }
+
 
