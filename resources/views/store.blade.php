@@ -42,10 +42,11 @@
 
     <!-- Demo styles -->
     <style>
-        .categories-carousel{
+        .categories-carousel {
             background-color: #f3f3f5;
             height: 500px
         }
+
         .swiper {
             width: 100%;
             height: 100px;
@@ -87,10 +88,6 @@
             /* Add additional styling for the app interface */
         }
 
-        .swiper-slide-next .cat_img {
-            height: 220%;
-            width: 220%;
-        }
 
         .swiper-slide .gallery_img {
             width: 100%;
@@ -129,8 +126,92 @@
         }
 
         @media screen and (max-height: 720px) {
-            .categories-txt{
+            .categories-txt {
                 position: relative;
+            }
+
+        }
+
+        /* Custom responsive styles */
+        .responsive-img {
+            width: 90%; /* Default for small screens */
+        }
+
+        .swiper-slide .brand_img {
+            width: 50%;
+            height: 100%;
+        }
+
+        .swiper-slide .cat_div {
+            margin-top: -80px;
+        }
+
+        .cat_title {
+            font-size: 14px;
+            display: -webkit-box;
+            word-break: keep-all;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            color: black;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-decoration: none;
+            width: 100%;
+            text-align: center;
+        }
+
+        .cat_img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .swiper-slide-next .cat_img, .swiper-slide-next .cat_title {
+            height: 200%;
+            width: 200%;
+        }
+
+        .swiper-slide-next .cat_div {
+        {{  $direction == 'rtl' ? 'margin-left: 56px;' : 'margin-right: 56px;' }}
+
+        }
+
+        @media (min-width: 768px) {
+            /* Medium screens and above */
+            .responsive-img {
+                width: 80%;
+            }
+
+            .swiper-slide .brand_img {
+                width: 50%;
+                height: 100%;
+            }
+
+
+        }
+
+        @media (min-width: 992px) {
+            /* Large screens and above */
+            .responsive-img {
+                width: 80%;
+            }
+
+            .swiper-slide .brand_img {
+                width: 80%;
+                height: 100%;
+            }
+
+        }
+
+        @media (min-width: 1201px) {
+            /* Larger screens and above */
+            .responsive-img {
+                width: 50%;
+            }
+
+            .swiper-slide .brand_img {
+                width: 80%;
+                height: 100%;
             }
 
         }
@@ -220,7 +301,7 @@
         @endif
     </div>
     <div class="img-holder mt-3"><img src="{{ asset('store/images/store_variants.png') }}" alt="store_variants"
-                                      style="object-fit: cover" class="img-fluid w-50"></div>
+                                      style="object-fit: cover" class="img-fluid responsive-img"></div>
 </header>
 
 <!-- Swiper -->
@@ -230,7 +311,8 @@
             <!-- Brands -->
             @foreach($brands as $brand)
                 <div class="swiper-slide">
-                    <img src="{{ asset('storage/' . $brand->image) }}" alt="Brand {{  $brand->title_en }}">
+                    <img class="brand_img" src="{{ asset('storage/' . $brand->image) }}"
+                         alt="Brand {{  $brand->title_en }}">
                 </div>
             @endforeach
         </div>
@@ -253,12 +335,13 @@
                                     <!-- Brands -->
                                     @foreach($categories as $category)
                                         <div class="swiper-slide">
-                                            <div class="mx-5">
+                                            <div class="cat_div flex align-items-center text-center items-center">
                                                 <img class="cat_img"
-                                                     style="{{  $direction == 'rtl' ? 'margin-left: 180px' : 'margin-right: 180px'}}"
                                                      src="{{ asset('storage/' . $category->image) }}"
                                                      alt="Category {{  $category->title_en }}">
-                                                <h6 style="font-size: 14px; width: 100%; text-align: center; margin-top: 10px"> {{  $direction == 'rtl' ? $category->title_ar : $category->title_en }}</h6>
+                                                <h6 class="cat_title">
+                                                    {{  $direction == 'rtl' ? $category->title_ar : $category->title_en }}
+                                                </h6>
                                             </div>
                                         </div>
                                     @endforeach
@@ -268,7 +351,8 @@
                     </div>
                 </div>
             </div>
-            <div class="d-none d-sm-block col-lg-4 col-md-12 col-sm-10 {{ $direction == 'rtl' ? 'text-right' : 'text-left' }}">
+            <div
+                class="d-none d-sm-block col-lg-4 col-md-12 col-sm-10 {{ $direction == 'rtl' ? 'text-right' : 'text-left' }}">
                 @if(!empty($storetextcategories))
                     <h3>
                         {{ $direction == 'rtl' ? $storetextcategories->title_ar : $storetextcategories->title_en }}
@@ -549,7 +633,7 @@
         freeMode: true,
         breakpoints: {
             320: {
-                slidesPerView: 1,
+                slidesPerView: 2,
             },
             640: {
                 slidesPerView: 2,
