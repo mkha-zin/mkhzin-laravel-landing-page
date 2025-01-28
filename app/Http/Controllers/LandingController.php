@@ -21,6 +21,7 @@ use App\Models\Subscription;
 use App\Models\VisionAndGoal;
 use App\Models\VisitorMessage;
 use App\Models\Voucher;
+use App\Services\DataFetcherService;
 use Filament\Notifications\Notification;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -32,25 +33,17 @@ use Request;
 
 class LandingController extends Controller
 {
+    protected $dataFetcherService;
+
+    public function __construct(DataFetcherService $dataFetcherService)
+    {
+        $this->dataFetcherService = $dataFetcherService;
+    }
     public function index(): Factory|View|Application|\Illuminate\View\View
     {
-        $data['heroes'] = Hero::query()->get();
-        $data['ourValues'] = OurValue::query()->get();
-        $data['about'] = About::query()->first();
-        $data['aboutCards'] = AboutCard::query()->get();
-//        $data['departments'] = Section::query()->where('show_in_home',1)->limit(3)->get();
-        $data['departments'] = Section::query()->get();
-        $data['vision'] = VisionAndGoal::query()->where('slug', 'vision')->first();
-        $data['goals'] = VisionAndGoal::query()->where('slug', 'goals')->first();
-        $data['storage'] = Storage::query()->first();
-        $data['fleet'] = Fleet::query()->first();
-        $data['contactInfos'] = ContactInfo::query()->get();
-        $data['contact_first_image'] = ContactImage::query()->first();
-        $data['contact_second_image'] = ContactImage::all()->last();
+        $data = $this->dataFetcherService->fetchData();
 
-        $socialLinks = SocialLink::query()->get();
-
-        return view('index', $data, compact('socialLinks'));
+        return view('index', $data);
     }
 
     public function sections(): Factory|View|Application|\Illuminate\View\View
@@ -67,21 +60,11 @@ class LandingController extends Controller
 
     public function offers(): Factory|View|Application|\Illuminate\View\View
     {
-        $return = Offer::select('offers.*')
-            ->where('offers.end_date', '>=', date('Y-m-d'))
-            ->where('offers.is_active', 1)
-            ->join('branches', 'branches.id', '=', 'offers.branch_id')
-            ->orderBy('offers.end_date', 'desc');
+        $city = Request::get('city');
+        $data['offers'] = $this->dataFetcherService->getActiveOffers($city);
+        $data['cities'] = $this->dataFetcherService->getCities();
+        $data['branches'] = $this->dataFetcherService->getBranches();
 
-        if (!empty(Request::get('city'))) {
-            if (Request::get('city') !== 'all') {
-                $return = $return->where('branches.city_id', Request::get('city'));
-            }
-        }
-
-        $data['cities'] = City::all();
-        $data['branches'] = Branch::all();
-        $data['offers'] = $return->get();
         return view('offers', $data);
     }
 

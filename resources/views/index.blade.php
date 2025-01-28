@@ -1,11 +1,11 @@
-@php use Filament\Support\Markdown; @endphp
+@php
+    use Filament\Support\Markdown;
+    $direction = app()->currentLocale() == 'ar' ? 'rtl' : 'ltr'
+@endphp
+
 @extends('layouts.app')
+
 @section('content')
-
-    @php
-        $direction = app()->currentLocale() == 'ar' ? 'rtl' : 'ltr'
-    @endphp
-
     <div dir="{{$direction}}" data-elementor-type="wp-page" data-elementor-id="1222" class="elementor elementor-1222">
         <!-- Hero -->
         <div>
@@ -187,7 +187,8 @@
                                 data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInLeft&quot;,&quot;animation_delay&quot;:400}">
                                 <div
                                     class="elementor-element elementor-element-7b76cd5 elementor-view-default elementor-position-top elementor-mobile-position-top elementor-widget elementor-widget-icon-box"
-                                    data-id="7b76cd5" data-element_type="widget" data-widget_type="icon-box.default">
+                                    data-id="7b76cd5" data-element_type="widget"
+                                    data-widget_type="icon-box.default">
                                     <div class="elementor-widget-container">
                                         <div class="elementor-icon-box-wrapper"
                                              style="justify-content: center; flex: auto; text-align: center;">
@@ -549,8 +550,9 @@
                         <div
                             class="elementor-element elementor-element-60021572 elementor-widget elementor-widget-text-editor"
                             data-id="60021572" data-element_type="widget" data-widget_type="text-editor.default">
-                            <div class="elementor-widget-container" >
-                                <span style="display: -webkit-box; text-align:justify; word-break:keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 5; color: black; overflow: hidden; text-overflow: ellipsis;">
+                            <div class="elementor-widget-container">
+                                <span
+                                    style="display: -webkit-box; text-align:justify; word-break:keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 5; color: black; overflow: hidden; text-overflow: ellipsis;">
                                     {{ $direction == 'rtl' ? Markdown::block($goals->description_ar) : Markdown::block($goals->description_en) }}
                                 </span>
                             </div>
@@ -997,7 +999,8 @@
                 <div
                     class="elementor-element elementor-element-598eeff8 elementor-widget__width-initial elementor-invisible elementor-widget elementor-widget-heading"
                     data-id="598eeff8" data-element_type="widget"
-                    data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}" data-widget_type="heading.default">
+                    data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}"
+                    data-widget_type="heading.default">
                     <div class="elementor-widget-container">
                         <h3 class="elementor-heading-title elementor-size-default">
                             {{ __('landing.Subscribe to our Newsletter') }}

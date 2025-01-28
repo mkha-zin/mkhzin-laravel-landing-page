@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\DataFetcherService;
 use BezhanSalleh\FilamentLanguageSwitch\LanguageSwitch;
 use Filament\Facades\Filament;
 use Filament\Navigation\NavigationGroup;
@@ -14,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(DataFetcherService::class, function ($app) {
+            return new DataFetcherService();
+        });
     }
 
     /**

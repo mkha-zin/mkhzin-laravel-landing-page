@@ -138,7 +138,7 @@
             margin-top: -80px;
         }
 
-        .cat_title {
+        /*.cat_title {
             font-size: 14px;
             display: -webkit-box;
             word-break: keep-all;
@@ -150,12 +150,11 @@
             text-decoration: none;
             width: 100%;
             text-align: center;
-        }
+        }*/
 
-        .cat_img {
+        .swiper-slide .cat_img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
         }
 
         .swiper-slide-next .cat_img, .swiper-slide-next .cat_title {
