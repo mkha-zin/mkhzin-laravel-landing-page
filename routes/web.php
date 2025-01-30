@@ -12,7 +12,7 @@ Route::group(['middleware' => 'localization'], static function () {
     Route::post('subscribe', [LandingController::class, 'subscribe'])->name('subscribe');
     Route::get('sections', [LandingController::class, 'sections']);
     Route::get('sections/{id}/details', [LandingController::class, 'sectionDetails']);
-    Route::get('store', [AppLandingController::class, 'viewStore']);
+    Route::get('estore', [AppLandingController::class, 'viewStore']);
     Route::get('offers', [LandingController::class, 'offers']);
     Route::get('about', [LandingController::class, 'about']);
     Route::get('jobs', [LandingController::class, 'jobs']);
