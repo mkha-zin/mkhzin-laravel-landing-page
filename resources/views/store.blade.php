@@ -14,12 +14,16 @@
     <!doctype html>
 <html lang="{{ app()->currentLocale() }}" dir="{{ $direction }}">
 <head>
-    <title>Mkhazin Store</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="{{  config('app.name') }}">
-    <meta name="keywords" content="HTML5, bootstrap, mobile, app, landing, ios, android, responsive">
+    <meta name="keywords" content="Store, E-Commerce, eshop, delivery, mkhazin, mkhzin, makhazin, order, online, store, shopping, ecommerce, makhazin, grocery, grocery store, grocery online, online grocery">
+
+    <title>
+        {{  $header_title  ?? config('app.name') }}
+    </title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('uploads/mkhazin/fav.png') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
