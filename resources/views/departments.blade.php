@@ -30,7 +30,8 @@
                     <div class="elementor-element elementor-element-8ca1759 e-con-full e-flex e-con e-child"
                          data-id="8ca1759" data-element_type="container">
                         <div class="elementor-element elementor-element-5ad687a e-con-full e-flex e-con e-child"
-                             data-id="5ad687a" data-element_type="container" style="display: flex; justify-content: center">
+                             data-id="5ad687a" data-element_type="container"
+                             style="display: flex; justify-content: center">
                             @if(!empty($branches))
                                 @foreach($branches as $branch)
                                     <div

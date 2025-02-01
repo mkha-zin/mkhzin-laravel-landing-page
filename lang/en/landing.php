@@ -25,9 +25,9 @@ return [
     'Arabic' => 'العربية',
     'go to store' => 'Go to Store',
 
-    'offers_title'=>'Offers',
-    'end offer'=>'Offer until',
-    'All Cities'=>'All Cities',
+    'offers_title' => 'Offers',
+    'end offer' => 'Offer until',
+    'All Cities' => 'All Cities',
     'All Branches' => 'All Branches',
     'Search' => 'Search',
     'No Offers Found' => 'No Offers Found at the moment',

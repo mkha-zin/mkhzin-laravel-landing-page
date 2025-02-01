@@ -15,14 +15,14 @@ class ContactInfo extends Model
         'id'
     ];
 
-    public function action(): BelongsTo
-    {
-        return $this->belongsTo(Action::class);
-    }
-
     protected static function booted()
     {
         static::saved(fn() => Cache::forget('index_data'));
         static::deleted(fn() => Cache::forget('index_data'));
+    }
+
+    public function action(): BelongsTo
+    {
+        return $this->belongsTo(Action::class);
     }
 }

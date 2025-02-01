@@ -18,9 +18,9 @@ class SocialLinkFactory extends Factory
     public function definition(): array
     {
         return [
-            'title_ar'=>'عربي',
-            'title_en'=>'English',
-            'link'=>'https://www.facebook.com/',
+            'title_ar' => 'عربي',
+            'title_en' => 'English',
+            'link' => 'https://www.facebook.com/',
         ];
     }
 }

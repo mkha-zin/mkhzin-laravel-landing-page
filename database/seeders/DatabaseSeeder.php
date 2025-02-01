@@ -18,9 +18,10 @@ use App\Models\Section;
 use App\Models\SocialLink;
 use App\Models\Storage;
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\VisionAndGoal;
 use Illuminate\Database\Seeder;
+
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {
@@ -40,23 +41,23 @@ class DatabaseSeeder extends Seeder
         Career::factory()->create();
         City::factory(5)->has(Branch::factory(2)->has(Offer::factory(5)))->create();
 
-        $actions=[
+        $actions = [
             [
-                'name_ar'=>'ايميل',
-                'name_en'=>'Email',
+                'name_ar' => 'ايميل',
+                'name_en' => 'Email',
             ],
             [
-                'name_ar'=>'واتس اب',
-                'name_en'=>'Whatsapp',
+                'name_ar' => 'واتس اب',
+                'name_en' => 'Whatsapp',
             ],
             [
-                'name_ar'=>'اتصال',
-                'name_en'=>'Call',
+                'name_ar' => 'اتصال',
+                'name_en' => 'Call',
 
             ],
             [
-                'name_ar'=>'رابط',
-                'name_en'=>'Link',
+                'name_ar' => 'رابط',
+                'name_en' => 'Link',
             ],
         ];
 
@@ -80,77 +81,77 @@ class DatabaseSeeder extends Seeder
         Fleet::factory()->create();
         ContactImage::factory()->create([
             'slug' => 'image1',
-            'view_title_ar'=>'الصورة الأولى',
-            'view_title_en'=>'First Image',
+            'view_title_ar' => 'الصورة الأولى',
+            'view_title_en' => 'First Image',
         ]);
         ContactImage::factory()->create([
             'slug' => 'image2',
-            'view_title_ar'=>'الصورة الثانية',
-            'view_title_en'=>'Second Image',
+            'view_title_ar' => 'الصورة الثانية',
+            'view_title_en' => 'Second Image',
         ]);
 
 
         SocialLink::factory()->create(
             [
-                'title_ar'=>'تويتر(X)',
-                'title_en'=>'Twitter(X)',
-                'link'=>'https://x.com/',
+                'title_ar' => 'تويتر(X)',
+                'title_en' => 'Twitter(X)',
+                'link' => 'https://x.com/',
             ]
         );
         SocialLink::factory()->create(
             [
-                'title_ar'=>'فيس بوك',
-                'title_en'=>'Facebook',
-                'link'=>'https://facebook.com/',
+                'title_ar' => 'فيس بوك',
+                'title_en' => 'Facebook',
+                'link' => 'https://facebook.com/',
             ]
         );
         SocialLink::factory()->create(
             [
-                'title_ar'=>'يوتيوب',
-                'title_en'=>'Youtube',
-                'link'=>'https://youtube.com/',
+                'title_ar' => 'يوتيوب',
+                'title_en' => 'Youtube',
+                'link' => 'https://youtube.com/',
             ]
         );
         SocialLink::factory()->create(
             [
-                'title_ar'=>'انستجرام',
-                'title_en'=>'Instagram',
-                'link'=>'https://instagram.com/',
+                'title_ar' => 'انستجرام',
+                'title_en' => 'Instagram',
+                'link' => 'https://instagram.com/',
             ]
         );
         SocialLink::factory()->create(
             [
-                'title_ar'=>'لينكدان',
-                'title_en'=>'Linkedin',
-                'link'=>'https://linkedin.com/',
+                'title_ar' => 'لينكدان',
+                'title_en' => 'Linkedin',
+                'link' => 'https://linkedin.com/',
             ]
         );
         SocialLink::factory()->create(
             [
-                'title_ar'=>'واتساب',
-                'title_en'=>'Whatsapp',
-                'link'=>'https://whatsapp.com/',
+                'title_ar' => 'واتساب',
+                'title_en' => 'Whatsapp',
+                'link' => 'https://whatsapp.com/',
             ]
         );
         SocialLink::factory()->create(
             [
-                'title_ar'=>'سناب شات',
-                'title_en'=>'Snapchat',
-                'link'=>'https://snapchat.com/',
+                'title_ar' => 'سناب شات',
+                'title_en' => 'Snapchat',
+                'link' => 'https://snapchat.com/',
             ]
         );
         SocialLink::factory()->create(
             [
-                'title_ar'=>'تيك توك',
-                'title_en'=>'Tiktok',
-                'link'=>'https://tiktok.com/',
+                'title_ar' => 'تيك توك',
+                'title_en' => 'Tiktok',
+                'link' => 'https://tiktok.com/',
             ]
         );
         SocialLink::factory()->create(
             [
-                'title_ar'=>'قناة الواتساب',
-                'title_en'=>'Whatsapp Channel',
-                'link'=>'https://whatsapp.com/channel/',
+                'title_ar' => 'قناة الواتساب',
+                'title_en' => 'Whatsapp Channel',
+                'link' => 'https://whatsapp.com/channel/',
             ]
         );
 

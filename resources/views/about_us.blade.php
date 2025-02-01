@@ -26,12 +26,14 @@
                             data-element_type="container" style="width: 100%;"
                             data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;,&quot;animation_delay&quot;:200}">
                             <div style="width: 100%;"
-                                class="elementor-element elementor-element-5609d2b4 elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-icon-box"
-                                data-id="5609d2b4" data-element_type="widget" data-widget_type="icon-box.default">
+                                 class="elementor-element elementor-element-5609d2b4 elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-icon-box"
+                                 data-id="5609d2b4" data-element_type="widget" data-widget_type="icon-box.default">
                                 <div class="elementor-widget-container">
                                     <div class="elementor-icon-box-wrapper">
                                         <div class="elementor-icon-box-content">
-                                            <h1 class="elementor-icon-box-description" style="width: 100%; text-align: {{ $direction == 'rtl' ? 'right' : 'left' }}" dir="{{ $direction }}">
+                                            <h1 class="elementor-icon-box-description"
+                                                style="width: 100%; text-align: {{ $direction == 'rtl' ? 'right' : 'left' }}"
+                                                dir="{{ $direction }}">
                                                 {{ App::currentLocale() === 'ar' ? $about->title_ar : $about->title_en }}
                                             </h1>
                                         </div>

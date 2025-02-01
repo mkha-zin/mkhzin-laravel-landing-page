@@ -27,7 +27,8 @@
                                 <div class="elementor-widget-container">
                                     <div class="rkit-blog">
                                         @foreach($departments as $department)
-                                            <div class="rkit-blog-card  elementor-animation-" style="border-radius: 10px;">
+                                            <div class="rkit-blog-card  elementor-animation-"
+                                                 style="border-radius: 10px;">
                                                 <div class="rkit-image-container">
                                                     <a class="rkit-image-link" style="overflow: hidden;" href="#">
                                                         <img decoding="async" class="rkit-blog-img"
@@ -49,7 +50,9 @@
                                                     </div>
                                                     <div class="rkit-readmore-div"
                                                          style="justify-content: {{  $direction == 'rtl' ? 'right' : 'left' }}; text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important; display: flex">
-                                                        <a class="rkit-readmore-btn" type="button" href="{{ url('sections/' . $department->id . '/details') }}" style="letter-spacing: 0 !important;">
+                                                        <a class="rkit-readmore-btn" type="button"
+                                                           href="{{ url('sections/' . $department->id . '/details') }}"
+                                                           style="letter-spacing: 0 !important;">
                                                             @if($direction == 'rtl')
                                                                 <i aria-hidden="true"
                                                                    class="rkit-icon-readmore rtmicon rtmicon-chevrons-left"></i>
@@ -74,8 +77,6 @@
 
         @endif
     </div>
-
-
 
 @endsection
 

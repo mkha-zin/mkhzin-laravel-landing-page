@@ -38,8 +38,8 @@ jQuery(window).on('elementor/frontend/init', function () {
             var currentNumber = count;
             var interval = setInterval(function () {
                 currentNumber += step;
-                var text = (dataSeparator.thousand_separator) ? numberWithCommas(currentNumber) : currentNumber ; 
-                var targetText =  (dataSeparator.thousand_separator) ? numberWithCommas(targetCount) : targetCount ;
+                var text = (dataSeparator.thousand_separator) ? numberWithCommas(currentNumber) : currentNumber;
+                var targetText = (dataSeparator.thousand_separator) ? numberWithCommas(targetCount) : targetCount;
                 if (currentNumber <= targetCount) {
                     counter.find(".count").text(text);
                 } else {

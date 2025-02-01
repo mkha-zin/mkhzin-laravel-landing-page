@@ -9,7 +9,6 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\Section;
-use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -102,12 +101,12 @@ class BrandResource extends Resource
     {
         return $infolist
             ->schema([
-               Section::make(
-                   $infolist->record->title
-               )->schema([
-                   ImageEntry::make('image')
-                       ->label(__('dashboard.image'))
-               ])
+                Section::make(
+                    $infolist->record->title
+                )->schema([
+                    ImageEntry::make('image')
+                        ->label(__('dashboard.image'))
+                ])
             ]);
     }
 

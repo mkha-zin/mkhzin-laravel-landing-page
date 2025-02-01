@@ -18,11 +18,11 @@ class BranchFactory extends Factory
     public function definition(): array
     {
         return [
-            'name_ar'=> fake()->name,
-            'name_en'=> fake()->name,
-            'address_ar'=> fake()->address,
-            'address_en'=> fake()->address,
-            'image'=> 'https://picsum.photos/200/300',
+            'name_ar' => fake()->name,
+            'name_en' => fake()->name,
+            'address_ar' => fake()->address,
+            'address_en' => fake()->address,
+            'image' => 'https://picsum.photos/200/300',
         ];
     }
 }

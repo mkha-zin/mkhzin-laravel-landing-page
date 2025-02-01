@@ -14,7 +14,6 @@
 }
 
 
-
 .success-submit {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     background-color: white;
@@ -42,7 +41,7 @@
 .success-body h5,
 .require-msg-body h5 {
     font-weight: bold !important;
-    margin-bottom : 0px !important;
+    margin-bottom: 0px !important;
 }
 
 .close-msg {

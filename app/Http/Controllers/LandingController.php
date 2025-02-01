@@ -11,11 +11,8 @@ use App\Models\ContactImage;
 use App\Models\ContactInfo;
 use App\Models\Department;
 use App\Models\Fleet;
-use App\Models\Hero;
 use App\Models\Offer;
-use App\Models\OurValue;
 use App\Models\Section;
-use App\Models\SocialLink;
 use App\Models\Storage;
 use App\Models\Subscription;
 use App\Models\VisionAndGoal;
@@ -39,6 +36,7 @@ class LandingController extends Controller
     {
         $this->dataFetcherService = $dataFetcherService;
     }
+
     public function index(): Factory|View|Application|\Illuminate\View\View
     {
         $data = $this->dataFetcherService->fetchData();

@@ -20,7 +20,7 @@ class HeroFactory extends Factory
         return [
             'title_ar' => fake()->sentence(),
             'title_en' => fake()->sentence(),
-            'image'=>'https://picsum.photos/300/300',
+            'image' => 'https://picsum.photos/300/300',
         ];
     }
 }

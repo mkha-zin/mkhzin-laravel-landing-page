@@ -1,9 +1,9 @@
-.rkit-social-media__list{
+.rkit-social-media__list {
     display: flex;
     flex-wrap: wrap;
 }
 
-.rkit-social-media__list .rkit-social-share__link{
+.rkit-social-media__list .rkit-social-share__link {
     width: 100%;
     border: none;
     display: flex;

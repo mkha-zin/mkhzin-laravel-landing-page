@@ -68,7 +68,8 @@
                                         <div class="rkit-blog-card" style="border-radius: 10px">
                                             <div class="rkit-image-container">
                                                 <a class="rkit-image-link" style="overflow: hidden;">
-                                                    <img decoding="async" class="rkit-blog-img" style="border-radius: 10px 10px 0 0"
+                                                    <img decoding="async" class="rkit-blog-img"
+                                                         style="border-radius: 10px 10px 0 0"
                                                          src="{{  asset('storage/' . $offer->image)}}">
                                                 </a>
 

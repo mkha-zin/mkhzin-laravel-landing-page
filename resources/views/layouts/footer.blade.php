@@ -73,7 +73,8 @@
                                                 fill="currentColor"
                                                 class="bi bi-twitter-x"
                                                 viewBox="0 0 16 16">
-                                                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                                                <path
+                                                    d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
                                             </svg>
                                         </a>
                                     </span>
@@ -195,7 +196,8 @@
                         data-element_type="widget" data-widget_type="text-editor.default">
                         <a {{--href="https://profiles.dunsregistered.com/TPSAME-COMP-004.aspx?ListArea=900"--}} target="_blank">
                             <div class="elementor-widget-container" style="display: flex; justify-content: center">
-                                <img style="border-radius: 10px;" width="250px" src="{{ asset('uploads/mkhazin/duns.png') }}"/>
+                                <img style="border-radius: 10px;" width="250px"
+                                     src="{{ asset('uploads/mkhazin/duns.png') }}"/>
                             </div>
                         </a>
                     </div>

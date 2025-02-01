@@ -1,19 +1,19 @@
-.rkit-blockquote{
+.rkit-blockquote {
     display: flex;
     position: relative;
 }
 
-.blockquote-top{
+.blockquote-top {
     flex-direction: column;
 }
 
-.rkit-quote-icon{
+.rkit-quote-icon {
     font-size: 4rem;
-    margin : 0px 0px 20px 0px;
+    margin: 0px 0px 20px 0px;
 }
 
-.blockquote-top .rkit-quote-icon{
-    display: flex;  
+.blockquote-top .rkit-quote-icon {
+    display: flex;
     align-items: center;
 }
 
@@ -28,7 +28,7 @@
     margin: 0 .5em 0 0;
 }
 
-.blockquote-inline , .blockquote-absolute {
+.blockquote-inline, .blockquote-absolute {
     flex-direction: column;
 }
 
@@ -39,7 +39,7 @@
 .blockquote-absolute .rkit-quote-icon {
     position: absolute;
     z-index: -1;
-    left : 0;
+    left: 0;
     right: 0;
     top: 0;
     bottom: 0;

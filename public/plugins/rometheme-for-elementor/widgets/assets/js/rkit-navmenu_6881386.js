@@ -57,7 +57,6 @@ function submenu_click() {
 }
 
 
-
 function hamburger_icon(id_key, bool) {
     const icon_close = document.getElementById('rkit-icon-close' + id_key);
     const icon_open = document.getElementById('rkit-icon-open' + id_key);

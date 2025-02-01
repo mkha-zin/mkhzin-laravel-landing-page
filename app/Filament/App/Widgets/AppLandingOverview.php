@@ -3,7 +3,6 @@
 namespace App\Filament\App\Widgets;
 
 use App\Models\AppScreen;
-use App\Models\Branch;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Feature;

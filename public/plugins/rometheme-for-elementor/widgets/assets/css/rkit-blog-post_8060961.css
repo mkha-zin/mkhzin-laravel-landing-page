@@ -35,7 +35,7 @@
     transition: all 0.5s;
     object-fit: cover;
     object-position: center;
-    width: 100% !important  ;
+    width: 100% !important;
     height: 100% !important;
 }
 
@@ -68,7 +68,7 @@
     background-color: #00cea6;
 }
 
-.rkit-float-metawrapper-date>span {
+.rkit-float-metawrapper-date > span {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -76,7 +76,7 @@
 
 }
 
-.rkit-float-metawrapper-date>span>strong {
+.rkit-float-metawrapper-date > span > strong {
     font-size: large;
 }
 
@@ -148,26 +148,26 @@ a.rkit-readmore-btn:hover {
 }
 
 .rkit-blog-title-container {
-    margin : 10px 0px 10px 0px;
+    margin: 10px 0px 10px 0px;
 }
 
-.rkit-blog-title{
+.rkit-blog-title {
     font-size: 20px;
     font-weight: 700;
-    color :black;
+    color: black;
 }
 
 .rkit-blog-paragraph {
     margin: 0px 0px 30px 0px;
 }
 
-@media only screen and (max-width:1024px) {
+@media only screen and (max-width: 1024px) {
     .rkit-blog {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media only screen and (max-width:767px) {
+@media only screen and (max-width: 767px) {
     .rkit-blog {
         grid-template-columns: repeat(1, 1fr);
     }

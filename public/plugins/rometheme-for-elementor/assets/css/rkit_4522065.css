@@ -238,44 +238,40 @@ a:focus {
 
 .rtm-bg-gradient-1 {
     background-color: hsla(228, 0%, 3%, 1);
-    background-image:
-        radial-gradient(at 100% 0%, hsla(240, 0%, 3%, 1) 0px, transparent 50%),
-        radial-gradient(at 20% 44%, hsla(168, 0%, 3%, 1) 0px, transparent 50%),
-        radial-gradient(at 0% 0%, hsla(168, 100%, 40%, 0.38) 0px, transparent 50%),
-        radial-gradient(at 73% 69%, hsla(168, 100%, 40%, 0.33) 0px, transparent 50%),
-        radial-gradient(at 56% 62%, hsla(168, 100%, 40%, 0) 0px, transparent 50%);
+    background-image: radial-gradient(at 100% 0%, hsla(240, 0%, 3%, 1) 0px, transparent 50%),
+    radial-gradient(at 20% 44%, hsla(168, 0%, 3%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(168, 100%, 40%, 0.38) 0px, transparent 50%),
+    radial-gradient(at 73% 69%, hsla(168, 100%, 40%, 0.33) 0px, transparent 50%),
+    radial-gradient(at 56% 62%, hsla(168, 100%, 40%, 0) 0px, transparent 50%);
 }
 
 .rtm-bg-gradient-2 {
     background-color: hsla(228, 0%, 3%, 1);
-    background-image:
-        radial-gradient(at 100% 0%, hsla(240, 0%, 3%, 1) 0px, transparent 50%),
-        radial-gradient(at 11% 75%, hsla(120, 0%, 3%, 1) 0px, transparent 50%),
-        radial-gradient(at 0% 0%, hsla(278, 69%, 69%, 0.38) 0px, transparent 50%),
-        radial-gradient(at 73% 69%, hsla(283, 83%, 42%, 0.33) 0px, transparent 50%),
-        radial-gradient(at 54% 70%, hsla(168, 100%, 40%, 0.46) 0px, transparent 50%);
+    background-image: radial-gradient(at 100% 0%, hsla(240, 0%, 3%, 1) 0px, transparent 50%),
+    radial-gradient(at 11% 75%, hsla(120, 0%, 3%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(278, 69%, 69%, 0.38) 0px, transparent 50%),
+    radial-gradient(at 73% 69%, hsla(283, 83%, 42%, 0.33) 0px, transparent 50%),
+    radial-gradient(at 54% 70%, hsla(168, 100%, 40%, 0.46) 0px, transparent 50%);
 }
 
 .rtm-bg-gradient-3 {
     background-color: hsla(55, 0%, 3%, 1);
-    background-image:
-        radial-gradient(at 22% 12%, hsla(168, 100%, 40%, 0.3) 0px, transparent 50%),
-        radial-gradient(at 8% 40%, hsla(66, 0%, 3%, 1) 0px, transparent 50%),
-        radial-gradient(at 95% 43%, hsla(168, 100%, 40%, 0.2) 0px, transparent 50%),
-        radial-gradient(at 80% 94%, hsla(59, 0%, 3%, 1) 0px, transparent 50%),
-        radial-gradient(at 90% 60%, hsla(327, 0%, 3%, 1) 0px, transparent 50%),
-        radial-gradient(at 91% 33%, hsla(289, 0%, 3%, 1) 0px, transparent 50%),
-        radial-gradient(at 44% 41%, hsla(210, 0%, 3%, 1) 0px, transparent 50%)
+    background-image: radial-gradient(at 22% 12%, hsla(168, 100%, 40%, 0.3) 0px, transparent 50%),
+    radial-gradient(at 8% 40%, hsla(66, 0%, 3%, 1) 0px, transparent 50%),
+    radial-gradient(at 95% 43%, hsla(168, 100%, 40%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 80% 94%, hsla(59, 0%, 3%, 1) 0px, transparent 50%),
+    radial-gradient(at 90% 60%, hsla(327, 0%, 3%, 1) 0px, transparent 50%),
+    radial-gradient(at 91% 33%, hsla(289, 0%, 3%, 1) 0px, transparent 50%),
+    radial-gradient(at 44% 41%, hsla(210, 0%, 3%, 1) 0px, transparent 50%)
 }
 
 .rtm-bg-gradient-4 {
     background-color: hsla(55, 0%, 3%, 1);
-    background-image:
-        radial-gradient(at 14% 8%, hsla(168, 100%, 40%, 0.31) 0px, transparent 50%),
-        radial-gradient(at 0% 21%, hsla(283, 100%, 49%, 0.23) 0px, transparent 50%),
-        radial-gradient(at 100% 79%, hsla(168, 100%, 40%, 0.2) 0px, transparent 50%),
-        radial-gradient(at 91% 33%, hsla(289, 0%, 3%, 1) 0px, transparent 50%),
-        radial-gradient(at 0% 100%, hsla(0, 5%, 71%, 0.3) 0px, transparent 50%);
+    background-image: radial-gradient(at 14% 8%, hsla(168, 100%, 40%, 0.31) 0px, transparent 50%),
+    radial-gradient(at 0% 21%, hsla(283, 100%, 49%, 0.23) 0px, transparent 50%),
+    radial-gradient(at 100% 79%, hsla(168, 100%, 40%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 91% 33%, hsla(289, 0%, 3%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(0, 5%, 71%, 0.3) 0px, transparent 50%);
 }
 
 .rtm-divider {
@@ -563,7 +559,7 @@ table.rtm-table tr {
     box-shadow: 12px 0px 12px 0px rgba(0, 0, 0, 0.75);
 }
 
-.switch-input:checked+.slider {
+.switch-input:checked + .slider {
     background: linear-gradient(99.32deg, #000000 -21.2%, #00CEA6 69.36%);
 }
 
@@ -571,11 +567,11 @@ table.rtm-table tr {
     background-color: #00cea6;
 } */
 
-.switch-input:focus+.slider {
+.switch-input:focus + .slider {
     box-shadow: 0 0 1px #00cea6;
 }
 
-.switch-input:checked+.slider:before {
+.switch-input:checked + .slider:before {
     -webkit-transform: translateX(24px);
     -ms-transform: translateX(24px);
     transform: translateX(24px);

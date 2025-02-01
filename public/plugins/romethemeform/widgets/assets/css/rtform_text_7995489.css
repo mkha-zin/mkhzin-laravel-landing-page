@@ -5,13 +5,13 @@
     width: 20%;
 }
 
-.rform-input , .rform-select , .rform-input-tel {
+.rform-input, .rform-select, .rform-input-tel {
     background-color: rgb(219, 219, 234);
     width: 100%;
     border-radius: 6px;
 }
 
-.rform-input:focus, .rform-input-number:focus , .rform-input-tel:focus {
+.rform-input:focus, .rform-input-number:focus, .rform-input-tel:focus {
     outline: none;
 }
 
@@ -27,7 +27,7 @@
     flex-direction: column;
 }
 
-.rform-label-top .rform-label-input{
+.rform-label-top .rform-label-input {
     width: 100%;
 }
 
@@ -46,6 +46,7 @@
 .rform-control:has(.rform-input[aria-invalid="true"]) + .rform-error {
     display: block !important;
 }
+
 .rform-control:has(.rform-select[aria-invalid="true"]) + .rform-error {
     display: block !important;
 }

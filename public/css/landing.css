@@ -1880,15 +1880,18 @@ body .is-layout-grid {
     border-radius: 10px;
     margin-top: 50px;
 }
+
 .section h2 {
     font-size: 24px;
     font-weight: bold;
     color: #333;
 }
+
 .section p {
     font-size: 16px;
     color: #666;
 }
+
 .truck-image {
     max-width: 100%;
     height: auto;
@@ -1897,10 +1900,10 @@ body .is-layout-grid {
 }
 
 .elementor-heading-title {
-     padding: 0;
-     margin: 0;
-     line-height: 1
- }
+    padding: 0;
+    margin: 0;
+    line-height: 1
+}
 
 .elementor-widget-heading .elementor-heading-title[class*=elementor-size-] > a {
     color: inherit;
@@ -1989,7 +1992,7 @@ body .is-layout-grid {
 }
 
 @media screen and (min-width: 800px) {
-    .elementor-element-1c3d47e6666{
+    .elementor-element-1c3d47e6666 {
         color: white;
         display: flex !important;
         align-self: end !important;

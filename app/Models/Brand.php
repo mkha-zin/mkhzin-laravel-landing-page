@@ -14,8 +14,8 @@ class Brand extends Model
     protected $guarded = ['id'];
 
     protected static function booted()
-{
-    static::saved(fn() => Cache::forget('store_page_data'));
-    static::deleted(fn() => Cache::forget('store_page_data'));
-}
+    {
+        static::saved(fn() => Cache::forget('store_page_data'));
+        static::deleted(fn() => Cache::forget('store_page_data'));
+    }
 }

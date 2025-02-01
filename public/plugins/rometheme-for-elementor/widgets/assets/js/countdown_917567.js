@@ -42,7 +42,7 @@ jQuery(window).on('elementor/frontend/init', function () {
             $element.find('.countdown-minutes').text('00');
             $element.find('.countdown-seconds').text('00');
 
-            var x = setInterval(function() {
+            var x = setInterval(function () {
                 var now = new Date().getTime();
                 var distance = countDownDate - now;
 
@@ -55,7 +55,7 @@ jQuery(window).on('elementor/frontend/init', function () {
                 var hoursStr = (hours < 10 ? '0' + hours : hours).toString();
                 var minutesStr = (minutes < 10 ? '0' + minutes : minutes).toString();
                 var secondsStr = (seconds < 10 ? '0' + seconds : seconds).toString();
- 
+
                 if ($element.find('.countdown-days').text() !== daysStr) {
                     $element.find('.countdown-days').text(daysStr);
                 }
@@ -75,9 +75,9 @@ jQuery(window).on('elementor/frontend/init', function () {
                     $element.find('.countdown-hours').text('00');
                     $element.find('.countdown-minutes').text('00');
                     $element.find('.countdown-seconds').text('00');
-                    
+
                     var expiredSection = $element.find('.expired-time-section');
-                    var countdownWidget = $element.find('.count'); 
+                    var countdownWidget = $element.find('.count');
 
                     if (expiredSection.length && countdownWidget.length) {
                         expiredSection.show();
@@ -85,11 +85,11 @@ jQuery(window).on('elementor/frontend/init', function () {
                     }
                 }
             }, 1000);
- 
+
             $element.data('interval', x);
         }
 
-        $scope.each(function() {
+        $scope.each(function () {
             var $element = $(this);
             var endDate = $element.find('#countdown').data('date');
             console.log('Initial end date:', endDate);
@@ -100,11 +100,11 @@ jQuery(window).on('elementor/frontend/init', function () {
             }
 
             updateCountdown($element, endDate);
- 
-            $element.find('#countdown').on('change', function() {
+
+            $element.find('#countdown').on('change', function () {
                 endDate = $(this).data('date');
                 console.log('New end date:', endDate);
- 
+
                 existingInterval = $element.data('interval');
                 if (existingInterval) {
                     clearInterval(existingInterval);

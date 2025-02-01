@@ -127,11 +127,10 @@
     flex-direction: column;
 }
 
-.rkit-team__social_on_hover_left:hover .rkit-team__social , 
-.rkit-team__social_on_hover_right:hover .rkit-team__social , 
+.rkit-team__social_on_hover_left:hover .rkit-team__social,
+.rkit-team__social_on_hover_right:hover .rkit-team__social,
 .rkit-team__social_on_hover_bottom:hover .rkit-team__social,
-.rkit-team__social_on_hover_top:hover .rkit-team__social
-{
+.rkit-team__social_on_hover_top:hover .rkit-team__social {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,7 +138,7 @@
     opacity: 1;
 }
 
-.rkit-team__centered .rkit-team-card{
+.rkit-team__centered .rkit-team-card {
     padding: 1rem;
     display: flex;
     flex-direction: column;

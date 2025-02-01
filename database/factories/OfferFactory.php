@@ -18,13 +18,13 @@ class OfferFactory extends Factory
     public function definition(): array
     {
         return [
-            'name_ar'=>$this->faker->name(),
-            'name_en'=>$this->faker->name(),
-            'description_ar'=>$this->faker->text(),
-            'description_en'=>$this->faker->text(),
-            'image'=>'https://picsum.photos/200/300',
-            'start_date'=>$this->faker->dateTime(),
-            'end_date'=>$this->faker->dateTime(),
+            'name_ar' => $this->faker->name(),
+            'name_en' => $this->faker->name(),
+            'description_ar' => $this->faker->text(),
+            'description_en' => $this->faker->text(),
+            'image' => 'https://picsum.photos/200/300',
+            'start_date' => $this->faker->dateTime(),
+            'end_date' => $this->faker->dateTime(),
         ];
     }
 }

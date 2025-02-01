@@ -35,8 +35,8 @@
                                     <!--Call-->
                                     @if($contactInfo->action_id == 3)
                                         <div
-                                                class="elementor-element elementor-element-2272f8d0 elementor-position-left elementor-view-default elementor-mobile-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box"
-                                                data-element_type="widget" data-widget_type="icon-box.default">
+                                            class="elementor-element elementor-element-2272f8d0 elementor-position-left elementor-view-default elementor-mobile-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box"
+                                            data-element_type="widget" data-widget_type="icon-box.default">
                                             <div class="elementor-widget-container">
                                                 <div class="elementor-icon-box-wrapper">
                                                     <div class="elementor-icon-box-icon"
@@ -64,13 +64,13 @@
                                     <!--Email-->
                                     @if($contactInfo->action_id == 1)
                                         <div
-                                                class="elementor-element elementor-element-5d7f1b08 elementor-position-left elementor-view-default elementor-mobile-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box"
-                                                data-element_type="widget" data-widget_type="icon-box.default">
+                                            class="elementor-element elementor-element-5d7f1b08 elementor-position-left elementor-view-default elementor-mobile-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box"
+                                            data-element_type="widget" data-widget_type="icon-box.default">
                                             <div class="elementor-widget-container">
                                                 <div class="elementor-icon-box-wrapper">
                                                     <div class="elementor-icon-box-icon"
                                                          style="display: flex; justify-content: center; align-items: center;"><span
-                                                                class="elementor-icon elementor-animation-">
+                                                            class="elementor-icon elementor-animation-">
                                                                 <i aria-hidden="true"
                                                                    class="rtmicon rtmicon-email-spam"></i>
                                                             </span>
@@ -93,8 +93,8 @@
                                     <!--Website-->
                                     @if($contactInfo->action_id == 4)
                                         <div
-                                                class="elementor-element elementor-element-f339c77 elementor-position-left elementor-view-default elementor-mobile-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box"
-                                                data-element_type="widget" data-widget_type="icon-box.default">
+                                            class="elementor-element elementor-element-f339c77 elementor-position-left elementor-view-default elementor-mobile-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box"
+                                            data-element_type="widget" data-widget_type="icon-box.default">
                                             <div class="elementor-widget-container">
                                                 <div class="elementor-icon-box-wrapper">
                                                     <div class="elementor-icon-box-icon"
@@ -121,8 +121,8 @@
                                     <!--Whatsapp-->
                                     @if($contactInfo->action_id == 2)
                                         <div
-                                                class="elementor-element elementor-element-49c24d1e elementor-position-left elementor-view-default elementor-mobile-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box"
-                                                data-element_type="widget" data-widget_type="icon-box.default">
+                                            class="elementor-element elementor-element-49c24d1e elementor-position-left elementor-view-default elementor-mobile-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box"
+                                            data-element_type="widget" data-widget_type="icon-box.default">
                                             <div class="elementor-widget-container">
                                                 <div class="elementor-icon-box-wrapper">
                                                     <div class="elementor-icon-box-icon"
@@ -159,9 +159,9 @@
                     </div>
                 </div>
                 <div
-                        class="elementor-element elementor-element-3f1ec870 e-con-full e-flex elementor-invisible e-con e-child"
-                        data-id="3f1ec870" data-element_type="container"
-                        data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;}">
+                    class="elementor-element elementor-element-3f1ec870 e-con-full e-flex elementor-invisible e-con e-child"
+                    data-id="3f1ec870" data-element_type="container"
+                    data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;}">
                     <div class="elementor-element elementor-element-3738182a elementor-widget elementor-widget-heading"
                          data-id="3738182a" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
@@ -170,8 +170,8 @@
                         </div>
                     </div>
                     <div
-                            class="elementor-element elementor-element-5292ea15 elementor-widget__width-inherit elementor-widget elementor-widget-heading"
-                            data-element_type="widget" data-widget_type="heading.default">
+                        class="elementor-element elementor-element-5292ea15 elementor-widget__width-inherit elementor-widget elementor-widget-heading"
+                        data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
                             <h2 class="elementor-heading-title elementor-size-default">{{ __('landing.Keep in touch') }}</h2>
                         </div>
@@ -182,9 +182,9 @@
                                 {{  csrf_field() }}
                                 <div class="elementor elementor-863">
                                     <div
-                                            class="elementor-element elementor-element-2567ec7 e-con-full e-flex e-con e-parent">
+                                        class="elementor-element elementor-element-2567ec7 e-con-full e-flex e-con e-parent">
                                         <div
-                                                class="elementor-element elementor-element-a9dce82 elementor-widget__width-initial elementor-widget">
+                                            class="elementor-element elementor-element-a9dce82 elementor-widget__width-initial elementor-widget">
                                             <div class="elementor-widget-container">
                                                 <div class="rform-control ">
                                                     <input name="first_name"
@@ -195,7 +195,7 @@
                                             </div>
                                         </div>
                                         <div
-                                                class="elementor-element elementor-element-ef24818 elementor-widget__width-initial elementor-widget">
+                                            class="elementor-element elementor-element-ef24818 elementor-widget__width-initial elementor-widget">
                                             <div class="elementor-widget-container">
                                                 <div class="rform-control ">
                                                     <input name="last_name" placeholder="{{ __('landing.Last Name') }}"
@@ -205,7 +205,7 @@
                                             </div>
                                         </div>
                                         <div
-                                                class="elementor-element elementor-element-8f97bea elementor-widget__width-initial elementor-widget">
+                                            class="elementor-element elementor-element-8f97bea elementor-widget__width-initial elementor-widget">
                                             <div class="elementor-widget-container">
                                                 <div class="rform-control ">
                                                     <input name="email" placeholder="{{ __('landing.Email') }}"
@@ -215,7 +215,7 @@
                                             </div>
                                         </div>
                                         <div
-                                                class="elementor-element elementor-element-95a6c30 elementor-widget__width-initial elementor-widget">
+                                            class="elementor-element elementor-element-95a6c30 elementor-widget__width-initial elementor-widget">
                                             <div class="elementor-widget-container">
                                                 <div class="rform-control ">
                                                     <input name="phone" placeholder="{{ __('landing.Phone') }}"
@@ -276,15 +276,15 @@
         <div class="elementor-element elementor-element-57ddf455 e-flex e-con-boxed e-con e-parent">
             <div class="e-con-inner">
                 <div
-                        class="elementor-element elementor-element-10fa2d2b elementor-widget__width-initial elementor-widget elementor-widget-rform">
+                    class="elementor-element elementor-element-10fa2d2b elementor-widget__width-initial elementor-widget elementor-widget-rform">
                     <div class="elementor-widget-container">
                         <form method="post" action="{{  route('subscribe') }}">
                             {{ csrf_field() }}
                             <div class="elementor elementor-978">
                                 <div
-                                        class="elementor-element elementor-element-91d0ab5 e-con-full e-flex e-con e-parent">
+                                    class="elementor-element elementor-element-91d0ab5 e-con-full e-flex e-con e-parent">
                                     <div
-                                            class="elementor-element elementor-element-f31499d elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-email">
+                                        class="elementor-element elementor-element-f31499d elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-email">
                                         <div class="elementor-widget-container">
                                             <div class="rform-container">
                                                 <div class="rform-control ">
@@ -320,10 +320,10 @@
                     </div>
                 </div>
                 <div
-                        class="elementor-element elementor-element-598eeff8 elementor-widget__width-initial elementor-invisible elementor-widget elementor-widget-heading"
-                        data-id="598eeff8" data-element_type="widget"
-                        data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}"
-                        data-widget_type="heading.default">
+                    class="elementor-element elementor-element-598eeff8 elementor-widget__width-initial elementor-invisible elementor-widget elementor-widget-heading"
+                    data-id="598eeff8" data-element_type="widget"
+                    data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}"
+                    data-widget_type="heading.default">
                     <div class="elementor-widget-container">
                         <h3 class="elementor-heading-title elementor-size-default">
                             {{ __('landing.Subscribe to our Newsletter') }}

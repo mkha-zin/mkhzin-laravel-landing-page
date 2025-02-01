@@ -17,17 +17,17 @@ jQuery(window).on('elementor/frontend/init', function () {
             slidesPerGroup: config.slidesPerGroup,
             breakpoints: config.breakpoints,
             pagination: {
-                enabled : config.dots,
+                enabled: config.dots,
                 el: ".rkit-testimonial-carousel .rkit-testimonial-pagination",
                 clickable: true,
-                bulletClass : 'rkit-pagination-bullet',
-                bulletActiveClass : 'rkit-pagination-bullet-active',
-                clickableClass : 'rkit-pagination-bullet-clickable'
+                bulletClass: 'rkit-pagination-bullet',
+                bulletActiveClass: 'rkit-pagination-bullet-active',
+                clickableClass: 'rkit-pagination-bullet-clickable'
             },
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
-              },
+            },
         });
     });
 });

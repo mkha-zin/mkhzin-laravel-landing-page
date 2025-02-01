@@ -16,7 +16,7 @@ return [
     'Our Vision' => 'رؤيتنا',
     'Quick Links' => 'روابط سريعة',
     'brows offers' => 'تصفح العروض',
-    'end offer'=>'العرض لغاية',
+    'end offer' => 'العرض لغاية',
 
     'features' => 'المميزات',
     'gallery' => 'المعرض',
@@ -26,8 +26,8 @@ return [
     'Arabic' => 'العربية',
     'go to store' => 'الذهاب إلى المتجر',
 
-    'offers_title'=>'عروضنا',
-    'All Cities'=>'كل المدن',
+    'offers_title' => 'عروضنا',
+    'All Cities' => 'كل المدن',
     'All Branches' => 'كل الفروع',
     'Search' => 'بحث',
     'No Offers Found' => 'لا يوجد عروض في الوقت الحالي',

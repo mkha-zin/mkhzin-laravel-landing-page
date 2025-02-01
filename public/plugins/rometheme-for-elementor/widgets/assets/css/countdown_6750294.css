@@ -11,7 +11,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    
+
 }
 
 .rkit-countdown-widget .countdown-title {
@@ -19,7 +19,6 @@
     font-size: 2em;
     margin-bottom: 20px;
 }
-
 
 
 .rkit-countdown-widget .countdown-section {
@@ -31,16 +30,16 @@
     text-align: center; /* Ensure center alignment for sections */
 }
 
-.rkit-countdown-widget  .countdown-section-row {
+.rkit-countdown-widget .countdown-section-row {
     background-color: var(--section-background, #fff);
     padding: 15px 10px;
     border-radius: 5px;
     display: flex;
     /* flex-direction: column; */
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     /* padding-left : -10px !important; */
-    gap: 2.5px; 
+    gap: 2.5px;
 }
 
 .rkit-countdown-widget .countdown-days,
@@ -73,7 +72,7 @@
 .countdown_contain {
     display: flex; /* Membuat elemen countdown-section tampil secara horizontal */
     justify-content: center; /* Mengatur semua elemen agar berada di tengah */
-    align-items: center; 
-    gap: 10px; 
+    align-items: center;
+    gap: 10px;
     flex-wrap: wrap;
 }

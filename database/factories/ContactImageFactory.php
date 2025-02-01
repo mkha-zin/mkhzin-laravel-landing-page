@@ -19,10 +19,10 @@ class ContactImageFactory extends Factory
     public function definition(): array
     {
         return [
-           'image'=> 'https://picsum.photos/200/300',
+            'image' => 'https://picsum.photos/200/300',
             'slug' => Common::createSlug(),
-            'view_title_ar'=> fake()->title(),
-            'view_title_en'=> fake()->title()
+            'view_title_ar' => fake()->title(),
+            'view_title_en' => fake()->title()
 
         ];
     }

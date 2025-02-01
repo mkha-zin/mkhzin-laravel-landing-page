@@ -1,4 +1,4 @@
-.menu-button-rometheme{
+.menu-button-rometheme {
     transition: all 0.5;
     background-color: transparent;
     padding: 10px;
@@ -73,11 +73,11 @@ a.menu-button {
     width: 75%;
 }
 
-.rkit-btn-container{
+.rkit-btn-container {
     display: flex;
 }
 
-#nav-menu>li>ul {
+#nav-menu > li > ul {
     list-style-type: none;
     padding: 1rem;
     display: none;
@@ -86,25 +86,23 @@ a.menu-button {
     transition: all 2s ease-in;
 }
 
-#nav-menu>li {
+#nav-menu > li {
     display: flex;
     justify-content: center;
     height: 100%;
 }
 
-#nav-menu>li:hover ul {
+#nav-menu > li:hover ul {
     display: block;
     position: absolute;
     visibility: visible;
     opacity: 1;
 }
 
-#nav-menu>li:hover .dropdown-content {
+#nav-menu > li:hover .dropdown-content {
     opacity: 1;
     margin-top: 0;
 }
-
-
 
 
 @keyframes fade_in {

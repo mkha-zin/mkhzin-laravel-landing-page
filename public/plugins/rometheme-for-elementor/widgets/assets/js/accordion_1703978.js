@@ -1,5 +1,5 @@
 jQuery(window).on('elementor/frontend/init', function () {
-    elementorFrontend.hooks.addAction('frontend/element_ready/rkit-accordion.default', function ($scope , $) {
+    elementorFrontend.hooks.addAction('frontend/element_ready/rkit-accordion.default', function ($scope, $) {
         // Tambahkan event click pada header rkit-accordion
         $scope.find('.rkit-accordion-header').click(function () {
             // Tutup semua konten rkit-accordion kecuali yang sedang aktif

@@ -58,7 +58,7 @@
 }
 
 .testimonial_quote {
-    padding : 0px 0px 20px 0px;
+    padding: 0px 0px 20px 0px;
 }
 
 .testimonial-client-img img {
@@ -228,7 +228,7 @@
     flex-direction: row;
     gap: 0.5rem;
     color: rgb(255, 196, 0);
-    margin : 12px 0px 0px 0px;
+    margin: 12px 0px 0px 0px;
 }
 
 .rkit-testimonial-wrapper.style_2 .testimonial-author,
