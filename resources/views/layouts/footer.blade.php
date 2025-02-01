@@ -344,7 +344,7 @@
                                             </svg>
                                         </span>
                                             <span class="elementor-icon-list-text">
-                                        <a href="{{ url('sections/'.$section->id.'/details') }}" target="_blank">
+                                        <a href="{{ url('sections/'.$section->id.'/details') }}">
                                             {{ $direction == 'rtl' ? $section->title_ar : $section->title_en  }}
                                         </a>
                                         </span>
@@ -382,7 +382,7 @@
                                             </svg>
                                         </span>
                                             <span class="elementor-icon-list-text">
-                                        <a href="{{ url( 'departments/'.$depar->key ) }}">
+                                        <a href="{{ url( 'departments/'.$depar->key ) }}" target="_blank">
                                             {{ $direction == 'rtl' ? $depar->title_ar : $depar->title_en  }}
                                         </a>
                                         </span>
