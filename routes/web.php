@@ -4,6 +4,7 @@ use App\Http\Controllers\AppLandingController;
 use App\Http\Controllers\LandingController;
 use App\Http\Middleware\Localization;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'localization'], static function () {
@@ -36,10 +37,16 @@ Route::group(['middleware' => 'localization'], static function () {
 
     Route::get('/departments/{key}', [LandingController::class, 'departments'])->name('departments');
 
-    /* Testing Employees Profile Page
-     * Route::get('test', function () {
-        return view('test');
-    });*/
+    Route::get('login/{to}', static function ($to) {
+        if (Auth::user())
+            Auth::logout();
+        if ($to === 'home') {
+            return redirect('/');
+        }
+
+        return redirect('admin/login');
+    })->name('login.reset');
+
 });
 
 

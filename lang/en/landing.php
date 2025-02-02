@@ -84,7 +84,10 @@ return [
     'wholesale' => 'Wholesale',
 
     '404' => 'Dear customer, This Page is Not Found.',
-    'Back to Home' => 'Back to Home',
+    '403' => 'Access Denied, You Don\'t Have Permission To Access This Page',
+    'check mistake' => 'Please check with the site admin if you believe this is a mistake',
+    'Back To Home' => 'Back To Home',
+    'Back To Login' => 'Back To Login',
 
     'features_for_you' => 'Features For You',
 ];
