@@ -36,7 +36,7 @@ return [
     'store texts' => 'Store Texts',
     'All Texts in the App Landing Page' => 'All Texts in the App Landing Page',
     'step' => 'Step',
-    'steps' => 'Steps',
+    'steps' => 'Ordering Steps',
     'All Shopping Steps in the App Landing Page' => 'All Shopping Steps in the App Landing Page',
     'app screen' => 'App Screen',
     'app screens' => 'App Screens',

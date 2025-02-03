@@ -33,7 +33,7 @@ return [
     'store texts' => 'نصوص المتجر',
     'All Texts in the App Landing Page' => 'جميع النصوص في صفحة التطبيق',
     'step' => 'خطوة',
-    'steps' => 'الخطوات',
+    'steps' => 'خطوات الطلب',
     'All Shopping Steps in the App Landing Page' => 'جميع خطوات التسوق في صفحة التطبيق',
     'app screen' => 'شاشة',
     'app screens' => 'شاشات التطبيق',
