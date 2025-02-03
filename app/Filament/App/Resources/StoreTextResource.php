@@ -29,7 +29,10 @@ class StoreTextResource extends Resource
         return __('dashboard.store text');
     }
 
-    protected static ?string $navigationGroup = 'App Landing Settings';
+    public static function getNavigationGroup(): ?string
+    {
+        return __('dashboard.App Landing Settings');
+    }
 
     public static function canCreate(): bool
     {

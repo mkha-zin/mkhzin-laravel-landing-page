@@ -198,6 +198,8 @@ return [
     'updated at' => 'Updated At',
     'file not found' => 'File Not Found',
 
+    'App Landing Settings' => 'App Landing Settings',
+
     'type' => 'Type',
     'super' => 'Super Market',
     'hyper' => 'Hyper Market',

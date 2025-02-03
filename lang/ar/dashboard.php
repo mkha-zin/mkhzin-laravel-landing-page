@@ -190,6 +190,8 @@ return [
     'updated at' => 'تم التحديث في',
     'file not found' => 'الملف غير موجود',
 
+    'App Landing Settings' => 'اعدادات صفحة التطبيق',
+
     'type' => 'النوع',
     'super' => 'سوبر ماركت',
     'hyper' => 'هايبر ماركت',

@@ -28,7 +28,10 @@ class AppScreenResource extends Resource
         return __('dashboard.app screen');
     }
 
-    protected static ?string $navigationGroup = 'App Landing Settings';
+    public static function getNavigationGroup(): ?string
+    {
+        return __('dashboard.App Landing Settings');
+    }
 
     public static function canEdit(Model $record): bool
     {
