@@ -65,6 +65,7 @@ return [
     'title' => 'Title',
     'title_ar' => 'Arabic Title',
     'title_en' => 'English Title',
+    'key' => 'Key',
 
     'descriptions' => 'Descriptions',
     'description' => 'Description',

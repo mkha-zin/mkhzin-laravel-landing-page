@@ -61,6 +61,7 @@ return [
     'title' => 'العنوان',
     'title_ar' => 'العنوان بالعربي',
     'title_en' => 'العنوان بالانجليزي',
+    'key' => 'العنوان',
 
     'descriptions' => 'الأوصاف',
     'description' => 'الوصف',
