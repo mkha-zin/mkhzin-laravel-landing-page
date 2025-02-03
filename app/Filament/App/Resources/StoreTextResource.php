@@ -29,6 +29,8 @@ class StoreTextResource extends Resource
         return __('dashboard.store text');
     }
 
+    protected static ?string $navigationGroup = 'App Landing Settings';
+
     public static function canCreate(): bool
     {
         return false;
@@ -128,9 +130,6 @@ class StoreTextResource extends Resource
     {
         return [
             'index' => Pages\ListStoreTexts::route('/'),
-            'create' => Pages\CreateStoreText::route('/create'),
-            'view' => Pages\ViewStoreText::route('/{record}'),
-            'edit' => Pages\EditStoreText::route('/{record}/edit'),
         ];
     }
 }

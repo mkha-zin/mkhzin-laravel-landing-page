@@ -29,6 +29,8 @@ class StoreStepResource extends Resource
         return __('dashboard.step');
     }
 
+    protected static ?string $navigationGroup = 'App Landing Settings';
+
     public static function canEdit(Model $record): bool
     {
         return auth()->user()?->isSuperAdmin();
@@ -129,9 +131,6 @@ class StoreStepResource extends Resource
     {
         return [
             'index' => Pages\ListStoreSteps::route('/'),
-            'create' => Pages\CreateStoreStep::route('/create'),
-            'view' => Pages\ViewStoreStep::route('/{record}'),
-            'edit' => Pages\EditStoreStep::route('/{record}/edit'),
         ];
     }
 }

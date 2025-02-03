@@ -140,9 +140,6 @@ class SocialLinkResource extends Resource
     {
         return [
             'index' => Pages\ListSocialLinks::route('/'),
-            'create' => Pages\CreateSocialLink::route('/create'),
-            'view' => Pages\ViewSocialLink::route('/{record}'),
-            'edit' => Pages\EditSocialLink::route('/{record}/edit'),
         ];
     }
 }

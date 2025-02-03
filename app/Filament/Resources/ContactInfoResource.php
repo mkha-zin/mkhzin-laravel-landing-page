@@ -140,9 +140,6 @@ class ContactInfoResource extends Resource
     {
         return [
             'index' => Pages\ListContactInfos::route('/'),
-            'create' => Pages\CreateContactInfo::route('/create'),
-            'view' => Pages\ViewContactInfo::route('/{record}'),
-            'edit' => Pages\EditContactInfo::route('/{record}/edit'),
         ];
     }
 }

@@ -123,9 +123,6 @@ class ContactImageResource extends Resource
     {
         return [
             'index' => Pages\ListContactImages::route('/'),
-            'create' => Pages\CreateContactImage::route('/create'),
-            'view' => Pages\ViewContactImage::route('/{record}'),
-            'edit' => Pages\EditContactImage::route('/{record}/edit'),
         ];
     }
 }

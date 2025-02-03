@@ -28,6 +28,8 @@ class AppScreenResource extends Resource
         return __('dashboard.app screen');
     }
 
+    protected static ?string $navigationGroup = 'App Landing Settings';
+
     public static function canEdit(Model $record): bool
     {
         return auth()->user()?->isSuperAdmin();
@@ -105,9 +107,6 @@ class AppScreenResource extends Resource
     {
         return [
             'index' => Pages\ListAppScreens::route('/'),
-            'create' => Pages\CreateAppScreen::route('/create'),
-            'view' => Pages\ViewAppScreen::route('/{record}'),
-            'edit' => Pages\EditAppScreen::route('/{record}/edit'),
         ];
     }
 }

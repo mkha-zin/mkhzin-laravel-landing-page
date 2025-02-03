@@ -29,6 +29,8 @@ class CategoryResource extends Resource
         return __('dashboard.category');
     }
 
+    protected static ?string $navigationGroup = 'App Landing Settings';
+
     public static function canEdit(Model $record): bool
     {
         return auth()->user()?->isSuperAdmin();
@@ -115,9 +117,6 @@ class CategoryResource extends Resource
     {
         return [
             'index' => Pages\ListCategories::route('/'),
-            'create' => Pages\CreateCategory::route('/create'),
-            'view' => Pages\ViewCategory::route('/{record}'),
-            'edit' => Pages\EditCategory::route('/{record}/edit'),
         ];
     }
 }

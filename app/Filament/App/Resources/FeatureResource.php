@@ -29,6 +29,8 @@ class FeatureResource extends Resource
         return __('dashboard.feature');
     }
 
+    protected static ?string $navigationGroup = 'App Landing Settings';
+
     public static function canEdit(Model $record): bool
     {
         return auth()->user()?->isSuperAdmin();
@@ -126,9 +128,6 @@ class FeatureResource extends Resource
     {
         return [
             'index' => Pages\ListFeatures::route('/'),
-            'create' => Pages\CreateFeature::route('/create'),
-            'edit' => Pages\EditFeature::route('/{record}/edit'),
-            'view' => Pages\ViewFeature::route('/{record}'),
         ];
     }
 }
