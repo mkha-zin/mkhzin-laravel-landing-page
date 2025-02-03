@@ -19,6 +19,11 @@ class StoreStepResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-numbered-list';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function getPluralLabel(): ?string
     {
         return __('dashboard.steps');

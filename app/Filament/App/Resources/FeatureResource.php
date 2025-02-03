@@ -19,6 +19,11 @@ class FeatureResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-sparkles';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function getPluralLabel(): ?string
     {
         return __('dashboard.features');

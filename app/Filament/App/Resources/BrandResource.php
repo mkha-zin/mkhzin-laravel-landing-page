@@ -20,6 +20,11 @@ class BrandResource extends Resource
     protected static ?string $model = Brand::class;
     protected static ?string $navigationIcon = 'heroicon-o-finger-print';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function getPluralLabel(): ?string
     {
         return __('dashboard.brands');

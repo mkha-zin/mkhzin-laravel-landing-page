@@ -18,6 +18,11 @@ class AppScreenResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-device-phone-mobile';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function getPluralLabel(): ?string
     {
         return __('dashboard.app screens');
