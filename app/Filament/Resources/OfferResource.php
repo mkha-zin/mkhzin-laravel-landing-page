@@ -98,24 +98,28 @@ class OfferResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('start_date')
                     ->label(__('dashboard.start_date'))
-                    ->dateTime()
+                    ->date()
+                    ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->sortable(),
                 Tables\Columns\TextColumn::make('end_date')
                     ->label(__('dashboard.end_date'))
-                    ->dateTime()
+                    ->date()
+                    ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\CheckboxColumn::make('is_active')
                     ->label(__('dashboard.status')),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
-                    ->dateTime()
+                    ->date()
+                    ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label(__('dashboard.updated at'))
-                    ->dateTime()
+                    ->date()
+                    ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])->defaultSort('created_at', 'desc')
