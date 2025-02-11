@@ -126,10 +126,12 @@ class OfferResource extends Resource
                     ->label(__('dashboard.created at')),
             ])
             ->actions([
-                ViewAction::make(),
-                EditAction::make(),
-                DeleteAction::make(),
+                ViewAction::make()->label('')->tooltip(__('View Offer')),
+                EditAction::make()->label('')->tooltip(__('Edit Offer')),
+                DeleteAction::make()->label('')->tooltip(__('Delete Offer')),
                 ReplicateAction::make()
+                    ->label('')
+                    ->tooltip(__('Replicate Offer'))
                     ->excludeAttributes(['is_active'])
                     ->form([
                         Forms\Components\Section::make()->schema([

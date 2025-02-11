@@ -182,6 +182,10 @@ return [
 
     'showInHome' => 'Show this section In Home Page',
 
+    'View Offer' => 'View Offer',
+    'Edit Offer' => 'Edit Offer',
+    'Delete Offer' => 'Delete Offer',
+    'Replicate Offer' => 'Replicate Offer',
 
     'exports' => 'Exports',
     'export' => 'Export',

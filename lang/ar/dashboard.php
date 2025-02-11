@@ -175,6 +175,11 @@ return [
     'address' => 'العنوان',
     'tags' => 'الوسوم',
 
+    'View Offer' => 'مشاهدة العرض',
+    'Edit Offer' => 'تعديل العرض',
+    'Delete Offer' => 'حذف العرض',
+    'Replicate Offer' => 'نسخ العرض',
+
     'exports' => 'التصديرات',
     'export' => 'تصدير',
     'completed at' => 'انتهى في',
