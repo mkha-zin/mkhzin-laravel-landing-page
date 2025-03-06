@@ -12,7 +12,6 @@
     @endphp
 
     <div dir="{{ $direction }}">
-
         <section class="py-3 py-md-5 py-xl-8">
             <div class="container overflow-hidden">
                     @if(!empty($post))
