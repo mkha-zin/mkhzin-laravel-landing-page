@@ -26,27 +26,26 @@
                                         <div class="entry-header mb-3">
                                             <ul class="entry-meta list-unstyled d-flex mb-2">
                                                 <li>
-                                                    <a class="link-primary text-decoration-none" href="#!">
+                                                    <a class="link-primary text-decoration-none">
                                                         {{ $lang == 'en' ? $post->tag_en : $post->tag_ar }}
                                                     </a>
                                                 </li>
                                             </ul>
-                                            <h4 class="card-title entry-title h4 mb-0">
+                                            <h2 class="card-title entry-title h4 mb-0 ">
                                                 {{ $lang == 'en' ? $post->title_en : $post->title_ar }}
-                                            </h4>
+                                            </h2>
                                         </div>
-                                        <p class="card-text entry-summary text-secondary mb-3">
+                                        <p class="card-text entry-summary text-secondary mb-3" style="font-size: 24px !important">
                                             {{ $lang == 'en'
-                                                ? \Filament\Support\Markdown::block($post->article_en)
-                                                : \Filament\Support\Markdown::block($post->article_ar)
+                                                ? \Filament\Support\Markdown::inline($post->article_en)
+                                                : \Filament\Support\Markdown::inline($post->article_ar)
                                             }}
                                         </p>
                                     </div>
                                     <div class="card-footer border border-top-0 bg-light p-4 text-{{ $direction == 'rtl' ? 'end' : 'start' }}">
                                         <ul class="entry-meta list-unstyled d-flex align-items-center m-0">
                                             <li>
-                                                <a class="fs-7 link-secondary text-decoration-none d-flex align-items-center"
-                                                   href="#!">
+                                                <a class="fs-7 link-secondary text-decoration-none d-flex align-items-center">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
                                                          fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
                                                         <path
