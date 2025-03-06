@@ -37,8 +37,8 @@
                                         </div>
                                         <p class="card-text entry-summary text-secondary mb-3" style="font-size: 24px !important">
                                             {{ $lang == 'en'
-                                                ? \Filament\Support\Markdown::inline($post->article_en)
-                                                : \Filament\Support\Markdown::inline($post->article_ar)
+                                                ? \Filament\Support\Markdown::block($post->article_en)
+                                                : \Filament\Support\Markdown::block($post->article_ar)
                                             }}
                                         </p>
                                     </div>
