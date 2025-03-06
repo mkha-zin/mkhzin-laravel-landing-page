@@ -9,6 +9,7 @@ return [
     'All Departments' => 'مشاهدة كل الأقسام',
     'Store' => 'المتجر',
     'Jobs' => 'الوظائف',
+    'Blog' => 'المدونة',
     'Branches' => 'الفروع',
     'Contact Us' => 'تواصل معنا',
     'Offers' => 'تابع العروض',

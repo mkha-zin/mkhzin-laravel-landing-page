@@ -20,6 +20,9 @@ return [
     'cities' => 'المدن',
     'branches' => 'الفروع',
     'offers' => 'العروض',
+    'Blog' => 'المدونة',
+    'Posts' => 'المنشورات',
+    'Post' => 'منشور',
     'brand' => 'ماركة',
     'brands' => 'الماركات',
     'All brands in the App Landing Page' => 'جميع الماركات في صفحة التطبيق',
@@ -57,6 +60,16 @@ return [
     'foreground_image' => 'الصورة الأمامية',
     'icon' => 'الايقونة',
 
+
+
+    'article' => 'المقالة',
+    'article_ar' => 'المقالة بالعربي',
+    'article_en' => 'المقالة بالانجليزي',
+
+    'tagsandstatus' => 'الوسوم والحالة',
+    'tag_ar' => 'الوسم بالعربي',
+    'tag_en' => 'الوسم بالانجليزي',
+
     'titles' => 'العناوين',
     'title' => 'العنوان',
     'title_ar' => 'العنوان بالعربي',
@@ -72,6 +85,8 @@ return [
     'view' => 'عرض',
     'edit' => 'تعديل',
     'delete' => 'حذف',
+    'activate' => 'تفعيل',
+    'deactivate' => 'إيقاف',
 
     'texts' => 'النصوص',
     'first_text' => 'النص الأول',
@@ -109,6 +124,8 @@ return [
     'comment_ar' => 'التعليق بالعربي',
     'is_active' => 'الحالة(نشط؟)',
     'status' => 'الحالة(نشط؟)',
+    'active' => 'نشط',
+    'inactive' => 'غير نشط',
 
     'name' => 'الاسم',
     'name_ar' => 'الاسم بالعربي',
@@ -174,6 +191,7 @@ return [
 
     'address' => 'العنوان',
     'tags' => 'الوسوم',
+    'tag' => 'الوسم',
 
     'View Offer' => 'مشاهدة العرض',
     'Edit Offer' => 'تعديل العرض',

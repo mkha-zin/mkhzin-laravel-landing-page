@@ -9,6 +9,7 @@ return [
     'All Departments' => 'View All Departments',
     'Store' => 'Store',
     'Jobs' => 'Jobs',
+    'Blog' => 'Blog',
     'Branches' => 'Branches',
     'Contact Us' => 'Contact Us',
     'Offers' => 'Offers',

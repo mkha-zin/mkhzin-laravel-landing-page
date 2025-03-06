@@ -12,6 +12,7 @@ use App\Models\ContactInfo;
 use App\Models\Department;
 use App\Models\Fleet;
 use App\Models\Offer;
+use App\Models\Post;
 use App\Models\Section;
 use App\Models\Storage;
 use App\Models\Subscription;
@@ -111,11 +112,18 @@ class LandingController extends Controller
         return view('jobs', $data);
     }
 
+    public function blog()
+    {
+        $data['posts'] = Post::all();
+        return view('blog', $data);
+    }
+
+
     public function branches(): Factory|View|Application|\Illuminate\View\View
     {
         $return = Branch::select('branches.*');
 
-        if (!empty(Request::get('city')) && Request::get('city') != 'all') {
+        if (!empty(Request::get('city')) && Request::get('city') !== 'all') {
             $return = $return->where('branches.city_id', Request::get('city'));
         }
 

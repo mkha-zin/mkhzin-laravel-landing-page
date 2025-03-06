@@ -430,9 +430,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->segment(1) == 'jobs' ? 'active' : '' }}"
-                               href="{{ url('jobs') }}">
-                                {{ __('landing.Jobs') }}
+                            <a class="nav-link {{ request()->segment(1) == 'blog' ? 'active' : '' }}"
+                               href="{{ url('blog') }}">
+                                {{ __('landing.Blog') }}
                             </a>
                         </li>
                         <li class="nav-item">

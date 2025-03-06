@@ -17,6 +17,7 @@ Route::group(['middleware' => 'localization'], static function () {
     Route::get('offers', [LandingController::class, 'offers']);
     Route::get('about', [LandingController::class, 'about']);
     Route::get('jobs', [LandingController::class, 'jobs']);
+    Route::get('blog', [LandingController::class, 'blog']);
     Route::get('branches', [LandingController::class, 'branches']);
     Route::get('branch/{id}/offers', [LandingController::class, 'branchOffers'])->name('branch.offers');
 

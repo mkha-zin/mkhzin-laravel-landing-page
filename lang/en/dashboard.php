@@ -20,6 +20,9 @@ return [
     'visitor_message' => 'Visitor Message',
     'social_link' => 'Social Links',
     'jobs' => 'Jobs',
+    'Blog' => 'Blog',
+    'Posts' => 'Posts',
+    'Post' => 'Post',
     'cities' => 'Cities',
     'branches' => 'Branches',
     'offers' => 'Offers',
@@ -60,6 +63,13 @@ return [
     'foreground_image' => 'Foreground Image',
     'icon' => 'Icon',
 
+    'article' => 'Article',
+    'article_ar' => 'Arabic Article',
+    'article_en' => 'English Article',
+
+    'tagsandstatus' => 'Tags and Status',
+    'tag_ar' => 'Arabic Tag',
+    'tag_en' => 'English Tag',
 
     'titles' => 'Titles',
     'title' => 'Title',
@@ -76,6 +86,8 @@ return [
     'view' => 'View',
     'edit' => 'Edit',
     'delete' => 'Delete',
+    'activate' => 'Activate',
+    'deactivate' => 'Deactivate',
 
     'texts' => 'Texts',
     'first_text' => 'First Text',
@@ -113,6 +125,8 @@ return [
     'comment_ar' => 'Arabic Comment',
     'is_active' => 'Is Active?',
     'status' => 'Status(Active?)',
+    'active' => 'Active',
+    'inactive' => 'Inactive',
 
     'start_date' => 'Start Date',
     'end_date' => 'End Date',
@@ -123,6 +137,7 @@ return [
 
     'address' => 'Address',
     'tags' => 'Tags',
+    'tag' => 'Tag',
 
     'addresses' => 'Addresses',
     'address_ar' => 'Arabic Address',
