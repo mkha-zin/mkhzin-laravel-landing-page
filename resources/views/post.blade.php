@@ -36,7 +36,10 @@
                                             </h4>
                                         </div>
                                         <p class="card-text entry-summary text-secondary mb-3">
-                                            {{ $lang == 'en' ? $post->article_en : $post->article_ar }}
+                                            {{ $lang == 'en'
+                                                ? \Filament\Support\Markdown::block($post->article_en)
+                                                : \Filament\Support\Markdown::block($post->article_ar)
+                                            }}
                                         </p>
                                     </div>
                                     <div class="card-footer border border-top-0 bg-light p-4 text-{{ $direction == 'rtl' ? 'end' : 'start' }}">
