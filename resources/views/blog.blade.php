@@ -65,7 +65,7 @@
                                                     </span>
                                                 </a>
                                             </li>
-                                            <li>
+                                            {{--<li>
                                                 <span class="px-3">&bull;</span>
                                             </li>
                                             <li>
@@ -80,7 +80,7 @@
                                                     </svg>
                                                     <span class="mx-2 fx-7">83</span>
                                                 </a>
-                                            </li>
+                                            </li>--}}
                                         </ul>
                                     </div>
                                 </div>
