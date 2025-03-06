@@ -118,6 +118,12 @@ class LandingController extends Controller
         return view('blog', $data);
     }
 
+    public function post($id)
+    {
+        $data['post'] = Post::find($id);
+        return view('post', $data);
+    }
+
 
     public function branches(): Factory|View|Application|\Illuminate\View\View
     {

@@ -12,16 +12,14 @@
     @endphp
 
     <div dir="{{ $direction }}">
-        @include('includes.header_image', ['title' => __('landing.Blog'), 'image' =>' $about->image'])
 
         <section class="py-3 py-md-5 py-xl-8">
             <div class="container overflow-hidden">
-                <div class="row gy-4 gy-lg-0">
-                    @foreach($posts as $post)
-                        <div class="col-12 col-lg-6">
+                    @if(!empty($post))
+                        <div class="col-12 col-lg-12">
                             <article>
                                 <div class="card">
-                                    <figure class="card-img-top m-0  overflow-hidden bsb-overlay-hover d-flex align-items-center" style="height: 400px; width: 100%;">
+                                    <figure class="card-img-top m-0 w-full p-0 overflow-hidden bsb-overlay-hover d-flex align-items-center">
                                         <img class="img-fluid bsb-scale bsb-hover-scale-up" loading="lazy"
                                              src="{{ asset('storage/' . $post->image) }}" alt="Business">
                                     </figure>
@@ -35,18 +33,12 @@
                                                 </li>
                                             </ul>
                                             <h4 class="card-title entry-title h4 mb-0">
-                                                <a class="link-dark text-decoration-none" href="#!">
-                                                    {{ $lang == 'en' ? $post->title_en : $post->title_ar }}
-                                                </a>
+                                                {{ $lang == 'en' ? $post->title_en : $post->title_ar }}
                                             </h4>
                                         </div>
-                                        <p style="display: -webkit-box; text-align:justify; word-break:keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 3; color: black; overflow: hidden; text-overflow: ellipsis;"
-                                            class="card-text entry-summary text-secondary mb-3">
+                                        <p class="card-text entry-summary text-secondary mb-3">
                                             {{ $lang == 'en' ? $post->article_en : $post->article_ar }}
                                         </p>
-                                        <a href="{{ url('blog/' . $post->id) }}" class="btn btn-danger text-white m-0 text-nowrap entry-more">
-                                            {{ __('landing.Read More') }}
-                                        </a>
                                     </div>
                                     <div class="card-footer border border-top-0 bg-light p-4 text-{{ $direction == 'rtl' ? 'end' : 'start' }}">
                                         <ul class="entry-meta list-unstyled d-flex align-items-center m-0">
@@ -86,8 +78,7 @@
                                 </div>
                             </article>
                         </div>
-                    @endforeach
-                </div>
+                    @endif
             </div>
         </section>
     </div>
