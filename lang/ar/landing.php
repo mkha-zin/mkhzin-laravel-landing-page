@@ -40,6 +40,8 @@ return [
     'Subscribed Successfully' => 'تم الاشتراك بنجاح',
     'Send Message' => 'ارسال الرسالة',
 
+    'Read More' => 'قراءة المزيد',
+
     // form texts
     'First Name' => 'الأسم الأول',
     'Last Name' => 'الأسم الأخير',

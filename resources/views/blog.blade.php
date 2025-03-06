@@ -45,7 +45,7 @@
                                             {{ $lang == 'en' ? $post->article_en : $post->article_ar }}
                                         </p>
                                         <a href="#!" class="btn btn-danger text-white m-0 text-nowrap entry-more">
-                                            {{ __('Read More') }}
+                                            {{ __('landing.Read More') }}
                                         </a>
                                     </div>
                                     <div class="card-footer border border-top-0 bg-light p-4 text-{{ $direction == 'rtl' ? 'end' : 'start' }}">

@@ -34,12 +34,13 @@ return [
     'No Offers Found' => 'No Offers Found at the moment',
     'Soon Offers' => 'Stay Tuned for More Amazing Offers Soon',
 
-
     'hero_title' => 'We Always seek to make our clients satisfied and happy',
     'Subscribe Now' => 'Subscribe Now',
     'Success Message' => 'Your message has been Received successfully, we will contact you ASAP.',
     'Subscribed Successfully' => 'Subscribed Successfully',
     'Send Message' => 'Send Message',
+
+    'Read More' => 'Read More',
 
     // form texts
     'First Name' => 'First Name',
