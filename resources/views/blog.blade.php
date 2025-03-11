@@ -12,6 +12,38 @@
         $textAlignment = $lang == 'ar' ? 'text-right' : 'text-left'; // For aligning text
     @endphp
 
+    <style>
+        /* Ensures all cards have the same height */
+        .card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* Ensures card-body stretches */
+        .card-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Ensures description text takes up remaining space */
+        .card-body p {
+            flex-grow: 1;
+        }
+
+        /* Ensures button is always at the bottom */
+        .card-body .btn {
+            margin-top: auto;
+        }
+
+        /* Ensures images have a consistent height */
+        .card-img-top {
+            height: 200px; /* Adjust height as needed */
+            object-fit: cover;
+        }
+    </style>
+
     <div dir="{{ $direction }}">
         @include('includes.header_image', ['title' => __('landing.Blog'), 'image' => '$about->image'])
 
