@@ -109,12 +109,14 @@ class PostResource extends Resource
                     App::currentLocale() === 'ar' ? 'tag.tag_ar' : 'tag.tag_en'
                 )
                     ->label(__('dashboard.tag'))
+                    ->words(2)
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make(
                     App::currentLocale() === 'ar' ? 'title_ar' : 'title_en'
                 )
                     ->label(__('dashboard.title'))
+                    ->limit(10)
                     ->searchable(),
                 Tables\Columns\TextColumn::make(
                     App::currentLocale() === 'ar' ? 'article_ar' : 'article_en'
