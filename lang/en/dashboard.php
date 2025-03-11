@@ -23,6 +23,8 @@ return [
     'Blog' => 'Blog',
     'Posts' => 'Posts',
     'Post' => 'Post',
+    'tag' => 'Tag',
+    'tags' => 'Tags',
     'cities' => 'Cities',
     'branches' => 'Branches',
     'offers' => 'Offers',
@@ -136,8 +138,6 @@ return [
     'name_en' => 'English Name',
 
     'address' => 'Address',
-    'tags' => 'Tags',
-    'tag' => 'Tag',
 
     'addresses' => 'Addresses',
     'address_ar' => 'Arabic Address',

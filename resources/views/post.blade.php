@@ -18,7 +18,8 @@
                         <div class="col-12 col-lg-12">
                             <article>
                                 <div class="card">
-                                    <figure class="card-img-top m-0 w-full p-0 overflow-hidden bsb-overlay-hover d-flex align-items-center">
+                                    <figure class="card-img-top m-0 w-full p-0 overflow-hidden bsb-overlay-hover d-flex
+                                    align-items-center">
                                         <img class="img-fluid bsb-scale bsb-hover-scale-up" loading="lazy"
                                              src="{{ asset('storage/' . $post->image) }}" alt="Business">
                                     </figure>
@@ -35,7 +36,8 @@
                                                 {{ $lang == 'en' ? $post->title_en : $post->title_ar }}
                                             </h2>
                                         </div>
-                                        <p class="card-text entry-summary text-secondary mb-3" style="font-size: 24px !important">
+                                        <p class="card-text entry-summary text-secondary mb-3"
+                                           style="font-size: 24px !important">
                                             {{ $lang == 'en'
                                                 ? \Filament\Support\Markdown::block($post->article_en)
                                                 : \Filament\Support\Markdown::block($post->article_ar)

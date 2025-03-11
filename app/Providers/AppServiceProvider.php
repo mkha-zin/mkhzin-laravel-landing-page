@@ -58,6 +58,9 @@ class AppServiceProvider extends ServiceProvider
                     ->label(__('dashboard.contactSettings'))
                     ->icon('heroicon-o-chat-bubble-left-right'),
                 NavigationGroup::make()
+                    ->label(__('dashboard.Blog'))
+                    ->icon('heroicon-o-cursor-arrow-ripple'),
+                NavigationGroup::make()
                     ->label(__('dashboard.others'))
                     ->icon('heroicon-o-adjustments-horizontal'),
                 NavigationGroup::make()

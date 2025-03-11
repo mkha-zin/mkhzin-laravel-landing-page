@@ -27,7 +27,7 @@ class PostResource extends Resource
 
     public static function getNavigationGroup(): ?string
     {
-        return __('dashboard.aboutCompanySettings');
+        return __('dashboard.Blog');
     }
 
     /**
@@ -35,7 +35,7 @@ class PostResource extends Resource
      */
     public static function getNavigationLabel(): string
     {
-        return __('dashboard.Blog');
+        return __('dashboard.Posts');
     }
 
     public static function getPluralLabel(): ?string
@@ -72,21 +72,20 @@ class PostResource extends Resource
                         ->maxLength(255),
                 ])->columns(2),
                 Forms\Components\Section::make(__('dashboard.tagsandstatus'))->schema([
-                    Forms\Components\TextInput::make('tag_ar')
-                        ->label(__('dashboard.tag_ar'))
-                        ->required()
-                        ->maxLength(255),
-                    Forms\Components\TextInput::make('tag_en')
-                        ->label(__('dashboard.tag_en'))
-                        ->required()
-                        ->maxLength(255),
+                    Forms\Components\Select::make('tag_id')
+                        ->relationship(
+                            'tag',
+                            App::currentLocale() === 'ar' ? 'tag_ar' : 'tag_en'
+                        )
+                        ->label(__('dashboard.tag'))
+                        ->required(),
                     Forms\Components\Select::make('status')
                         ->label(__('dashboard.status'))
                         ->options([
                             'active' => __('dashboard.active'),
                             'inactive' => __('dashboard.inactive'),
                         ])
-                ])->columns(3),
+                ])->columns(2),
                 Forms\Components\Section::make(__('dashboard.article'))->schema([
                     Forms\Components\MarkdownEditor::make('article_ar')
                         ->label(__('dashboard.article_ar'))
@@ -103,7 +102,7 @@ class PostResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make(
-                    App::currentLocale() === 'ar' ? 'tag_ar' : 'tag_en'
+                    App::currentLocale() === 'ar' ? 'tag.tag_ar' : 'tag.tag_en'
                 )
                     ->label(__('dashboard.tag'))
                     ->sortable()
