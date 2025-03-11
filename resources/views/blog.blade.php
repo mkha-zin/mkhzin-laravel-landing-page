@@ -17,9 +17,9 @@
 
         <section class="py-3 py-md-5 py-xl-8">
             <div class="mx-5">
-                <div class="row">
+                <div class="row mx-0 mx-lg-5">
                     <!-- Sidebar -->
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-3">
                         <div class="list-group">
                             <a href="{{ url('blog') }}" class="list-group-item list-group-item-action {{ request('tag') ? '' : 'active bg-danger text-white' }} {{ $textAlignment }}">
                                 {{ __('landing.All Posts') }}
@@ -42,7 +42,7 @@
                                 <div class="col-12 col-lg-6">
                                     <article>
                                         <div class="card">
-                                            <figure class="card-img-top m-0 overflow-hidden d-flex align-items-center" style="height: 400px;">
+                                            <figure class="card-img-top m-0 overflow-hidden d-flex align-items-center" style="height: auto;">
                                                 <img class="img-fluid" loading="lazy" src="{{ asset('storage/' . $post->image) }}" alt="Business">
                                             </figure>
                                             <div class="card-body bg-white p-4 {{ $textAlignment }}">
@@ -63,6 +63,25 @@
                                                 <a href="{{ url('blog/' . $post->id) }}" class="btn btn-danger text-white">
                                                     {{ __('landing.Read More') }}
                                                 </a>
+                                            </div>
+                                            <div class="card-footer border border-top-0 bg-light p-4 text-{{ $direction == 'rtl' ? 'end' : 'start' }}">
+                                                <ul class="entry-meta list-unstyled d-flex align-items-center m-0">
+                                                    <li>
+                                                        <a class="fs-7 link-secondary text-decoration-none d-flex align-items-center"
+                                                           href="#!">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                                                 fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+                                                                <path
+                                                                    d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                                                            </svg>
+                                                            <span class="mx-2 fx-7">
+                                                        {{ $post->created_at->translatedFormat($lang == 'ar' ? 'd F Y' : 'M d Y') }}
+                                                    </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </article>
