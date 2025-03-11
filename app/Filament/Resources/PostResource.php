@@ -8,6 +8,7 @@ use App\Models\Post;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Support\Colors\Color;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -148,6 +149,7 @@ class PostResource extends Resource
                     ->iconButton(),
                 Tables\Actions\EditAction::make()
                     ->tooltip(__('dashboard.edit'))
+                    ->color(Color::Blue)
                     ->iconButton(),
                 Tables\Actions\Action::make('activate')
                     ->label(

@@ -63,9 +63,12 @@ class TagResource extends Resource
                     ->label(__('dashboard.tag_en'))
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('status')
+                Forms\Components\Select::make('status')
                     ->label(__('dashboard.status'))
-                    ->required(),
+                    ->options([
+                        'active' => __('dashboard.active'),
+                        'inactive' => __('dashboard.inactive'),
+                    ]),
             ])->columns(3);
     }
 
