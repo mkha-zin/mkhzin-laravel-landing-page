@@ -210,7 +210,7 @@ return [
     'user id' => 'رقم المستخدم',
     'username' => 'اسم المستخدم',
     'download' => 'تحميل',
-    'created at' => 'انشئت في',
+    'created at' => 'انشئ في',
     'updated at' => 'تم التحديث في',
     'file not found' => 'الملف غير موجود',
 

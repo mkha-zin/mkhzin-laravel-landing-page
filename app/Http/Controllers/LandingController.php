@@ -16,6 +16,7 @@ use App\Models\Post;
 use App\Models\Section;
 use App\Models\Storage;
 use App\Models\Subscription;
+use App\Models\Tag;
 use App\Models\VisionAndGoal;
 use App\Models\VisitorMessage;
 use App\Models\Voucher;
@@ -112,9 +113,20 @@ class LandingController extends Controller
         return view('jobs', $data);
     }
 
-    public function blog()
+    public function blog(HttpRequest $request)
     {
-        $data['posts'] = Post::with('tag')->get();
+        $tagId = $request->query('tag'); // Correct method to get the query parameter
+
+        // Fetch posts with their tag details and filter if a tag is selected
+        $query = Post::with('tag');
+        if ($tagId) {
+            $query->where('tag_id', $tagId);
+        }
+        $data['posts'] = $query->get();
+
+        // Fetch all tags with the count of related posts
+        $data['tags'] = Tag::withCount('posts')->get();
+
         return view('blog', $data);
     }
 

@@ -91,5 +91,7 @@ return [
     'Back To Home' => 'Back To Home',
     'Back To Login' => 'Back To Login',
 
+    'All Posts' => 'All Posts',
+
     'features_for_you' => 'Features For You',
 ];

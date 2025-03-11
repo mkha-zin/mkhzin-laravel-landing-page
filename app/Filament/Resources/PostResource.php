@@ -84,8 +84,11 @@ class PostResource extends Resource
                         ->options([
                             'active' => __('dashboard.active'),
                             'inactive' => __('dashboard.inactive'),
-                        ])
-                ])->columns(2),
+                        ]),
+                    Forms\Components\DatePicker::make('created_at')
+                        ->label(__('dashboard.created at'))
+                        ->required(),
+                ])->columns(3),
                 Forms\Components\Section::make(__('dashboard.article'))->schema([
                     Forms\Components\MarkdownEditor::make('article_ar')
                         ->label(__('dashboard.article_ar'))
