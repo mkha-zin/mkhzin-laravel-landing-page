@@ -21,15 +21,15 @@
                     <!-- Sidebar -->
                     <div class="col-md-3">
                         <div class="list-group">
-                            <a href="{{ url('blog') }}" class="list-group-item list-group-item-action {{ request('tag') ? '' : 'active' }} {{ $textAlignment }}">
+                            <a href="{{ url('blog') }}" class="list-group-item list-group-item-action {{ request('tag') ? '' : 'active bg-danger text-white' }} {{ $textAlignment }}">
                                 {{ __('landing.All Posts') }}
                             </a>
                             @foreach($tags as $tag)
                                 <a href="{{ url('blog?tag=' . $tag->id) }}"
                                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center
-                                   {{ request('tag') == $tag->id ? 'active' : '' }} {{ $textAlignment }}">
+                                   {{ request('tag') == $tag->id ? 'active bg-danger text-white' : '' }} {{ $textAlignment }}">
                                     {{ app()->getLocale() == 'en' ? $tag->tag_en : $tag->tag_ar }}
-                                    <span class="badge bg-primary rounded-pill">{{ $tag->posts_count }}</span>
+                                    <span class="badge bg-danger text-white rounded-pill">{{ $tag->posts_count }}</span>
                                 </a>
                             @endforeach
                         </div>
@@ -56,10 +56,11 @@
                                                         </a>
                                                     </h4>
                                                 </div>
-                                                <p class="text-secondary mb-3" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+                                                <p class="text-secondary mb-3"
+                                                   style="display: -webkit-box; text-align:justify; word-break:keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 3; color: black; overflow: hidden; text-overflow: ellipsis;">
                                                     {{ app()->getLocale() == 'en' ? $post->article_en : $post->article_ar }}
                                                 </p>
-                                                <a href="{{ url('blog/' . $post->id) }}" class="btn btn-danger">
+                                                <a href="{{ url('blog/' . $post->id) }}" class="btn btn-danger text-white">
                                                     {{ __('landing.Read More') }}
                                                 </a>
                                             </div>
