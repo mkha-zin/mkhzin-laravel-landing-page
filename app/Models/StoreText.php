@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Database\Factories\StoreTextFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 
 class StoreText extends Model
 {
-    /** @use HasFactory<\Database\Factories\StoreTextFactory> */
+    /** @use HasFactory<StoreTextFactory> */
     use HasFactory;
 
     protected $guarded = [];

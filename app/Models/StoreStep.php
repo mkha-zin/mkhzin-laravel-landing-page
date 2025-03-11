@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Database\Factories\StoreStepFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 
 class StoreStep extends Model
 {
-    /** @use HasFactory<\Database\Factories\StoreStepFactory> */
+    /** @use HasFactory<StoreStepFactory> */
     use HasFactory;
 
     protected $guarded = [];

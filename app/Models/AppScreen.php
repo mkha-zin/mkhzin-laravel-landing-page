@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Database\Factories\AppScreenFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 
 class AppScreen extends Model
 {
-    /** @use HasFactory<\Database\Factories\AppScreenFactory> */
+    /** @use HasFactory<AppScreenFactory> */
     use HasFactory;
 
     protected $guarded = [];

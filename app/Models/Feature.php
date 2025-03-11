@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Database\Factories\FeatureFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 
 class Feature extends Model
 {
-    /** @use HasFactory<\Database\Factories\FeatureFactory> */
+    /** @use HasFactory<FeatureFactory> */
     use HasFactory;
 
     protected $guarded = ['id'];
