@@ -120,11 +120,13 @@ class PostResource extends Resource
                     App::currentLocale() === 'ar' ? 'article_ar' : 'article_en'
                 )
                     ->label(__('dashboard.article'))
-                    ->limit(10)
+                    ->limit(15)
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\ImageColumn::make('image')
+                    ->alignCenter(),
                 Tables\Columns\IconColumn::make('status')
                     ->sortable()
+                    ->alignCenter()
                     ->label(__('dashboard.status'))
                     ->color(fn(Post $post) => $post->status === 'active' ? 'success' : 'danger')
                     ->icon(fn(Post $post) => $post->status === 'active' ? 'heroicon-s-check-circle' : 'heroicon-s-x-circle'),
