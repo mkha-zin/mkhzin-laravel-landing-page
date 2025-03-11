@@ -114,13 +114,13 @@ class LandingController extends Controller
 
     public function blog()
     {
-        $data['posts'] = Post::all();
+        $data['posts'] = Post::with('tag')->get();
         return view('blog', $data);
     }
 
     public function post($id)
     {
-        $data['post'] = Post::find($id);
+        $data['post'] = Post::with('tag')->find($id);
         return view('post', $data);
     }
 

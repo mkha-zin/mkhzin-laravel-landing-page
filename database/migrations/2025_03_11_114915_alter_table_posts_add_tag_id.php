@@ -49,3 +49,6 @@ return new class extends Migration
         });
     }
 };
+
+// php artisan migrate --path=database/migrations/2025_03_05_142429_create_tags_table.php
+// php artisan migrate --path=database/migrations/2025_03_11_114915_alter_table_posts_add_tag_id.php

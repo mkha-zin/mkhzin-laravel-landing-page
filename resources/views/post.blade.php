@@ -28,7 +28,7 @@
                                             <ul class="entry-meta list-unstyled d-flex mb-2">
                                                 <li>
                                                     <a class="link-primary text-decoration-none">
-                                                        {{ $lang == 'en' ? $post->tag_en : $post->tag_ar }}
+                                                        {{ $lang == 'en' ? $post->tag->tag_en : $post->tag->tag_ar }}
                                                     </a>
                                                 </li>
                                             </ul>
