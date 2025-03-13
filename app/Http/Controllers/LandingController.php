@@ -132,8 +132,16 @@ class LandingController extends Controller
 
     public function post($id)
     {
-        $data['post'] = Post::with('tag')->find($id);
-        return view('post', $data);
+        $post = Post::with('tag')->findOrFail($id);
+
+        $relatedPosts = Post::whereHas('tag', function ($query) use ($post) {
+            $query->whereIn('id', $post->tag->pluck('id'));
+        })->where('id', '!=', $id)->get();
+
+        return view('post', [
+            'post' => $post,
+            'posts' => $relatedPosts
+        ]);
     }
 
 
