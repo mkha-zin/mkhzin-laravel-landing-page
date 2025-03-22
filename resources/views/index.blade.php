@@ -704,7 +704,7 @@
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
                 @foreach ($posts->take(3) as $post)
                     <div style="border: 1px solid #ddd; border-radius: 10px; padding: 15px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
-                        <img src="{{ asset($post->image) }}" alt="{{ $post->title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                        <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
                         <h3 class="{{  $direction == 'rtl' ? 'text-right' : 'text-left' }}"
                             style="margin-top: 10px; color: black;">
                             {{ $direction == 'rtl' ? $post->title_ar : $post->title_en }}
