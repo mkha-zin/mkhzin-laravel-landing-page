@@ -122,7 +122,7 @@ class LandingController extends Controller
         if ($tagId) {
             $query->where('tag_id', $tagId);
         }
-        $data['posts'] = $query->get();
+        $data['posts'] = $query->orderBy('created_at', 'desc')->get();
 
         // Fetch all tags with the count of related posts
         $data['tags'] = Tag::withCount('posts')->get();
@@ -137,6 +137,7 @@ class LandingController extends Controller
         $relatedPosts = Post::where('tag_id', $post->tag_id)
             ->where('id', '!=', $id)
             ->with('tag')
+            ->orderBy('created_at', 'desc')
             ->get();
 
         return view('post', [
