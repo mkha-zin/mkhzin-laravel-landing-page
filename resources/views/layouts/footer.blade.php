@@ -391,8 +391,26 @@
                                 </ul>
                             </div>
                         </div>
+                        <div
+                            class="elementor-element elementor-element-89ee4b2 elementor-widget elementor-widget-heading"
+                            data-id="89ee4b2" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h3 class="elementor-heading-title elementor-size-default">{{ __('landing.Meet Us') }}</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="elementor-widget-container">
+                                <p class="elementor-divider__text" style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important;">
+                                    {{ __('landing.Book an online appointment to meet our Marketing and Development Team') }}
+                                </p>
+                                <a style="display: flex; justify-content: center" href="https://calendar.google.com/calendar/u/0/appointments/AcZssZ1OWCbSozh5BRGjM_4NoOYKIgI-JFjvPQHt6VQ=" target="_blank">
+                                    <img src="{{ asset('uploads/mkhazin/meeting_qr.png') }}" width="150">
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 @endif
+
             </div>
         </div>
         <div class="elementor-element elementor-element-43bbb4d e-flex e-con-boxed e-con e-parent" data-id="43bbb4d"

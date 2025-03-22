@@ -92,6 +92,8 @@ return [
     'Back To Login' => 'العودة إلى صفحة تسجيل الدخول',
 
     'All Posts' => 'كل المنشورات',
+    'Meet Us' => 'قابلنا',
+    'Book an online appointment to meet our Marketing and Development Team' => 'أحجز موعداً لمقابلة فريق التسويق والتطوير لدينا',
 
     'features_for_you' => 'مميزات نقدمها لكم',
 ];
