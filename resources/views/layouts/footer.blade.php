@@ -391,8 +391,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
-                            <!-- Left Column: Title and Description -->
+                        <!-- <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
                             <div style="flex: 1;">
                                 <h3 class="elementor-heading-title elementor-size-default">
                                     {{ __('landing.Meet Us') }}
@@ -401,17 +400,14 @@
                                     {{ __('landing.Book an online appointment to meet our Marketing and Development Team') }}
                                 </p>
                             </div>
-
-                            <!-- Right Column: QR Code -->
                             <div style="flex: 1; display: flex; justify-content: center;">
                                 <a href="https://calendar.google.com/calendar/u/0/appointments/AcZssZ1OWCbSozh5BRGjM_4NoOYKIgI-JFjvPQHt6VQ=" target="_blank">
                                     <img src="{{ asset('uploads/mkhazin/meeting_qr.png') }}" style="border-radius: 10px;" width="150">
                                 </a>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                 @endif
-
             </div>
         </div>
         <div class="elementor-element elementor-element-43bbb4d e-flex e-con-boxed e-con e-parent" data-id="43bbb4d"

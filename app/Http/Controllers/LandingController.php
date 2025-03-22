@@ -42,7 +42,11 @@ class LandingController extends Controller
     public function index(): Factory|View|Application|\Illuminate\View\View
     {
         $data = $this->dataFetcherService->fetchData();
-
+        $data['posts'] = Post::query()
+            ->where('status', 1)
+            ->orderBy('created_at', 'desc')
+            ->limit(3)
+            ->get();
         return view('index', $data);
     }
 

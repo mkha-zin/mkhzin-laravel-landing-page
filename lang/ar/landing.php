@@ -94,6 +94,9 @@ return [
     'All Posts' => 'كل المنشورات',
     'Meet Us' => 'قابلنا',
     'Book an online appointment to meet our Marketing and Development Team' => 'أحجز موعداً لمقابلة فريق التسويق والتطوير لدينا',
+    'Latest Posts' => 'احدث المنشورات',
+    'Read More Posts' => 'المزيد من المنشورات',
+
 
     'features_for_you' => 'مميزات نقدمها لكم',
 ];

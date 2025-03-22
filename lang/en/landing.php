@@ -94,6 +94,8 @@ return [
     'All Posts' => 'All Posts',
     'Meet Us' => 'Meet Us',
     'Book an online appointment to meet our Marketing and Development Team' => 'Book an online appointment to meet our Marketing and Development Team',
+    'Latest Posts' => 'Latest Posts',
+    'Read More Posts' => 'Read More Posts',
 
     'features_for_you' => 'Features For You',
 ];

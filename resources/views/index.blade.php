@@ -374,7 +374,6 @@
                                     }
                                 }
                             </style>
-
                             <div class="swiper">
                                 <div class="slider-wrapper">
                                     <div class="card-list swiper-wrapper">
@@ -690,6 +689,36 @@
 
         @endif
         <!-- /Fleet -->
+
+        <!-- Posts Section -->
+        @if(!empty($posts))
+        <div class="container" style="margin-top: 50px;">
+            <!-- Section Header -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2 style="margin: 0;">{{ __('landing.Latest Posts') }}</h2>
+                <a href="{{  url('blog') }}" class="elementor-button-text" style="text-decoration: none; padding: 10px 15px; background-color: var(--e-global-color-6942582);  color: #fff; border-radius: 5px;">
+                    {{ __('landing.Read More Posts') }}
+                </a>
+            </div>
+            <!-- Posts Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                @foreach ($posts->take(3) as $post)
+                    <div style="border: 1px solid #ddd; border-radius: 10px; padding: 15px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+                        <img src="{{ asset($post->image) }}" alt="{{ $post->title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                        <h3 class="{{  $direction == 'rtl' ? 'text-right' : 'text-left' }}"
+                            style="margin-top: 10px; color: black;">
+                            {{ $direction == 'rtl' ? $post->title_ar : $post->title_en }}
+                        </h3>
+                        <p class="{{  $direction == 'rtl' ? 'text-right' : 'text-left' }}">{{ Str::limit($direction == 'rtl' ? $post->article_ar : $post->article_en, 100) }}</p>
+                        <a href="{{  url('blog/' . $post->id) }}" style="text-decoration: none; color: #007bff;">
+                            {{ __('landing.Read More') }} {{ $direction == 'rtl' ? '←' : '→' }}
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+        @endif
+        <!-- /Posts Section -->
 
         <!-- Contact Us Aside -->
         <div id="contact-us" class="elementor-element elementor-element-4019d746 e-flex e-con-boxed e-con e-parent"
