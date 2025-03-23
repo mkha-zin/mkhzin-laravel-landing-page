@@ -301,12 +301,9 @@
                                     flex-direction: column;
                                     align-items: center;
                                     justify-content: center;
-                                    box-shadow: 0px 0px 3.6px rgba(0, 0, 0, 0.056),
-                                    0px 0px 10px rgba(0, 0, 0, 0.08),
-                                    0px 0px 24.1px rgba(0, 0, 0, 0.104),
-                                    0px 0px 80px rgba(0, 0, 0, 0.16);
+
                                     backdrop-filter: blur(30px);
-                                    background: rgba(255, 255, 255, 0.2);
+                                    background: rgb(255, 226, 226);
                                 }
 
                                 .card-list .card-item .user-image {
