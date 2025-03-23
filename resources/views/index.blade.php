@@ -375,7 +375,7 @@
                                     <div class="card-list swiper-wrapper">
                                         @foreach($departments as $department)
                                             <div class="card-item swiper-slide"
-                                                 style="width: 300px !important; height: 430px !important; padding: 10px; border-radius: 10px">
+                                                 style="width: 300px !important; height: 440px !important; padding: 10px; border-radius: 10px">
                                                 <img src="{{ asset('storage/' . $department->image) }}"
                                                      class="card-img-top"
                                                      style="height: 200px; border-radius: 10px"
