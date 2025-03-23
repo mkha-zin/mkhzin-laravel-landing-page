@@ -695,7 +695,7 @@
         <div class="container" style="margin-top: 50px;">
             <!-- Section Header -->
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h2 style="margin: 0;">{{ __('landing.Latest Posts') }}</h2>
+                <h3 style="margin: 0; color: black">{{ __('landing.Latest Posts') }}</h3>
                 <a href="{{  url('blog') }}" class="elementor-button-text" style="text-decoration: none; padding: 10px 15px; background-color: var(--e-global-color-6942582);  color: #fff; border-radius: 5px;">
                     {{ __('landing.Read More Posts') }}
                 </a>
