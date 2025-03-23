@@ -379,10 +379,10 @@
                                     <div class="card-list swiper-wrapper">
                                         @foreach($departments as $department)
                                             <div class="card-item swiper-slide"
-                                                 style="width: 300px !important; height: 420px !important;">
+                                                 style="width: 300px !important; height: 420px !important; padding: 10px; border-radius: 10px">
                                                 <img src="{{ asset('storage/' . $department->image) }}"
                                                      class="card-img-top"
-                                                     style="height: 200px"
+                                                     style="height: 200px; border-radius: 10px"
                                                      alt="{{ $direction == 'ar' ? $department->title_ar : $department->title_en }}">
                                                 <div class="card-body">
                                                     <h5 class="card-title">
@@ -408,7 +408,6 @@
                                                 </div>
                                             </div>
                                         @endforeach
-
                                     </div>
 
                                     <div class="swiper-pagination"></div>
