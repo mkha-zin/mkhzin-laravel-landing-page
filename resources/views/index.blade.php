@@ -705,10 +705,10 @@
                 @foreach ($posts->take(3) as $post)
                     <div style="border: 1px solid #ddd; border-radius: 10px; padding: 15px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
                         <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
-                        <h3 class="{{  $direction == 'rtl' ? 'text-right' : 'text-left' }}"
+                        <h4 class="{{  $direction == 'rtl' ? 'text-right' : 'text-left' }}"
                             style="margin-top: 10px; color: black;">
                             {{ $direction == 'rtl' ? $post->title_ar : $post->title_en }}
-                        </h3>
+                        </h4>
                         <p class="{{  $direction == 'rtl' ? 'text-right' : 'text-left' }}">{{ Str::limit($direction == 'rtl' ? $post->article_ar : $post->article_en, 100) }}</p>
                         <a href="{{  url('blog/' . $post->id) }}" style="text-decoration: none; color: #007bff;">
                             {{ __('landing.Read More') }} {{ $direction == 'rtl' ? '←' : '→' }}
