@@ -302,7 +302,7 @@
                                     align-items: center;
                                     justify-content: center;
                                     backdrop-filter: blur(30px);
-                                    background: rgb(255, 226, 226);
+                                    background: rgb(255, 240, 240);
                                 }
 
                                 .card-list .card-item .user-image {
