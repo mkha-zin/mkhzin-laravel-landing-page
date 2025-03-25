@@ -103,6 +103,8 @@ return [
     'first_name' => 'First Name',
     'last_name' => 'Last Name',
     'email' => 'Email',
+    'resume' => 'Resume',
+    'license' => 'License',
     'password' => 'Password',
     'email verified at' => 'Email Verified At',
     'phone' => 'Phone',
@@ -144,6 +146,7 @@ return [
     'address_en' => 'English Address',
 
     'city' => 'City',
+    'district' => 'District',
 
     'files' => 'Files',
     'file' => 'File',
@@ -192,6 +195,7 @@ return [
     'unused vouchers' => 'UnUsed Vouchers',
 
     'Click to Copy' => 'Click to Copy',
+    'Click to Download' => 'Click to Download',
     'Copied!' => 'Copied!',
 
 
@@ -224,6 +228,9 @@ return [
     'super' => 'Super Market',
     'hyper' => 'Hyper Market',
     'wholesale' => 'Wholesale',
+
+    'join requests' => 'Join Requests',
+    'join request' => 'Join Request',
 
     'icon_src_desc' => 'Go to: https://themify.me/themify-icons to see all icons, and copy the icon name to here.',
     'unotherized' => 'Sorry, You are not authorized to access this panel',

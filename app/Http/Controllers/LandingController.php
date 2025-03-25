@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\AboutCard;
+use App\Models\Applicator;
 use App\Models\Branch;
 use App\Models\Career;
 use App\Models\City;
@@ -305,6 +306,13 @@ class LandingController extends Controller
         return response()->download($filePath);
     }
 
+    public function downloadApplicatorFiles()
+    {
+        $filePath = public_path("storage/" . request()->record);
+
+        return response()->download($filePath);
+    }
+
     public function departments($key): Factory|View|Application|\Illuminate\View\View
     {
         $department = Department::query()->where('key', $key)->first();
@@ -316,6 +324,92 @@ class LandingController extends Controller
         return view('departments', $data);
     }
 
+
+    public function joinUs(HttpRequest $request)
+    {
+        $validated = $request->validate([
+            'name' => [
+                'required',
+                'string',
+                'regex:/^(\S+\s+){2,}\S+$/', // Ensures at least 3 words
+                'max:255',
+            ],
+            'phone' => [
+                'required',
+                'regex:/^05\d{8}$/', // Ensures the number starts with 05 and is 10 digits
+            ],
+            'email' => 'required|email|unique:applicators,email',
+            'city' => 'required|string|max:100',
+            'district' => 'required|string|max:100',
+            'social_profiles' => 'required|array|min:1', // At least one social media profile required
+            'social_profiles.*' => 'nullable|url',
+            'cv' => 'required|file|mimes:pdf|max:10240', // Max 10MB PDF
+            'license' => 'nullable|file|mimes:jpg,jpeg,png|max:2048',
+            'description' => [
+                'required',
+                'string',
+                'min:15', // At least 15 words
+            ],
+        ], [
+            'name.required' => 'الاسم مطلوب',
+            'name.string' => 'الاسم يجب أن يكون نصًا',
+            'name.regex' => 'الرجاء كتابة الاسم الثلاثي على الأقل',
+            'name.max' => 'يجب ألا يتجاوز الاسم 255 حرفًا',
+
+            'phone.required' => 'رقم الهاتف مطلوب',
+            'phone.regex' => 'يجب أن يكون رقم الهاتف رقمًا سعوديًا صحيحًا من 10 أرقام ويبدأ بـ 05',
+
+            'email.required' => 'البريد الإلكتروني مطلوب',
+            'email.email' => 'يجب إدخال بريد إلكتروني صحيح',
+            'email.unique' => 'البريد الإلكتروني مستخدم بالفعل',
+
+            'city.required' => 'المدينة مطلوبة',
+            'city.string' => 'يجب أن تكون المدينة نصًا',
+            'city.max' => 'يجب ألا يتجاوز اسم المدينة 100 حرف',
+
+            'district.required' => 'الحي مطلوب',
+            'district.string' => 'يجب أن يكون الحي نصًا',
+            'district.max' => 'يجب ألا يتجاوز اسم الحي 100 حرف',
+
+            'social_profiles.required' => 'يجب إدخال رابط واحد على الأقل لوسائل التواصل الاجتماعي',
+            'social_profiles.array' => 'يجب أن تكون وسائل التواصل الاجتماعي في شكل قائمة',
+            'social_profiles.min' => 'يجب إضافة رابط واحد على الأقل لوسائل التواصل الاجتماعي',
+            'social_profiles.*.url' => 'يجب أن يكون الرابط المضاف صحيحًا',
+
+            'cv.required' => 'السيرة الذاتية مطلوبة',
+            'cv.file' => 'يجب أن يكون الملف المرفق صالحًا',
+            'cv.mimes' => 'يجب أن تكون السيرة الذاتية بصيغة PDF فقط',
+            'cv.max' => 'يجب ألا يتجاوز حجم السيرة الذاتية 10 ميغابايت',
+
+            'license.file' => 'يجب أن يكون الملف المرفق صالحًا',
+            'license.mimes' => 'يجب أن يكون الترخيص بصيغة JPG أو JPEG أو PNG',
+            'license.max' => 'يجب ألا يتجاوز حجم ملف الترخيص 2 ميغابايت',
+
+            'description.required' => 'الوصف مطلوب',
+            'description.string' => 'يجب أن يكون الوصف نصًا',
+            'description.min' => 'يجب أن يكون الوصف لا يقل عن 15 كلمة',
+        ]);
+
+        // Handle file uploads
+        $cvPath = $request->file('cv')->store('assets/files/users/cv_uploads', 'public');
+        $licensePath = $request->file('license') ? $request->file('license')->store('assets/files/users/license_uploads', 'public') : null;
+
+        // Save application
+        Applicator::create([
+            'name' => $validated['name'],
+            'phone' => $validated['phone'],
+            'email' => $validated['email'],
+            'city' => $validated['city'],
+            'district' => $validated['district'],
+            'social_profiles' => $validated['social_profiles'] ?? [],
+            'cv_path' => $cvPath,
+            'license_path' => $licensePath,
+            'description' => $validated['description'],
+        ]);
+
+
+        return back()->with('success', 'تم إرسال الطلب بنجاح!');
+    }
 }
 
 

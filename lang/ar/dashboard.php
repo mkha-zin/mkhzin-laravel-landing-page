@@ -100,6 +100,8 @@ return [
     'first_name' => 'الاسم الأول',
     'last_name' => 'الاسم الأخير',
     'email' => 'البريد الألكتروني',
+    'resume' => 'السيرة الذاتية',
+    'license' => 'الترخيص',
     'password' => 'كلمة المرور',
     'email verified at' => 'تم التحقق من الإيميل في',
     'phone' => 'الهاتف',
@@ -136,6 +138,7 @@ return [
     'address_en' => 'العنوان بالانجليزي',
 
     'city' => 'المدينة',
+    'district' => 'الحي',
 
     'files' => 'الملفات',
     'file' => 'الملف',
@@ -187,6 +190,7 @@ return [
     'unused vouchers' => 'القسائم الغير مستخدمة',
 
     'Click to Copy' => 'انقر للنسخ',
+    'Click to Download' => 'انقر للتحميل',
     'Copied!' => 'تم النسخ!',
 
     'address' => 'العنوان',
@@ -220,6 +224,9 @@ return [
     'super' => 'سوبر ماركت',
     'hyper' => 'هايبر ماركت',
     'wholesale' => 'البيع بالجملة',
+
+    'join requests' => 'طلبات الانضمام',
+    'join request' => 'طلب انضمام',
 
     'icon_src_desc' => 'اذهب الى: https://themify.me/themify-icons لمشاهدة كل الأيقونات، ثم قم بنسخ اسم الأيقونة الى هنا',
     'unotherized' => 'عذراً، ليست لديك صلاحية الوصول لهذه الأعدادات',

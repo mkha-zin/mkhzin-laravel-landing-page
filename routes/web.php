@@ -36,6 +36,7 @@ Route::group(['middleware' => 'localization'], static function () {
     Route::get('cancel_voucher', [LandingController::class, 'cancelVoucher']);
 
     Route::get('/download_csv', [LandingController::class, 'download'])->name('document.download');
+    Route::get('/download_applicator', [LandingController::class, 'downloadApplicatorFiles'])->name('joinus.download');
 
     Route::get('/departments/{key}', [LandingController::class, 'departments'])->name('departments');
 
@@ -49,6 +50,10 @@ Route::group(['middleware' => 'localization'], static function () {
         return redirect('admin/login');
     })->name('login.reset');
 
+    Route::get('joinus', function () {
+       return view('joinus');
+    });
+    Route::post('joinus', [LandingController::class, 'joinUs'])->name('joinus');
 });
 
 
