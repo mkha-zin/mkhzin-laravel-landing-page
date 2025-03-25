@@ -113,9 +113,6 @@ class ApplicatorResource extends Resource
     {
         return [
             'index' => Pages\ListApplicators::route('/'),
-            'create' => Pages\CreateApplicator::route('/create'),
-            'view' => Pages\ViewApplicator::route('/{record}'),
-            'edit' => Pages\EditApplicator::route('/{record}/edit'),
         ];
     }
 }
