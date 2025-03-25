@@ -34,3 +34,5 @@ return new class extends Migration
         Schema::dropIfExists('applicators');
     }
 };
+
+// php artisan migrate --path=database/migrations/2025_03_24_161516_create_applicators_table.php
