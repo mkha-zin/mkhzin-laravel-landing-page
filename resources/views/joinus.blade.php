@@ -23,7 +23,7 @@
     <!-- Header Section -->
     <div class="header">
         <div>
-            <h3 class="fw-bold">مرحبًا بك في نموذج التقديم</h3>
+            <h3 class="fw-bold">مرحبًا بك في شركة مخازن المملكة العالمية</h3>
             <p class="text-muted">يرجى تعبئة النموذج التالي للانضمام إلى فريق التسويق والتطوير لدينا.</p>
         </div>
         <img src="{{ asset('uploads/mkhazin/fav.png') }}" alt="Logo" class="company-logo">
