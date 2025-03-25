@@ -57,13 +57,23 @@ class ApplicatorResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
                     ->label(__('dashboard.email'))
+                    ->limit(10)
+                    ->tooltip(fn(Applicator $record): string => $record->email)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('city')
                     ->label(__('dashboard.address'))
-                    ->description(fn(Applicator $record): string => $record->district)
+                    ->description(fn(Applicator $record): string => $record->district, position: 'above')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('description')
+                    ->label(__('dashboard.description'))
+                    ->tooltip(fn(Applicator $record): string => $record->description)
                     ->words(5),
+                Tables\Columns\TextColumn::make('social_profiles')
+                    ->listWithLineBreaks()
+                    ->distinctList()
+                    ->bulleted()
+                    ->copyable()
+                    ->expandableLimitedList(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->date()

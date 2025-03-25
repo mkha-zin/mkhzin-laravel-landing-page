@@ -113,7 +113,7 @@
         <div class="row">
             <!-- CV -->
             <div class="col-md-6 mb-3">
-                <label class="form-label">السيرة الذاتية</label>
+                <label class="form-label">السيرة الذاتية (إن وجدت)</label>
                 <input type="file" name="cv" class="form-control @error('cv') is-invalid @enderror">
                 @error('cv')
                 <div class="text-danger">{{ $message }}</div>
@@ -163,7 +163,6 @@
             `;
 
             container.appendChild(div);
-
             updateRemoveButtons();
         });
 
@@ -184,7 +183,5 @@
     });
 
 </script>
-
-
 </body>
 </html>

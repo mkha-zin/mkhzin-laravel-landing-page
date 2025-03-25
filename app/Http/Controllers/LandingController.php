@@ -310,6 +310,14 @@ class LandingController extends Controller
     {
         $filePath = public_path("storage/" . request()->record);
 
+        if (!file_exists($filePath)) {
+            Notification::make()
+                ->title(__('dashboard.file not found'))
+                ->danger()
+                ->send();
+
+            return redirect()->back();
+        }
         return response()->download($filePath);
     }
 
@@ -343,7 +351,7 @@ class LandingController extends Controller
             'district' => 'required|string|max:100',
             'social_profiles' => 'required|array|min:1', // At least one social media profile required
             'social_profiles.*' => 'nullable|url',
-            'cv' => 'required|file|mimes:pdf|max:10240', // Max 10MB PDF
+            'cv' => 'nullable|file|mimes:pdf|max:10240', // Max 10MB PDF
             'license' => 'nullable|file|mimes:jpg,jpeg,png|max:2048',
             'description' => [
                 'required',
@@ -376,7 +384,6 @@ class LandingController extends Controller
             'social_profiles.min' => 'يجب إضافة رابط واحد على الأقل لوسائل التواصل الاجتماعي',
             'social_profiles.*.url' => 'يجب أن يكون الرابط المضاف صحيحًا',
 
-            'cv.required' => 'السيرة الذاتية مطلوبة',
             'cv.file' => 'يجب أن يكون الملف المرفق صالحًا',
             'cv.mimes' => 'يجب أن تكون السيرة الذاتية بصيغة PDF فقط',
             'cv.max' => 'يجب ألا يتجاوز حجم السيرة الذاتية 10 ميغابايت',
