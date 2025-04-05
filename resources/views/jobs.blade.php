@@ -33,6 +33,15 @@
                                                 </span>
                                             </span>
                             </a>
+                            <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink"
+                               href="mailto: {{$job->email??''}}">
+                                            <span class="elementor-button-content-wrapper">
+                                                <span class="elementor-button-text"
+                                                      style="color:white; letter-spacing: 0 !important;">
+                                                    {{  __('landing.apply now') }}
+                                                </span>
+                                            </span>
+                            </a>
                         </div>
                     </div>
                 </div>
