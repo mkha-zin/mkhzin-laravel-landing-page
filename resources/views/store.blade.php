@@ -488,10 +488,10 @@
                 <a href="https://mkhzin-store.com" target="_blank">
                     <img width="200px" src="{{ asset('store/images/3.png') }}" alt="shop now">
                 </a>
-                <a href="https://play.google.com/store/apps/details?id=com.makhazin">
+                <a href="https://play.google.com/store/apps/details?id=com.makhazin" target="_blank">
                     <img width="200px" src="{{ asset('store/images/1.png') }}" alt="play store">
                 </a>
-                <a href="https://apps.apple.com/us/app/%D9%85%D8%AE%D8%A7%D8%B2%D9%86-%D8%B3%D9%88%D8%A8%D8%B1-%D9%85%D8%A7%D8%B1%D9%83%D8%AA/id6741794625">
+                <a target="_blank" href="https://apps.apple.com/us/app/%D9%85%D8%AE%D8%A7%D8%B2%D9%86-%D8%B3%D9%88%D8%A8%D8%B1-%D9%85%D8%A7%D8%B1%D9%83%D8%AA/id6741794625">
                     <img width="200px" src="{{ asset('store/images/2.png') }}" alt="app store">
                 </a>
             </div>
