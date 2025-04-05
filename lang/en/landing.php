@@ -61,6 +61,7 @@ return [
     'fleet' => 'Fleet',
     'storage' => 'Storage',
     'apply now' => 'Send Your Resume and Apply Now',
+    'join the team' => 'Join Our Team',
 
     'footer_text' => 'Our goal is to satisfy our customers and their happiness',
     'privacy policy' => 'Privacy Policy',
