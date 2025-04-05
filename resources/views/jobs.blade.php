@@ -34,7 +34,7 @@
                                             </span>
                             </a>
                             <a style="margin-top: 10px" class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink"
-                               href="{{ route('joinus') }}">
+                               href="{{ route('joinus') }}" target="_blank">
                                             <span class="elementor-button-content-wrapper">
                                                 <span class="elementor-button-text"
                                                       style="color:white; letter-spacing: 0 !important;">
