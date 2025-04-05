@@ -33,7 +33,7 @@
                                                 </span>
                                             </span>
                             </a>
-                            <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink"
+                            <a style="margin-top: 10px" class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink"
                                href="{{ route('joinus') }}">
                                             <span class="elementor-button-content-wrapper">
                                                 <span class="elementor-button-text"
