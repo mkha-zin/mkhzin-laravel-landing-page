@@ -292,7 +292,7 @@
                                         </svg>
                                     </span>
                                     <span class="elementor-icon-list-text">
-                                        <a href="{{ url('jobs') }}">
+                                        <a href="https://jobs.mkhzin.com">
                                             {{ __('landing.Jobs') }}
                                         </a>
                                     </span>
