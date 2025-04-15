@@ -427,6 +427,7 @@
                     .active1{
                         background-color: #df2228;
                         border-radius: 5px;
+                        width: 100% !important;
                         color: white !important;
                     }
                     /*.active1{
@@ -449,9 +450,8 @@
                                 {{ __('landing.About') }}
                             </a>
                         </li>
-                        <li class="nav-hover nav-item">
-                            <a class="nav-link {{ request()->segment(1) == 'sections' ? 'active active1' : '' }}"
-                               href="{{ url('sections') }}">
+                        <li class="nav-hover nav-item ">
+                            <a class="nav-link {{ request()->segment(1) == 'sections' ? 'active active1' : '' }}" href="{{ url('sections') }}">
                                 {{ __('landing.Departments') }}
                             </a>
                         </li>
