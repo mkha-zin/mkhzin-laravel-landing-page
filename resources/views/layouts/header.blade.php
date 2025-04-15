@@ -404,9 +404,6 @@
                 </button>
                 <style>
                     .nav-hover a{
-                        text-transform: uppercase;
-                        text-decoration: none;
-
                         display: inline-block;
                         padding: 8px 15px;
                         position: relative;
@@ -432,6 +429,10 @@
                         border-radius: 5px;
                         color: white !important;
                     }
+                    /*.active1{
+                        border-bottom: 3px solid #df2228;
+                        color: #df2228 !important;
+                    }*/
                 </style>
 
                 <div class="collapse navbar-collapse flex justify-center text-center" id="navbarSupportedContent">
