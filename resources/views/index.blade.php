@@ -654,7 +654,7 @@
             <div class="container section" style="margin-top: -150px;">
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="{{  asset('storage/' . $fleet->image) }}" alt="Transport Fleet" class="truck-image">
+                        <img style="border-radius: 10px;" src="{{  asset('storage/' . $fleet->image) }}" alt="Transport Fleet" class="truck-image">
                     </div>
                     <div class="col-md-6 mt-3"
                          style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important">

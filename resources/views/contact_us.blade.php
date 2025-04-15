@@ -23,13 +23,13 @@
                     <div class="elementor-element elementor-element-1486b685 e-con-full e-flex e-con e-child"
                          data-element_type="container">
                         <div class="elementor-element elementor-element-4d3ea87b e-con-full e-flex e-con e-child"
-                             style="background-image: url({{ $contact_second_image!=null?asset('storage/' . $contact_second_image->image):asset('uploads/mkhazin/tmp/1.jpg') }});"
+                             style="border-radius: 10px; background-image: url({{ $contact_second_image!=null?asset('storage/' . $contact_second_image->image):asset('uploads/mkhazin/tmp/1.jpg') }});"
                              data-element_type="container"
                              data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                         </div>
                         @if(!empty($contactInfos))
                             <div class="elementor-element elementor-element-44550122 e-con-full e-flex e-con e-child"
-                                 data-element_type="container"
+                                 data-element_type="container" style="border-radius: 10px;"
                                  data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                                 @foreach($contactInfos as $contactInfo)
                                     <!--Call-->
@@ -153,7 +153,7 @@
                         @endif
                     </div>
                     <div class="elementor-element elementor-element-3a8d2fe3 e-con-full e-flex e-con e-child"
-                         style="background-image: url({{ $contact_first_image!=null?asset('storage/' . $contact_first_image->image):asset('uploads/mkhazin/tmp/1.jpg') }});"
+                         style="border-radius: 10px; background-image: url({{ $contact_first_image!=null?asset('storage/' . $contact_first_image->image):asset('uploads/mkhazin/tmp/1.jpg') }});"
                          data-element_type="container"
                          data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                     </div>
@@ -164,7 +164,7 @@
                     data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;}">
                     <div class="elementor-element elementor-element-3738182a elementor-widget elementor-widget-heading"
                          data-id="3738182a" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
+                        <div class="elementor-widget-container" style="border-radius: 5px;">
                             <h6 class="elementor-heading-title elementor-size-default"
                                 style="color: white; letter-spacing: 0 !important;">{{ __('landing.Contact Us') }}</h6>
                         </div>
@@ -189,7 +189,7 @@
                                                 <div class="rform-control ">
                                                     <input name="first_name"
                                                            placeholder="{{ __('landing.First Name') }}"
-                                                           class="rform-input"
+                                                           class="rform-input" style="border-radius: 5px;"
                                                            type="text" required>
                                                 </div>
                                             </div>
@@ -199,7 +199,7 @@
                                             <div class="elementor-widget-container">
                                                 <div class="rform-control ">
                                                     <input name="last_name" placeholder="{{ __('landing.Last Name') }}"
-                                                           class="rform-input"
+                                                           class="rform-input" style="border-radius: 5px;"
                                                            type="text" required>
                                                 </div>
                                             </div>
@@ -209,7 +209,7 @@
                                             <div class="elementor-widget-container">
                                                 <div class="rform-control ">
                                                     <input name="email" placeholder="{{ __('landing.Email') }}"
-                                                           class="rform-input"
+                                                           class="rform-input" style="border-radius: 5px;"
                                                            type="email" required>
                                                 </div>
                                             </div>
@@ -219,7 +219,7 @@
                                             <div class="elementor-widget-container">
                                                 <div class="rform-control ">
                                                     <input name="phone" placeholder="{{ __('landing.Phone') }}"
-                                                           class="rform-input"
+                                                           class="rform-input" style="border-radius: 5px;"
                                                            type="text" required>
                                                 </div>
                                             </div>
@@ -228,7 +228,7 @@
                                             <div class="elementor-widget-container">
                                                 <div class="rform-control ">
                                                     <input name="subject" placeholder="{{ __('landing.Subject') }}"
-                                                           class="rform-input"
+                                                           class="rform-input" style="border-radius: 5px;"
                                                            type="text" required>
                                                 </div>
                                             </div>
@@ -236,7 +236,7 @@
                                         <div class="elementor-element elementor-element-3e2d7b7 elementor-widget">
                                             <div class="elementor-widget-container">
                                                 <div class="rform-control">
-                                                    <textarea name="message" required
+                                                    <textarea name="message" required style="border-radius: 5px;"
                                                               placeholder="{{ __('landing.Message') }}"
                                                               class="rform-input">
                                                     </textarea>
@@ -247,7 +247,7 @@
                                             <div class="elementor-widget-container">
                                                 <div class="rform-button-container">
                                                     <button class="rform-button-submit " type="submit"
-                                                            style="color: white; letter-spacing: 0 !important;">
+                                                            style="color: white; letter-spacing: 0 !important; border-radius: 5px;">
                                                         @if($direction == 'rtl')
                                                             {{  __('landing.Send Message') }}
                                                             <i aria-hidden="true"

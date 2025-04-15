@@ -39,7 +39,7 @@
                                     </select>
                                 </div>
                                 <button class="btn text-white form-group col-2" type="submit"
-                                        style="letter-spacing: 0 !important;">{{ __('landing.Search') }}</button>
+                                        style="letter-spacing: 0 !important; border-radius: 5px">{{ __('landing.Search') }}</button>
                             </div>
                         </div>
                         <!-- /.card-body -->
@@ -57,7 +57,7 @@
                                     @foreach($branches as $branch)
                                         <div
                                             class="elementor-element elementor-element-2114515 e-con-full e-flex e-con e-child"
-                                            data-id="2114515" data-element_type="container"
+                                            data-id="2114515" data-element_type="container" style="border-radius: 10px;"
                                             data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                                             <div
                                                 class="elementor-element elementor-element-f573fca elementor-widget elementor-widget-image"
@@ -95,7 +95,7 @@
                                                 </div>
                                             </div>
                                             <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink"
-                                               href="{{route('branch.offers', $branch->id)}}">
+                                               href="{{route('branch.offers', $branch->id)}}" style="border-radius: 0 0 10px 10px;">
                                                     <span class="elementor-button-content-wrapper">
                                                         <span class="elementor-button-text"
                                                               style="color:white; letter-spacing: 0 !important;">

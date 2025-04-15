@@ -31,7 +31,7 @@
                                                  style="border-radius: 10px;">
                                                 <div class="rkit-image-container">
                                                     <a class="rkit-image-link" style="overflow: hidden;" href="#">
-                                                        <img decoding="async" class="rkit-blog-img"
+                                                        <img decoding="async" class="rkit-blog-img" style="border-radius: 10px 10px 0 0;"
                                                              src="{{ asset('storage/' . $department->image) }}">
                                                     </a>
                                                 </div>
