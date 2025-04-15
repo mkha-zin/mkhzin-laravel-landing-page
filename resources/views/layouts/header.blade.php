@@ -402,47 +402,78 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <style>
+                    .nav-hover a{
+                        text-transform: uppercase;
+                        text-decoration: none;
+
+                        display: inline-block;
+                        padding: 8px 15px;
+                        position: relative;
+                    }
+                    .nav-hover a:after{
+                        background: none repeat scroll 0 0 transparent;
+                        bottom: 0;
+                        content: "";
+                        display: block;
+                        height: 2px;
+                        left: 50%;
+                        position: absolute;
+                        background: #df2228;
+                        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+                        width: 0;
+                    }
+                    .nav-hover a:hover:after{
+                        width: 100%;
+                        left: 0;
+                    }
+                    .active1{
+                        background-color: #df2228;
+                        border-radius: 5px;
+                        color: white !important;
+                    }
+                </style>
 
                 <div class="collapse navbar-collapse flex justify-center text-center" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item flex">
-                            <a class="nav-link {{ request()->segment(1) == null ? 'active' : '' }}"
+                    <ul class="nav-hover-ul navbar-nav mx-auto">
+                        <li class="nav-hover nav-item flex">
+                            <a class="nav-link {{ request()->segment(1) == null ? 'active active1' : '' }}"
                                href="{{ url('/') }}">
                                 {{ __('landing.Home') }}
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->segment(1) == 'about' ? 'active' : '' }}"
+                        <li class="nav-hover nav-item">
+                            <a class="nav-link {{ request()->segment(1) == 'about' ? 'active active1' : '' }}"
                                href="{{ url('about') }}">
                                 {{ __('landing.About') }}
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->segment(1) == 'sections' ? 'active' : '' }}"
+                        <li class="nav-hover nav-item">
+                            <a class="nav-link {{ request()->segment(1) == 'sections' ? 'active active1' : '' }}"
                                href="{{ url('sections') }}">
                                 {{ __('landing.Departments') }}
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-hover nav-item">
                             <a href="{{ url('estore') }}"
-                               class="nav-link {{ request()->segment(1) == 'store' ? 'active' : '' }}">
+                               class="nav-link {{ request()->segment(1) == 'store' ? 'active active1' : '' }}">
                                 {{  __('landing.Store')}}
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->segment(1) == 'blog' ? 'active' : '' }}"
+                        <li class="nav-hover nav-item">
+                            <a class="nav-link {{ request()->segment(1) == 'blog' ? 'active active1' : '' }}"
                                href="{{ url('blog') }}">
                                 {{ __('landing.Blog') }}
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->segment(1) == 'branches' ? 'active' : '' }}"
+                        <li class="nav-hover nav-item">
+                            <a class="nav-link {{ request()->segment(1) == 'branches' ? 'active active1' : '' }}"
                                href="{{ url('branches') }}">
                                 {{ __('landing.Branches') }}
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->segment(1) == 'contact' ? 'active' : '' }}"
+                        <li class="nav-hover nav-item">
+                            <a class="nav-link {{ request()->segment(1) == 'contact' ? 'active active1' : '' }}"
                                href="{{ url('/contact') }}">
                                 {{ __('landing.Contact Us') }}
                             </a>
