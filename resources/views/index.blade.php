@@ -110,6 +110,7 @@
         </div>
         <!-- / Our Values -->
 
+        <!-- Departments -->
         <div class="container" style="margin-top: 130px; margin-bottom: -80px">
             <h2 class="main-website-title text-center" style="color: black">
                 {{ __('landing.company name') }}&reg;
@@ -134,6 +135,7 @@
                 </a>
             </nav>
         </div>
+        <!-- / Departments -->
 
         <!-- About Us -->
         <div class="elementor-element elementor-element-5a2cb0dc e-flex e-con-boxed e-con e-parent"
@@ -261,7 +263,7 @@
                                 <div
                                     class="elementor-element elementor-element-1c3d47e6 elementor-widget elementor-widget-heading"
                                     data-element_type="widget" data-widget_type="heading.default">
-                                    <div class="elementor-widget-container">
+                                    <div class="elementor-widget-container" style="border-radius: 5px">
                                         <h3 class="elementor-heading-title elementor-size-default"
                                             style="color: white; font-size: 25px;">
                                             {{ __('landing.Departments') }}
@@ -275,7 +277,7 @@
                                 <div
                                     class="elementor-element elementor-element-1c3d47e6 elementor-element-1c3d47e6666 elementor-widget elementor-widget-heading"
                                     data-element_type="widget" data-widget_type="heading.default">
-                                    <div class="elementor-widget-container">
+                                    <div class="elementor-widget-container" style="border-radius: 5px">
                                         <h3 class="elementor-heading-title elementor-size-default"
                                             style="color: white; font-size: 20px;">
                                             <a href="{{ url('sections') }}">
@@ -463,12 +465,12 @@
                     <!--Texts-->
                     <div
                         class="elementor-element elementor-element-278b821f e-con-full e-flex elementor-invisible e-con e-child"
-                        data-element_type="container"
+                        data-element_type="container" style="border-radius: 10px;"
                         data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInRight&quot;}">
                         <div
                             class="elementor-element elementor-element-625f9619 elementor-widget elementor-widget-heading"
                             data-id="625f9619" data-element_type="widget" data-widget_type="heading.default">
-                            <div class="elementor-widget-container">
+                            <div class="elementor-widget-container" style="border-radius: 5px;">
                                 <h6 class="elementor-heading-title elementor-size-default"
                                     style="color:white; letter-spacing: 0 !important;">
                                     {{ $direction == 'rtl' ? $vision->title_ar : $vision->title_en }}
@@ -492,11 +494,11 @@
                                 <div class="elementor-widget-container">
                                     <div class="elementor-button-wrapper">
                                         <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink"
-                                           href="{{url('vision')}}">
+                                           href="{{url('vision')}}" style=" border-radius: 5px;">
                                             <span class="elementor-button-content-wrapper">
                                                 <span class="elementor-button-text"
                                                       style="color:white; letter-spacing: 0 !important;">
-                                                    {{  __('landing.Know More') }}
+                                                    {{  __('landing.Know More')}}
                                                 </span>
                                             </span>
                                         </a>
@@ -508,7 +510,7 @@
                     <!--image-->
                     <div class="elementor-element elementor-element-28b00fe3 e-con-full e-flex e-con e-child"
                          data-element_type="container"
-                         style="background-image: url({{ asset('storage/' . $vision->image) }});"
+                         style="background-image: url({{ asset('storage/' . $vision->image) }}); border-radius: 10px;"
                          data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                     </div>
                 </div>
@@ -524,18 +526,18 @@
                     <!--image-->
                     <div class="elementor-element elementor-element-28b00fe3 e-con-full e-flex e-con e-child"
                          data-element_type="container"
-                         style="background-image: url({{ asset('storage/' . $goals->image) }});"
+                         style="background-image: url({{ asset('storage/' . $goals->image) }}); border-radius: 10px;"
                          data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                     </div>
                     <!--Texts-->
                     <div
                         class="elementor-element elementor-element-278b821f e-con-full e-flex elementor-invisible e-con e-child"
-                        data-element_type="container"
+                        data-element_type="container" style="border-radius: 10px;"
                         data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInRight&quot;}">
                         <div
                             class="elementor-element elementor-element-625f9619 elementor-widget elementor-widget-heading"
                             data-id="625f9619" data-element_type="widget" data-widget_type="heading.default">
-                            <div class="elementor-widget-container">
+                            <div class="elementor-widget-container" style="border-radius: 5px;">
                                 <h6 class="elementor-heading-title elementor-size-default"
                                     style="color:white; letter-spacing: 0 !important;">
                                     {{ $direction == 'rtl' ? $goals->title_ar : $goals->title_en }}
@@ -560,7 +562,7 @@
                                 <div class="elementor-widget-container">
                                     <div class="elementor-button-wrapper">
                                         <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink"
-                                           href="{{url('goals')}}">
+                                           href="{{url('goals')}}" style=" border-radius: 5px;">
                                             <span class="elementor-button-content-wrapper">
                                                 <span class="elementor-button-text"
                                                       style="color:white; letter-spacing: 0 !important;">
@@ -614,10 +616,10 @@
                             <div class="elementor-widget-container">
                                 <div class="elementor-button-wrapper">
                                     <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink"
-                                       href="{{route('storage')}}">
+                                       href="{{route('storage')}}" style="border-radius: 5px">
                                     <span class="elementor-button-content-wrapper">
                                         <span class="elementor-button-text"
-                                              style="color: white; letter-spacing: 0 !important;">
+                                              style="color: white; letter-spacing: 0 !important; ">
                                             {{  __('landing.Know More') }}
                                         </span>
                                     </span>
@@ -668,7 +670,7 @@
                             <div class="elementor-widget-container">
                                 <div class="elementor-button-wrapper">
                                     <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink"
-                                       href="{{url('fleet')}}">
+                                       href="{{url('fleet')}}" style="border-radius: 5px">
                                     <span class="elementor-button-content-wrapper">
                                         <span class="elementor-button-text"
                                               style="color: white; letter-spacing: 0 !important;">
@@ -725,13 +727,13 @@
                     <div class="elementor-element elementor-element-1486b685 e-con-full e-flex e-con e-child"
                          data-element_type="container">
                         <div class="elementor-element elementor-element-4d3ea87b e-con-full e-flex e-con e-child"
-                             style="background-image: url({{ $contact_second_image!=null?asset('storage/' . $contact_second_image->image):asset('uploads/mkhazin/tmp/1.jpg') }});"
+                             style="border-radius: 10px; background-image: url({{ $contact_second_image!=null?asset('storage/' . $contact_second_image->image):asset('uploads/mkhazin/tmp/1.jpg') }});"
                              data-element_type="container"
                              data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                         </div>
                         @if(!empty($contactInfos))
                             <div class="elementor-element elementor-element-44550122 e-con-full e-flex e-con e-child"
-                                 data-element_type="container"
+                                 data-element_type="container" style="border-radius: 10px;"
                                  data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                                 @foreach($contactInfos as $contactInfo)
                                     <!--Call-->
@@ -855,7 +857,7 @@
                         @endif
                     </div>
                     <div class="elementor-element elementor-element-3a8d2fe3 e-con-full e-flex e-con e-child"
-                         style="background-image: url({{ $contact_first_image!=null?asset('storage/' . $contact_first_image->image):asset('uploads/mkhazin/tmp/1.jpg') }});"
+                         style="border-radius: 10px; background-image: url({{ $contact_first_image!=null?asset('storage/' . $contact_first_image->image):asset('uploads/mkhazin/tmp/1.jpg') }});"
                          data-element_type="container"
                          data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                     </div>
@@ -866,7 +868,7 @@
                     data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;}">
                     <div class="elementor-element elementor-element-3738182a elementor-widget elementor-widget-heading"
                          data-id="3738182a" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
+                        <div class="elementor-widget-container" style="border-radius: 5px;">
                             <h6 class="elementor-heading-title elementor-size-default"
                                 style="color: white; letter-spacing: 0 !important;">{{ __('landing.Contact Us') }}</h6>
                         </div>
@@ -888,8 +890,8 @@
                                         <div
                                             class="elementor-element elementor-element-a9dce82 elementor-widget__width-initial elementor-widget">
                                             <div class="elementor-widget-container">
-                                                <div class="rform-control ">
-                                                    <input name="first_name"
+                                                <div class="rform-control">
+                                                    <input name="first_name" style="border-radius: 5px;"
                                                            placeholder="{{ __('landing.First Name') }}"
                                                            class="rform-input"
                                                            type="text" required>
@@ -901,7 +903,7 @@
                                             <div class="elementor-widget-container">
                                                 <div class="rform-control ">
                                                     <input name="last_name" placeholder="{{ __('landing.Last Name') }}"
-                                                           class="rform-input"
+                                                           class="rform-input" style="border-radius: 5px;"
                                                            type="text" required>
                                                 </div>
                                             </div>
@@ -911,7 +913,7 @@
                                             <div class="elementor-widget-container">
                                                 <div class="rform-control ">
                                                     <input name="email" placeholder="{{ __('landing.Email') }}"
-                                                           class="rform-input"
+                                                           class="rform-input" style="border-radius: 5px;"
                                                            type="email" required>
                                                 </div>
                                             </div>
@@ -921,7 +923,7 @@
                                             <div class="elementor-widget-container">
                                                 <div class="rform-control ">
                                                     <input name="phone" placeholder="{{ __('landing.Phone') }}"
-                                                           class="rform-input"
+                                                           class="rform-input" style="border-radius: 5px;"
                                                            type="text" required>
                                                 </div>
                                             </div>
@@ -930,7 +932,7 @@
                                             <div class="elementor-widget-container">
                                                 <div class="rform-control ">
                                                     <input name="subject" placeholder="{{ __('landing.Subject') }}"
-                                                           class="rform-input"
+                                                           class="rform-input" style="border-radius: 5px;"
                                                            type="text" required>
                                                 </div>
                                             </div>
@@ -938,7 +940,7 @@
                                         <div class="elementor-element elementor-element-3e2d7b7 elementor-widget">
                                             <div class="elementor-widget-container">
                                                 <div class="rform-control">
-                                                    <textarea name="message" required
+                                                    <textarea name="message" required style="border-radius: 5px;"
                                                               placeholder="{{ __('landing.Message') }}"
                                                               class="rform-input">
                                                     </textarea>
@@ -949,7 +951,7 @@
                                             <div class="elementor-widget-container">
                                                 <div class="rform-button-container">
                                                     <button class="rform-button-submit " type="submit"
-                                                            style="color: white; letter-spacing: 0 !important;">
+                                                            style="color: white; letter-spacing: 0 !important; border-radius: 5px;">
                                                         @if($direction == 'rtl')
                                                             {{  __('landing.Send Message') }}
                                                             <i aria-hidden="true"
@@ -991,6 +993,7 @@
                                             <div class="rform-container">
                                                 <div class="rform-control ">
                                                     <input name="email" placeholder="Your Email Here"
+                                                           style="{{ $direction == 'rtl' ? 'border-radius: 0 5px 5px 0;' : 'border-radius: 5px 0 0 5px;' }}"
                                                            class="rform-input" type="email">
                                                 </div>
                                             </div>
@@ -1002,7 +1005,8 @@
                                             <div class="rform-button-container">
                                                 <button class="rform-button-submit rform-btn-fullwidth" type="submit"
                                                         id="rform-button-submit"
-                                                        style="color: white; letter-spacing: 0 !important;">
+                                                        style="color: white; letter-spacing: 0 !important;
+                                                        {{  $direction == 'rtl' ? 'border-radius:5px 0 0 5px;' : 'border-radius:0 5px 5px 0;' }}">
                                                     @if($direction == 'rtl')
                                                         {{  __('landing.Subscribe Now') }}
                                                         <i aria-hidden="true"
