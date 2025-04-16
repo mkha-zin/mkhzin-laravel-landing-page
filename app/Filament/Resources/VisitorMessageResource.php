@@ -105,9 +105,11 @@ class VisitorMessageResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('first_name')
                     ->label(__('dashboard.first_name'))
+                    ->limit(10)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('last_name')
                     ->label(__('dashboard.last_name'))
+                    ->limit(10)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
                     ->label(__('dashboard.email'))
