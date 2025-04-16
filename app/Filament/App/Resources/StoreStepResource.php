@@ -6,9 +6,17 @@ use App\Filament\App\Resources\StoreStepResource\Pages;
 use App\Filament\App\Resources\StoreStepResource\RelationManagers;
 use App\Models\StoreStep;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
@@ -53,29 +61,29 @@ class StoreStepResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Section::make(__('dashboard.title'))
+                Section::make(__('dashboard.title'))
                     ->schema([
-                        Forms\Components\TextInput::make('order')
+                        TextInput::make('order')
                             ->label(__('dashboard.order'))
                             ->required()
                             ->unique()
                             ->numeric(),
-                        Forms\Components\TextInput::make('title_ar')
+                        TextInput::make('title_ar')
                             ->label(__('dashboard.title_ar'))
                             ->required()
                             ->maxLength(20),
-                        Forms\Components\TextInput::make('title_en')
+                        TextInput::make('title_en')
                             ->label(__('dashboard.title_en'))
                             ->required()
                             ->maxLength(20),
                     ])->columns(3),
-                Forms\Components\Section::make(__('dashboard.description'))
+                Section::make(__('dashboard.description'))
                     ->schema([
-                        Forms\Components\Textarea::make('description_ar')
+                        Textarea::make('description_ar')
                             ->label(__('dashboard.description_ar'))
                             ->required()
                             ->maxLength(255),
-                        Forms\Components\Textarea::make('description_en')
+                        Textarea::make('description_en')
                             ->label(__('dashboard.description_en'))
                             ->required()
                             ->maxLength(255),
@@ -87,28 +95,28 @@ class StoreStepResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('order')
+                TextColumn::make('order')
                     ->label(__('dashboard.order'))
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make(
+                TextColumn::make(
                     App::currentLocale() === 'en' ? 'title_en' : 'title_ar'
                 )
                     ->label(__('dashboard.title'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make(
+                TextColumn::make(
                     App::currentLocale() === 'en' ? 'description_en' : 'description_ar'
                 )
                     ->label(__('dashboard.description'))
                     ->words(8)
                     ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->date()
                     ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label(__('dashboard.updated at'))
                     ->date()
                     ->dateTimeTooltip('Y/m/d h:i:s A')
@@ -119,20 +127,13 @@ class StoreStepResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make()->label('')->tooltip(__('dashboard.view')),
-                Tables\Actions\EditAction::make()->label('')->tooltip(__('dashboard.edit')),
-                Tables\Actions\DeleteAction::make()->label('')->tooltip(__('dashboard.delete')),
+                ViewAction::make()->label('')->tooltip(__('dashboard.view')),
+                EditAction::make()->label('')->tooltip(__('dashboard.edit')),
+                DeleteAction::make()->label('')->tooltip(__('dashboard.delete')),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                DeleteBulkAction::make(),
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array

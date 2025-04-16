@@ -152,7 +152,6 @@ class LandingController extends Controller
     }
 
 
-
     public function branches(): Factory|View|Application|\Illuminate\View\View
     {
         $return = Branch::select('branches.*');
@@ -289,6 +288,21 @@ class LandingController extends Controller
         return redirect()->back();
     }
 
+    public function downloadApplicatorFiles()
+    {
+        $filePath = public_path("storage/" . request()->record);
+
+        if (!file_exists($filePath)) {
+            Notification::make()
+                ->title(__('dashboard.file not found'))
+                ->danger()
+                ->send();
+
+            return redirect()->back();
+        }
+        return response()->download($filePath);
+    }
+
     public function download()
     {
         $filePath = public_path("storage/filament_exports/" . request()->key . "/" . request()->record . ".xlsx");
@@ -303,21 +317,6 @@ class LandingController extends Controller
             return redirect()->back();
         }
 
-        return response()->download($filePath);
-    }
-
-    public function downloadApplicatorFiles()
-    {
-        $filePath = public_path("storage/" . request()->record);
-
-        if (!file_exists($filePath)) {
-            Notification::make()
-                ->title(__('dashboard.file not found'))
-                ->danger()
-                ->send();
-
-            return redirect()->back();
-        }
         return response()->download($filePath);
     }
 

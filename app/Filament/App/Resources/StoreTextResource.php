@@ -6,9 +6,15 @@ use App\Filament\App\Resources\StoreTextResource\Pages;
 use App\Filament\App\Resources\StoreTextResource\RelationManagers;
 use App\Models\StoreText;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
@@ -54,28 +60,28 @@ class StoreTextResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Section::make(__('dashboard.title'))
+                Section::make(__('dashboard.title'))
                     ->schema([
-                        Forms\Components\TextInput::make('key')
+                        TextInput::make('key')
                             ->label(__('dashboard.key'))
                             ->required()
                             ->disabled(),
-                        Forms\Components\TextInput::make('title_ar')
+                        TextInput::make('title_ar')
                             ->label(__('dashboard.title_ar'))
                             ->required()
                             ->maxLength(255),
-                        Forms\Components\TextInput::make('title_en')
+                        TextInput::make('title_en')
                             ->label(__('dashboard.title_en'))
                             ->required()
                             ->maxLength(255),
                     ])->columns(3),
-                Forms\Components\Section::make(__('dashboard.description'))
+                Section::make(__('dashboard.description'))
                     ->schema([
-                        Forms\Components\TextInput::make('description_ar')
+                        TextInput::make('description_ar')
                             ->label(__('dashboard.description_ar'))
                             ->required()
                             ->maxLength(255),
-                        Forms\Components\TextInput::make('description_en')
+                        TextInput::make('description_en')
                             ->label(__('dashboard.description_en'))
                             ->required()
                             ->maxLength(255),
@@ -87,25 +93,25 @@ class StoreTextResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make(
+                TextColumn::make(
                     App::currentLocale() === 'en' ? 'title_en' : 'title_ar'
                 )
                     ->label(__('dashboard.title'))
                     ->words(5)
                     ->searchable(),
-                Tables\Columns\TextColumn::make(
+                TextColumn::make(
                     App::currentLocale() === 'en' ? 'description_en' : 'description_ar'
                 )
                     ->label(__('dashboard.description'))
                     ->words(10)
                     ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->date()
                     ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label(__('dashboard.updated at'))
                     ->date()
                     ->dateTimeTooltip('Y/m/d h:i:s A')
@@ -116,17 +122,10 @@ class StoreTextResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make()->label(''),
-                Tables\Actions\EditAction::make()->label(''),
-                Tables\Actions\DeleteAction::make()->label(''),
+                ViewAction::make()->label(''),
+                EditAction::make()->label(''),
+                DeleteAction::make()->label(''),
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array

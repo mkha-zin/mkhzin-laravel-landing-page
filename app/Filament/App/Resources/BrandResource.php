@@ -6,12 +6,20 @@ use App\Filament\App\Resources\BrandResource\Pages;
 use App\Filament\App\Resources\BrandResource\RelationManagers;
 use App\Models\Brand;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\ImageEntry;
-use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\Section as InfoSection;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 
@@ -54,13 +62,13 @@ class BrandResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Section::make()
+                Section::make()
                     ->schema([
-                        Forms\Components\TextInput::make('title')
+                        TextInput::make('title')
                             ->required()
                             ->label(__('dashboard.title'))
                             ->maxLength(255),
-                        Forms\Components\FileUpload::make('image')
+                        FileUpload::make('image')
                             ->image()
                             ->imageEditor()
                             ->label(__('dashboard.image'))
@@ -74,19 +82,19 @@ class BrandResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')
+                TextColumn::make('title')
                     ->sortable()
                     ->label(__('dashboard.title'))
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image')
+                ImageColumn::make('image')
                     ->label(__('dashboard.image')),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->date()
                     ->dateTimeTooltip(format: 'Y/m/d h:i:s A')
                     ->label(__('dashboard.created at'))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->date()
                     ->dateTimeTooltip(format: 'Y/m/d h:i:s A')
                     ->label(__('dashboard.updated at'))
@@ -97,13 +105,11 @@ class BrandResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                ViewAction::make(),
+                EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                DeleteBulkAction::make(),
             ]);
     }
 
@@ -111,20 +117,13 @@ class BrandResource extends Resource
     {
         return $infolist
             ->schema([
-                Section::make(
+                InfoSection::make(
                     $infolist->record->title
                 )->schema([
                     ImageEntry::make('image')
                         ->label(__('dashboard.image'))
                 ])
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array

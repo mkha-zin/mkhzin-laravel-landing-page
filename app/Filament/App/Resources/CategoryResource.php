@@ -6,9 +6,18 @@ use App\Filament\App\Resources\CategoryResource\Pages;
 use App\Filament\App\Resources\CategoryResource\RelationManagers;
 use App\Models\Category;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
@@ -53,20 +62,20 @@ class CategoryResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Section::make(__('dashboard.title'))
+                Section::make(__('dashboard.title'))
                     ->schema([
-                        Forms\Components\TextInput::make('title_ar')
+                        TextInput::make('title_ar')
                             ->label(__('dashboard.title_ar'))
                             ->required()
                             ->maxLength(20),
-                        Forms\Components\TextInput::make('title_en')
+                        TextInput::make('title_en')
                             ->label(__('dashboard.title_en'))
                             ->required()
                             ->maxLength(20),
                     ])->columns(2),
-                Forms\Components\Section::make(__('dashboard.image'))
+                Section::make(__('dashboard.image'))
                     ->schema([
-                        Forms\Components\FileUpload::make('image')
+                        FileUpload::make('image')
                             ->label(__('dashboard.image'))
                             ->directory('assets/images/categories')
                             ->image()
@@ -80,21 +89,21 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make(
+                TextColumn::make(
                     App::currentLocale() === 'en' ? 'title_en' : 'title_ar'
                 )
                     ->label(__('dashboard.title'))
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image')
+                ImageColumn::make('image')
                     ->label(__('dashboard.image')),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->date()
                     ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label(__('dashboard.updated at'))
                     ->date()
                     ->dateTimeTooltip('Y/m/d h:i:s A')
@@ -105,20 +114,13 @@ class CategoryResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make()->label(''),
-                Tables\Actions\EditAction::make()->label(''),
-                Tables\Actions\DeleteAction::make()->label(''),
+                ViewAction::make()->label(''),
+                EditAction::make()->label(''),
+                DeleteAction::make()->label(''),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                DeleteBulkAction::make(),
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array

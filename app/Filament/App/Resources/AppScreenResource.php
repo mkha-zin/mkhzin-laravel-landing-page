@@ -6,9 +6,18 @@ use App\Filament\App\Resources\AppScreenResource\Pages;
 use App\Filament\App\Resources\AppScreenResource\RelationManagers;
 use App\Models\AppScreen;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 
@@ -52,13 +61,13 @@ class AppScreenResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Section::make()
+                Section::make()
                     ->schema([
-                        Forms\Components\TextInput::make('title')
+                        TextInput::make('title')
                             ->label(__('dashboard.title'))
                             ->required()
                             ->maxLength(255),
-                        Forms\Components\FileUpload::make('image')
+                        FileUpload::make('image')
                             ->label(__('dashboard.image'))
                             ->image()
                             ->imageEditor()
@@ -72,19 +81,19 @@ class AppScreenResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')
+                TextColumn::make('title')
                     ->label(__('dashboard.title'))
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image')
+                ImageColumn::make('image')
                     ->label(__('dashboard.image')),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->date()
                     ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label(__('dashboard.updated at'))
                     ->date()
                     ->dateTimeTooltip('Y/m/d h:i:s A')
@@ -95,20 +104,13 @@ class AppScreenResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                ViewAction::make(),
+                EditAction::make(),
+                DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                DeleteBulkAction::make(),
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array
