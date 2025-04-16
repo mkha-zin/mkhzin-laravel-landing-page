@@ -120,11 +120,11 @@ class VisitorMessageResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('subject')
                     ->label(__('dashboard.subject'))
-                    ->words(5)
+                    ->limit(15)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('message')
-                    ->words(5)
                     ->label(__('dashboard.message'))
+                    ->limit(20)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
