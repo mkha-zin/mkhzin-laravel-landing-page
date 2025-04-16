@@ -101,6 +101,7 @@ class VisitorMessageResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('created_at', 'desc')
             ->columns([
                 Tables\Columns\TextColumn::make('first_name')
                     ->label(__('dashboard.first_name'))
