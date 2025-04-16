@@ -424,16 +424,16 @@
                         width: 100%;
                         left: 0;
                     }
-                    .active1{
+                    /*.active1{
                         background-color: #df2228;
                         border-radius: 5px;
                         width: 100% !important;
                         color: white !important;
-                    }
-                    /*.active1{
+                    }*/
+                    .active1{
                         border-bottom: 3px solid #df2228;
                         color: #df2228 !important;
-                    }*/
+                    }
                 </style>
 
                 <div class="collapse navbar-collapse flex justify-center text-center" id="navbarSupportedContent">
