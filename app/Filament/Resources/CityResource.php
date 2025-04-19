@@ -5,12 +5,19 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\CityResource\Pages;
 use App\Models\City;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
-use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\Section as InfoSection;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\App;
 
@@ -43,12 +50,12 @@ class CityResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Section::make()->schema([
-                    Forms\Components\TextInput::make('name_ar')
+                Section::make()->schema([
+                    TextInput::make('name_ar')
                         ->label(__('dashboard.name_ar'))
                         ->required()
                         ->maxLength(255),
-                    Forms\Components\TextInput::make('name_en')
+                    TextInput::make('name_en')
                         ->label(__('dashboard.name_en'))
                         ->required()
                         ->maxLength(255),
@@ -60,17 +67,17 @@ class CityResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make(
+                TextColumn::make(
                     App::currentLocale() === 'ar' ? 'name_ar' : 'name_en'
                 )
                     ->label(__('dashboard.name'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label(__('dashboard.updated at'))
                     ->dateTime()
                     ->sortable()
@@ -82,12 +89,12 @@ class CityResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                ViewAction::make(),
+                EditAction::make(),
+                DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                DeleteBulkAction::make(),
             ]);
     }
 
@@ -95,20 +102,13 @@ class CityResource extends Resource
     {
         return $infolist->schema([
 
-            Section::make()->schema([
+            InfoSection::make()->schema([
                 TextEntry::make('name_ar')->label(__('dashboard.name_ar')),
                 TextEntry::make('name_en')->label(__('dashboard.name_en')),
             ])->columns(2),
 
 
         ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array

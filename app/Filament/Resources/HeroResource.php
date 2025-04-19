@@ -5,13 +5,22 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\HeroResource\Pages;
 use App\Models\Hero;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\ImageEntry;
-use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\Section as InfoSection;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\App;
 
@@ -44,19 +53,19 @@ class HeroResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('')->schema([
-                    Forms\Components\FileUpload::make('image')->label(__('dashboard.image'))
+                Section::make('')->schema([
+                    FileUpload::make('image')->label(__('dashboard.image'))
                         ->directory('assets/images/heroes')
                         ->image()
                         ->imageEditor()
                         ->columnSpanFull()
                         ->required(),
                 ]),
-                Forms\Components\Section::make(__('dashboard.titles'))->schema([
-                    Forms\Components\TextInput::make('title_ar')->label(__('dashboard.title_ar'))
+                Section::make(__('dashboard.titles'))->schema([
+                    TextInput::make('title_ar')->label(__('dashboard.title_ar'))
                         ->required()
                         ->maxValue(45),
-                    Forms\Components\TextInput::make('title_en')->label(__('dashboard.title_en'))
+                    TextInput::make('title_en')->label(__('dashboard.title_en'))
                         ->required()
                         ->maxValue(45),
                 ])->columns(2),
@@ -68,19 +77,19 @@ class HeroResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make(
+                TextColumn::make(
                     App::currentLocale() === 'ar' ? 'title_ar' : 'title_en'
                 )->label(__('dashboard.title')),
 
-                Tables\Columns\ImageColumn::make('image')
+                ImageColumn::make('image')
                     ->label(__('dashboard.image')),
 
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label(__('dashboard.updated at'))
                     ->dateTime()
                     ->sortable()
@@ -90,12 +99,12 @@ class HeroResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                ViewAction::make(),
+                EditAction::make(),
+                DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                DeleteBulkAction::make(),
             ]);
     }
 
@@ -112,13 +121,6 @@ class HeroResource extends Resource
 
 
         ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array

@@ -5,9 +5,16 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\DepartmentResource\Pages;
 use App\Models\Department;
 use Filament\Forms;
+use Filament\Forms\Components\MarkdownEditor;
+use Filament\Forms\Components\TagsInput;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\TagsColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
@@ -63,24 +70,24 @@ class DepartmentResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title_ar')
+                TextInput::make('title_ar')
                     ->label(__('dashboard.title_ar'))
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('title_en')
+                TextInput::make('title_en')
                     ->label(__('dashboard.title_en'))
                     ->required()
                     ->maxLength(255),
-                Forms\Components\MarkdownEditor::make('description_ar')
+                MarkdownEditor::make('description_ar')
                     ->label(__('dashboard.description_ar'))
                     ->required(),
-                Forms\Components\MarkdownEditor::make('description_en')
+                MarkdownEditor::make('description_en')
                     ->label(__('dashboard.description_en'))
                     ->required(),
-                Forms\Components\TagsInput::make('tags_ar')
+                TagsInput::make('tags_ar')
                     ->label(__('dashboard.tags'))
                     ->reorderable(),
-                Forms\Components\TagsInput::make('tags_en')
+                TagsInput::make('tags_en')
                     ->label(__('dashboard.tags'))
                     ->reorderable(),
             ]);
@@ -90,13 +97,13 @@ class DepartmentResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make(
+                TextColumn::make(
                     App::currentLocale() === 'ar' ? 'title_ar' : 'title_en'
                 )
                     ->label(__('dashboard.title'))
                     ->words(5)
                     ->searchable(),
-                Tables\Columns\TextColumn::make(
+                TextColumn::make(
                     App::currentLocale() === 'ar' ? 'description_ar' : 'description_en'
                 )
                     ->label(__('dashboard.description'))
@@ -104,18 +111,18 @@ class DepartmentResource extends Resource
                     ->words(50)
                     ->wrap()
                     ->searchable(),
-                Tables\Columns\TagsColumn::make(
+                TagsColumn::make(
                     App::currentLocale() === 'ar' ? 'tags_ar' : 'tags_en'
                 )
                     ->label(__('dashboard.tags'))
                     ->limitList(30)
                     ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label(__('dashboard.updated at'))
                     ->dateTime()
                     ->sortable()
@@ -125,21 +132,9 @@ class DepartmentResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-
-                ]),
+                ViewAction::make(),
+                EditAction::make(),
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array

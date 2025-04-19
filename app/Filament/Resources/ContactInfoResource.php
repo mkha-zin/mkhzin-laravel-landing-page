@@ -5,12 +5,17 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ContactInfoResource\Pages;
 use App\Models\ContactInfo;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
@@ -49,14 +54,14 @@ class ContactInfoResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('action_id')
+                Select::make('action_id')
                     ->label(__('dashboard.action'))
                     ->relationship('action',
                         App::currentLocale() === 'ar' ? 'name_ar' : 'name_en'
                     )
                     ->disabled()
                     ->required(),
-                Forms\Components\TextInput::make('content')
+                TextInput::make('content')
                     ->label(__('dashboard.content'))
                     ->hint(__('dashboard.content_hint'))
                     ->required()
@@ -75,39 +80,31 @@ class ContactInfoResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make(
+                TextColumn::make(
                     App::currentLocale() === 'ar' ? 'action.name_ar' : 'action.name_en'
                 )
                     ->numeric()
                     ->sortable(),
-                /*                Tables\Columns\TextColumn::make('icon')
+                /*                TextColumn::make('icon')
                                     ->label(__('dashboard.icon'))
                                     ->searchable(),*/
-                Tables\Columns\TextColumn::make('content')
+                TextColumn::make('content')
                     ->label(__('dashboard.content'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label(__('dashboard.updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-//                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                ViewAction::make(),
+                EditAction::make(),
             ]);
     }
 
@@ -127,13 +124,6 @@ class ContactInfoResource extends Resource
 
 
         ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array

@@ -6,7 +6,7 @@ use App\Filament\Resources\VisitorMessageResource\Pages;
 use App\Models\VisitorMessage;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
-use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\Section ;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
@@ -140,9 +140,6 @@ class VisitorMessageResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
             ->actions([
                 ViewAction::make(),
                 EditAction::make(),
@@ -173,20 +170,10 @@ class VisitorMessageResource extends Resource
         ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
     public static function getPages(): array
     {
         return [
             'index' => Pages\ListVisitorMessages::route('/'),
-            /*'create' => Pages\CreateVisitorMessage::route('/create'),
-            'view' => Pages\ViewVisitorMessage::route('/{record}'),
-            'edit' => Pages\EditVisitorMessage::route('/{record}/edit'),*/
         ];
     }
 

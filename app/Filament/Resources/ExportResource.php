@@ -132,9 +132,6 @@ class ExportResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
@@ -146,26 +143,13 @@ class ExportResource extends Resource
                         $data['key'] = $record->id;
                         return route('document.download', $data);
                     }),
-            ])
-            ->bulkActions([
-
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array
     {
         return [
             'index' => Pages\ListExports::route('/'),
-            /*'create' => Pages\CreateExport::route('/create'),
-            'view' => Pages\ViewExport::route('/{record}'),
-            'edit' => Pages\EditExport::route('/{record}/edit'),*/
         ];
     }
 }

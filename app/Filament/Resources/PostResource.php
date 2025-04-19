@@ -5,11 +5,22 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PostResource\Pages;
 use App\Filament\Resources\PostResource\RelationManagers;
 use App\Models\Post;
-use Filament\Forms;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\MarkdownEditor;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Support\Colors\Color;
-use Filament\Tables;
+use Filament\Tables\Actions\Action;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\App;
 
@@ -51,47 +62,47 @@ class PostResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Section::make()->schema([
-                    Forms\Components\FileUpload::make('image')
+                Section::make()->schema([
+                    FileUpload::make('image')
                         ->label(__('dashboard.image'))
                         ->directory('assets/images/posts')
                         ->imageEditor()
                         ->image()
                         ->required(),
                 ])->columns(1),
-                Forms\Components\Section::make(__('dashboard.titles'))->schema([
-                    Forms\Components\TextInput::make('title_ar')
+                Section::make(__('dashboard.titles'))->schema([
+                    TextInput::make('title_ar')
                         ->label(__('dashboard.title_ar'))
                         ->required()
                         ->maxLength(255),
-                    Forms\Components\TextInput::make('title_en')
+                    TextInput::make('title_en')
                         ->label(__('dashboard.title_en'))
                         ->required()
                         ->maxLength(255),
                 ])->columns(2),
-                Forms\Components\Section::make(__('dashboard.tagsandstatus'))->schema([
-                    Forms\Components\Select::make('tag_id')
+                Section::make(__('dashboard.tagsandstatus'))->schema([
+                    Select::make('tag_id')
                         ->relationship(
                             'tag',
                             App::currentLocale() === 'ar' ? 'tag_ar' : 'tag_en'
                         )
                         ->label(__('dashboard.tag'))
                         ->required(),
-                    Forms\Components\Select::make('status')
+                    Select::make('status')
                         ->label(__('dashboard.status'))
                         ->options([
                             'active' => __('dashboard.active'),
                             'inactive' => __('dashboard.inactive'),
                         ]),
-                    Forms\Components\DatePicker::make('created_at')
+                    DatePicker::make('created_at')
                         ->label(__('dashboard.created at'))
                         ->required(),
                 ])->columns(3),
-                Forms\Components\Section::make(__('dashboard.article'))->schema([
-                    Forms\Components\MarkdownEditor::make('article_ar')
+                Section::make(__('dashboard.article'))->schema([
+                    MarkdownEditor::make('article_ar')
                         ->label(__('dashboard.article_ar'))
                         ->required(),
-                    Forms\Components\MarkdownEditor::make('article_en')
+                    MarkdownEditor::make('article_en')
                         ->label(__('dashboard.article_en'))
                         ->required(),
                 ])->columns(2),
@@ -102,39 +113,39 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make(
+                TextColumn::make(
                     App::currentLocale() === 'ar' ? 'tag.tag_ar' : 'tag.tag_en'
                 )
                     ->label(__('dashboard.tag'))
                     ->words(2)
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make(
+                TextColumn::make(
                     App::currentLocale() === 'ar' ? 'title_ar' : 'title_en'
                 )
                     ->label(__('dashboard.title'))
                     ->limit(10)
                     ->searchable(),
-                Tables\Columns\TextColumn::make(
+                TextColumn::make(
                     App::currentLocale() === 'ar' ? 'article_ar' : 'article_en'
                 )
                     ->label(__('dashboard.article'))
                     ->limit(15)
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image')
+                ImageColumn::make('image')
                     ->alignCenter(),
-                Tables\Columns\IconColumn::make('status')
+                IconColumn::make('status')
                     ->sortable()
                     ->alignCenter()
                     ->label(__('dashboard.status'))
                     ->color(fn(Post $post) => $post->status === 'active' ? 'success' : 'danger')
                     ->icon(fn(Post $post) => $post->status === 'active' ? 'heroicon-s-check-circle' : 'heroicon-s-x-circle'),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label(__('dashboard.updated at'))
                     ->dateTime()
                     ->sortable()
@@ -144,15 +155,15 @@ class PostResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make()
+                ViewAction::make()
                     ->icon('heroicon-o-photo')
                     ->tooltip(__('dashboard.view'))
                     ->iconButton(),
-                Tables\Actions\EditAction::make()
+                EditAction::make()
                     ->tooltip(__('dashboard.edit'))
                     ->color(Color::Blue)
                     ->iconButton(),
-                Tables\Actions\Action::make('activate')
+                Action::make('activate')
                     ->label(
                         fn(Post $post) => $post->status === 'active' ? __('dashboard.deactivate') : __('dashboard.activate')
                     )
@@ -165,15 +176,16 @@ class PostResource extends Resource
                     ->icon(
                         fn(Post $post) => $post->status === 'active' ? 'heroicon-s-x-circle' : 'heroicon-s-check-circle'
                     )
-                    ->iconButton()
-                    ->requiresConfirmation()
                     ->action(function (Post $post) {
-                        $post->status = $post->status === 'active' ? 'inactive' : 'active';
-                        $post->save();
-                    }),
+                        $post->update([
+                            'status' => $post->status === 'active' ? 'inactive' : 'active',
+                        ]);
+                    })
+                    ->iconButton()
+                    ->requiresConfirmation(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                DeleteBulkAction::make(),
             ]);
     }
 

@@ -8,9 +8,19 @@ use App\Models\Voucher;
 use Filament\Actions\Exports\Enums\ExportFormat;
 use Filament\Actions\Exports\Models\Export;
 use Filament\Forms;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\BulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ExportBulkAction;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use LaraZeus\Delia\Filament\Actions\BookmarkHeaderAction;
@@ -48,30 +58,30 @@ class VoucherResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Section::make(__('dashboard.voucher details'))
+                Section::make(__('dashboard.voucher details'))
                     ->collapsible()
                     ->schema([
-                        Forms\Components\TextInput::make('voucher')
+                        TextInput::make('voucher')
                             ->label(__('dashboard.voucher'))
                             ->unique()
                             ->required()
                             ->maxLength(255),
-                        Forms\Components\Toggle::make('used')
+                        Toggle::make('used')
                             ->label(__('dashboard.Used'))
                             ->required(),
                     ])->columns(2),
 
-                Forms\Components\Section::make(__('dashboard.beneficiary details'))
+                Section::make(__('dashboard.beneficiary details'))
                     ->collapsible()
                     ->collapsed()
                     ->schema([
-                        Forms\Components\TextInput::make('c_name')
+                        TextInput::make('c_name')
                             ->label(__('dashboard.customer name'))
                             ->maxLength(255),
-                        Forms\Components\TextInput::make('phone')
+                        TextInput::make('phone')
                             ->label(__('dashboard.customer phone'))
                             ->maxLength(255),
-                        Forms\Components\DateTimePicker::make('using_date')
+                        DateTimePicker::make('using_date')
                             ->label(__('dashboard.using_date')),
                     ])->columns(3),
 
@@ -84,54 +94,48 @@ class VoucherResource extends Resource
             ->defaultSort('id')
             ->striped()
             ->columns([
-                Tables\Columns\TextColumn::make('id')
+                TextColumn::make('id')
                     ->label('#')
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('voucher')
+                TextColumn::make('voucher')
                     ->label(__('dashboard.voucher'))
                     ->searchable()
                     ->badge()
                     ->copyable()
                     ->copyMessage(__('dashboard.Copied!'))
                     ->copyMessageDuration(1500),
-                Tables\Columns\IconColumn::make('used')
+                IconColumn::make('used')
                     ->label(__('dashboard.Used'))
                     ->boolean()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('c_name')
+                TextColumn::make('c_name')
                     ->label(__('dashboard.customer name'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('phone')
+                TextColumn::make('phone')
                     ->label(__('dashboard.customer phone'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('using_date')
+                TextColumn::make('using_date')
                     ->label(__('dashboard.using_date'))
                     ->date()
                     ->dateTimeTooltip(format: 'Y/m/d h:i:s a')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated at')
+                TextColumn::make('updated at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                ViewAction::make(),
+                EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-//                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
-                Tables\Actions\ExportBulkAction::make()
+                ExportBulkAction::make()
                     ->exporter(VoucherExporter::class)
                     ->formats([
                         ExportFormat::Xlsx,
@@ -139,7 +143,7 @@ class VoucherResource extends Resource
                     ->fileDisk('public')
                     ->icon('heroicon-o-arrow-down-circle')
                     ->fileName(fn(Export $export): string => "vouchers-{$export->getKey()}"),
-                Tables\Actions\BulkAction::make('exports')
+                BulkAction::make('exports')
                     ->label(__('dashboard.exports'))
                     ->icon('heroicon-o-newspaper')
                     ->url('exports')
@@ -148,20 +152,10 @@ class VoucherResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
     public static function getPages(): array
     {
         return [
             'index' => Pages\ListVouchers::route('/'),
-            /*            'create' => Pages\CreateVoucher::route('/create'),
-                        'view' => Pages\ViewVoucher::route('/{record}'),
-                        'edit' => Pages\EditVoucher::route('/{record}/edit'),*/
         ];
     }
 

@@ -5,9 +5,16 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\HeaderResource\Pages;
 use App\Models\Header;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
@@ -47,21 +54,21 @@ class HeaderResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Section::make()->schema([
-                    Forms\Components\TextInput::make('key')
+                Section::make()->schema([
+                    TextInput::make('key')
                         ->hidden()
                         ->required()
                         ->disabled()
                         ->maxLength(255),
-                    Forms\Components\TextInput::make('title_ar')
+                    TextInput::make('title_ar')
                         ->label(__('dashboard.title_ar'))
                         ->required()
                         ->maxLength(255),
-                    Forms\Components\TextInput::make('title_en')
+                    TextInput::make('title_en')
                         ->label(__('dashboard.title_en'))
                         ->required()
                         ->maxLength(255),
-                    Forms\Components\FileUpload::make('image')
+                    FileUpload::make('image')
                         ->label(__('dashboard.image'))
                         ->directory('assets/images/headers')
                         ->image()
@@ -76,19 +83,19 @@ class HeaderResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make(
+                TextColumn::make(
                     App::currentLocale() === 'ar' ? 'title_ar' : 'title_en'
                 )->label(__('dashboard.title'))
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\ImageColumn::make('image')
+                ImageColumn::make('image')
                     ->label(__('dashboard.image')),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label(__('dashboard.updated at'))
                     ->dateTime()
                     ->sortable()
@@ -98,28 +105,18 @@ class HeaderResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                ViewAction::make(),
+                EditAction::make(),
             ])
             ->bulkActions([
 
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
     public static function getPages(): array
     {
         return [
             'index' => Pages\ListHeaders::route('/'),
-            /*'create' => Pages\CreateHeader::route('/create'),
-            'view' => Pages\ViewHeader::route('/{record}'),
-            'edit' => Pages\EditHeader::route('/{record}/edit'),*/
         ];
     }
 }

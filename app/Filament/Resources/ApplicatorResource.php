@@ -7,6 +7,8 @@ use App\Filament\Resources\ApplicatorResource\RelationManagers;
 use App\Models\Applicator;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 
@@ -48,45 +50,45 @@ class ApplicatorResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->label(__('dashboard.name'))
                     ->words(3)
                     ->searchable(),
-                Tables\Columns\TextColumn::make('phone')
+                TextColumn::make('phone')
                     ->label(__('dashboard.phone'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('email')
+                TextColumn::make('email')
                     ->label(__('dashboard.email'))
                     ->limit(10)
                     ->tooltip(fn(Applicator $record): string => $record->email)
                     ->searchable(),
-                Tables\Columns\TextColumn::make('city')
+                TextColumn::make('city')
                     ->label(__('dashboard.address'))
                     ->description(fn(Applicator $record): string => $record->district, position: 'above')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('description')
+                TextColumn::make('description')
                     ->label(__('dashboard.description'))
                     ->tooltip(fn(Applicator $record): string => $record->description)
                     ->words(5),
-                Tables\Columns\TextColumn::make('social_profiles')
+                TextColumn::make('social_profiles')
                     ->listWithLineBreaks()
                     ->distinctList()
                     ->bulleted()
                     ->copyable()
                     ->expandableLimitedList(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->date()
                     ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label(__('dashboard.updated at'))
                     ->date()
                     ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\IconColumn::make('cv_path')
+                IconColumn::make('cv_path')
                     ->label(__('dashboard.resume'))
                     ->tooltip(__('dashboard.Click to Download'))
                     ->alignCenter()
@@ -98,7 +100,7 @@ class ApplicatorResource extends Resource
                     ->color('primary')
                     ->icon('heroicon-s-document-arrow-down')
                     ->searchable(),
-                Tables\Columns\IconColumn::make('license_path')
+                IconColumn::make('license_path')
                     ->label(__('dashboard.license'))
                     ->tooltip(__('dashboard.Click to Download'))
                     ->alignCenter()->url(function ($record) {
@@ -110,13 +112,6 @@ class ApplicatorResource extends Resource
                     ->icon('heroicon-s-arrow-down-circle')
                     ->searchable(),
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array

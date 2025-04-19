@@ -5,9 +5,18 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\UserResource\Pages;
 use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\SelectColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 
@@ -54,17 +63,17 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Section::make()->schema([
-                    Forms\Components\TextInput::make('name')
+                Section::make()->schema([
+                    TextInput::make('name')
                         ->label(__('dashboard.name'))
                         ->required()
                         ->maxLength(255),
-                    Forms\Components\TextInput::make('email')
+                    TextInput::make('email')
                         ->label(__('dashboard.email'))
                         ->email()
                         ->required()
                         ->maxLength(255),
-                    Forms\Components\Select::make('role')
+                    Select::make('role')
                         ->label(__('dashboard.role'))
                         ->options([
                             'super' => __('dashboard.super admin'),
@@ -72,9 +81,9 @@ class UserResource extends Resource
                             'employee' => __('dashboard.employee'),
                         ])
                         ->required(),
-                    Forms\Components\DateTimePicker::make('email_verified_at')
+                    DateTimePicker::make('email_verified_at')
                         ->label(__('dashboard.email verified at')),
-                    Forms\Components\TextInput::make('password')
+                    TextInput::make('password')
                         ->label(__('dashboard.password'))
                         ->password()
                         ->required()
@@ -89,13 +98,13 @@ class UserResource extends Resource
         return $table
             ->query(User::where('id', '!=', auth()->id()))
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->label(__('dashboard.name'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('email')
+                TextColumn::make('email')
                     ->label(__('dashboard.email'))
                     ->searchable(),
-                Tables\Columns\SelectColumn::make('role')
+                SelectColumn::make('role')
                     ->label(__('dashboard.role'))
                     ->options([
                         'super' => __('dashboard.super admin'),
@@ -103,34 +112,24 @@ class UserResource extends Resource
                         'employee' => __('dashboard.employee'),
                     ])
                     ->sortable(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label(__('dashboard.updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                ViewAction::make(),
+                EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                DeleteBulkAction::make(),
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array

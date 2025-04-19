@@ -5,17 +5,28 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\OfferResource\Pages;
 use App\Models\Offer;
 use Filament\Forms;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\MarkdownEditor;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\ImageEntry;
-use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\Section as InfoSection;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ReplicateAction;
 use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\CheckboxColumn;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
@@ -79,44 +90,44 @@ class OfferResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make(
+                TextColumn::make(
                     App::currentLocale() === 'ar' ? 'name_ar' : 'name_en'
                 )
                     ->label(__('dashboard.name'))
                     ->searchable(),
 
-                Tables\Columns\TextColumn::make(
+                TextColumn::make(
                     App::currentLocale() === 'ar' ? 'description_ar' : 'description_en'
                 )
                     ->label(__('dashboard.description'))
                     ->words(5)
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image')
+                ImageColumn::make('image')
                     ->label(__('dashboard.image')),
-                Tables\Columns\TextColumn::make('pdf_file')
+                TextColumn::make('pdf_file')
                     ->label(__('dashboard.files'))
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('start_date')
+                TextColumn::make('start_date')
                     ->label(__('dashboard.start_date'))
                     ->date()
                     ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->sortable(),
-                Tables\Columns\TextColumn::make('end_date')
+                TextColumn::make('end_date')
                     ->label(__('dashboard.end_date'))
                     ->date()
                     ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\CheckboxColumn::make('is_active')
+                CheckboxColumn::make('is_active')
                     ->label(__('dashboard.status')),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->date()
                     ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label(__('dashboard.updated at'))
                     ->date()
                     ->dateTimeTooltip('Y/m/d h:i:s A')
@@ -138,8 +149,8 @@ class OfferResource extends Resource
                     ->tooltip(__('dashboard.Replicate Offer'))
                     ->excludeAttributes(['is_active'])
                     ->form([
-                        Forms\Components\Section::make()->schema([
-                            Forms\Components\Select::make('branch_id')
+                        Section::make()->schema([
+                            Select::make('branch_id')
                                 ->label(__('dashboard.branch'))
                                 ->relationship('branch',
                                     App::currentLocale() === 'ar' ? 'name_ar' : 'name_en'
@@ -148,17 +159,17 @@ class OfferResource extends Resource
                                 ->required(),
                         ])->columns(2),
 
-                        Forms\Components\Section::make(__('dashboard.files'))
+                        Section::make(__('dashboard.files'))
                             ->collapsible()
                             ->collapsed()
                             ->schema([
-                                Forms\Components\FileUpload::make('image')
+                                FileUpload::make('image')
                                     ->label(__('dashboard.image'))
                                     ->directory('assets/images/offers')
                                     ->imageEditor()
                                     ->image()
                                     ->required(),
-                                Forms\Components\FileUpload::make('pdf_file')
+                                FileUpload::make('pdf_file')
                                     ->helperText(__('dashboard.Only Compressed files are allowed'))
                                     ->label(__('dashboard.file'))
                                     ->getUploadedFileNameForStorageUsing(function (UploadedFile $file, ?Offer $record) {
@@ -174,43 +185,43 @@ class OfferResource extends Resource
                                     ->downloadable()
                                     ->required()
                             ])->columns(2),
-                        Forms\Components\Section::make(__('dashboard.title'))
+                        Section::make(__('dashboard.title'))
                             ->collapsible()
                             ->collapsed()
                             ->schema([
-                                Forms\Components\TextInput::make('name_ar')
+                                TextInput::make('name_ar')
                                     ->label(__('dashboard.name_ar'))
                                     ->required()
                                     ->maxLength(255),
-                                Forms\Components\TextInput::make('name_en')
+                                TextInput::make('name_en')
                                     ->label(__('dashboard.name_en'))
                                     ->required()
                                     ->maxLength(255),
                             ])->columns(2),
-                        Forms\Components\Section::make(__('dashboard.descriptions'))
+                        Section::make(__('dashboard.descriptions'))
                             ->collapsible()
                             ->collapsed()
                             ->schema([
-                                Forms\Components\MarkdownEditor::make('description_ar')
+                                MarkdownEditor::make('description_ar')
                                     ->label(__('dashboard.description_ar'))
                                     ->required(),
-                                Forms\Components\MarkdownEditor::make('description_en')
+                                MarkdownEditor::make('description_en')
                                     ->label(__('dashboard.description_en'))
                                     ->required(),
                             ])->columns(2),
 
-                        Forms\Components\Section::make(
+                        Section::make(
                             __('dashboard.duration')
                         )->schema([
-                            Forms\Components\DatePicker::make('start_date')
+                            DatePicker::make('start_date')
                                 ->label(__('dashboard.start_date'))
                                 ->required(),
-                            Forms\Components\DatePicker::make('end_date')
+                            DatePicker::make('end_date')
                                 ->label(__('dashboard.end_date'))
                                 ->required(),
                         ])->columns(2),
 
-                        Forms\Components\Toggle::make('is_active')
+                        Toggle::make('is_active')
                             ->label(__('dashboard.status')),
                     ])
                     ->beforeReplicaSaved(function (Model $replica, array $data): void {
@@ -218,7 +229,7 @@ class OfferResource extends Resource
                     })
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                DeleteBulkAction::make(),
             ]);
     }
 
@@ -226,8 +237,8 @@ class OfferResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Section::make()->schema([
-                    Forms\Components\Select::make('branch_id')
+                Section::make()->schema([
+                    Select::make('branch_id')
                         ->label(__('dashboard.branch'))
                         ->relationship('branch',
                             App::currentLocale() === 'ar' ? 'name_ar' : 'name_en'
@@ -236,15 +247,15 @@ class OfferResource extends Resource
                         ->required(),
                 ])->columns(2),
 
-                Forms\Components\Section::make(__('dashboard.files'))->schema([
-                    Forms\Components\FileUpload::make('image')
+                Section::make(__('dashboard.files'))->schema([
+                    FileUpload::make('image')
                         ->label(__('dashboard.image'))
                         ->directory('assets/images/offers')
                         ->imageEditor()
                         ->image()
                         ->downloadable()
                         ->required(),
-                    Forms\Components\FileUpload::make('pdf_file')
+                    FileUpload::make('pdf_file')
                         ->helperText(__('dashboard.Only Compressed files are allowed'))
                         ->label(__('dashboard.file'))
                         ->getUploadedFileNameForStorageUsing(function (UploadedFile $file, ?Offer $record) {
@@ -260,37 +271,37 @@ class OfferResource extends Resource
                         ->downloadable()
                         ->required()
                 ])->columns(2),
-                Forms\Components\Section::make(__(''))->schema([
-                    Forms\Components\TextInput::make('name_ar')
+                Section::make(__(''))->schema([
+                    TextInput::make('name_ar')
                         ->label(__('dashboard.name_ar'))
                         ->required()
                         ->maxLength(255),
-                    Forms\Components\TextInput::make('name_en')
+                    TextInput::make('name_en')
                         ->label(__('dashboard.name_en'))
                         ->required()
                         ->maxLength(255),
                 ])->columns(2),
-                Forms\Components\Section::make(__('dashboard.descriptions'))->schema([
-                    Forms\Components\MarkdownEditor::make('description_ar')
+                Section::make(__('dashboard.descriptions'))->schema([
+                    MarkdownEditor::make('description_ar')
                         ->label(__('dashboard.description_ar'))
                         ->required(),
-                    Forms\Components\MarkdownEditor::make('description_en')
+                    MarkdownEditor::make('description_en')
                         ->label(__('dashboard.description_en'))
                         ->required(),
                 ])->columns(2),
 
-                Forms\Components\Section::make(
+                Section::make(
                     __('dashboard.duration')
                 )->schema([
-                    Forms\Components\DatePicker::make('start_date')
+                    DatePicker::make('start_date')
                         ->label(__('dashboard.start_date'))
                         ->required(),
-                    Forms\Components\DatePicker::make('end_date')
+                    DatePicker::make('end_date')
                         ->label(__('dashboard.end_date'))
                         ->required(),
                 ])->columns(2),
 
-                Forms\Components\Toggle::make('is_active')
+                Toggle::make('is_active')
                     ->label(__('dashboard.status')),
 
             ]);
@@ -328,13 +339,6 @@ class OfferResource extends Resource
 
 
         ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array

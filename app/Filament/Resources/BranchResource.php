@@ -6,13 +6,23 @@ use App\Filament\Resources\BranchResource\Pages;
 use App\Filament\Resources\BranchResource\RelationManagers;
 use App\Models\Branch;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\ImageEntry;
-use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\Section as InfoSection;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\App;
 
@@ -45,12 +55,12 @@ class BranchResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Section::make()->schema([
-                    Forms\Components\Select::make('city_id')
+                Section::make()->schema([
+                    Select::make('city_id')
                         ->relationship('city',
                             App::currentLocale() === 'ar' ? 'name_ar' : 'name_en')
                         ->default(null),
-                    Forms\Components\Select::make('type')
+                    Select::make('type')
                         ->label(__('dashboard.type'))
                         ->options([
                             'super' => __('dashboard.super'),
@@ -58,28 +68,28 @@ class BranchResource extends Resource
                             'wholesale' => __('dashboard.wholesale'),
                         ]),
                 ])->columns(2),
-                Forms\Components\Section::make()->schema([
-                    Forms\Components\TextInput::make('name_ar')
+                Section::make([
+                    TextInput::make('name_ar')
                         ->label(__('dashboard.name_ar'))
                         ->required()
                         ->maxLength(255),
-                    Forms\Components\TextInput::make('name_en')
+                    TextInput::make('name_en')
                         ->label(__('dashboard.name_en'))
                         ->required()
                         ->maxLength(255),
                 ])->columns(2),
-                Forms\Components\Section::make(__('dashboard.addresses'))->schema([
-                    Forms\Components\TextInput::make('address_ar')
+                Section::make(__('dashboard.addresses'))->schema([
+                    TextInput::make('address_ar')
                         ->label(__('dashboard.address_ar'))
                         ->required()
                         ->maxLength(255),
-                    Forms\Components\TextInput::make('address_en')
+                    TextInput::make('address_en')
                         ->label(__('dashboard.address_en'))
                         ->required()
                         ->maxLength(255),
                 ])->columns(2),
-                Forms\Components\Section::make(__('dashboard.files'))->schema([
-                    Forms\Components\FileUpload::make('image')
+                Section::make(__('dashboard.files'))->schema([
+                    FileUpload::make('image')
                         ->label(__('dashboard.image'))
                         ->directory('assets/images/branches')
                         ->imageEditor()
@@ -93,30 +103,30 @@ class BranchResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make(
+                TextColumn::make(
                     App::currentLocale() === 'ar' ? 'city.name_ar' : 'city.name_en'
                 )
                     ->label(__('dashboard.city'))
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make(
+                TextColumn::make(
                     App::currentLocale() === 'ar' ? 'name_ar' : 'name_en'
                 )
                     ->label(__('dashboard.name'))
                     ->searchable(),
 
-                Tables\Columns\TextColumn::make(
+                TextColumn::make(
                     App::currentLocale() === 'ar' ? 'address_ar' : 'address_en'
                 )
                     ->label(__('dashboard.address'))
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('created_at')
+                ImageColumn::make('image'),
+                TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label(__('dashboard.updated at'))
                     ->dateTime()
                     ->sortable()
@@ -126,12 +136,12 @@ class BranchResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                ViewAction::make(),
+                EditAction::make(),
+                DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                DeleteBulkAction::make(),
             ]);
     }
 
@@ -139,34 +149,24 @@ class BranchResource extends Resource
     {
         return $infolist->schema([
 
-            Section::make(__('dashboard.image'))->schema([
+            InfoSection::make(__('dashboard.image'))->schema([
                 ImageEntry::make('image')
                     ->label(__('dashboard.image')),
             ])->columns(2),
-            Section::make(__(''))->schema([
+            InfoSection::make(__(''))->schema([
                 TextEntry::make('name_ar')->label(__('dashboard.name_ar')),
                 TextEntry::make('name_en')->label(__('dashboard.name_en')),
             ])->columns(2),
-            Section::make(__('dashboard.addresses'))->schema([
+            InfoSection::make(__('dashboard.addresses'))->schema([
                 TextEntry::make('address_ar')->label(__('dashboard.address_ar')),
                 TextEntry::make('address_en')->label(__('dashboard.address_en')),
             ])->columns(2),
-            Section::make(__(''))->schema([
+            InfoSection::make([
                 TextEntry::make(
                     App::currentLocale() === 'ar' ? 'city.name_ar' : 'city.name_en'
                 )->label(__('dashboard.city')),
             ])->columns(2)
-
-
         ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            RelationManagers\OfferRelationManager::class
-
-        ];
     }
 
     public static function getPages(): array
