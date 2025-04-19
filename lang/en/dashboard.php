@@ -235,4 +235,55 @@ return [
     'icon_src_desc' => 'Go to: https://themify.me/themify-icons to see all icons, and copy the icon name to here.',
     'unotherized' => 'Sorry, You are not authorized to access this panel',
 
+    'Jobs Settings' => 'Jobs Settings',
+
+    // Applications
+    'Application' => 'Application',
+    'application' => 'application',
+    'Applications' => 'Hiring Applications',
+
+    'contact info' => 'Contact Info',
+    'QaA' => 'Questions and Answers',
+    'Resume was downloaded successfully' => 'Resume was downloaded successfully',
+
+    'download cv' => 'Download Resume',
+    'Application Details' => 'Application Details',
+
+    // Careers
+    'Career' => 'Career',
+    'career' => 'career',
+    'Careers' => 'Careers',
+
+    'applicants' => 'Applicants',
+    'questions' => 'Questions',
+    'Question' => 'Question',
+    'question' => 'question',
+    'answer type' => 'Answer type',
+    'Yes / No Answer' => 'Yes / No Answer',
+    'Text Answer' => 'Text Answer',
+    'Numeric Answer' => 'Numeric Answer',
+    'Multiple Choices' => 'Multiple Choices',
+    'Write Multiple Choices' => 'Write all the possible Choices for this question, separated by commas ( , ).',
+    'answer example' => 'e.g., Option 1, Option 2, Option 3',
+    'additional questions' => 'Additional Questions',
+    'add a question' => 'Add a Question',
+    'job type' => 'Job type',
+    'Remote' => 'Remote',
+    'On-site' => 'On-site',
+    'view job' => 'View Job',
+    'edit job' => 'Edit Job',
+    'No additional questions.' => 'No additional questions.',
+    'q' => 'Q',
+    'a' => 'A',
+    'No answer' => 'No answer',
+
+    // Settings
+    'Home' => 'Home',
+    'home_desc' => 'Home page settings',
+
+    'Hiring Applications' => 'Hiring Applications',
+    'general_desc' => 'General application page settings',
+    'update settings' => 'Update Settings',
+    'Settings updated successfully' => 'Settings updated successfully',
+
 ];

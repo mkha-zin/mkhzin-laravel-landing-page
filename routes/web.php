@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppLandingController;
+use App\Http\Controllers\JobsController;
 use App\Http\Controllers\LandingController;
 use App\Http\Middleware\Localization;
 use Illuminate\Support\Facades\App;
@@ -16,7 +17,6 @@ Route::group(['middleware' => 'localization'], static function () {
     Route::get('estore', [AppLandingController::class, 'viewStore']);
     Route::get('offers', [LandingController::class, 'offers']);
     Route::get('about', [LandingController::class, 'about']);
-    Route::get('jobs', [LandingController::class, 'jobs']);
     Route::get('blog', [LandingController::class, 'blog']);
     Route::get('blog/{id}', [LandingController::class, 'post']);
     Route::get('branches', [LandingController::class, 'branches']);
@@ -54,6 +54,20 @@ Route::group(['middleware' => 'localization'], static function () {
        return view('joinus');
     });
     Route::post('joinus', [LandingController::class, 'joinUs'])->name('joinus');
+
+    Route::prefix('jobs')->group(static function () {
+        Route::get('/', [JobsController::class, 'index'])->name('jobs.index');
+        Route::get('/{job}/apply', [JobsController::class, 'apply'])->name('jobs.apply');
+        Route::post('/{job}/apply', [JobsController::class, 'store'])->name('jobs.apply.submit');
+
+        Route::get('/general-application', function () {
+            return view('jobs.general_application');
+        })->name('jobs.general-application');
+        Route::post('/general-application', [JobsController::class, 'storeGeneral'])->name('jobs.general-application.submit');
+
+        Route::get('/download_cv', [JobsController::class, 'download'])->name('resume.download');
+    });
+
 });
 
 

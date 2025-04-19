@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\CareerResource\Pages;
+namespace App\Filament\Jobs\Resources\CareerResource\Pages;
 
-use App\Filament\Resources\CareerResource;
+use App\Filament\Jobs\Resources\CareerResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 

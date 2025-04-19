@@ -230,4 +230,56 @@ return [
 
     'icon_src_desc' => 'اذهب الى: https://themify.me/themify-icons لمشاهدة كل الأيقونات، ثم قم بنسخ اسم الأيقونة الى هنا',
     'unotherized' => 'عذراً، ليست لديك صلاحية الوصول لهذه الأعدادات',
+
+    'Jobs Settings' => 'اعدادات الوظائف',
+
+    // Applications
+    'Application' => 'الطلب',
+    'application' => 'طلب',
+    'Applications' => 'طلبات التوظيف',
+
+    'contact info' => 'معلومات الاتصال',
+    'QaA' => 'الاسئلة و الاجابات',
+    'Resume was downloaded successfully' => 'تم تنزيل السيرة الذاتية بنجاح',
+
+    'download cv' => 'تحميل السيرة الذاتية',
+    'Application Details' => 'تفاصيل طلب التوظيف',
+
+    // Careers
+    'Career' => 'الوظيفة',
+    'career' => 'وظيفة',
+    'Careers' => 'الوظائف',
+
+    'applicants' => 'المتقدمين',
+    'questions' => 'الأسئلة',
+    'Question' => 'السؤال',
+    'question' => 'سؤال',
+    'answer type' => 'نوع الاجابة',
+    'Yes / No Answer' => 'الاجابة بـ نعم / لا',
+    'Text Answer' => 'الاجابة بـ نص',
+    'Numeric Answer' => 'الاجابة بـ رقم',
+    'Multiple Choices' => 'الاجابات المتعددة',
+    'Write Multiple Choices' => 'اكتب كل الخيارات المتاحة لهذا السؤال، مفصولة بفاصلة ( , ).',
+    'answer example' => 'مثال: الخيار 1, الخيار 2, الخيار 3',
+    'additional questions' => 'الاسئلة الاضافية',
+    'add a question' => 'اضافة سؤال',
+    'job type' => 'نوع الوظيفة',
+    'Remote' => 'عن بعد',
+    'On-site' => 'حظوري',
+    'view job' => 'عرض الوظيفة',
+    'edit job' => 'تعديل الوظيفة',
+    'No additional questions.' => 'لا يوجد اسئلة.',
+    'q' => 'س',
+    'a' => 'ج',
+    'No answer' => 'لا يوجد اجابة',
+
+
+    // Settings
+    'Home' => 'الرئيسية',
+    'home_desc' => 'إعدادات الصفحة الرئيسية',
+
+    'Hiring Applications' => 'طلبات التوظيف',
+    'general_desc' => 'إعدادات صفحة طلبات التوظيف العامة',
+    'update settings' => 'تحديث الاعدادات',
+    'Settings updated successfully' => 'تم تحديث الاعدادات بنجاح',
 ];
