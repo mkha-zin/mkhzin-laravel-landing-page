@@ -176,6 +176,10 @@
           href='{{ asset('uploads/sites/82/elementor/css/post-1244_6684730.css') }}' media='all'/>
     <!-- Style the button using CSS -->
     <style>
+        body{
+            background-image: url("{{ asset('images/svg/Patterns.svg') }}");
+        }
+
         .floating-btn {
             display: flex;
             align-items: center;

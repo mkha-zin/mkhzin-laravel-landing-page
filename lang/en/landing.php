@@ -10,6 +10,7 @@ return [
     'Store' => 'Store',
     'Jobs' => 'Jobs',
     'Blog' => 'Blog',
+    'News' => 'News',
     'Branches' => 'Branches',
     'Contact Us' => 'Contact Us',
     'Offers' => 'Offers',

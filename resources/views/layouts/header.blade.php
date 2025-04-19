@@ -464,7 +464,7 @@
                         <li class="nav-hover nav-item">
                             <a class="nav-link {{ request()->segment(1) == 'blog' ? 'active active1' : '' }}"
                                href="{{ url('blog') }}">
-                                {{ __('landing.Blog') }}
+                                {{ __('landing.News') }}
                             </a>
                         </li>
                         <li class="nav-hover nav-item">
