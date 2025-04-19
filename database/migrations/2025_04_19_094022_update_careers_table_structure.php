@@ -44,3 +44,5 @@ return new class extends Migration
         });
     }
 };
+
+// php artisan migrate --path=database/migrations/2025_04_19_094022_update_careers_table_structure.php

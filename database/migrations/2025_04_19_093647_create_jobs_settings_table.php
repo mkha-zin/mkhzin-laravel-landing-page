@@ -47,3 +47,5 @@ return new class extends Migration
         Schema::dropIfExists('jobs_settings');
     }
 };
+
+// php artisan migrate --path=database/migrations/2025_04_19_093647_create_jobs_settings_table.php

@@ -26,6 +26,7 @@ class JobsPanelProvider extends PanelProvider
         return $panel
             ->id('jobs')
             ->path('jobs-m')
+            ->login()
             ->colors([
                 'primary' => Color::hex('#E22128'),
             ])

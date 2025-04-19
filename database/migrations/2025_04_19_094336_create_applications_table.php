@@ -33,3 +33,5 @@ return new class extends Migration
         Schema::dropIfExists('applications');
     }
 };
+
+// php artisan migrate --path=database/migrations/2025_04_19_094336_create_applications_table.php
