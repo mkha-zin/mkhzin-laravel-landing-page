@@ -217,6 +217,10 @@ class LandingController extends Controller
         return view('storage', $data);
     }
 
+    /**
+     * @noinspection PhpVoidFunctionResultUsedInspection
+     * @noinspection UnknownColumnInspection
+     */
     public function viewPdf($id)
     {
         $offer = Offer::query()
@@ -226,7 +230,7 @@ class LandingController extends Controller
             return Redirect::to('offersfiles/extrcs/' . $offer->id . '/' . 'index.html');
         }
 
-        return view('errors.404');
+        return abort(404);
     }
 
     public function vouchers(): Factory|View|Application|\Illuminate\View\View
