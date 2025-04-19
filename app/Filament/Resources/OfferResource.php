@@ -311,28 +311,28 @@ class OfferResource extends Resource
     {
         return $infolist->schema([
 
-            Section::make()->schema([
+            InfoSection::make()->schema([
                 TextEntry::make(
                     App::currentLocale() === 'ar' ? 'branch.name_ar' : 'branch.name_en'
                 )->label(__('dashboard.branch')),
             ])->columns(2),
-            Section::make(__('dashboard.image'))->schema([
+            InfoSection::make(__('dashboard.image'))->schema([
                 ImageEntry::make('image')
                     ->label(__('dashboard.image')),
                 TextEntry::make('pdf_file')
                     ->label(__('dashboard.file')),
             ])->columns(2),
-            Section::make(__(''))->schema([
+            InfoSection::make(__(''))->schema([
                 TextEntry::make('name_ar')->label(__('dashboard.name_ar')),
                 TextEntry::make('name_en')->label(__('dashboard.name_en')),
             ])->columns(2),
-            Section::make(__('dashboard.description'))->schema([
+            InfoSection::make(__('dashboard.description'))->schema([
                 TextEntry::make('description_ar')->label(__('dashboard.description_ar')),
                 TextEntry::make('description_en')->label(__('dashboard.description_en')),
 
             ])->columns(2),
 
-            Section::make(__('dashboard.duration'))->schema([
+            InfoSection::make(__('dashboard.duration'))->schema([
                 TextEntry::make('start_date')->label(__('dashboard.start_date')),
                 TextEntry::make('end_date')->label(__('dashboard.end_date')),
             ])->columns(2)
