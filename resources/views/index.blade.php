@@ -233,7 +233,8 @@
                             class="elementor-element elementor-element-2f9546bc elementor-widget__width-inherit elementor-widget elementor-widget-heading"
                             data-id="2f9546bc" data-element_type="widget" data-widget_type="heading.default">
                             <div class="elementor-widget-container"
-                                 style="justify-content: center; flex: auto; text-align: center; color: white">
+                                 style="line-height: 1.5;font-weight: normal; text-align:justify; word-break:keep-all;
+                                 justify-content: center; flex: auto; color: white">
                                 <h4 class="elementor-heading-title elementor-size-default">
                                     {{
                                         Markdown::block($direction == 'rtl' ? $about->second_text_ar : $about->second_text_en )
