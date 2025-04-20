@@ -13,7 +13,7 @@
 <header id="masthead" itemscope="itemscope">
     <div data-elementor-type="wp-post" data-elementor-id="1060" class="elementor elementor-1060">
         <div class="elementor-element elementor-element-72ea40c e-flex e-con-boxed e-con e-parent"
-             data-element_type="container">
+             data-element_type="container" style="background-color: white">
             <div class="e-con-inner">
                 <div class="elementor-element elementor-element-7127bdc e-con-inner e-flex e-con e-child">
                     <a href="{{ route('locale.setting', 'en') }}" style="color: black">English</a>

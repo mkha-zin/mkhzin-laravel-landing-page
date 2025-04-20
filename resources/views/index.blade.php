@@ -690,7 +690,7 @@
 
         <!-- Posts Section -->
         @if(!empty($posts))
-        <div class="container" style="margin-top: 50px;">
+        <div class="container" style="margin-top: 50px; background-color: white">
             <!-- Section Header -->
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                 <h3 style="margin: 0; color: black">{{ __('landing.Latest Posts') }}</h3>
@@ -862,7 +862,8 @@
                          data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                     </div>
                 </div>
-                <div
+                <div style="background-color: white; padding: 10px 20px; border-radius: 5px; box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+                display: flex; justify-content: center; align-items: center; flex-direction: column;"
                     class="elementor-element elementor-element-3f1ec870 e-con-full e-flex elementor-invisible e-con e-child"
                     data-id="3f1ec870" data-element_type="container"
                     data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;}">
