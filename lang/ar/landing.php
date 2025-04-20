@@ -54,7 +54,7 @@ return [
     'Website' => 'المتجر الالكتروني',
     'Whatsapp' => 'رقم واتساب',
 
-    'Keep in touch' => 'ابق على تواصل معنا',
+    'Keep in touch' => 'خليك على تواصل معنا',
     'Subscribe to our Newsletter' => 'اشترك في النشرة البريدية الخاصة بنا',
 
     'vision' => 'الرؤية',
