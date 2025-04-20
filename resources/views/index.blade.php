@@ -878,7 +878,10 @@
                         class="elementor-element elementor-element-5292ea15 elementor-widget__width-inherit elementor-widget elementor-widget-heading"
                         data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                            <h2 class="elementor-heading-title elementor-size-default">{{ __('landing.Keep in touch') }}</h2>
+                            <h2 class="elementor-heading-title elementor-size-default"
+                            style="text-align: {{  $direction == 'rtl' ? 'right' : 'left' }} !important;}}">
+                                {{ __('landing.Keep in touch') }}
+                            </h2>
                         </div>
                     </div>
                     <div class="elementor-element elementor-element-4c6beca6 elementor-widget elementor-widget-rform">
