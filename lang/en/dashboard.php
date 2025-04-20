@@ -286,4 +286,16 @@ return [
     'update settings' => 'Update Settings',
     'Settings updated successfully' => 'Settings updated successfully',
 
+    'Published Jobs' => 'Published Jobs',
+    'Total Applicants' => 'Total Applicants',
+    'Applicants Ratio' => 'Applicants Ratio',
+
+    'Avg. Applicants per Job' => 'Avg. Applicants per Job',
+    'Number of applications' => 'Number of applications',
+    'Total job postings' => 'Total job postings',
+
+    'Admin Panel' => 'Admin Panel',
+    'Jobs Portal' => 'Jobs Portal',
+    'App Panel' => 'App Panel',
+
 ];

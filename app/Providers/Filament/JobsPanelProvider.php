@@ -2,10 +2,12 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Jobs\Widgets\JobsStatsOverview;
 use Filament\FontProviders\GoogleFontProvider;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\MenuItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -27,6 +29,19 @@ class JobsPanelProvider extends PanelProvider
             ->id('jobs')
             ->path('jobs-m')
             ->login()
+            ->userMenuItems([
+                    MenuItem::make('admin')
+                        ->label(__('dashboard.Admin Panel'))
+                        ->icon('heroicon-o-home')
+                        ->color('primary')
+                        ->url('/admin'),
+                    MenuItem::make('app')
+                        ->label(__('dashboard.App Panel'))
+                        ->icon('heroicon-o-device-phone-mobile')
+                        ->color('info')
+                        ->url('/app'),
+                ]
+            )
             ->colors([
                 'primary' => Color::hex('#E22128'),
             ])
@@ -40,6 +55,7 @@ class JobsPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Jobs/Widgets'), for: 'App\\Filament\\Jobs\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
+                JobsStatsOverview::class,
             ])
             ->middleware([
                 EncryptCookies::class,

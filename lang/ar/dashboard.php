@@ -282,4 +282,16 @@ return [
     'general_desc' => 'إعدادات صفحة طلبات التوظيف العامة',
     'update settings' => 'تحديث الاعدادات',
     'Settings updated successfully' => 'تم تحديث الاعدادات بنجاح',
+
+    'Published Jobs' => 'الوظائف المنشورة',
+    'Total Applicants' => 'مجموع المتقدمين',
+    'Applicants Ratio' => 'نسبة المتقدمين',
+
+    'Avg. Applicants per Job' => 'متوسط المتقدمين لكل وظيفة',
+    'Number of applications' => 'العدد الكلي للطلبات',
+    'Total job postings' => 'مجموع الوظائف المنشورة',
+
+    'Admin Panel' => 'لوحة التحكم',
+    'Jobs Portal' => 'منصة الوظائف',
+    'App Panel' => 'لوحة التطبيق',
 ];

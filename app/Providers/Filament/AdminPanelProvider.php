@@ -12,6 +12,8 @@ use Filament\FontProviders\GoogleFontProvider;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\MenuItem;
+use Filament\Navigation\NavigationItem;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -41,6 +43,19 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->userMenuItems([
+                    MenuItem::make('jobs')
+                        ->label(__('dashboard.Jobs Portal'))
+                        ->icon('heroicon-o-briefcase')
+                        ->color('warning')
+                        ->url('/jobs-m'),
+                    MenuItem::make('app')
+                        ->label(__('dashboard.App Panel'))
+                        ->icon('heroicon-o-device-phone-mobile')
+                        ->color('info')
+                        ->url('/app'),
+                ]
+            )
             ->colors([
                 'primary' => Color::hex('#E22128'),
             ])

@@ -6,6 +6,7 @@ use Filament\FontProviders\GoogleFontProvider;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\MenuItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -26,6 +27,19 @@ class AppPanelProvider extends PanelProvider
             ->id('app')
             ->path('app')
             ->login()
+            ->userMenuItems([
+                    MenuItem::make('admin')
+                        ->label(__('dashboard.Admin Panel'))
+                        ->icon('heroicon-o-home')
+                        ->color('primary')
+                        ->url('/admin'),
+                    MenuItem::make('jobs')
+                        ->label(__('dashboard.Jobs Portal'))
+                        ->icon('heroicon-o-briefcase')
+                        ->color('warning')
+                        ->url('/jobs-m'),
+                ]
+            )
             ->colors([
                 'primary' => Color::hex('#E22128'),
             ])

@@ -251,8 +251,16 @@ class CareerResource extends Resource
                             ->columns(3)
                             ->columnSpanFull(),
                     ])
+                    ->collapsed()
                     ->collapsible(),
             ]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+          RelationManagers\ApplicationsRelationManager::class,
+        ];
     }
 
 
