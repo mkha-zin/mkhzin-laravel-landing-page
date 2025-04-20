@@ -177,7 +177,7 @@
     <!-- Style the button using CSS -->
     <style>
         body{
-            background-image: url("{{ asset('images/svg/Patterns.svg') }}");
+            background-image: url("{{ asset('images/svg/Sprinkle.svg') }}");
         }
 
         .floating-btn {
