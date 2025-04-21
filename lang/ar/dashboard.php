@@ -265,7 +265,7 @@ return [
     'add a question' => 'اضافة سؤال',
     'job type' => 'نوع الوظيفة',
     'Remote' => 'عن بعد',
-    'On-site' => 'حظوري',
+    'On-site' => 'في مقر الشركة',
     'view job' => 'عرض الوظيفة',
     'edit job' => 'تعديل الوظيفة',
     'No additional questions.' => 'لا يوجد اسئلة.',
