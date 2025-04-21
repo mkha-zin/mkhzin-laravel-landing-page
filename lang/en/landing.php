@@ -29,6 +29,7 @@ return [
 
     'offers_title' => 'Offers',
     'end offer' => 'Offer until',
+    'Previous offers' => 'Previous offers',
     'All Cities' => 'All Cities',
     'All Branches' => 'All Branches',
     'Search' => 'Search',

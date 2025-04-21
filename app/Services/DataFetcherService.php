@@ -45,7 +45,7 @@ class DataFetcherService
     public function getActiveOffers($city = null)
     {
         $query = Offer::select('offers.*')
-            ->where('offers.end_date', '>=', date('Y-m-d'))
+            /*->where('offers.end_date', '>=', date('Y-m-d'))*/
             ->where('offers.is_active', 1)
             ->join('branches', 'branches.id', '=', 'offers.branch_id')
             ->orderBy('offers.end_date', 'desc');

@@ -33,7 +33,7 @@ use Request;
 
 class LandingController extends Controller
 {
-    protected $dataFetcherService;
+    protected DataFetcherService $dataFetcherService;
 
     public function __construct(DataFetcherService $dataFetcherService)
     {
@@ -73,7 +73,6 @@ class LandingController extends Controller
         return view('offers', $data);
     }
 
-
     public function visitorMsg(HttpRequest $request): RedirectResponse
     {
         VisitorMessage::query()->create([
@@ -101,7 +100,6 @@ class LandingController extends Controller
         }
 
         return redirect()->back()->with('success', __('landing.Subscribed Successfully'));
-
     }
 
     public function about(): Factory|View|Application|\Illuminate\View\View
@@ -151,7 +149,6 @@ class LandingController extends Controller
         ]);
     }
 
-
     public function branches(): Factory|View|Application|\Illuminate\View\View
     {
         $return = Branch::select('branches.*');
@@ -168,7 +165,6 @@ class LandingController extends Controller
     public function branchOffers($id): Factory|View|Application|\Illuminate\View\View
     {
         $data['offers'] = Offer::select('offers.*')
-            ->where('offers.end_date', '>=', date('Y-m-d'))
             ->where('offers.is_active', 1)
             ->where('offers.branch_id', $id)
             ->join('branches', 'branches.id', '=', 'offers.branch_id')
@@ -254,7 +250,6 @@ class LandingController extends Controller
         return redirect()->back()->with('error', __('landing.Not Found or Already Used'));
     }
 
-
     public function useVoucher(): RedirectResponse
     {
         $voucher = session()->get('voucher');
@@ -333,92 +328,6 @@ class LandingController extends Controller
         $data['header_title'] = $department->title_ar . ' - ' . $department->title_en;
 
         return view('departments', $data);
-    }
-
-
-    public function joinUs(HttpRequest $request)
-    {
-        $validated = $request->validate([
-            'name' => [
-                'required',
-                'string',
-                'regex:/^(\S+\s+){2,}\S+$/', // Ensures at least 3 words
-                'max:255',
-            ],
-            'phone' => [
-                'required',
-                'regex:/^05\d{8}$/', // Ensures the number starts with 05 and is 10 digits
-            ],
-            'email' => 'required|email|unique:applicators,email',
-            'city' => 'required|string|max:100',
-            'district' => 'required|string|max:100',
-            'social_profiles' => 'required|array|min:1', // At least one social media profile required
-            'social_profiles.*' => 'nullable|url',
-            'cv' => 'nullable|file|mimes:pdf|max:10240', // Max 10MB PDF
-            'license' => 'nullable|file|mimes:jpg,jpeg,png|max:2048',
-            'description' => [
-                'required',
-                'string',
-                'min:15', // At least 15 words
-            ],
-        ], [
-            'name.required' => 'الاسم مطلوب',
-            'name.string' => 'الاسم يجب أن يكون نصًا',
-            'name.regex' => 'الرجاء كتابة الاسم الثلاثي على الأقل',
-            'name.max' => 'يجب ألا يتجاوز الاسم 255 حرفًا',
-
-            'phone.required' => 'رقم الهاتف مطلوب',
-            'phone.regex' => 'يجب أن يكون رقم الهاتف رقمًا سعوديًا صحيحًا من 10 أرقام ويبدأ بـ 05',
-
-            'email.required' => 'البريد الإلكتروني مطلوب',
-            'email.email' => 'يجب إدخال بريد إلكتروني صحيح',
-            'email.unique' => 'البريد الإلكتروني مستخدم بالفعل',
-
-            'city.required' => 'المدينة مطلوبة',
-            'city.string' => 'يجب أن تكون المدينة نصًا',
-            'city.max' => 'يجب ألا يتجاوز اسم المدينة 100 حرف',
-
-            'district.required' => 'الحي مطلوب',
-            'district.string' => 'يجب أن يكون الحي نصًا',
-            'district.max' => 'يجب ألا يتجاوز اسم الحي 100 حرف',
-
-            'social_profiles.required' => 'يجب إدخال رابط واحد على الأقل لوسائل التواصل الاجتماعي',
-            'social_profiles.array' => 'يجب أن تكون وسائل التواصل الاجتماعي في شكل قائمة',
-            'social_profiles.min' => 'يجب إضافة رابط واحد على الأقل لوسائل التواصل الاجتماعي',
-            'social_profiles.*.url' => 'يجب أن يكون الرابط المضاف صحيحًا',
-
-            'cv.file' => 'يجب أن يكون الملف المرفق صالحًا',
-            'cv.mimes' => 'يجب أن تكون السيرة الذاتية بصيغة PDF فقط',
-            'cv.max' => 'يجب ألا يتجاوز حجم السيرة الذاتية 10 ميغابايت',
-
-            'license.file' => 'يجب أن يكون الملف المرفق صالحًا',
-            'license.mimes' => 'يجب أن يكون الترخيص بصيغة JPG أو JPEG أو PNG',
-            'license.max' => 'يجب ألا يتجاوز حجم ملف الترخيص 2 ميغابايت',
-
-            'description.required' => 'الوصف مطلوب',
-            'description.string' => 'يجب أن يكون الوصف نصًا',
-            'description.min' => 'يجب أن يكون الوصف لا يقل عن 15 كلمة',
-        ]);
-
-        // Handle file uploads
-        $cvPath = $request->file('cv')->store('assets/files/users/cv_uploads', 'public');
-        $licensePath = $request->file('license') ? $request->file('license')->store('assets/files/users/license_uploads', 'public') : null;
-
-        // Save application
-        Applicator::create([
-            'name' => $validated['name'],
-            'phone' => $validated['phone'],
-            'email' => $validated['email'],
-            'city' => $validated['city'],
-            'district' => $validated['district'],
-            'social_profiles' => $validated['social_profiles'] ?? [],
-            'cv_path' => $cvPath,
-            'license_path' => $licensePath,
-            'description' => $validated['description'],
-        ]);
-
-
-        return back()->with('success', 'تم إرسال الطلب بنجاح!');
     }
 }
 

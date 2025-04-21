@@ -29,6 +29,7 @@ return [
     'go to store' => 'الذهاب إلى المتجر',
 
     'offers_title' => 'عروضنا',
+    'Previous offers' => 'العروض السابقة',
     'All Cities' => 'كل المدن',
     'All Branches' => 'كل الفروع',
     'Search' => 'بحث',

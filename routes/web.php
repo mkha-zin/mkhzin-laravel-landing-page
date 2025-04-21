@@ -50,11 +50,6 @@ Route::group(['middleware' => 'localization'], static function () {
         return redirect('admin/login');
     })->name('login.reset');
 
-    Route::get('joinus', function () {
-       return view('joinus');
-    });
-    Route::post('joinus', [LandingController::class, 'joinUs'])->name('joinus');
-
     Route::prefix('jobs')->group(static function () {
         Route::get('/', [JobsController::class, 'index'])->name('jobs.index');
         Route::get('/{job}/apply', [JobsController::class, 'apply'])->name('jobs.apply');
