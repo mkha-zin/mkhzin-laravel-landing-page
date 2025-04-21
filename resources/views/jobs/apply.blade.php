@@ -187,7 +187,7 @@
                 <!-- Phone -->
                 <div class="col-md-6">
                     <label for="phone" class="form-label">{{ __('home.Phone Number') }}</label>
-                    <input type="text" name="phone" style="background-color: transparent; color: black" class="form-control @error('phone') is-invalid @enderror"
+                    <input type="tel" name="phone" style="background-color: transparent; color: black" class="form-control @error('phone') is-invalid @enderror"
                            value="{{ old('phone') }}" required>
                     @error('phone')
                     <div class="invalid-feedback d-block">{{ $message }}</div>
