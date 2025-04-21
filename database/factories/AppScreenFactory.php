@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\AppScreen;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\AppScreen>
+ * @extends Factory<AppScreen>
  */
 class AppScreenFactory extends Factory
 {

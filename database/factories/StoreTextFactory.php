@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\StoreText;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\StoreText>
+ * @extends Factory<StoreText>
  */
 class StoreTextFactory extends Factory
 {

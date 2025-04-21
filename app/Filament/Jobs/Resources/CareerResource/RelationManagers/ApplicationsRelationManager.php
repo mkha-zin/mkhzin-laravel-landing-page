@@ -3,23 +3,12 @@
 namespace App\Filament\Jobs\Resources\CareerResource\RelationManagers;
 
 use App\Models\Application;
-use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Infolists\Components\Actions\Action;
-use Filament\Infolists\Components\Section;
-use Filament\Infolists\Components\TextEntry;
-use Filament\Infolists\Infolist;
 use Filament\Resources\RelationManagers\RelationManager;
-use Filament\Tables;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ApplicationsRelationManager extends RelationManager
 {

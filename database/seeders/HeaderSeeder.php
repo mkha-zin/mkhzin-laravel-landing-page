@@ -44,5 +44,13 @@ class HeaderSeeder extends Seeder
                 'image' => 'https://picsum.photos/200/300',
             ]
         );
+        Header::factory()->create(
+            [
+                'key' => 'news',
+                'title_ar' => 'ترويسة صفحة الاخبار',
+                'title_en' => 'News Page\'s Header',
+                'image' => 'https://picsum.photos/200/300',
+            ]
+        );
     }
 }

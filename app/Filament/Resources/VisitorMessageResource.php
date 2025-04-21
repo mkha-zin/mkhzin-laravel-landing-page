@@ -6,7 +6,7 @@ use App\Filament\Resources\VisitorMessageResource\Pages;
 use App\Models\VisitorMessage;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
-use Filament\Infolists\Components\Section ;
+use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;

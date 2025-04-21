@@ -6,7 +6,6 @@ use App\Filament\Jobs\Resources\CareerResource\Pages;
 use App\Filament\Jobs\Resources\CareerResource\RelationManagers;
 use App\Models\Application;
 use App\Models\Career;
-use Filament\Forms;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Section;
@@ -22,7 +21,6 @@ use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Support\Colors\Color;
-use Filament\Tables;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
@@ -30,8 +28,6 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CareerResource extends Resource
 {
@@ -259,7 +255,7 @@ class CareerResource extends Resource
     public static function getRelations(): array
     {
         return [
-          RelationManagers\ApplicationsRelationManager::class,
+            RelationManagers\ApplicationsRelationManager::class,
         ];
     }
 
