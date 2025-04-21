@@ -151,16 +151,6 @@
     <div class="form-card">
         <form method="POST" enctype="multipart/form-data" novalidate>
             @csrf
-            {{--<!-- Display Errors -->
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul class="mb-0">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif--}}
 
             <div class="section-title">{{ __('home.Personal Information') }}</div>
             <div class="row g-3">
