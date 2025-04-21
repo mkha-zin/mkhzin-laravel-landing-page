@@ -38,7 +38,7 @@ return [
     'Yes' => 'نعم',
     'No' => 'لا',
     'remote' => 'عن بعد',
-    'on-site' => 'حظوري',
+    'on-site' => 'في مقر الشركة',
     'Submit Application' => 'رفع الطلب',
 
     // General Application
