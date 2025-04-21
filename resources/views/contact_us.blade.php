@@ -158,8 +158,9 @@
                          data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                     </div>
                 </div>
-                <div
-                    class="elementor-element elementor-element-3f1ec870 e-con-full e-flex elementor-invisible e-con e-child"
+                <div style="background-color: white; padding: 10px 20px; border-radius: 5px; box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+                display: flex; justify-content: center; align-items: center; flex-direction: column;"
+                     class="elementor-element elementor-element-3f1ec870 e-con-full e-flex elementor-invisible e-con e-child"
                     data-id="3f1ec870" data-element_type="container"
                     data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;}">
                     <div class="elementor-element elementor-element-3738182a elementor-widget elementor-widget-heading"
@@ -173,7 +174,10 @@
                         class="elementor-element elementor-element-5292ea15 elementor-widget__width-inherit elementor-widget elementor-widget-heading"
                         data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                            <h2 class="elementor-heading-title elementor-size-default">{{ __('landing.Keep in touch') }}</h2>
+                            <h2 class="elementor-heading-title elementor-size-default"
+                                style="text-align: {{  $direction == 'rtl' ? 'right' : 'left' }} !important;}}">
+                                {{ __('landing.Keep in touch') }}
+                            </h2>
                         </div>
                     </div>
                     <div class="elementor-element elementor-element-4c6beca6 elementor-widget elementor-widget-rform">
