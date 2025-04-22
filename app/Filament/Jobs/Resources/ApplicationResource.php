@@ -6,6 +6,9 @@ use App\Filament\Jobs\Resources\ApplicationResource\Pages;
 use App\Filament\Jobs\Resources\ApplicationResource\RelationManagers;
 use App\Models\Application;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\Actions\Action;
 use Filament\Infolists\Components\Section;
@@ -13,6 +16,10 @@ use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Table;
 
 class ApplicationResource extends Resource
@@ -55,26 +62,26 @@ class ApplicationResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('job_id')
+                Select::make('job_id')
                     ->relationship('job', 'title')
                     ->required(),
-                Forms\Components\TextInput::make('name')
+                TextInput::make('name')
                     ->required()
                     ->maxLength(191),
-                Forms\Components\TextInput::make('email')
+                TextInput::make('email')
                     ->email()
                     ->required()
                     ->maxLength(191),
-                Forms\Components\TextInput::make('phone')
+                TextInput::make('phone')
                     ->tel()
                     ->required()
                     ->maxLength(191),
-                Forms\Components\TextInput::make('address')
+                TextInput::make('address')
                     ->required()
                     ->maxLength(191),
-                Forms\Components\Textarea::make('resume_link')
+                Textarea::make('resume_link')
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('answers')
+                Textarea::make('answers')
                     ->columnSpanFull(),
             ]);
     }
@@ -83,26 +90,26 @@ class ApplicationResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('job.title')
+                TextColumn::make('job.title')
                     ->label(__('dashboard.Career'))
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->label(__('dashboard.name'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('phone')
+                TextColumn::make('phone')
                     ->label(__('dashboard.contact info'))
                     ->description(fn(Application $record): string => $record->email)
                     ->copyable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('address')
+                TextColumn::make('address')
                     ->label(__('dashboard.address'))
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\ViewColumn::make('answers')
+                ViewColumn::make('answers')
                     ->label(__('dashboard.QaA'))
                     ->view('jobs.answers_view'),
-                Tables\Columns\IconColumn::make('resume_link')
+                IconColumn::make('resume_link')
                     ->icon('heroicon-o-arrow-down-circle')
                     ->alignCenter()
                     ->color('success')
@@ -112,13 +119,13 @@ class ApplicationResource extends Resource
                         $data['key'] = $record->id;
                         return route('resume.download', $data);
                     }),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label(__('dashboard.created_at'))
                     ->date()
                     ->dateTimeTooltip('D Y/M/d H:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label(__('dashboard.updated_at'))
                     ->date()
                     ->dateTimeTooltip('D Y/M/d H:i')
@@ -126,7 +133,7 @@ class ApplicationResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->actions([
-                Tables\Actions\ViewAction::make()->icon('heroicon-o-clipboard-document-list'),
+                ViewAction::make()->icon('heroicon-o-clipboard-document-list'),
             ]);
     }
 
