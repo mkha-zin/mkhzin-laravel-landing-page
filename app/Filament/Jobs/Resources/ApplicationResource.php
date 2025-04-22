@@ -15,6 +15,7 @@ use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
+use Filament\Support\Enums\IconPosition;
 use Filament\Tables;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
@@ -100,7 +101,9 @@ class ApplicationResource extends Resource
                 TextColumn::make('phone')
                     ->label(__('dashboard.contact info'))
                     ->description(fn(Application $record): string => $record->email)
-                    ->copyable()
+                    ->icon('heroicon-m-device-phone-mobile')
+                    ->iconPosition(IconPosition::Before)
+                    ->url(fn(Application $record): string => 'tel:' . $record->phone)
                     ->searchable(),
                 TextColumn::make('address')
                     ->label(__('dashboard.address'))
@@ -157,12 +160,12 @@ class ApplicationResource extends Resource
 
                         TextEntry::make('email')
                             ->label(__('dashboard.email'))
-                            ->copyable()
+                            ->url(fn(Application $record): string => 'mailto:' . $record->email)
                             ->icon('heroicon-m-envelope'),
 
                         TextEntry::make('phone')
                             ->label(__('dashboard.phone'))
-                            ->copyable()
+                            ->url(fn(Application $record): string => 'tel:' . $record->phone)
                             ->icon('heroicon-m-phone'),
 
                         TextEntry::make('address')

@@ -76,7 +76,8 @@ class CareerResource extends Resource
                         ])
                         ->required(),
                     Toggle::make('is_active')
-                        ->label(__('dashboard.status'))
+                        ->label(false)
+                        ->helperText(__('dashboard.status'))
                         ->default(true),
                     MarkdownEditor::make('description')
                         ->label(__('dashboard.description'))
