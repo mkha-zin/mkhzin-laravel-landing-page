@@ -12,7 +12,11 @@
                 </div>
                 <div class="pl-4">
                     <span class="font-semibold ps-3">{{ __('dashboard.a') }}:</span>
-                    {{ Str::limit($item['answer'], 30) ?? __('dashboard.No answer') }}
+                    @if(isset($item['type']) && $item['type'] == 'yes_no')
+                        {{ __('dashboard.' . $item['answer']) ?? __('dashboard.No answer') }}
+                    @else
+                        {{ Str::limit($item['answer'], 30) ?? __('dashboard.No answer') }}
+                    @endif
                 </div>
             </li>
         @endforeach
