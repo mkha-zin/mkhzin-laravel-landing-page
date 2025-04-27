@@ -95,10 +95,10 @@ class CareerResource extends Resource
                             Select::make('type')
                                 ->label(__('dashboard.answer type'))
                                 ->options([
-                                    'yes_no' => __('dashboard.Yes / No Answer'),
-                                    'text' => __('dashboard.Text Answer'),
-                                    'number' => __('dashboard.Numeric Answer'),
-                                    'choices' => __('dashboard.Multiple Choices'),
+                                    'yes_no' => __('dashboard.yes_no'),
+                                    'text' => __('dashboard.text'),
+                                    'number' => __('dashboard.number'),
+                                    'choices' => __('dashboard.choices'),
                                 ])
                                 ->reactive()
                                 ->required(),
@@ -222,15 +222,15 @@ class CareerResource extends Resource
                                     ->label(__('dashboard.answer type'))
                                     ->formatStateUsing(function ($state) {
                                         return match ($state) {
-                                            'yes_no' => __('dashboard.Yes / No Answer'),
-                                            'text' => __('dashboard.Text Answer'),
-                                            'number' => __('dashboard.Numeric Answer'),
-                                            'choices' => __('dashboard.Multiple Choices'),
+                                            'yes_no' => __('dashboard.yes_no'),
+                                            'text' => __('dashboard.text'),
+                                            'number' => __('dashboard.number'),
+                                            'choices' => __('dashboard.choices'),
                                             default => $state,
                                         };
                                     }),
                                 TextEntry::make('options')
-                                    ->label(__('dashboard.Multiple Choices'))
+                                    ->label(__('dashboard.choices'))
                                     ->formatStateUsing(function ($state, $record) {
                                         // Iterate through questions and find the matching type
                                         foreach ($record->questions as $question) {

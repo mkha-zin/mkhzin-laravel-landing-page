@@ -4,7 +4,7 @@
             <li>
                 <strong>{{ __('dashboard.q') . $index + 1 }}:</strong> {{ $question['question'] ?? '' }}
                 @if(isset($question['type']))
-                    <em class="text-gray-500"> ({{ ucfirst(str_replace('_', ' ', $question['type'])) }})</em>
+                    <em class="text-gray-500"> ({{ __('dashboard.' . $question['type']) }})</em>
                 @endif
             </li>
         @endforeach
