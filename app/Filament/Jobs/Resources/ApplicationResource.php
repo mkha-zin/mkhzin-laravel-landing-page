@@ -192,8 +192,9 @@ class ApplicationResource extends Resource
                                     $output .= "<div class='text-sm ps-3 mt-1'>";
                                     if (isset($item['type']) && $item['type'] == 'yes_no') {
                                         $output .= "<span class='font-semibold'>" . __('dashboard.a') . ":</span> " . (__('dashboard.' . $item['answer']) ?? __('No answer'));
+                                    }else{
+                                        $output .= "<span class='font-semibold'>" . __('dashboard.a') . ":</span> " . ($item['answer'] ?? __('No answer'));
                                     }
-                                    $output .= "<span class='font-semibold'>" . __('dashboard.a') . ":</span> " . ($item['answer'] ?? __('No answer'));
                                     $output .= "</div></div>";
                                 }
                                 return $output;
