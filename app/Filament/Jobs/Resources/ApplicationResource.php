@@ -190,6 +190,9 @@ class ApplicationResource extends Resource
                                     $output .= "<div class='my-2 text-sm border rounded p-2 pb-2'>";
                                     $output .= "<strong>" . __('dashboard.q') . ($index + 1) . ":</strong> " . ($item['question'] ?? '');
                                     $output .= "<div class='text-sm ps-3 mt-1'>";
+                                    if (isset($item['type']) && $item['type'] == 'yes_no') {
+                                        $output .= "<span class='font-semibold'>" . __('dashboard.a') . ":</span> " . (__('dashboard.' . $item['answer']) ?? __('No answer'));
+                                    }
                                     $output .= "<span class='font-semibold'>" . __('dashboard.a') . ":</span> " . ($item['answer'] ?? __('No answer'));
                                     $output .= "</div></div>";
                                 }

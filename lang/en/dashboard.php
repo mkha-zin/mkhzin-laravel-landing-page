@@ -241,6 +241,8 @@ return [
     'Application' => 'Application',
     'application' => 'application',
     'Applications' => 'Hiring Applications',
+    'yes' => 'Yes',
+    'no' => 'No',
 
     'contact info' => 'Contact Info',
     'QaA' => 'Questions and Answers',

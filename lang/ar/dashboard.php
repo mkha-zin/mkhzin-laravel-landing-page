@@ -244,6 +244,8 @@ return [
 
     'download cv' => 'تحميل السيرة الذاتية',
     'Application Details' => 'تفاصيل طلب التوظيف',
+    'yes' => 'نعم',
+    'no' => 'لا',
 
     // Careers
     'Career' => 'الوظيفة',
