@@ -135,6 +135,7 @@ return [
     'prohibits' => 'The :attribute field prohibits :other from being present.',
     'regex' => 'The :attribute field format is invalid.',
     'required' => 'The :attribute field is required.',
+    'phone_format' => 'The :attribute must be a valid phone number that starts with "05" and is exactly 10 digits long.',
     'required_array_keys' => 'The :attribute field must contain entries for: :values.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_if_accepted' => 'The :attribute field is required when :other is accepted.',

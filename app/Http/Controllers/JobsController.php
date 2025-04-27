@@ -53,7 +53,7 @@ class JobsController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email',
-            'phone' => ['required', 'string', 'regex:/^\+\d{10,15}$/'],
+            'phone' => ['required', 'string', 'regex:/^05\d{8}$/'],
             'address' => 'required|string',
             'resume' => 'required|file|mimes:pdf,doc,docx|max:10240',
             'last_job' => 'required|string|max:255',
@@ -95,11 +95,7 @@ class JobsController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email',
-            'phone' => [
-                'required',
-                'string',
-                'regex:/^\+\d{10,15}$/'
-            ],
+            'phone' => ['required', 'string', 'regex:/^05\d{8}$/'],
             'address' => 'required|string|max:255',
             'resume' => 'required|file|mimes:pdf,doc,docx|max:10240',
             'questions' => 'nullable|array',
