@@ -153,7 +153,7 @@
     <!-- Welcome Section -->
     <div class="container welcome-section mt-3" >
         <!-- Back Button -->
-        <a href="javascript:history.back()" class="back-btn" style="{{ $dir == 'ltr' ? 'left: 20px' : 'right: 20px' }}">
+        <a href="{{ route('jobs.index') }}" class="back-btn" style="{{ $dir == 'ltr' ? 'left: 20px' : 'right: 20px' }}">
             {{ __('home.Back to Jobs') }}
         </a>
         <div class="container">

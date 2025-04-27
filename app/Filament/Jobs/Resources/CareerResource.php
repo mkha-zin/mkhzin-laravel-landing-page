@@ -21,6 +21,7 @@ use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Support\Colors\Color;
+use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
@@ -148,9 +149,21 @@ class CareerResource extends Resource
                     ->view('jobs.question_view'),
                 IconColumn::make('is_active')
                     ->label(__('dashboard.status'))
+                    ->alignCenter()
+                    ->sortable()
+                    ->toggleable()
                     ->tooltip(fn($record) => $record->is_active ? __('dashboard.active') : __('dashboard.inactive'))
                     ->color(fn($record) => $record->is_active ? 'success' : 'danger')
                     ->icon(fn($record) => $record->is_active ? 'heroicon-o-check-circle' : 'heroicon-o-x-circle')
+                    ->action(
+                        Action::make('activate')
+                            ->label(fn($record) => $record->is_active ? __('dashboard.deactivate') : __('dashboard.activate'))
+                            ->color(fn($record) => $record->is_active ? 'danger' : 'success')
+                            ->icon(fn($record) => $record->is_active ? 'heroicon-o-x-circle' : 'heroicon-o-check-circle')
+                            ->tooltip(fn($record) => $record->is_active ? __('dashboard.deactivate') : __('dashboard.activate'))
+                            ->requiresConfirmation()
+                        ->action(fn($record) => $record->update(['is_active' => !$record->is_active])),
+                    )
                     ->boolean(),
                 TextColumn::make('created_at')
                     ->label(__('dashboard.created_at'))

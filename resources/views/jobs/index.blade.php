@@ -111,14 +111,16 @@
                     <div class="card h-100 shadow-sm">
                         <div class="card-body" style="text-align: {{ $dir == 'ltr' ? 'left' : 'right' }}">
                             <h5 class="card-title">{{ $job->title }}</h5>
-                            <p class="card-text" style="font-size: 11px">
-                                {{ Carbon::parse($job->created_at)->translatedFormat('j F Y') }}
-                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="card-text" style="font-size: 11px">
+                                    {{ Carbon::parse($job->created_at)->translatedFormat('j F Y') }}
+                                </p>
+                                <p class="card-text text-white px-1 rounded badge-danger" style="background-color: #ec0015">
+                                    {{ ucfirst(__('home.' . $job->type )) }}
+                                </p>
+                            </div>
                             <p class="card-text">{{ Markdown::block(Str::limit($job->description, 100)) }}</p>
-                            <p class="text-muted mb-1">
-                                {{ ucfirst(__('home.' . $job->type )) }}
-                            </p>
-                            <a href="{{ route('jobs.apply', $job->id) }}" class="btn btn-primary1 mt-2 text-white">
+                            <a href="{{ route('jobs.apply', $job->id) }}" class="btn btn-primary1 text-white">
                                 {{ __('home.Apply Now') }}
                             </a>
                         </div>
