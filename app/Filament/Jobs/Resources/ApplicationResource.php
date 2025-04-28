@@ -150,7 +150,11 @@ class ApplicationResource extends Resource
                         Action::make('download')
                             ->label(__('dashboard.download cv'))
                             ->icon('heroicon-o-arrow-down-circle')
-                            ->action('download'),
+                            ->url(function ($record) {
+                                $data['resume_link'] = $record->resume_link;
+                                $data['key'] = $record->id;
+                                return route('resume.download', $data);
+                            }),
                     ])
                     ->schema([
                         TextEntry::make('name')
