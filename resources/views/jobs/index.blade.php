@@ -13,19 +13,24 @@
         body {
             font-family: 'Arial', sans-serif;
             background-image: url({{ asset('images/svg/Sprinkle.svg') }});
-            color: #333;
         }
 
         /* Welcome Section */
         .welcome-section {
             background-image: url({{ asset('images/svg/Overlay.svg') }});
             color: white;
-            padding: 60px 0;
-            text-align: center;
+            text-align: right;
             border-radius: 8px;
-            margin-bottom: 40px;
-            position: relative;
+            padding: 10px 10px;
+            margin-bottom: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome-section h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0;
+            color: white;
         }
 
         .welcome-section::before {
@@ -40,20 +45,17 @@
             z-index: -1;
         }
 
-        .welcome-section h1 {
-            font-size: 2.5rem;
+        .welcome-title {
+            display: block;
+            font-size: 1.8rem;
             font-weight: bold;
+            margin-bottom: 10px;
         }
 
-        .welcome-section p {
-            font-size: 1.25rem;
-            margin-top: 20px;
-        }
-
-        .company-logo {
-            width: 120px;
-            height: auto;
-            margin-top: 20px;
+        .welcome-description {
+            display: block;
+            font-size: 1.1rem;
+            margin-top: 0;
         }
 
         /* Button Styling */
@@ -87,22 +89,69 @@
             text-decoration: underline;
         }
 
+        /* Ad Banners Section */
+        .ad-banners {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .ad-banner {
+            flex: 1 1 calc(50% - 10px); /* two columns with gap */
+            border-radius: 12px;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.50);
+            transition: transform 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .welcome-section {
+                border-radius: 0;
+                justify-self: center;
+                justify-content: center;
+                text-align: center;
+            }
+            .ad-banner {
+                margin: 0 10px;
+                flex: 1 1 100%;
+            }
+        }
+
     </style>
 
     <!-- Welcome Section -->
-    <div class="container welcome-section mt-3">
-        <div class="container">
-            <img src="{{ asset('store/images/logo.png') }}" alt="Company Logo" class="company-logo">
-            <h2 class="mt-2 text-white">{{ $lang == 'ar' ? $settings->home_title_ar : $settings->home_title_en }}</h2>
-            <p>{{ Markdown::block($lang == 'ar' ? $settings->home_description_ar : $settings->home_description_en) }}</p>
+    <div class="container welcome-section mt-5">
+        <h2 class="welcome-title">
+            {{ $lang == 'ar' ? $settings->home_title_ar : $settings->home_title_en }}
+        </h2>
+        <p class="welcome-description">
+            {{ Markdown::block($lang == 'ar' ? $settings->home_description_ar : $settings->home_description_en) }}
+        </p>
+    </div>
+
+
+    <!-- Ad Banners -->
+    <div class="container ad-banners">
+        <div class="ad-banner">
+            <!-- You can use an image, text, or button here -->
+            <img src="{{ asset('images/jobs-banner1.jpg') }}" alt="Ad 1" style="width: 100%; height: 100%; border-radius: 8px;">
+        </div>
+        <div class="ad-banner">
+            <img src="{{ asset('images/jobs-banner2.jpg') }}" alt="Ad 2" style="width: 100%; border-radius: 8px;">
         </div>
     </div>
+
 
     <!-- Available Jobs Section -->
     <div class="container my-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2>{{ __('home.Available Jobs') }}</h2>
-            <a href="https://mkhzin.com" target="_blank" class="btn btn-secondary text-white">{{ __('home.Back to Home') }}</a>
         </div>
 
         <div class="row">
