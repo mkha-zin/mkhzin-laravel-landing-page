@@ -474,6 +474,12 @@
                             </a>
                         </li>
                         <li class="nav-hover nav-item">
+                            <a class="nav-link {{ request()->segment(1) == 'jobs' ? 'active active1' : '' }}"
+                               href="{{ route('jobs.index') }}">
+                                {{ __('landing.Jobs') }}
+                            </a>
+                        </li>
+                        <li class="nav-hover nav-item">
                             <a class="nav-link {{ request()->segment(1) == 'contact' ? 'active active1' : '' }}"
                                href="{{ url('/contact') }}">
                                 {{ __('landing.Contact Us') }}
