@@ -152,11 +152,12 @@ class CareerResource extends Resource
                     ->markdown()
                     ->words(5)
                     ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('type')
+                SelectColumn::make('type')
                     ->label(__('dashboard.job type'))
-                    ->tooltip(
-                        fn($record) => $record->type === 'remote' ? __('dashboard.Remote') : __('dashboard.On-site')
-                    )
+                    ->options([
+                        'remote' => __('dashboard.Remote'),
+                        'on-site' => __('dashboard.On-site'),
+                    ])
                     ->sortable(),
                 TextColumn::make('applicants')
                     ->label(__('dashboard.applicants'))
