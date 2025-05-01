@@ -7,7 +7,6 @@
 @endphp
 
 @section('content')
-
     <style>
         /* Custom Styles */
         body {
@@ -140,13 +139,12 @@
     <div class="container ad-banners">
         <div class="ad-banner">
             <!-- You can use an image, text, or button here -->
-            <img src="{{ asset('images/jobs-banner1.jpg') }}" alt="Ad 1" style="width: 100%; height: 100%; border-radius: 8px;">
+            <img src="{{ asset('images/jobs-banner2.png') }}" alt="Ad 1" style="width: 100%; height: 100%; border-radius: 8px;">
         </div>
         <div class="ad-banner">
-            <img src="{{ asset('images/jobs-banner2.jpg') }}" alt="Ad 2" style="width: 100%; border-radius: 8px;">
+            <img src="{{ asset('images/jobs-banner1.png') }}" alt="Ad 2" style="width: 100%; border-radius: 8px;">
         </div>
     </div>
-
 
     <!-- Available Jobs Section -->
     <div class="container my-5">

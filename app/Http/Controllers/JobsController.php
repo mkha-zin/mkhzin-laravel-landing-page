@@ -159,5 +159,4 @@ class JobsController extends Controller
         return response()->download($filePath);
     }
 
-
 }

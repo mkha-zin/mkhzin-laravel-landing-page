@@ -63,6 +63,10 @@ Route::group(['middleware' => 'localization'], static function () {
         Route::get('/download_cv', [JobsController::class, 'download'])->name('resume.download');
     });
 
+    Route::get('test', function () {
+       return view('branch');
+    });
+
 });
 
 
