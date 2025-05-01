@@ -169,6 +169,9 @@ class CareerResource extends Resource
                         'optional' => __('dashboard.optional'),
                         'not_wanted' => __('dashboard.not_wanted'),
                     ])
+                    ->extraAttributes([
+                        'style' => 'margin: 0 10px;',
+                    ])
                     ->sortable()
                     ->toggleable(),
                 ViewColumn::make('questions')
