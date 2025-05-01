@@ -152,13 +152,6 @@ class CareerResource extends Resource
                     ->markdown()
                     ->words(5)
                     ->toggleable(isToggledHiddenByDefault: true),
-                /*SelectColumn::make('type')
-                    ->label(__('dashboard.job type'))
-                    ->options([
-                        'remote' => __('dashboard.Remote'),
-                        'on-site' => __('dashboard.On-site'),
-                    ])
-                    ->sortable(),*/
                 TextColumn::make('type')
                     ->label(__('dashboard.type'))
                     ->formatStateUsing(
@@ -172,13 +165,14 @@ class CareerResource extends Resource
                     ->sortable(),
                 SelectColumn::make('resume_state')
                     ->label(__('dashboard.resume'))
+                    ->alignCenter()
                     ->options([
                         'required' => __('dashboard.required'),
                         'optional' => __('dashboard.optional'),
                         'not_wanted' => __('dashboard.not_wanted'),
                     ])
                     ->extraAttributes([
-                        'style' => 'margin: 0 10px;',
+                        'style' => 'margin: 0 15px;',
                     ])
                     ->sortable()
                     ->toggleable(),
