@@ -50,6 +50,12 @@ class AppPanelProvider extends PanelProvider
             ->pages([
                 Pages\Dashboard::class,
             ])
+            ->renderHook(
+            // This line tells us where to render it
+                'panels::body.end',
+                // This is the view that will be rendered
+                fn() => view('filament-panels::components.custom_footer'),
+            )
             ->discoverWidgets(in: app_path('Filament/App/Widgets'), for: 'App\\Filament\\App\\Widgets')
             ->middleware([
                 EncryptCookies::class,

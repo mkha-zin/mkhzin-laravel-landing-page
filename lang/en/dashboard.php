@@ -162,7 +162,7 @@ return [
 
     // dashboard footer
     'copyright' => 'All Rights Reserved For',
-    'version' => 'version: 1.12.109',
+    'version' => 'version: 2.09.063',
 
     //groups
     'aboutCompanySettings' => 'About Company Settings',

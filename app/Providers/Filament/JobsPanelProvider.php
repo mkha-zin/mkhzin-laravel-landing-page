@@ -52,6 +52,12 @@ class JobsPanelProvider extends PanelProvider
             ->pages([
                 Pages\Dashboard::class,
             ])
+            ->renderHook(
+            // This line tells us where to render it
+                'panels::body.end',
+                // This is the view that will be rendered
+                fn() => view('filament-panels::components.custom_footer'),
+            )
             ->discoverWidgets(in: app_path('Filament/Jobs/Widgets'), for: 'App\\Filament\\Jobs\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
