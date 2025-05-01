@@ -279,6 +279,12 @@ return [
     'a' => 'A',
     'No answer' => 'No answer',
 
+    'job details' => 'Job Details',
+
+    'required' => 'Required',
+    'optional' => 'Optional',
+    'not_wanted' => 'Not Wanted',
+
     // Settings
     'Home' => 'Home',
     'home_desc' => 'Home page settings',

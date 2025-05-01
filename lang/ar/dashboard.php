@@ -275,6 +275,12 @@ return [
     'a' => 'ج',
     'No answer' => 'لا يوجد اجابة',
 
+    'job details' => 'تفاصيل الوظيفة',
+
+    'required' => 'مطلوب',
+    'optional' => 'اختياري',
+    'not_wanted' => 'غير مطلوب',
+
 
     // Settings
     'Home' => 'الرئيسية',

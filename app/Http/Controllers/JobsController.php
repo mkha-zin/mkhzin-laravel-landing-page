@@ -97,7 +97,7 @@ class JobsController extends Controller
             'email' => 'required|email',
             'phone' => ['required', 'string', 'regex:/^05\d{8}$/'],
             'address' => 'required|string|max:255',
-            'resume' => 'required|file|mimes:pdf,doc,docx|max:10240',
+            'resume' => $job->resume_state === 'required' ? 'required|file|mimes:pdf,doc,docx|max:10240' : 'file|mimes:pdf,doc,docx|max:10240',
             'questions' => 'nullable|array',
             'questions.*.answer' => 'required_with:questions|string',
             'questions.*.question' => 'required_with:questions|string',

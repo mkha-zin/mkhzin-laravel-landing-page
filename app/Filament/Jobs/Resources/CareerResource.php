@@ -10,6 +10,7 @@ use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Split;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -26,6 +27,7 @@ use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Table;
@@ -65,26 +67,42 @@ class CareerResource extends Resource
     {
         return $form
             ->schema([
-                Section::make([
-                    TextInput::make('title')
-                        ->label(__('dashboard.title'))
-                        ->required(),
-                    Select::make('type')
-                        ->label(__('dashboard.job type'))
-                        ->options([
-                            'remote' => __('dashboard.Remote'),
-                            'on-site' => __('dashboard.On-site'),
-                        ])
-                        ->required(),
-                    Toggle::make('is_active')
-                        ->label(false)
-                        ->helperText(__('dashboard.status'))
-                        ->default(true),
-                    MarkdownEditor::make('description')
-                        ->label(__('dashboard.description'))
-                        ->columnSpanFull()
-                        ->required(),
-                ])->columns(3),
+                Section::make(__('dashboard.job details'))
+                    ->collapsible()
+                    ->schema([
+                    Split::make([
+                        Section::make([
+                            TextInput::make('title')
+                                ->label(__('dashboard.title'))
+                                ->required(),
+                            Select::make('type')
+                                ->label(__('dashboard.job type'))
+                                ->options([
+                                    'remote' => __('dashboard.Remote'),
+                                    'on-site' => __('dashboard.On-site'),
+                                ])
+                                ->required(),
+                            Select::make('resume_state')
+                                ->label(__('dashboard.resume'))
+                                ->options([
+                                    'required' => __('dashboard.required'),
+                                    'optional' => __('dashboard.optional'),
+                                    'not_wanted' => __('dashboard.not_wanted'),
+                                ])
+                                ->required(),
+                            Toggle::make('is_active')
+                                ->label(false)
+                                ->helperText(__('dashboard.status'))
+                                ->default(true),
+                        ]),
+                        Section::make([
+                            MarkdownEditor::make('description')
+                                ->label(__('dashboard.description'))
+                                ->columnSpanFull()
+                                ->required(),
+                        ]),
+                    ]),
+                ]),
                 Section::make([
                     Repeater::make('questions')
                         ->collapsible()
@@ -144,6 +162,14 @@ class CareerResource extends Resource
                     ->label(__('dashboard.applicants'))
                     ->numeric(locale: 'en')
                     ->sortable(),
+                SelectColumn::make('resume_state')
+                    ->label(__('dashboard.resume'))
+                    ->options([
+                        'required' => __('dashboard.required'),
+                        'optional' => __('dashboard.optional'),
+                        'not_wanted' => __('dashboard.not_wanted'),
+                    ])
+                    ->sortable(),
                 ViewColumn::make('questions')
                     ->label(__('dashboard.additional questions'))
                     ->view('jobs.question_view'),
@@ -162,7 +188,7 @@ class CareerResource extends Resource
                             ->icon(fn($record) => $record->is_active ? 'heroicon-o-x-circle' : 'heroicon-o-check-circle')
                             ->tooltip(fn($record) => $record->is_active ? __('dashboard.deactivate') : __('dashboard.activate'))
                             ->requiresConfirmation()
-                        ->action(fn($record) => $record->update(['is_active' => !$record->is_active])),
+                            ->action(fn($record) => $record->update(['is_active' => !$record->is_active])),
                     )
                     ->boolean(),
                 TextColumn::make('created_at')
