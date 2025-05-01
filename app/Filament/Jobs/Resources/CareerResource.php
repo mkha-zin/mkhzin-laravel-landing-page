@@ -158,10 +158,12 @@ class CareerResource extends Resource
                         fn($record) => $record->type === 'remote' ? __('dashboard.Remote') : __('dashboard.On-site')
                     )
                     ->badge()
+                    ->alignCenter()
                     ->sortable(),
                 TextColumn::make('applicants')
                     ->label(__('dashboard.applicants'))
                     ->numeric(locale: 'en')
+                    ->alignCenter()
                     ->sortable(),
                 SelectColumn::make('resume_state')
                     ->label(__('dashboard.resume'))
@@ -172,7 +174,7 @@ class CareerResource extends Resource
                         'not_wanted' => __('dashboard.not_wanted'),
                     ])
                     ->extraAttributes([
-                        'style' => 'margin: 0 15px;',
+                        'style' => 'margin: 0 10px;',
                     ])
                     ->sortable()
                     ->toggleable(),
