@@ -26,3 +26,5 @@ return new class extends Migration
         });
     }
 };
+
+// php artisan migrate --path=database/migrations/2025_05_01_140152_add_resume_state_to_careers_table.php

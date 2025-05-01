@@ -70,39 +70,39 @@ class CareerResource extends Resource
                 Section::make(__('dashboard.job details'))
                     ->collapsible()
                     ->schema([
-                    Split::make([
-                        Section::make([
-                            TextInput::make('title')
-                                ->label(__('dashboard.title'))
-                                ->required(),
-                            Select::make('type')
-                                ->label(__('dashboard.job type'))
-                                ->options([
-                                    'remote' => __('dashboard.Remote'),
-                                    'on-site' => __('dashboard.On-site'),
-                                ])
-                                ->required(),
-                            Select::make('resume_state')
-                                ->label(__('dashboard.resume'))
-                                ->options([
-                                    'required' => __('dashboard.required'),
-                                    'optional' => __('dashboard.optional'),
-                                    'not_wanted' => __('dashboard.not_wanted'),
-                                ])
-                                ->required(),
-                            Toggle::make('is_active')
-                                ->label(false)
-                                ->helperText(__('dashboard.status'))
-                                ->default(true),
-                        ]),
-                        Section::make([
-                            MarkdownEditor::make('description')
-                                ->label(__('dashboard.description'))
-                                ->columnSpanFull()
-                                ->required(),
+                        Split::make([
+                            Section::make([
+                                TextInput::make('title')
+                                    ->label(__('dashboard.title'))
+                                    ->required(),
+                                Select::make('type')
+                                    ->label(__('dashboard.job type'))
+                                    ->options([
+                                        'remote' => __('dashboard.Remote'),
+                                        'on-site' => __('dashboard.On-site'),
+                                    ])
+                                    ->required(),
+                                Select::make('resume_state')
+                                    ->label(__('dashboard.resume'))
+                                    ->options([
+                                        'required' => __('dashboard.required'),
+                                        'optional' => __('dashboard.optional'),
+                                        'not_wanted' => __('dashboard.not_wanted'),
+                                    ])
+                                    ->required(),
+                                Toggle::make('is_active')
+                                    ->label(false)
+                                    ->helperText(__('dashboard.status'))
+                                    ->default(true),
+                            ]),
+                            Section::make([
+                                MarkdownEditor::make('description')
+                                    ->label(__('dashboard.description'))
+                                    ->columnSpanFull()
+                                    ->required(),
+                            ]),
                         ]),
                     ]),
-                ]),
                 Section::make([
                     Repeater::make('questions')
                         ->collapsible()
@@ -169,7 +169,8 @@ class CareerResource extends Resource
                         'optional' => __('dashboard.optional'),
                         'not_wanted' => __('dashboard.not_wanted'),
                     ])
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 ViewColumn::make('questions')
                     ->label(__('dashboard.additional questions'))
                     ->view('jobs.question_view'),
@@ -192,13 +193,13 @@ class CareerResource extends Resource
                     )
                     ->boolean(),
                 TextColumn::make('created_at')
-                    ->label(__('dashboard.created_at'))
+                    ->label(__('dashboard.created at'))
                     ->date()
                     ->dateTimeTooltip('D Y/M/d H:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
-                    ->label(__('dashboard.updated_at'))
+                    ->label(__('dashboard.updated at'))
                     ->date()
                     ->dateTimeTooltip('D Y/M/d H:i')
                     ->sortable()
