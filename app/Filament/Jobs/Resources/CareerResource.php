@@ -170,7 +170,7 @@ class CareerResource extends Resource
                         'not_wanted' => __('dashboard.not_wanted'),
                     ])
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(),
                 ViewColumn::make('questions')
                     ->label(__('dashboard.additional questions'))
                     ->view('jobs.question_view'),
