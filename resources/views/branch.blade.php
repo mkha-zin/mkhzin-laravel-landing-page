@@ -39,8 +39,10 @@
         <div class="row">
             <!-- Branch Image and social media icons -->
             <div class="col-md-6 position-relative">
-                <img src="{{ asset('storage/' . $branch->image) }}" alt="Branch Image" class="img-fluid w-100 rounded">
-
+                @if(!empty($branch->image))
+                    <img src="{{ asset('storage/' . $branch->image) }}" alt="Branch Image"
+                         class="img-fluid w-100 rounded">
+                @endif
                 <!-- Social Media Icons Overlay -->
                 <div
                     class="position-absolute bottom-0 start-50 translate-middle-x mb-3 d-flex gap-3 justify-content-center">
@@ -75,17 +77,21 @@
                            class="btn btn-dark text-white btn-sm">{{ __('dashboard.jobs') }}</a>
                     </div>
                 </div>
-                <p>
-                    {{ \Filament\Support\Markdown::block(
-                        $direction == 'rtl' ? $branch->description_ar : $branch->description_en) }}
-                </p>
+                @if($branch->description_ar || $branch->description_en)
+                    <p>
+                        {{ \Filament\Support\Markdown::block(
+                            $direction == 'rtl' ? $branch->description_ar ?? '': $branch->description_en ?? '' ) }}
+                    </p>
+                @endif
             </div>
 
 
             <!-- Map Section -->
             <div class="col-md-12" style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important">
                 <h4 class="mb-2">{{ __('landing.branch location details') }}</h4>
-                <p class="mb-2">{{ $direction === 'rtl' ? $branch->address_ar : $branch->address_en }}</p>
+                @if($branch->address_ar || $branch->address_en)
+                    <p class="mb-2">{{ $direction === 'rtl' ? $branch->address_ar ?? $branch->address_en: $branch->address_en ?? $branch->address_ar }}</p>
+                @endif
                 <div id="map" style="height: 400px;" class="rounded shadow-sm"></div>
             </div>
         </div>
@@ -96,22 +102,25 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var map = L.map('map').setView([{{ $branch->latitude }}, {{ $branch->longitude }}], 16);
+            if({{ $branch->latitude && $branch->longitude }}){
+                var map = L.map('map').setView([{{ $branch->latitude }}, {{ $branch->longitude }}], 16);
+            }
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors'
             }).addTo(map);
 
             // Example array of markers
-            var markers = @json($markers);
+            if ({{ !empty($markers) }}){
+                var markers = @json($markers);
 
-            // Loop to add markers
-            markers.forEach(function (markerData) {
-                L.marker([markerData.lat, markerData.lng])
-                    .addTo(map)
-                    .bindPopup(markerData.popup);
-            });
-
+                // Loop to add markers
+                markers.forEach(function (markerData) {
+                    L.marker([markerData.lat, markerData.lng])
+                        .addTo(map)
+                        .bindPopup(markerData.popup);
+                });
+            }
         });
     </script>
 @endsection

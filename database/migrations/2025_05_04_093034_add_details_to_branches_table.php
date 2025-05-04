@@ -40,3 +40,5 @@ return new class extends Migration
         });
     }
 };
+
+// php artisan migrate --path=/database/migrations/2025_05_04_093034_add_details_to_branches_table.php
