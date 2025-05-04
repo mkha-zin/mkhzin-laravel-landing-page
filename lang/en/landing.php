@@ -94,6 +94,8 @@ return [
     'Back To Home' => 'Back To Home',
     'Back To Login' => 'Back To Login',
 
+    'branch location details' => 'Branch Location Details',
+
     'All Posts' => 'All Posts',
     'Meet Us' => 'Meet Us',
     'Book an online appointment to meet our Marketing and Development Team' => 'Book an online appointment to meet our Marketing and Development Team',

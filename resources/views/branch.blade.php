@@ -1,36 +1,91 @@
 @php
-    use App\Models\Header;use Illuminate\Support\Facades\App;
-    use Carbon\Carbon;
-
 
     $direction = app()->currentLocale() == 'ar' ? 'rtl' : 'ltr';
-    $branch = \App\Models\Branch::first();
+
 @endphp
+
 @extends('layouts.app')
 @section('content')
 
     <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <style>
+        .social-icon {
+            width: 50px;
+            border-radius: 0.375rem;
+            padding: 0.3rem;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.05);
+        }
+
+        .tiktok-icon {
+            background-color: #232323;
+        }
+
+        .snapchat-icon {
+            background-color: #f4ef00;
+        }
+
+        .instagram-icon {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        }
+    </style>
 
     <div class="container my-5">
         <div class="row">
-            <!-- Branch Details and Images -->
-            <div class="col-md-6">
-                <h2 class="mb-3">{{ $branch->name }}</h2>
-                <p>{{ $branch->description }}</p>
+            <!-- Branch Image and social media icons -->
+            <div class="col-md-6 position-relative">
+                <img src="{{ asset('storage/' . $branch->image) }}" alt="Branch Image" class="img-fluid w-100 rounded">
 
-                <div class="row">{{--
-                    @foreach ($branch->images as $image)
-                        <div class="col-6 mb-3">
-                            <img src="{{ asset('storage/' . $image->path) }}" class="img-fluid rounded shadow-sm" alt="Branch Image">
-                        </div>
-                    @endforeach--}}
+                <!-- Social Media Icons Overlay -->
+                <div
+                    class="position-absolute bottom-0 start-50 translate-middle-x mb-3 d-flex gap-3 justify-content-center">
+                    @if($branch->snapchat)
+                        <a href="{{ $branch->snapchat }}" target="_blank">
+                            <img class="social-icon snapchat-icon" src="{{ asset('images/icons/snapchat.png') }}">
+                        </a>
+                    @endif
+                    @if($branch->tiktok)
+                        <a href="{{ $branch->tiktok }}" target="_blank">
+                            <img class="social-icon tiktok-icon" src="{{ asset('images/icons/tik-tok.png') }}">
+                        </a>
+                    @endif
+                    @if($branch->instagram)
+                        <a href="{{ $branch->instagram }}" target="_blank">
+                            <img class="social-icon instagram-icon" src="{{ asset('images/icons/instagram.png') }}">
+                        </a>
+                    @endif
                 </div>
             </div>
 
+            <!-- Branch Details and Images -->
+            <div class="col-md-6" style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-start mb-3">
+                    <h3 class="mb-2 mb-md-0" style="color: black">
+                        {{ $direction == 'rtl' ? $branch->name_ar : $branch->name_en }}
+                    </h3>
+                    <div class="d-flex gap-2">
+                        <a href="{{route('branch.offers', $branch->id)}}"
+                           class="btn btn-danger text-white btn-sm">{{ __('dashboard.offers') }}</a>
+                        <a href="{{ route('jobs.index') }}" target="_blank"
+                           class="btn btn-dark text-white btn-sm">{{ __('dashboard.jobs') }}</a>
+                    </div>
+                </div>
+                <p>
+                    {{ \Filament\Support\Markdown::block(
+                        $direction == 'rtl' ? $branch->description_ar : $branch->description_en) }}
+                </p>
+            </div>
+
+
             <!-- Map Section -->
-            <div class="col-md-12">
-                <h4 class="mb-2">Branch Location</h4>
+            <div class="col-md-12" style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important">
+                <h4 class="mb-2">{{ __('landing.branch location details') }}</h4>
+                <p class="mb-2">{{ $direction === 'rtl' ? $branch->address_ar : $branch->address_en }}</p>
                 <div id="map" style="height: 400px;" class="rounded shadow-sm"></div>
             </div>
         </div>
@@ -41,19 +96,14 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var map = L.map('map').setView([24.696698, 46.780471], 16);
+            var map = L.map('map').setView([{{ $branch->latitude }}, {{ $branch->longitude }}], 16);
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors'
             }).addTo(map);
 
             // Example array of markers
-            var markers = [
-                { lat: 24.656698, lng: 46.610471, popup: "<strong>فرع الرياض</strong>" },
-                { lat: 24.774265, lng: 46.738586, popup: "<strong>فرع العليا</strong>" },
-                { lat: 24.713552, lng: 46.675296, popup: "<strong>فرع الملز</strong>" },
-                { lat: 24.696698,  lng: 46.780471, popup: "<strong>فرع الروابي</strong>" },
-            ];
+            var markers = @json($markers);
 
             // Loop to add markers
             markers.forEach(function (markerData) {

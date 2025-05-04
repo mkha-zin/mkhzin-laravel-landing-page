@@ -175,6 +175,25 @@ class LandingController extends Controller
         return view('offers', $data);
     }
 
+    public function branchDetails($id)
+    {
+        $data['branch'] = Branch::find($id);
+        $data['markers'] = Branch::whereNotNull('latitude')
+            ->whereNotNull('longitude')
+            ->get()
+            ->map(function ($branch) {
+                return [
+                    'lat' => (float) $branch->latitude,
+                    'lng' => (float) $branch->longitude,
+                    'popup' => '<strong>' . e(data_get($branch, \App::currentLocale() === 'ar' ? 'name_ar' : 'name_en', '')) . '</strong>',
+                ];
+            })
+            ->values()
+            ->toArray();
+
+        return view('branch', $data);
+    }
+
     public function contact(): Factory|View|Application|\Illuminate\View\View
     {
         $data['contactInfos'] = ContactInfo::query()->get();

@@ -94,6 +94,8 @@ return [
     'Back To Home' => 'العودة إلى الصفحة الرئيسية',
     'Back To Login' => 'العودة إلى صفحة تسجيل الدخول',
 
+    'branch location details' => 'تفاصيل عنوان الفرع',
+
     'All Posts' => 'كل المنشورات',
     'Meet Us' => 'قابلنا',
     'Book an online appointment to meet our Marketing and Development Team' => 'أحجز موعداً لمقابلة فريق التسويق والتطوير لدينا',

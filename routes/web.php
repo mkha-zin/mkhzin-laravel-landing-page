@@ -19,8 +19,12 @@ Route::group(['middleware' => 'localization'], static function () {
     Route::get('about', [LandingController::class, 'about']);
     Route::get('blog', [LandingController::class, 'blog']);
     Route::get('blog/{id}', [LandingController::class, 'post']);
-    Route::get('branches', [LandingController::class, 'branches']);
-    Route::get('branch/{id}/offers', [LandingController::class, 'branchOffers'])->name('branch.offers');
+
+    Route::prefix('branches')->group(static function () {
+        Route::get('/', [LandingController::class, 'branches']);
+        Route::get('/{id}/offers', [LandingController::class, 'branchOffers'])->name('branch.offers');
+        Route::get('/{id}/details', [LandingController::class, 'branchDetails'])->name('branch.offers');
+    });
 
     Route::get('view-pdf/{id}', [LandingController::class, 'viewPdf']);
 
