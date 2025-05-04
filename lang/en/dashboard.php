@@ -19,6 +19,9 @@ return [
     'fleet' => 'Fleet',
     'visitor_message' => 'Visitor Message',
     'social_link' => 'Social Links',
+    'snapchat' => 'Snapchat',
+    'instagram' => 'Instagram',
+    'tiktok' => 'Tiktok',
     'jobs' => 'Jobs',
     'Blog' => 'Blog',
     'Posts' => 'Posts',
@@ -144,6 +147,12 @@ return [
     'addresses' => 'Addresses',
     'address_ar' => 'Arabic Address',
     'address_en' => 'English Address',
+
+    'coordinates' => 'Coordinates',
+    'longitude' => 'Longitude',
+    'longitude_hint' => 'Longitude on the map',
+    'latitude' => 'Latitude',
+    'latitude_hint' => 'Latitude on the map',
 
     'city' => 'City',
     'district' => 'District',

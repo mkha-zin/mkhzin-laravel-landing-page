@@ -151,9 +151,6 @@ class PostResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
             ->actions([
                 ViewAction::make()
                     ->icon('heroicon-o-photo')

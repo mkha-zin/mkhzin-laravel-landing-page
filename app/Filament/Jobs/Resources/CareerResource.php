@@ -212,9 +212,6 @@ class CareerResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
             ->actions([
                 ViewAction::make()
                     ->label('')

@@ -47,10 +47,21 @@
                 attribution: '© OpenStreetMap contributors'
             }).addTo(map);
 
-            L.marker([24.696698, 46.780471])
-                .addTo(map)
-                .bindPopup("<strong style='color: #ff0000'>{{ $branch->name_ar }}</strong>")
-                .openPopup();
+            // Example array of markers
+            var markers = [
+                { lat: 24.656698, lng: 46.610471, popup: "<strong>فرع الرياض</strong>" },
+                { lat: 24.774265, lng: 46.738586, popup: "<strong>فرع العليا</strong>" },
+                { lat: 24.713552, lng: 46.675296, popup: "<strong>فرع الملز</strong>" },
+                { lat: 24.696698,  lng: 46.780471, popup: "<strong>فرع الروابي</strong>" },
+            ];
+
+            // Loop to add markers
+            markers.forEach(function (markerData) {
+                L.marker([markerData.lat, markerData.lng])
+                    .addTo(map)
+                    .bindPopup(markerData.popup);
+            });
+
         });
     </script>
 @endsection

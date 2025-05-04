@@ -123,9 +123,6 @@ class OfferRelationManager extends RelationManager
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])->defaultSort('created_at', 'desc')
-            ->filters([
-                //
-            ])
             ->headerActions([
                 Tables\Actions\CreateAction::make('create_new_card')
                     ->authorize(true)

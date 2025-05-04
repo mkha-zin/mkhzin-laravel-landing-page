@@ -16,6 +16,9 @@ return [
     'fleet' => 'اسطول النقل',
     'visitor_message' => 'رسائل الزوار',
     'social_link' => 'مواقع التواصل',
+    'snapchat' => 'سناب شات',
+    'instagram' => 'انستغرام',
+    'tiktok' => 'تيك توك',
     'jobs' => 'الوظائف',
     'cities' => 'المدن',
     'branches' => 'الفروع',
@@ -136,6 +139,12 @@ return [
     'addresses' => 'العناوين',
     'address_ar' => 'العنوان بالعربي',
     'address_en' => 'العنوان بالانجليزي',
+
+    'coordinates' => 'الإحداثيات',
+    'longitude' => 'خط الطول',
+    'longitude_hint' => 'خط الطول على الخريطة',
+    'latitude' => 'خط العرض',
+    'latitude_hint' => 'خط العرض على الخريطة',
 
     'city' => 'المدينة',
     'district' => 'الحي',

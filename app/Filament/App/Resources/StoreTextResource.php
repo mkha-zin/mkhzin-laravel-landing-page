@@ -116,9 +116,6 @@ class StoreTextResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
             ->actions([
                 ViewAction::make()->label(''),
                 EditAction::make()->label(''),

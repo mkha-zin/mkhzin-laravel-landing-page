@@ -83,9 +83,6 @@ class CityResource extends Resource
             ])->defaultSort(
                 App::currentLocale() === 'ar' ? 'name_ar' : 'name_en'
             )
-            ->filters([
-                //
-            ])
             ->actions([
                 ViewAction::make(),
                 EditAction::make(),

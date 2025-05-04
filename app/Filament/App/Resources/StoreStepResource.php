@@ -121,9 +121,6 @@ class StoreStepResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
             ->actions([
                 ViewAction::make()->label('')->tooltip(__('dashboard.view')),
                 EditAction::make()->label('')->tooltip(__('dashboard.edit')),

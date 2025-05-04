@@ -86,9 +86,6 @@ class ContactImageResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
             ->actions([
                 ViewAction::make(),
                 EditAction::make(),
