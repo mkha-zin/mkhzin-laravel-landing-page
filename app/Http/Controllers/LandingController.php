@@ -188,12 +188,15 @@ class LandingController extends Controller
                     'lat' => (float)$branch->latitude,
                     'lng' => (float)$branch->longitude,
                     'popup' => '
-                        <div style="text-align: center">
-                            <strong>' . e(data_get($branch, \App::currentLocale() === 'ar' ? 'name_ar' : 'name_en', '')) . '</strong><br>
-                            <a href="https://www.google.com/maps?q=' . e($branch->latitude) . ',' . e($branch->longitude) . '" target="_blank" style="color: #007bff; text-decoration: underline;">
+                        <div style="text-align: center; font-family: Cairo, sans-serif">
+                            <strong style="color: darkred" class="mb-2">' . e(data_get($branch, \App::currentLocale() === 'ar' ? 'name_ar' : 'name_en', '')) . '</strong>
+                            <br>
+                            <a href="tel:+966920011209">920011209</a>
+                            <br>
+                            <a class="btn btn-sm btn-outline-danger mt-2" style="color: darkred"
+                            href="https://www.google.com/maps?q=' . e($branch->latitude) . ',' . e($branch->longitude) . '" target="_blank" >
                                 ' . __('landing.View on Google Maps') . '
-                            </a><br>
-                            <span><a href="tel:+966920011209">920011209</a></span>
+                            </a>
                         </div>',
                 ];
             })
