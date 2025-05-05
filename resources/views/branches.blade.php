@@ -55,58 +55,45 @@
                                  data-id="5ad687a" data-element_type="container">
                                 @if(!empty($branches))
                                     @foreach($branches as $branch)
-                                        <div
-                                            class="elementor-element elementor-element-2114515 e-con-full e-flex e-con e-child"
-                                            data-id="2114515" data-element_type="container" style="border-radius: 10px;"
-                                            data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-                                            <div
-                                                class="elementor-element elementor-element-f573fca elementor-widget elementor-widget-image"
-                                                data-id="f573fca" data-element_type="widget"
-                                                data-widget_type="image.default">
-                                                <div class="elementor-widget-container">
-                                                    <img decoding="async" width="1000" height="1000"
-                                                         style="width: auto; height: 300px; max-height: 300px; min-height: 300px;"
-                                                         src="{{asset('storage/'.$branch->image)}}"
-                                                         class="attachment-full size-full wp-image-1471" alt=""
-                                                         srcset="{{asset('storage/'.$branch->image)}} 1000w,{{asset('storage/'.$branch->image)}} 300w,{{asset('storage/'.$branch->image)}} 150w,{{asset('storage/'.$branch->image)}} 768w,{{asset('storage/'.$branch->image)}} 800w"
-                                                         sizes="(max-width: 1000px) 100vw, 1000px"/>
-                                                </div>
+                                        <div class="card-container"
+                                             style="position: relative; border-radius: 10px; overflow: hidden; width: 32%;
+                                             height: 500px; display: flex; flex-direction: column; justify-content:
+                                             space-between; border: 1px solid #ccc;">
+                                            <!-- Image -->
+                                            <div style="height: 300px; overflow: hidden;">
+                                                <img decoding="async"
+                                                     src="{{ asset('storage/'.$branch->image) }}"
+                                                     alt=""
+                                                     style="width: 100%; height: 100%; object-fit: cover;">
                                             </div>
-                                            <div
-                                                class="elementor-element elementor-element-0540be8 elementor-widget elementor-widget-heading"
-                                                data-id="0540be8" data-element_type="widget"
-                                                data-widget_type="heading.default">
-                                                <div class="elementor-widget-container">
-                                                    <h4 class="elementor-heading-title elementor-size-default">
-                                                        {{$direction=='rtl'?$branch->name_ar:$branch->name_en}}
-                                                    </h4>
-                                                </div>
+
+                                            <!-- Info Section -->
+                                            <div style="padding: 10px; flex-grow: 1;">
+                                                <h4 style="margin: 0; font-size: 1.25rem;">
+                                                    {{ $direction == 'rtl' ? $branch->name_ar : $branch->name_en }}
+                                                </h4>
+                                                <h6 style="margin: 5px 0 0 0; color: #555;">
+                                                    {{ $direction == 'rtl' ? $branch->city->name_ar : $branch->city->name_en }},
+                                                    {{ $direction == 'rtl' ? $branch->address_ar : $branch->address_en }}
+                                                </h6>
                                             </div>
-                                            <div
-                                                class="elementor-element elementor-element-01b7cb3 elementor-widget elementor-widget-heading"
-                                                data-id="01b7cb3" data-element_type="widget"
-                                                data-widget_type="heading.default">
-                                                <div class="elementor-widget-container">
-                                                    <h6 class="elementor-heading-title elementor-size-default">
-                                                        {{$direction=='rtl'?$branch->city->name_ar:$branch->city->name_en}}
-                                                        ,
-                                                        {{$direction=='rtl'?$branch->address_ar:$branch->address_en}}
-                                                    </h6>
-                                                </div>
+
+                                            <!-- Button Section -->
+                                            <div style="display: flex; flex-direction: row; width: 100%; position: absolute;
+                                            bottom: 0; left: 0;">
+                                                <a href="{{ route('branch.offers', $branch->id) }}"
+                                                   style="flex: 1; text-align: center; background-color: #df2228;
+                                                   padding: 12px; color: white; text-decoration: none; border-right: 1px solid #fff;">
+                                                    {{ __('landing.Offers') }}
+                                                </a>
+                                                <a href="{{ route('branch.details', $branch->id) }}"
+                                                   style="flex: 1; text-align: center; background-color: #a72828;
+                                                   padding: 12px; color: white; text-decoration: none;">
+                                                    {{ __('landing.Know More') }}
+                                                </a>
                                             </div>
-                                            <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink"
-                                               href="{{route('branch.offers', $branch->id)}}" style="border-radius: 0 0 10px 10px;">
-                                                    <span class="elementor-button-content-wrapper">
-                                                        <span class="elementor-button-text"
-                                                              style="color:white; letter-spacing: 0 !important;">
-                                                            {{  __('landing.Offers') }}
-                                                        </span>
-                                                    </span>
-                                            </a>
                                         </div>
-
                                     @endforeach
-
                                 @endif
                             </div>
                         </div>
