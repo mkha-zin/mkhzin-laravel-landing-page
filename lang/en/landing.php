@@ -95,6 +95,7 @@ return [
     'Back To Login' => 'Back To Login',
 
     'branch location details' => 'Branch Location Details',
+    'View on Google Maps' => 'View on Google Maps',
 
     'All Posts' => 'All Posts',
     'Meet Us' => 'Meet Us',

@@ -95,6 +95,7 @@ return [
     'Back To Login' => 'العودة إلى صفحة تسجيل الدخول',
 
     'branch location details' => 'تفاصيل عنوان الفرع',
+    'View on Google Maps' => 'عرض على خرائط جوجل',
 
     'All Posts' => 'كل المنشورات',
     'Meet Us' => 'قابلنا',
