@@ -43,25 +43,7 @@
                     <img src="{{ asset('storage/' . $branch->image) }}" alt="Branch Image"
                          class="img-fluid w-100 rounded">
                 @endif
-                <!-- Social Media Icons Overlay -->
-                <div
-                    class="position-absolute bottom-0 start-50 translate-middle-x mb-3 d-flex gap-3 justify-content-center">
-                    @if($branch->snapchat)
-                        <a href="{{ $branch->snapchat }}" target="_blank">
-                            <img class="social-icon snapchat-icon" src="{{ asset('images/icons/snapchat.png') }}">
-                        </a>
-                    @endif
-                    @if($branch->tiktok)
-                        <a href="{{ $branch->tiktok }}" target="_blank">
-                            <img class="social-icon tiktok-icon" src="{{ asset('images/icons/tik-tok.png') }}">
-                        </a>
-                    @endif
-                    @if($branch->instagram)
-                        <a href="{{ $branch->instagram }}" target="_blank">
-                            <img class="social-icon instagram-icon" src="{{ asset('images/icons/instagram.png') }}">
-                        </a>
-                    @endif
-                </div>
+
             </div>
 
             <!-- Branch Details and Images -->
@@ -83,6 +65,25 @@
                             $direction == 'rtl' ? $branch->description_ar ?? '': $branch->description_en ?? '' ) }}
                     </p>
                 @endif
+                <!-- Social Media Icons Overlay -->
+                <div
+                    class="position-relative bottom-0 start-50 translate-middle-x mb-3 d-flex gap-3 justify-content-center">
+                    @if($branch->snapchat)
+                        <a href="{{ $branch->snapchat }}" target="_blank">
+                            <img class="social-icon snapchat-icon" src="{{ asset('images/icons/snapchat.png') }}">
+                        </a>
+                    @endif
+                    @if($branch->tiktok)
+                        <a href="{{ $branch->tiktok }}" target="_blank">
+                            <img class="social-icon tiktok-icon" src="{{ asset('images/icons/tik-tok.png') }}">
+                        </a>
+                    @endif
+                    @if($branch->instagram)
+                        <a href="{{ $branch->instagram }}" target="_blank">
+                            <img class="social-icon instagram-icon" src="{{ asset('images/icons/instagram.png') }}">
+                        </a>
+                    @endif
+                </div>
             </div>
 
 
