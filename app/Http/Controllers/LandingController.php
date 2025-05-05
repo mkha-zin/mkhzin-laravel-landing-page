@@ -10,6 +10,7 @@ use App\Models\Career;
 use App\Models\City;
 use App\Models\ContactImage;
 use App\Models\ContactInfo;
+use App\Models\CustomerReview;
 use App\Models\Department;
 use App\Models\Fleet;
 use App\Models\Offer;
@@ -178,6 +179,7 @@ class LandingController extends Controller
     public function branchDetails($id)
     {
         $data['branch'] = Branch::find($id);
+        $data['reviews'] = CustomerReview::where('branch_id', $id)->get();
         $data['markers'] = Branch::whereNotNull('latitude')
             ->whereNotNull('longitude')
             ->get()

@@ -67,6 +67,10 @@ class AppServiceProvider extends ServiceProvider
                     ->icon('heroicon-o-cursor-arrow-ripple'),
                 NavigationGroup::make()
                     ->collapsed()
+                    ->label(__('dashboard.our customers'))
+                    ->icon('heroicon-o-user-group'),
+                NavigationGroup::make()
+                    ->collapsed()
                     ->label(__('dashboard.others'))
                     ->icon('heroicon-o-adjustments-horizontal'),
                 NavigationGroup::make()

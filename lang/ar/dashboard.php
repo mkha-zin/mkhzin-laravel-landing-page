@@ -15,10 +15,6 @@ return [
     'storage' => 'التخزين',
     'fleet' => 'اسطول النقل',
     'visitor_message' => 'رسائل الزوار',
-    'social_link' => 'مواقع التواصل',
-    'snapchat' => 'سناب شات',
-    'instagram' => 'انستغرام',
-    'tiktok' => 'تيك توك',
     'jobs' => 'الوظائف',
     'cities' => 'المدن',
     'branches' => 'الفروع',
@@ -175,6 +171,7 @@ return [
     'Settings' => 'الإعدادات',
     'subscriptions' => ' طلبات الاشتراك',
     'contactImages' => 'صور قسم التواصل',
+    'our customers' => 'عملائنا',
 
     'All Branches in the database' => 'عدد فروع شركة مخازن العالمية',
     'All Sections in the database' => 'عدد الأقسام المتنوعة في فروعنا',
@@ -193,6 +190,8 @@ return [
     'using_date' => 'تاريخ الاستخدام',
     'customer name' => 'اسم العميل',
     'customer phone' => 'رقم هاتف العميل',
+    'customer review' => 'مراجعة العميل',
+    'customer reviews' => 'مراجعات العملاء',
 
     'all vouchers' => 'كل القسائم',
     'used vouchers' => 'القسائم المستخدمة',
@@ -311,4 +310,20 @@ return [
     'Admin Panel' => 'لوحة التحكم',
     'Jobs Portal' => 'منصة الوظائف',
     'App Panel' => 'لوحة التطبيق',
+
+    'stars' => 'التقييم ( 1-5 )',
+    'platform' => 'المنصة',
+
+    'social_link' => 'مواقع التواصل',
+    'google maps' => 'خرائط جوجل',
+    'google play' => 'جوجل بلاي',
+    'facebook' => 'فيسبوك',
+    'twitter' => 'تويتر',
+    'instagram' => 'انستقرام',
+    'snapchat' => 'سناب شات',
+    'tiktok' => 'تيك توك',
+    'whatsapp' => 'واتساب',
+    'telegram' => 'تليجرام',
+    'linkedin' => 'لينكدان',
+    'youtube' => 'يوتيوب',
 ];

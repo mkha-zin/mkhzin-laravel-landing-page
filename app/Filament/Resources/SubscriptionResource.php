@@ -31,7 +31,7 @@ class SubscriptionResource extends Resource
 
     public static function getNavigationGroup(): ?string
     {
-        return __('dashboard.contactSettings');
+        return __('dashboard.our customers');
     }
 
     public static function getPluralLabel(): ?string

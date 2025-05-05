@@ -9,6 +9,8 @@
 
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         .social-icon {
             width: 40px;
@@ -23,7 +25,7 @@
         }
 
         .tiktok-icon {
-            background-color: #232323;
+            background-color: #474747;
         }
 
         .snapchat-icon {
@@ -43,7 +45,7 @@
                 </li>
                 @if($branch->name_ar || $branch->name_en)
                     <li class="breadcrumb-item active" aria-current="page">
-                         &nbsp;{{ $direction == 'rtl' ? $branch->name_ar : $branch->name_en }}
+                        &nbsp;{{ $direction == 'rtl' ? $branch->name_ar : $branch->name_en }}
                     </li>
                 @endif
             </ol>
@@ -105,6 +107,225 @@
                 </div>
             </div>
 
+            @if($reviews->isNotEmpty())
+                <!-- Reviews Section -->
+                <div class="col-md-12" style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important">
+                    <h4 class="mb-2">{{ __('dashboard.customer reviews') }}</h4>
+                    <style>
+                        .slider-wrapper {
+                            overflow: hidden;
+                            max-width: 1500px !important;
+                            margin: 0 50px 55px;
+                            padding: 30px;
+                        }
+
+                        .card-list .card-item {
+                            height: auto;
+                            color: #fff;
+                            user-select: none;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            backdrop-filter: blur(30px);
+                            background: rgb(231, 234, 237, 0.80);
+
+                        }
+
+                        .card-list .card-item .user-image {
+                            width: 150px;
+                            height: 150px;
+                            border-radius: 50%;
+                            margin-bottom: 40px;
+                            border: 3px solid #fff;
+                            padding: 4px;
+                        }
+
+                        .card-list .card-item .user-profession {
+                            font-size: 1.15rem;
+                            color: #e3e3e3;
+                            font-weight: 500;
+                            margin: 14px 0 40px;
+                        }
+
+                        .card-list .card-item .message-button {
+                            font-size: 1.25rem;
+                            padding: 10px 35px;
+                            color: #030728;
+                            border-radius: 6px;
+                            font-weight: 500;
+                            cursor: pointer;
+                            background: #fff;
+                            border: 1px solid transparent;
+                            transition: 0.2s ease;
+                        }
+
+                        .card-list .card-item .message-button:hover {
+                            background: rgba(255, 255, 255, 0.1);
+                            border: 1px solid #fff;
+                            color: #fff;
+                        }
+
+                        .slider-wrapper .swiper-pagination-bullet {
+                            background: #fff;
+                            height: 13px;
+                            width: 13px;
+                            opacity: 0.5;
+                        }
+
+                        .slider-wrapper .swiper-pagination-bullet-active {
+                            opacity: 1;
+                        }
+
+                        .slider-wrapper .swiper-slide-button {
+                            color: black;
+                            margin-top: -55px;
+                            transition: 0.2s ease;
+                        }
+
+                        .slider-wrapper .swiper-slide-button:hover {
+                            color: var(--e-global-color-7cfaca3);
+                        }
+
+                        @media (max-width: 768px) {
+                            .slider-wrapper {
+                                margin: 0 10px 40px;
+                            }
+
+                            .slider-wrapper .swiper-slide-button {
+                                display: none;
+                            }
+                        }
+                    </style>
+                    <div class="swiper">
+                        <div class="slider-wrapper">
+                            <div class="card-list swiper-wrapper">
+                                @foreach($reviews as $review)
+                                    <div class="card-item swiper-slide"
+                                         style="padding: 15px; border: 1px solid #b5b5b5;
+                                     border-radius: 10px; background-color: rgba(231,234,237,0.55);">
+                                        <div class="card-body">
+                                            <!-- Platform Logo and Name + Stars -->
+                                            <div class="d-flex align-items-center mb-3">
+                                                @php
+                                                    if (empty($review->platform))
+                                                         $image = asset('uploads/mkhazin/logo900.png');
+                                                     else
+                                                         if($review->platform == 'google maps')
+                                                             $image = asset('images/icons/google maps.png');
+                                                         elseif($review->platform == 'google play')
+                                                             $image = asset('images/icons/google play.png');
+                                                         elseif ($review->platform == 'facebook')
+                                                             $image = asset('images/icons/facebook.png');
+                                                         elseif ($review->platform == 'twitter')
+                                                             $image = asset('images/icons/twitter.png');
+                                                         elseif ($review->platform == 'instagram')
+                                                             $image = asset('images/icons/instagram.png');
+                                                         elseif ($review->platform == 'snapchat')
+                                                             $image = asset('images/icons/snapchat.png');
+                                                         elseif ($review->platform == 'tiktok')
+                                                             $image = asset('images/icons/tik-tok-1.png');
+                                                         elseif ($review->platform == 'whatsapp')
+                                                             $image = asset('images/icons/whatsapp.png');
+                                                         elseif ($review->platform == 'telegram')
+                                                             $image = asset('images/icons/telegram.png');
+                                                         elseif ($review->platform == 'linkedin')
+                                                             $image = asset('images/icons/linkedin.png');
+                                                         elseif ($review->platform == 'youtube')
+                                                             $image = asset('images/icons/youtube.png');
+                                                @endphp
+                                                <img src="{{ $image }}"
+                                                     alt="{{ $review->platform }}"
+                                                     style="width: 50px; object-fit: contain; height: 50px; padding: 5px;
+                                                 border-radius: 50%; background-color: rgb(255,255,255);
+                                                 margin-{{ $direction == 'rtl' ? 'left' : 'right' }}: 10px;">
+                                                <div>
+                                                    <strong
+                                                        style="display: block; color: #0C0C0C">{{ $review->name }}</strong>
+                                                    <b style="color: #ffc107;">
+                                                        @for ($i = 0; $i < (int)$review->stars; $i++)
+                                                            ★
+                                                        @endfor
+                                                        @for ($i = (int)$review->stars; $i < 5; $i++)
+                                                            ☆
+                                                        @endfor
+                                                        <span
+                                                            style="font-weight: normal; color: #0C0C0C; font-size: 12px;">
+                                                            ({{ $review->stars }})
+                                                        </span>
+                                                    </b>
+                                                </div>
+                                            </div>
+
+                                            <!-- Review Text -->
+                                            <p class="card-text"
+                                               style="display: -webkit-box; text-align:justify; word-break:keep-all;
+                                               -webkit-box-orient: vertical; -webkit-line-clamp: 4; color: #333;
+                                               overflow: hidden; text-overflow: ellipsis;">
+                                                {{ \Filament\Support\Markdown::inline($review->review) }}
+                                            </p>
+
+                                            <!-- Know More Link -->
+                                            @if($review->link)
+                                                <a target="_blank"
+                                                   href="{{ $review->link }}"
+                                                   style="letter-spacing: 0 !important;">
+                                                    @if($direction == 'rtl')
+                                                        <i aria-hidden="true"
+                                                           class="rkit-icon-readmore rtmicon rtmicon-chevrons-left"></i>
+                                                    @elseif($direction == 'ltr')
+                                                        <i aria-hidden="true"
+                                                           class="rkit-icon-readmore rtmicon rtmicon-chevrons-right"></i>
+                                                    @endif
+                                                    {{ __('landing.Know More') }}
+                                                </a>
+                                            @endif
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-slide-button swiper-button-prev"></div>
+                            <div class="swiper-slide-button swiper-button-next"></div>
+                        </div>
+                    </div>
+                    <script>
+                        const swiper = new Swiper('.slider-wrapper', {
+                            loop: true,
+                            autoplay: true,
+                            grabCursor: true,
+                            spaceBetween: 30,
+
+                            // Pagination bullets
+                            pagination: {
+                                el: '.swiper-pagination',
+                                clickable: true,
+                                dynamicBullets: true
+                            },
+
+                            // Navigation arrows
+                            navigation: {
+                                nextEl: '.swiper-button-next',
+                                prevEl: '.swiper-button-prev',
+                            },
+
+                            // Responsive breakpoints
+                            breakpoints: {
+                                0: {
+                                    slidesPerView: 1
+                                },
+                                768: {
+                                    slidesPerView: 2
+                                },
+                                1024: {
+                                    slidesPerView: 3
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+            @endif
 
             <!-- Map Section -->
             <div class="col-md-12" style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important">
@@ -119,6 +340,15 @@
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {

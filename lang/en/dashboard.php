@@ -18,10 +18,6 @@ return [
     'storage' => 'Storage',
     'fleet' => 'Fleet',
     'visitor_message' => 'Visitor Message',
-    'social_link' => 'Social Links',
-    'snapchat' => 'Snapchat',
-    'instagram' => 'Instagram',
-    'tiktok' => 'Tiktok',
     'jobs' => 'Jobs',
     'Blog' => 'Blog',
     'Posts' => 'Posts',
@@ -182,6 +178,7 @@ return [
     'Settings' => 'Settings',
     'subscriptions' => 'Subscription Requests',
     'contactImages' => 'Contact Images',
+    'our customers' => 'Our Customers',
 
     'All Branches in the database' => 'The Number of Makhazin International\'s Branches ',
     'All Sections in the database' => 'The Number of All Sections in our Branches',
@@ -198,6 +195,8 @@ return [
     'using_date' => 'Using Date',
     'customer name' => 'Customer Name',
     'customer phone' => 'Customer Phone',
+    'customer review' => 'Customer Review',
+    'customer reviews' => 'Customer Reviews',
 
     'all vouchers' => 'All Vouchers',
     'used vouchers' => 'Used Vouchers',
@@ -314,5 +313,21 @@ return [
     'Admin Panel' => 'Admin Panel',
     'Jobs Portal' => 'Jobs Portal',
     'App Panel' => 'App Panel',
+
+    'stars' => 'Evaluation ( 1-5 )',
+    'platform' => 'Platform',
+
+    'social_link' => 'Social Links',
+    'google maps' => 'Google maps',
+    'google play' => 'Google play',
+    'facebook' => 'Facebook',
+    'twitter' => 'Twitter',
+    'instagram' => 'Instagram',
+    'snapchat' => 'Snapchat',
+    'tiktok' => 'Tiktok',
+    'whatsapp' => 'Whatsapp',
+    'telegram' => 'Telegram',
+    'linkedin' => 'Linkedin',
+    'youtube' => 'Youtube',
 
 ];
