@@ -73,7 +73,7 @@
                     @endif
                     @if($branch->id)
                         <div class="d-flex gap-2">
-                            <a href="{{route('branch.offers', $branch->id)}}"
+                            <a href="{{ route('branch.offers', $branch->id)}}"
                                class="btn btn-danger text-white btn-sm">{{ __('dashboard.offers') }}</a>
                             <a href="{{ route('jobs.index') }}" target="_blank"
                                class="btn btn-dark text-white btn-sm">{{ __('dashboard.jobs') }}</a>

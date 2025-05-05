@@ -23,7 +23,7 @@ Route::group(['middleware' => 'localization'], static function () {
     Route::prefix('branches')->group(static function () {
         Route::get('/', [LandingController::class, 'branches'])->name('branches.index');
         Route::get('/{id}/offers', [LandingController::class, 'branchOffers'])->name('branch.offers');
-        Route::get('/{id}/details', [LandingController::class, 'branchDetails'])->name('branch.offers');
+        Route::get('/{id}/details', [LandingController::class, 'branchDetails'])->name('branch.details');
     });
 
     Route::get('view-pdf/{id}', [LandingController::class, 'viewPdf']);
