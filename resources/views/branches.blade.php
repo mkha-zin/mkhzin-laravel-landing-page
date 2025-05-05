@@ -58,11 +58,11 @@
                         background-color: #fff;
                         border-radius: 10px;
                         overflow: hidden;
-                        border: 1px solid #ccc;
+                        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
                         display: flex;
                         flex-direction: column;
                         position: relative;
-                        height: 470px;
+                        height: 460px;
                         width: 100%;
                         max-width: 100%;
                     }
@@ -81,6 +81,12 @@
                     .card-content {
                         padding: 10px;
                         flex-grow: 1;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;
+                        margin-top: -50px;
                     }
 
                     .card-content h4 {
@@ -110,6 +116,7 @@
                         text-decoration: none;
                         font-weight: bold;
                     }
+
                     .card-buttons a:hover {
                         color: white !important;
                     }
