@@ -46,59 +46,132 @@
                     </form>
                 </div>
 
+                <style>
+                    .card-wrapper {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 20px;
+                        justify-content: center;
+                    }
+
+                    .card-container {
+                        background-color: #fff;
+                        border-radius: 10px;
+                        overflow: hidden;
+                        border: 1px solid #ccc;
+                        display: flex;
+                        flex-direction: column;
+                        position: relative;
+                        height: 470px;
+                        width: 100%;
+                        max-width: 100%;
+                    }
+
+                    .card-image {
+                        height: 300px;
+                        overflow: hidden;
+                    }
+
+                    .card-image img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+
+                    .card-content {
+                        padding: 10px;
+                        flex-grow: 1;
+                    }
+
+                    .card-content h4 {
+                        margin: 0;
+                        font-size: 1.25rem;
+                    }
+
+                    .card-content h6 {
+                        margin: 5px 0 0;
+                        color: #555;
+                        font-size: 0.95rem;
+                    }
+
+                    .card-buttons {
+                        display: flex;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                    }
+
+                    .card-buttons a {
+                        flex: 1;
+                        text-align: center;
+                        padding: 12px;
+                        color: white;
+                        text-decoration: none;
+                        font-weight: bold;
+                    }
+
+                    .card-buttons a:first-child {
+                        background-color: #df2228;
+                        border-right: 1px solid white;
+                    }
+
+                    .card-buttons a:last-child {
+                        background-color: #a72828;
+                    }
+
+                    /* Responsive columns */
+                    @media (min-width: 992px) {
+                        .card-container {
+                            flex: 0 0 calc(33.333% - 20px); /* 3 per row */
+                        }
+                    }
+
+                    @media (min-width: 768px) and (max-width: 991.98px) {
+                        .card-container {
+                            flex: 0 0 calc(50% - 20px); /* 2 per row */
+                        }
+                    }
+
+                    @media (max-width: 767.98px) {
+                        .card-container {
+                            flex: 0 0 100%; /* 1 per row */
+                        }
+                    }
+                </style>
+
                 <div class="e-con-inner">
-                    <div class="elementor-element elementor-element-0797a1f e-con-full e-flex e-con e-child"
-                         data-id="0797a1f" data-element_type="container">
-                        <div class="elementor-element elementor-element-8ca1759 e-con-full e-flex e-con e-child"
-                             data-id="8ca1759" data-element_type="container">
-                            <div class="elementor-element elementor-element-5ad687a e-con-full e-flex e-con e-child"
-                                 data-id="5ad687a" data-element_type="container">
-                                @if(!empty($branches))
-                                    @foreach($branches as $branch)
-                                        <div class="card-container"
-                                             style="position: relative; border-radius: 10px; overflow: hidden; width: 32%;
-                                             height: 500px; display: flex; flex-direction: column; justify-content:
-                                             space-between; border: 1px solid #ccc;">
-                                            <!-- Image -->
-                                            <div style="height: 300px; overflow: hidden;">
-                                                <img decoding="async"
-                                                     src="{{ asset('storage/'.$branch->image) }}"
-                                                     alt=""
-                                                     style="width: 100%; height: 100%; object-fit: cover;">
-                                            </div>
+                    <div class="card-wrapper">
+                        @if(!empty($branches))
+                            @foreach($branches as $branch)
+                                <div class="card-container">
+                                    <!-- Image -->
+                                    <div class="card-image">
+                                        <img src="{{ asset('storage/'.$branch->image) }}" alt="">
+                                    </div>
 
-                                            <!-- Info Section -->
-                                            <div style="padding: 10px; flex-grow: 1;">
-                                                <h4 style="margin: 0; font-size: 1.25rem;">
-                                                    {{ $direction == 'rtl' ? $branch->name_ar : $branch->name_en }}
-                                                </h4>
-                                                <h6 style="margin: 5px 0 0 0; color: #555;">
-                                                    {{ $direction == 'rtl' ? $branch->city->name_ar : $branch->city->name_en }},
-                                                    {{ $direction == 'rtl' ? $branch->address_ar : $branch->address_en }}
-                                                </h6>
-                                            </div>
+                                    <!-- Info -->
+                                    <div class="card-content">
+                                        <h4>
+                                            {{ $direction == 'rtl' ? $branch->name_ar : $branch->name_en }}
+                                        </h4>
+                                        <h6>
+                                            {{ $direction == 'rtl' ? $branch->city->name_ar : $branch->city->name_en }},
+                                            {{ $direction == 'rtl' ? $branch->address_ar : $branch->address_en }}
+                                        </h6>
+                                    </div>
 
-                                            <!-- Button Section -->
-                                            <div style="display: flex; flex-direction: row; width: 100%; position: absolute;
-                                            bottom: 0; left: 0;">
-                                                <a href="{{ route('branch.offers', $branch->id) }}"
-                                                   style="flex: 1; text-align: center; background-color: #df2228;
-                                                   padding: 12px; color: white; text-decoration: none; border-right: 1px solid #fff;">
-                                                    {{ __('landing.Offers') }}
-                                                </a>
-                                                <a href="{{ route('branch.details', $branch->id) }}"
-                                                   style="flex: 1; text-align: center; background-color: #a72828;
-                                                   padding: 12px; color: white; text-decoration: none;">
-                                                    {{ __('landing.Know More') }}
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                @endif
-                            </div>
-                        </div>
+                                    <!-- Buttons -->
+                                    <div class="card-buttons">
+                                        <a href="{{ route('branch.offers', $branch->id) }}">{{ __('landing.Offers') }}</a>
+                                        <a href="{{ route('branch.details', $branch->id) }}">{{ __('landing.Know More') }}</a>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
