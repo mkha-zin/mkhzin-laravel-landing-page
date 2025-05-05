@@ -328,8 +328,8 @@
             @endif
 
             <!-- Map Section -->
-            <div class="col-md-12" style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important">
-                <h4 class="mb-2">{{ __('landing.branch location details') }}</h4>
+            <div class="col-md-12 mt-2" style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important">
+                <h4 class="my-2">{{ __('landing.branch location details') }}</h4>
                 @if($branch->address_ar || $branch->address_en)
                     <p class="mb-2">{{ $direction === 'rtl' ? $branch->address_ar ?? $branch->address_en: $branch->address_en ?? $branch->address_ar }}</p>
                 @endif
