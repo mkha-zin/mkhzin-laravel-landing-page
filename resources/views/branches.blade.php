@@ -110,6 +110,9 @@
                         text-decoration: none;
                         font-weight: bold;
                     }
+                    .card-buttons a:hover {
+                        color: white !important;
+                    }
 
                     .card-buttons a:first-child {
                         background-color: #df2228;
