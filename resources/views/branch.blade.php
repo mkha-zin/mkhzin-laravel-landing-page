@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <style>
         .social-icon {
-            width: 50px;
+            width: 40px;
             border-radius: 0.375rem;
             padding: 0.3rem;
             box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
