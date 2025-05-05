@@ -35,7 +35,22 @@
         }
     </style>
 
-    <div class="container my-5">
+    <div class="container mt-2">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ route('branches.index') }}">{{ __('dashboard.branches') }}</a>
+                </li>
+                @if($branch->name_ar || $branch->name_en)
+                    <li class="breadcrumb-item active" aria-current="page">
+                         &nbsp;{{ $direction == 'rtl' ? $branch->name_ar : $branch->name_en }}
+                    </li>
+                @endif
+            </ol>
+        </nav>
+    </div>
+
+    <div class="container mb-5">
         <div class="row">
             <!-- Branch Image and social media icons -->
             <div class="col-md-6 position-relative">
@@ -49,25 +64,29 @@
             <!-- Branch Details and Images -->
             <div class="col-md-6" style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important">
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-start mb-3">
-                    <h3 class="mb-2 mb-md-0" style="color: black">
-                        {{ $direction == 'rtl' ? $branch->name_ar : $branch->name_en }}
-                    </h3>
-                    <div class="d-flex gap-2">
-                        <a href="{{route('branch.offers', $branch->id)}}"
-                           class="btn btn-danger text-white btn-sm">{{ __('dashboard.offers') }}</a>
-                        <a href="{{ route('jobs.index') }}" target="_blank"
-                           class="btn btn-dark text-white btn-sm">{{ __('dashboard.jobs') }}</a>
-                    </div>
+                    @if($branch->name_ar || $branch->name_en)
+                        <h3 class="mb-2 mb-md-0" style="color: black">
+                            {{ $direction == 'rtl' ? $branch->name_ar : $branch->name_en }}
+                        </h3>
+                    @endif
+                    @if($branch->id)
+                        <div class="d-flex gap-2">
+                            <a href="{{route('branch.offers', $branch->id)}}"
+                               class="btn btn-danger text-white btn-sm">{{ __('dashboard.offers') }}</a>
+                            <a href="{{ route('jobs.index') }}" target="_blank"
+                               class="btn btn-dark text-white btn-sm">{{ __('dashboard.jobs') }}</a>
+                        </div>
+                    @endif
                 </div>
                 @if($branch->description_ar || $branch->description_en)
-                    <p>
-                        {{ \Filament\Support\Markdown::block(
+                    <p style="word-break: keep-all; text-align:justify; ">
+                        {{ \Filament\Support\Markdown::inline(
                             $direction == 'rtl' ? $branch->description_ar ?? '': $branch->description_en ?? '' ) }}
                     </p>
                 @endif
                 <!-- Social Media Icons Overlay -->
                 <div
-                    class="position-relative bottom-0 start-50 translate-middle-x mb-3 d-flex gap-3 justify-content-center">
+                    class="position-relative bottom-0 start-50 translate-middle-x d-flex gap-3 justify-content-center">
                     @if($branch->snapchat)
                         <a href="{{ $branch->snapchat }}" target="_blank">
                             <img class="social-icon snapchat-icon" src="{{ asset('images/icons/snapchat.png') }}">
@@ -103,7 +122,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            if({{ $branch->latitude && $branch->longitude }}){
+            if ({{ $branch->latitude && $branch->longitude }}) {
                 var map = L.map('map').setView([{{ $branch->latitude }}, {{ $branch->longitude }}], 16);
             }
 
@@ -112,7 +131,7 @@
             }).addTo(map);
 
             // Example array of markers
-            if ({{ !empty($markers) }}){
+            if ({{ !empty($markers) }}) {
                 var markers = @json($markers);
 
                 // Loop to add markers
