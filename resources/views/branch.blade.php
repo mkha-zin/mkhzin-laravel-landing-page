@@ -13,27 +13,15 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         .social-icon {
-            width: 40px;
-            border-radius: 0.375rem;
-            padding: 0.3rem;
-            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             transition: transform 0.2s ease-in-out;
         }
 
         .social-icon:hover {
             transform: scale(1.05);
-        }
-
-        .tiktok-icon {
-            background-color: #474747;
-        }
-
-        .snapchat-icon {
-            background-color: #f4ef00;
-        }
-
-        .instagram-icon {
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            border: 2px solid #d60000;
         }
     </style>
 
@@ -91,17 +79,17 @@
                     class="position-relative bottom-0 start-50 translate-middle-x d-flex gap-3 justify-content-center">
                     @if($branch->snapchat)
                         <a href="{{ $branch->snapchat }}" target="_blank">
-                            <img class="social-icon snapchat-icon" src="{{ asset('images/icons/snapchat.png') }}">
+                            <img class="social-icon snapchat-icon" src="{{ asset('images/icons/snapchat_b.png') }}">
                         </a>
                     @endif
                     @if($branch->tiktok)
                         <a href="{{ $branch->tiktok }}" target="_blank">
-                            <img class="social-icon tiktok-icon" src="{{ asset('images/icons/tik-tok.png') }}">
+                            <img class="social-icon tiktok-icon" src="{{ asset('images/icons/tiktok_b.png') }}">
                         </a>
                     @endif
                     @if($branch->instagram)
                         <a href="{{ $branch->instagram }}" target="_blank">
-                            <img class="social-icon instagram-icon" src="{{ asset('images/icons/instagram.png') }}">
+                            <img class="social-icon instagram-icon" src="{{ asset('images/icons/instagram_b.png') }}">
                         </a>
                     @endif
                 </div>
