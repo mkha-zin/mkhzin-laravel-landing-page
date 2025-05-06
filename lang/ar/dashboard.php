@@ -160,7 +160,7 @@ return [
 
     // dashboard footer
     'copyright' => 'كل الحقوق محفوظة لدى',
-    'version' => 'الأصدار: 2.09.063',
+    'version' => 'الأصدار: 2.12.084',
 
     //groups
     'aboutCompanySettings' => 'إدارة معلومات عن الشركة',
