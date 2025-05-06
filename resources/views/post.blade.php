@@ -37,13 +37,22 @@
                                                 {{ $lang == 'en' ? $post->title_en : $post->title_ar }}
                                             </h2>
                                         </div>
-                                        <p class="card-text entry-summary text-secondary mb-3"
-                                           style="font-size: 24px !important; line-height: 40px; word-break: keep-all; text-align: justify">
+                                        <style>
+                                            .markdown-content p {
+                                                font-size: 24px;
+                                                line-height: 40px;
+                                                word-break: keep-all;
+                                                text-align: justify;
+                                                color: #6c757d; /* text-secondary */
+                                                margin-bottom: 1rem;
+                                            }
+                                        </style>
+                                        <div class="card-text entry-summary markdown-content text-secondary mb-3">
                                             {{ $lang == 'en'
-                                                ? \Filament\Support\Markdown::inline($post->article_en)
-                                                : \Filament\Support\Markdown::inline($post->article_ar)
+                                                ? \Filament\Support\Markdown::block($post->article_en)
+                                                : \Filament\Support\Markdown::block($post->article_ar)
                                             }}
-                                        </p>
+                                        </div>
                                     </div>
                                     <div class="card-footer border border-top-0 bg-light p-4 text-{{ $direction == 'rtl' ? 'end' : 'start' }}">
                                         <ul class="entry-meta list-unstyled d-flex align-items-center m-0">
