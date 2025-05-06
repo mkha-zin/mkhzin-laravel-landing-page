@@ -181,6 +181,7 @@ class LandingController extends Controller
     {
         $data['branch'] = Branch::find($id);
         $data['reviews'] = CustomerReview::where('branch_id', $id)->get();
+        $data['header_title'] = $data['branch']->name_ar . ' - ' . $data['branch']->name_en;
         $data['markers'] = Branch::whereNotNull('latitude')
             ->whereNotNull('longitude')
             ->get()
