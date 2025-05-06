@@ -100,6 +100,12 @@ class OfferResource extends Resource
                     ->label(__('dashboard.description'))
                     ->words(5)
                     ->searchable(),
+                TextColumn::make(
+                    App::currentLocale() === 'ar' ? 'branch.name_ar' : 'branch.name_en'
+                )
+                    ->label(__('dashboard.branch'))
+                    ->searchable()
+                    ->toggleable(),
                 ImageColumn::make('image')
                     ->label(__('dashboard.image')),
                 TextColumn::make('pdf_file')
