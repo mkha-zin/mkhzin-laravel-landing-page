@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App;
 use App\Models\About;
 use App\Models\AboutCard;
 use App\Models\Applicator;
@@ -189,7 +190,7 @@ class LandingController extends Controller
                     'lng' => (float)$branch->longitude,
                     'popup' => '
                         <div style="text-align: center; font-family: Cairo, sans-serif">
-                            <strong style="color: darkred" class="mb-2">' . e(data_get($branch, \App::currentLocale() === 'ar' ? 'name_ar' : 'name_en', '')) . '</strong>
+                            <strong style="color: darkred" class="mb-2">' . e(data_get($branch, App::currentLocale() === 'ar' ? 'name_ar' : 'name_en', '')) . '</strong>
                             <br>
                             <a href="tel:+966920011209">920011209</a>
                             <br>

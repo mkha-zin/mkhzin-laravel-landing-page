@@ -18,7 +18,7 @@ class CustomerReview extends Model
         'updated_at'
     ];
 
-    public function branch() : BelongsTo
+    public function branch(): BelongsTo
     {
         return $this->belongsTo(Branch::class);
     }

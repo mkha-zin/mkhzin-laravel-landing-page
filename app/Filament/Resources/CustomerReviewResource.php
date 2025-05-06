@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App;
 use App\Filament\Resources\CustomerReviewResource\Pages;
 use App\Filament\Resources\CustomerReviewResource\RelationManagers;
 use App\Models\CustomerReview;
@@ -41,7 +42,7 @@ class CustomerReviewResource extends Resource
             ->schema([
                 Forms\Components\Select::make('branch_id')
                     ->label(__('dashboard.branch'))
-                    ->relationship('branch', \App::currentLocale() === 'ar' ? 'name_ar' : 'name_en')
+                    ->relationship('branch', App::currentLocale() === 'ar' ? 'name_ar' : 'name_en')
                     ->required(),
                 Forms\Components\Select::make('platform')
                     ->label(__('dashboard.platform'))
@@ -86,7 +87,7 @@ class CustomerReviewResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make(
-                    \App::currentLocale() === 'ar' ? 'branch.name_ar' : 'branch.name_en'
+                    App::currentLocale() === 'ar' ? 'branch.name_ar' : 'branch.name_en'
                 )
                     ->label(__('dashboard.branch'))
                     ->searchable()
@@ -100,7 +101,7 @@ class CustomerReviewResource extends Resource
                 Tables\Columns\TextColumn::make('platform')
                     ->label(__('dashboard.platform'))
                     ->formatStateUsing(
-                        fn ($state) => __('dashboard.' . $state)
+                        fn($state) => __('dashboard.' . $state)
                     )
                     ->alignCenter()
                     ->sortable()

@@ -173,19 +173,19 @@ class BranchResource extends Resource
                     ->label(__('dashboard.snapchat'))
                     ->icon(asset('images/icons/snapchat.png'))
                     ->alignCenter()
-                    ->url(fn ($record) => filled($record->snapchat) ? $record->snapchat : null, shouldOpenInNewTab: true)
+                    ->url(fn($record) => filled($record->snapchat) ? $record->snapchat : null, shouldOpenInNewTab: true)
                     ->toggleable(isToggledHiddenByDefault: true),
                 IconColumn::make('instagram')
                     ->label(__('dashboard.instagram'))
                     ->icon(asset('images/icons/instagram.png'))
                     ->alignCenter()
-                    ->url(fn ($record) => filled($record->instagram) ? $record->instagram : null, shouldOpenInNewTab: true)
+                    ->url(fn($record) => filled($record->instagram) ? $record->instagram : null, shouldOpenInNewTab: true)
                     ->toggleable(isToggledHiddenByDefault: true),
                 IconColumn::make('tiktok')
                     ->label(__('dashboard.tiktok'))
                     ->icon(asset('images/icons/tik-tok.png'))
                     ->alignCenter()
-                    ->url(fn ($record) => filled($record->tiktok) ? $record->tiktok : null, shouldOpenInNewTab: true)
+                    ->url(fn($record) => filled($record->tiktok) ? $record->tiktok : null, shouldOpenInNewTab: true)
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('longitude')
                     ->label(__('dashboard.coordinates'))

@@ -5,7 +5,6 @@ namespace App\Filament\Jobs\Resources\JobsSettingResource\Pages;
 use App\Filament\Jobs\Resources\JobsSettingResource;
 use App\Filament\Resources\SettingResource;
 use App\Models\JobsSetting;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;

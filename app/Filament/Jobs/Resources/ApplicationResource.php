@@ -5,7 +5,6 @@ namespace App\Filament\Jobs\Resources;
 use App\Filament\Jobs\Resources\ApplicationResource\Pages;
 use App\Filament\Jobs\Resources\ApplicationResource\RelationManagers;
 use App\Models\Application;
-use Filament\Forms;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -16,7 +15,6 @@ use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Support\Enums\IconPosition;
-use Filament\Tables;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
@@ -196,7 +194,7 @@ class ApplicationResource extends Resource
                                     $output .= "<div class='text-sm ps-3 mt-1'>";
                                     if (isset($item['type']) && $item['type'] == 'yes_no') {
                                         $output .= "<span class='font-semibold'>" . __('dashboard.a') . ":</span> " . (__('dashboard.' . $item['answer']) ?? __('No answer'));
-                                    }else{
+                                    } else {
                                         $output .= "<span class='font-semibold'>" . __('dashboard.a') . ":</span> " . ($item['answer'] ?? __('No answer'));
                                     }
                                     $output .= "</div></div>";
