@@ -38,10 +38,10 @@
                                             </h2>
                                         </div>
                                         <p class="card-text entry-summary text-secondary mb-3"
-                                           style="font-size: 24px !important">
+                                           style="font-size: 24px !important; line-height: 40px; word-break: keep-all; text-align: justify">
                                             {{ $lang == 'en'
-                                                ? \Filament\Support\Markdown::block($post->article_en)
-                                                : \Filament\Support\Markdown::block($post->article_ar)
+                                                ? \Filament\Support\Markdown::inline($post->article_en)
+                                                : \Filament\Support\Markdown::inline($post->article_ar)
                                             }}
                                         </p>
                                     </div>
