@@ -116,6 +116,7 @@
                 justify-content: center;
                 text-align: center;
             }
+
             .ad-banner {
                 margin: 0 10px;
                 flex: 1 1 100%;
@@ -139,7 +140,8 @@
     <div class="container ad-banners">
         <div class="ad-banner">
             <!-- You can use an image, text, or button here -->
-            <img src="{{ asset('images/jobs-banner1.png') }}" alt="Ad 1" style="width: 100%; height: 100%; border-radius: 8px;">
+            <img src="{{ asset('images/jobs-banner1.png') }}" alt="Ad 1"
+                 style="width: 100%; height: 100%; border-radius: 8px;">
         </div>
         <div class="ad-banner">
             <img src="{{ asset('images/jobs-banner2.png') }}" alt="Ad 2" style="width: 100%; border-radius: 8px;">
@@ -167,7 +169,8 @@
                                     {{ ucfirst(__('home.' . $job->type )) }}
                                 </p>
                             </div>
-                            <p class="card-text" style="margin-top: -20px">{{ Markdown::block(Str::limit($job->description, 100)) }}</p>
+                            <p class="card-text"
+                               style="margin-top: -20px">{{ Markdown::block(Str::limit($job->description, 100)) }}</p>
                             <a href="{{ route('jobs.apply', $job->id) }}" class="btn btn-primary1 text-white">
                                 {{ __('home.Apply Now') }}
                             </a>

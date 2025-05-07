@@ -2,7 +2,8 @@
     @if(is_array($getState()) || is_object($getState()))
         @foreach ($getState() as $index => $question)
             <li>
-                <strong>{{ __('dashboard.q') . $index + 1 }}:</strong> {{ \Illuminate\Support\Str::limit($question['question'], 20) ?? '' }}
+                <strong>{{ __('dashboard.q') . $index + 1 }}
+                    :</strong> {{ \Illuminate\Support\Str::limit($question['question'], 20) ?? '' }}
                 @if(isset($question['type']))
                     <em style="color:rgba(200,0,0,0.5);"> ({{ __('dashboard.' . $question['type']) }})</em>
                 @endif

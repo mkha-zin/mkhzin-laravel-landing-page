@@ -1,14 +1,14 @@
 @php
-    $facebook = \App\Models\SocialLink::query()->where('title_en', 'Facebook')->where('is_active', 1)->first();
-    $twitter = \App\Models\SocialLink::query()->where('title_en', 'Twitter(X)')->where('is_active', 1)->first();
-    $linkedin = \App\Models\SocialLink::query()->where('title_en', 'Linkedin')->where('is_active', 1)->first();
-    $youtube = \App\Models\SocialLink::query()->where('title_en', 'Youtube')->where('is_active', 1)->first();
-    $instagram = \App\Models\SocialLink::query()->where('title_en', 'Instagram')->where('is_active', 1)->first();
-    $snapchat = \App\Models\SocialLink::query()->where('title_en', 'Snapchat')->where('is_active', 1)->first();
-    $tiktok = \App\Models\SocialLink::query()->where('title_en', 'TikTok')->where('is_active', 1)->first();
-    $whatsChannel = \App\Models\SocialLink::query()->where('title_en', 'Whatsapp Channel')->where('is_active', 1)->first();
-    $sections = \App\Models\Section::query()->inRandomOrder()->limit(6)->get();
-    $depars = \App\Models\Department::query()->get();
+    use App\Models\Department;use App\Models\Section;use App\Models\SocialLink;$facebook = SocialLink::query()->where('title_en', 'Facebook')->where('is_active', 1)->first();
+    $twitter = SocialLink::query()->where('title_en', 'Twitter(X)')->where('is_active', 1)->first();
+    $linkedin = SocialLink::query()->where('title_en', 'Linkedin')->where('is_active', 1)->first();
+    $youtube = SocialLink::query()->where('title_en', 'Youtube')->where('is_active', 1)->first();
+    $instagram = SocialLink::query()->where('title_en', 'Instagram')->where('is_active', 1)->first();
+    $snapchat = SocialLink::query()->where('title_en', 'Snapchat')->where('is_active', 1)->first();
+    $tiktok = SocialLink::query()->where('title_en', 'TikTok')->where('is_active', 1)->first();
+    $whatsChannel = SocialLink::query()->where('title_en', 'Whatsapp Channel')->where('is_active', 1)->first();
+    $sections = Section::query()->inRandomOrder()->limit(6)->get();
+    $depars = Department::query()->get();
 
     $direction = app()->currentLocale() == 'ar' ? 'rtl' : 'ltr';
 @endphp
@@ -395,14 +395,14 @@
                             <div style="flex: 1;">
                                 <h3 class="elementor-heading-title elementor-size-default">
                                     {{ __('landing.Meet Us') }}
-                                </h3>
-                                <p class="elementor-divider__text" style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important;">
+                        </h3>
+                        <p class="elementor-divider__text" style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important;">
                                     {{ __('landing.Book an online appointment to meet our Marketing and Development Team') }}
-                                </p>
-                            </div>
-                            <div style="flex: 1; display: flex; justify-content: center;">
-                                <a href="https://calendar.google.com/calendar/u/0/appointments/AcZssZ1OWCbSozh5BRGjM_4NoOYKIgI-JFjvPQHt6VQ=" target="_blank">
-                                    <img src="{{ asset('uploads/mkhazin/meeting_qr.png') }}" style="border-radius: 10px;" width="150">
+                        </p>
+                    </div>
+                    <div style="flex: 1; display: flex; justify-content: center;">
+                        <a href="https://calendar.google.com/calendar/u/0/appointments/AcZssZ1OWCbSozh5BRGjM_4NoOYKIgI-JFjvPQHt6VQ=" target="_blank">
+                            <img src="{{ asset('uploads/mkhazin/meeting_qr.png') }}" style="border-radius: 10px;" width="150">
                                 </a>
                             </div>
                         </div>-->

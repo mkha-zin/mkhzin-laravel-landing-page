@@ -1,3 +1,4 @@
+@php use Filament\Support\Markdown; @endphp
 @props(['headerTitle','image','title','description'])
 
 @php
@@ -20,7 +21,7 @@
                 {{$title}}
             </h3>
             <h4 style="color: black;font-weight: normal; line-height: 1.5; text-align:justify; word-break:keep-all;">
-                {{\Filament\Support\Markdown::block($description)}}
+                {{Markdown::block($description)}}
             </h4>
 
         </div>

@@ -1,5 +1,5 @@
 @php
-    use Illuminate\Support\Facades\App;
+    use Filament\Support\Markdown;use Illuminate\Support\Facades\App;
     use Carbon\Carbon
 @endphp
 @extends('layouts.app')
@@ -46,7 +46,7 @@
                                 <div class="elementor-widget-container">
                                     <h4 style="color: black; line-height: 1.5;font-weight: normal; text-align:justify; word-break:keep-all;">
                                         {{
-                                            \Filament\Support\Markdown::block($direction == 'rtl' ? $about->first_text_ar : $about->first_text_en )
+                                            Markdown::block($direction == 'rtl' ? $about->first_text_ar : $about->first_text_en )
                                         }}
                                     </h4>
                                 </div>
@@ -112,7 +112,7 @@
                                  style="justify-content: center; flex: auto; text-align: center; color: white">
                                 <h4 class="elementor-heading-title elementor-size-default">
                                     {{
-                                        \Filament\Support\Markdown::block($direction == 'rtl' ? $about->second_text_ar : $about->second_text_en )
+                                        Markdown::block($direction == 'rtl' ? $about->second_text_ar : $about->second_text_en )
                                     }}
                                 </h4>
                             </div>

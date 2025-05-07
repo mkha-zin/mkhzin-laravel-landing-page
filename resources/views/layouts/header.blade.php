@@ -1,12 +1,12 @@
 @php
-    $facebook = \App\Models\SocialLink::query()->where('title_en', 'Facebook')->where('is_active', 1)->first();
-    $twitter = \App\Models\SocialLink::query()->where('title_en', 'Twitter(X)')->where('is_active', 1)->first();
-    $linkedin = \App\Models\SocialLink::query()->where('title_en', 'Linkedin')->where('is_active', 1)->first();
-    $youtube = \App\Models\SocialLink::query()->where('title_en', 'Youtube')->where('is_active', 1)->first();
-    $instagram = \App\Models\SocialLink::query()->where('title_en', 'Instagram')->where('is_active', 1)->first();
-    $snapchat = \App\Models\SocialLink::query()->where('title_en', 'Snapchat')->where('is_active', 1)->first();
-    $tiktok = \App\Models\SocialLink::query()->where('title_en', 'TikTok')->where('is_active', 1)->first();
-    $whatsChannel = \App\Models\SocialLink::query()->where('title_en', 'Whatsapp Channel')->where('is_active', 1)->first();
+    use App\Models\SocialLink;$facebook = SocialLink::query()->where('title_en', 'Facebook')->where('is_active', 1)->first();
+    $twitter = SocialLink::query()->where('title_en', 'Twitter(X)')->where('is_active', 1)->first();
+    $linkedin = SocialLink::query()->where('title_en', 'Linkedin')->where('is_active', 1)->first();
+    $youtube = SocialLink::query()->where('title_en', 'Youtube')->where('is_active', 1)->first();
+    $instagram = SocialLink::query()->where('title_en', 'Instagram')->where('is_active', 1)->first();
+    $snapchat = SocialLink::query()->where('title_en', 'Snapchat')->where('is_active', 1)->first();
+    $tiktok = SocialLink::query()->where('title_en', 'TikTok')->where('is_active', 1)->first();
+    $whatsChannel = SocialLink::query()->where('title_en', 'Whatsapp Channel')->where('is_active', 1)->first();
     $direction = app()->currentLocale() == 'ar' ? 'rtl' : 'ltr';
 @endphp
 
@@ -403,12 +403,13 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <style>
-                    .nav-hover a{
+                    .nav-hover a {
                         display: inline-block;
                         padding: 8px 15px;
                         position: relative;
                     }
-                    .nav-hover a:after{
+
+                    .nav-hover a:after {
                         background: none repeat scroll 0 0 transparent;
                         bottom: 0;
                         content: "";
@@ -420,16 +421,19 @@
                         transition: width 0.3s ease 0s, left 0.3s ease 0s;
                         width: 0;
                     }
-                    .nav-hover a:hover:after{
+
+                    .nav-hover a:hover:after {
                         width: 100%;
                         left: 0;
                     }
-                    .active1{
+
+                    .active1 {
                         background-color: #df2228;
                         border-radius: 5px;
                         width: 100% !important;
                         color: white !important;
                     }
+
                     /*.active1{
                         border-bottom: 3px solid #df2228;
                         color: #df2228 !important;
@@ -451,7 +455,8 @@
                             </a>
                         </li>
                         <li class="nav-hover nav-item ">
-                            <a class="nav-link {{ request()->segment(1) == 'sections' ? 'active active1' : '' }}" href="{{ url('sections') }}">
+                            <a class="nav-link {{ request()->segment(1) == 'sections' ? 'active active1' : '' }}"
+                               href="{{ url('sections') }}">
                                 {{ __('landing.Departments') }}
                             </a>
                         </li>

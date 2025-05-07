@@ -1,5 +1,5 @@
 @php
-    use App\Models\Header;use Illuminate\Support\Facades\App;
+    use App\Models\Header;use Filament\Support\Markdown;use Illuminate\Support\Facades\App;
     use Carbon\Carbon
 @endphp
 @extends('layouts.app')
@@ -17,7 +17,7 @@
 
             <p class="m-1"
                style="font-size: 20px; line-height: 1.5;font-weight: normal; text-align:justify; word-break:keep-all;">
-                {{ \Filament\Support\Markdown::inline( $direction == 'rtl' ? $department->description_ar : $department->description_en) }}
+                {{ Markdown::inline( $direction == 'rtl' ? $department->description_ar : $department->description_en) }}
             </p>
         @endif
     </div>

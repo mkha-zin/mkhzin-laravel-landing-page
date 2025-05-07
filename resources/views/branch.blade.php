@@ -1,6 +1,6 @@
 @php
 
-    $direction = app()->currentLocale() == 'ar' ? 'rtl' : 'ltr';
+    use Filament\Support\Markdown;$direction = app()->currentLocale() == 'ar' ? 'rtl' : 'ltr';
 
 @endphp
 
@@ -70,7 +70,7 @@
                 </div>
                 @if($branch->description_ar || $branch->description_en)
                     <p style="word-break: keep-all; text-align:justify; ">
-                        {{ \Filament\Support\Markdown::inline(
+                        {{ Markdown::inline(
                             $direction == 'rtl' ? $branch->description_ar ?? '': $branch->description_en ?? '' ) }}
                     </p>
                 @endif
@@ -250,7 +250,7 @@
                                                style="display: -webkit-box; text-align:justify; word-break:keep-all;
                                                -webkit-box-orient: vertical; -webkit-line-clamp: 4; color: #333;
                                                overflow: hidden; text-overflow: ellipsis;">
-                                                {{ \Filament\Support\Markdown::inline($review->review) }}
+                                                {{ Markdown::inline($review->review) }}
                                             </p>
 
                                             <!-- Know More Link -->

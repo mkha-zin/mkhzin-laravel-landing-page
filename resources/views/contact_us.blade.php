@@ -161,8 +161,8 @@
                 <div style="background-color: white; padding: 10px 20px; border-radius: 5px; box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
                 display: flex; justify-content: center; align-items: center; flex-direction: column;"
                      class="elementor-element elementor-element-3f1ec870 e-con-full e-flex elementor-invisible e-con e-child"
-                    data-id="3f1ec870" data-element_type="container"
-                    data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;}">
+                     data-id="3f1ec870" data-element_type="container"
+                     data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;}">
                     <div class="elementor-element elementor-element-3738182a elementor-widget elementor-widget-heading"
                          data-id="3738182a" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container" style="border-radius: 5px;">

@@ -170,7 +170,7 @@
                                 <div class="elementor-widget-container">
                                     <h4 style="color: black; line-height: 1.5;font-weight: normal; text-align:justify; word-break:keep-all;">
                                         {{
-                                            \Filament\Support\Markdown::block($direction == 'rtl' ? $about->first_text_ar : $about->first_text_en )
+                                            Markdown::block($direction == 'rtl' ? $about->first_text_ar : $about->first_text_en )
                                         }}
                                     </h4>
                                 </div>
@@ -655,7 +655,8 @@
             <div class="container section" style="margin-top: -150px;">
                 <div class="row">
                     <div class="col-md-6">
-                        <img style="border-radius: 10px;" src="{{  asset('storage/' . $fleet->image) }}" alt="Transport Fleet" class="truck-image">
+                        <img style="border-radius: 10px;" src="{{  asset('storage/' . $fleet->image) }}"
+                             alt="Transport Fleet" class="truck-image">
                     </div>
                     <div class="col-md-6 mt-3"
                          style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important">
@@ -691,31 +692,34 @@
 
         <!-- Posts Section -->
         @if(!empty($posts))
-        <div class="container" style="margin-top: 50px; background-color: white">
-            <!-- Section Header -->
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h3 style="margin: 0; color: black">{{ __('landing.Latest Posts') }}</h3>
-                <a href="{{  url('blog') }}" class="elementor-button-text" style="text-decoration: none; padding: 10px 15px; background-color: var(--e-global-color-6942582);  color: #fff; border-radius: 5px;">
-                    {{ __('landing.Read More Posts') }}
-                </a>
+            <div class="container" style="margin-top: 50px; background-color: white">
+                <!-- Section Header -->
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h3 style="margin: 0; color: black">{{ __('landing.Latest Posts') }}</h3>
+                    <a href="{{  url('blog') }}" class="elementor-button-text"
+                       style="text-decoration: none; padding: 10px 15px; background-color: var(--e-global-color-6942582);  color: #fff; border-radius: 5px;">
+                        {{ __('landing.Read More Posts') }}
+                    </a>
+                </div>
+                <!-- Posts Grid -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                    @foreach ($posts->take(3) as $post)
+                        <div
+                            style="border: 1px solid #ddd; border-radius: 10px; padding: 15px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+                            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}"
+                                 style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                            <h4 class="{{  $direction == 'rtl' ? 'text-right' : 'text-left' }}"
+                                style="margin-top: 10px; color: black;">
+                                {{ $direction == 'rtl' ? $post->title_ar : $post->title_en }}
+                            </h4>
+                            <p class="{{  $direction == 'rtl' ? 'text-right' : 'text-left' }}">{{ Str::limit($direction == 'rtl' ? $post->article_ar : $post->article_en, 100) }}</p>
+                            <a href="{{  url('blog/' . $post->id) }}" style="text-decoration: none; color: #007bff;">
+                                {{ __('landing.Read More') }} {{ $direction == 'rtl' ? '←' : '→' }}
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-            <!-- Posts Grid -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-                @foreach ($posts->take(3) as $post)
-                    <div style="border: 1px solid #ddd; border-radius: 10px; padding: 15px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
-                        <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
-                        <h4 class="{{  $direction == 'rtl' ? 'text-right' : 'text-left' }}"
-                            style="margin-top: 10px; color: black;">
-                            {{ $direction == 'rtl' ? $post->title_ar : $post->title_en }}
-                        </h4>
-                        <p class="{{  $direction == 'rtl' ? 'text-right' : 'text-left' }}">{{ Str::limit($direction == 'rtl' ? $post->article_ar : $post->article_en, 100) }}</p>
-                        <a href="{{  url('blog/' . $post->id) }}" style="text-decoration: none; color: #007bff;">
-                            {{ __('landing.Read More') }} {{ $direction == 'rtl' ? '←' : '→' }}
-                        </a>
-                    </div>
-                @endforeach
-            </div>
-        </div>
         @endif
         <!-- /Posts Section -->
 
@@ -865,9 +869,9 @@
                 </div>
                 <div style="background-color: white; padding: 10px 20px; border-radius: 5px; box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
                 display: flex; justify-content: center; align-items: center; flex-direction: column;"
-                    class="elementor-element elementor-element-3f1ec870 e-con-full e-flex elementor-invisible e-con e-child"
-                    data-id="3f1ec870" data-element_type="container"
-                    data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;}">
+                     class="elementor-element elementor-element-3f1ec870 e-con-full e-flex elementor-invisible e-con e-child"
+                     data-id="3f1ec870" data-element_type="container"
+                     data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;}">
                     <div class="elementor-element elementor-element-3738182a elementor-widget elementor-widget-heading"
                          data-id="3738182a" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container" style="border-radius: 5px;">
@@ -880,7 +884,7 @@
                         data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
                             <h2 class="elementor-heading-title elementor-size-default"
-                            style="text-align: {{  $direction == 'rtl' ? 'right' : 'left' }} !important;}}">
+                                style="text-align: {{  $direction == 'rtl' ? 'right' : 'left' }} !important;}}">
                                 {{ __('landing.Keep in touch') }}
                             </h2>
                         </div>

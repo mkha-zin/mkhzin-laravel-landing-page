@@ -163,7 +163,8 @@
                                 {{ __('landing.Previous offers') }}
                             </h2>
 
-                            <div class="elementor-element elementor-element-21105bf4 elementor-widget__width-inherit elementor-widget elementor-widget-rkit-blog-post"
+                            <div
+                                class="elementor-element elementor-element-21105bf4 elementor-widget__width-inherit elementor-widget elementor-widget-rkit-blog-post"
                                 data-id="21105bf4" data-element_type="widget" data-widget_type="rkit-blog-post.default">
                                 <div class="elementor-widget-container">
                                     <div class="rkit-blog">

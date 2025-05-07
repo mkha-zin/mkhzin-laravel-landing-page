@@ -20,7 +20,7 @@
     <meta name="description" content="{{ $header_description ?? config('app.name') }}">
     <meta name='robots' content='max-image-preview:large'/>
     <link rel='dns-prefetch' href='https/cdnjs.cloudflare_com_4456457.html'/>
-    <meta name="facebook-domain-verification" content="gy9woqwgfbecuwkmuzq268z1vf8hwk" />
+    <meta name="facebook-domain-verification" content="gy9woqwgfbecuwkmuzq268z1vf8hwk"/>
 
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('uploads/mkhazin/fav.png') }}">
 
@@ -176,7 +176,7 @@
           href='{{ asset('uploads/sites/82/elementor/css/post-1244_6684730.css') }}' media='all'/>
     <!-- Style the button using CSS -->
     <style>
-        body{
+        body {
             background-image: url("{{ asset('images/svg/Sprinkle.svg') }}");
         }
 

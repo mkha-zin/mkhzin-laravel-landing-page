@@ -151,7 +151,7 @@
         }
     </style>
     <!-- Welcome Section -->
-    <div class="container welcome-section mt-3" >
+    <div class="container welcome-section mt-3">
         <!-- Back Button -->
         <a href="{{ route('jobs.index') }}" class="back-btn" style="{{ $dir == 'ltr' ? 'left: 20px' : 'right: 20px' }}">
             {{ __('home.Back to Jobs') }}
@@ -175,7 +175,8 @@
 
                     <div class="col-md-6">
                         <label class="form-label">{{ __('home.Your Name') }}</label>
-                        <input type="text" name="name" style="background-color: transparent; color: black" class="form-control @error('name') is-invalid @enderror"
+                        <input type="text" name="name" style="background-color: transparent; color: black"
+                               class="form-control @error('name') is-invalid @enderror"
                                value="{{ old('name') }}" required>
                         @error('name')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -184,7 +185,8 @@
 
                     <div class="col-md-6">
                         <label class="form-label">{{ __('home.Your Email') }}</label>
-                        <input type="email" name="email" style="background-color: transparent; color: black" class="form-control @error('email') is-invalid @enderror"
+                        <input type="email" name="email" style="background-color: transparent; color: black"
+                               class="form-control @error('email') is-invalid @enderror"
                                value="{{ old('email') }}" required>
                         @error('email')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -193,7 +195,8 @@
 
                     <div class="col-md-6">
                         <label class="form-label">{{ __('home.Phone Number') }}</label>
-                        <input type="tel" name="phone" style="background-color: transparent; color: black" class="form-control @error('phone') is-invalid @enderror"
+                        <input type="tel" name="phone" style="background-color: transparent; color: black"
+                               class="form-control @error('phone') is-invalid @enderror"
                                value="{{ old('phone') }}" required>
                         @error('phone')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -202,7 +205,8 @@
 
                     <div class="col-md-6">
                         <label class="form-label">{{ __('home.Address') }}</label>
-                        <input type="text" name="address" style="background-color: transparent; color: black" class="form-control @error('address') is-invalid @enderror"
+                        <input type="text" name="address" style="background-color: transparent; color: black"
+                               class="form-control @error('address') is-invalid @enderror"
                                value="{{ old('address') }}" required>
                         @error('address')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -212,7 +216,8 @@
                     <!-- Last Job -->
                     <div class="col-12">
                         <label class="form-label">{{ __('home.Last Job') }}</label>
-                        <input type="text" name="last_job" style="background-color: transparent; color: black" class="form-control @error('last_job') is-invalid @enderror"
+                        <input type="text" name="last_job" style="background-color: transparent; color: black"
+                               class="form-control @error('last_job') is-invalid @enderror"
                                placeholder="{{ __('home.Last Job desc') }}" value="{{ old('last_job') }}" required>
                         @error('last_job')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -223,7 +228,8 @@
                     <!-- About You -->
                     <div class="col-12">
                         <label class="form-label">{{ __('home.why hire') }}</label>
-                        <textarea name="about_you" style="background-color: transparent; color: black" class="form-control @error('about_you') is-invalid @enderror"
+                        <textarea name="about_you" style="background-color: transparent; color: black"
+                                  class="form-control @error('about_you') is-invalid @enderror"
                                   rows="5"
                                   placeholder="{{ __('home.why hire desc') }}"
                                   required>{{ old('about_you') }}</textarea>
@@ -234,7 +240,8 @@
 
                     <div class="col-12">
                         <label class="form-label">{{ __('home.Upload Resume') }}</label>
-                        <input type="file" name="resume" style="background-color: transparent; color: black" class="form-control @error('resume') is-invalid @enderror"
+                        <input type="file" name="resume" style="background-color: transparent; color: black"
+                               class="form-control @error('resume') is-invalid @enderror"
                                required>
                         @error('resume')
                         <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -244,7 +251,8 @@
                 </div>
 
                 <div class="text-end mt-4">
-                    <button type="submit" class="sub-btn btn btn-primary px-4 py-2">{{ __('home.Submit Application') }}</button>
+                    <button type="submit"
+                            class="sub-btn btn btn-primary px-4 py-2">{{ __('home.Submit Application') }}</button>
                 </div>
             </form>
 

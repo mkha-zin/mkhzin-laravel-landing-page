@@ -136,7 +136,8 @@ class CustomerReviewResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->actions([
+            ->
+            actions([
                 EditAction::make()->iconButton(),
                 DeleteAction::make()->iconButton(),
             ])
