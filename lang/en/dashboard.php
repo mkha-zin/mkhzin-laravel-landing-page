@@ -314,7 +314,7 @@ return [
     'Jobs Portal' => 'Jobs Portal',
     'App Panel' => 'App Panel',
 
-    'stars' => 'Evaluation ( 1-5 )',
+    'stars' => 'Evaluation',
     'platform' => 'Platform',
 
     'social_link' => 'Social Links',

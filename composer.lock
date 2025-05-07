@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3cc9df78b1a2a5a15b08da4a268aee25",
+    "content-hash": "6742f7d81cda53392e6cc409b7c43dbd",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -3793,6 +3793,76 @@
                 "source": "https://github.com/Masterminds/html5-php/tree/2.9.0"
             },
             "time": "2024-03-31T07:05:07+00:00"
+        },
+        {
+            "name": "mokhosh/filament-rating",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mokhosh/filament-rating.git",
+                "reference": "7499d3d26005e5e1f1c50e86b266f7bf3d67af90"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mokhosh/filament-rating/zipball/7499d3d26005e5e1f1c50e86b266f7bf3d67af90",
+                "reference": "7499d3d26005e5e1f1c50e86b266f7bf3d67af90",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0",
+                "php": "^8.1",
+                "spatie/laravel-package-tools": "^1.15.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^7.9",
+                "orchestra/testbench": "^8.0",
+                "pestphp/pest": "^2.1",
+                "pestphp/pest-plugin-arch": "^2.0",
+                "pestphp/pest-plugin-laravel": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mokhosh\\FilamentRating\\FilamentRatingServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mokhosh\\FilamentRating\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mo Khosh",
+                    "email": "mskhoshnazar@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Add rating fields and columns to Filament forms and tables",
+            "homepage": "https://github.com/mokhosh/filament-rating",
+            "keywords": [
+                "filament-rating",
+                "laravel",
+                "mokhosh"
+            ],
+            "support": {
+                "issues": "https://github.com/mokhosh/filament-rating/issues",
+                "source": "https://github.com/mokhosh/filament-rating"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/mokhosh",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-09-29T17:55:51+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -11907,12 +11977,12 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.2"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
 }

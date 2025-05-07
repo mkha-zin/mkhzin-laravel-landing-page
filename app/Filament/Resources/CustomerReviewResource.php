@@ -6,11 +6,19 @@ use App;
 use App\Filament\Resources\CustomerReviewResource\Pages;
 use App\Filament\Resources\CustomerReviewResource\RelationManagers;
 use App\Models\CustomerReview;
-use Filament\Forms;
+use Filament\Forms\Components\MarkdownEditor;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Tables;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Mokhosh\FilamentRating\Columns\RatingColumn;
+use Mokhosh\FilamentRating\Components\Rating;
+use Mokhosh\FilamentRating\RatingTheme;
 
 class CustomerReviewResource extends Resource
 {
@@ -40,11 +48,11 @@ class CustomerReviewResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('branch_id')
+                Select::make('branch_id')
                     ->label(__('dashboard.branch'))
                     ->relationship('branch', App::currentLocale() === 'ar' ? 'name_ar' : 'name_en')
                     ->required(),
-                Forms\Components\Select::make('platform')
+                Select::make('platform')
                     ->label(__('dashboard.platform'))
                     ->required()
                     ->options([
@@ -60,22 +68,22 @@ class CustomerReviewResource extends Resource
                         'linkedin' => __('dashboard.linkedin'),
                         'youtube' => __('dashboard.youtube'),
                     ]),
-                Forms\Components\TextInput::make('name')
+                TextInput::make('name')
                     ->label(__('dashboard.customer name'))
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('stars')
+                Rating::make('stars')
                     ->label(__('dashboard.stars'))
                     ->required()
-                    ->numeric()
-                    ->maxValue(5)
-                    ->minValue(1)
-                    ->maxLength(1),
-                Forms\Components\TextInput::make('link')
+                    ->stars(5)
+                    ->color('warning')
+                    ->size('xl')
+                    ->theme(RatingTheme::Simple),
+                TextInput::make('link')
                     ->label(__('dashboard.link'))
                     ->url()
                     ->columnSpanFull(),
-                Forms\Components\MarkdownEditor::make('review')
+                MarkdownEditor::make('review')
                     ->label(__('dashboard.customer review'))
                     ->required()
                     ->columnSpanFull(),
@@ -86,19 +94,19 @@ class CustomerReviewResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make(
+                TextColumn::make(
                     App::currentLocale() === 'ar' ? 'branch.name_ar' : 'branch.name_en'
                 )
                     ->label(__('dashboard.branch'))
                     ->searchable()
                     ->alignCenter()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->label(__('dashboard.customer name'))
                     ->sortable()
                     ->words(2)
                     ->searchable(),
-                Tables\Columns\TextColumn::make('platform')
+                TextColumn::make('platform')
                     ->label(__('dashboard.platform'))
                     ->formatStateUsing(
                         fn($state) => __('dashboard.' . $state)
@@ -106,24 +114,22 @@ class CustomerReviewResource extends Resource
                     ->alignCenter()
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('link')
+                TextColumn::make('link')
                     ->searchable()
                     ->limit(10)
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('stars')
+                RatingColumn::make('stars')
                     ->label(__('dashboard.stars'))
-                    ->alignCenter()
-                    ->sortable()
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('review')
+                    ->color('warning'),
+                TextColumn::make('review')
                     ->label(__('dashboard.customer review'))
                     ->words(3)
                     ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -132,13 +138,11 @@ class CustomerReviewResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make()->iconButton(),
-                Tables\Actions\DeleteAction::make()->iconButton(),
+                EditAction::make()->iconButton(),
+                DeleteAction::make()->iconButton(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                DeleteBulkAction::make(),
             ]);
     }
 
