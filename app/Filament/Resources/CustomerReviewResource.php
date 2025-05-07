@@ -78,7 +78,7 @@ class CustomerReviewResource extends Resource
                     ->stars(5)
                     ->color('warning')
                     ->size('xl')
-                    ->theme(RatingTheme::Simple),
+                    ->theme(RatingTheme::HalfStars),
                 TextInput::make('link')
                     ->label(__('dashboard.link'))
                     ->url()
@@ -120,7 +120,9 @@ class CustomerReviewResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
                 RatingColumn::make('stars')
                     ->label(__('dashboard.stars'))
-                    ->color('warning'),
+                    ->color('warning')
+                    ->theme(RatingTheme::HalfStars)
+                    ->sortable(),
                 TextColumn::make('review')
                     ->label(__('dashboard.customer review'))
                     ->words(3)
@@ -133,9 +135,6 @@ class CustomerReviewResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-            ])
-            ->filters([
-                //
             ])
             ->actions([
                 EditAction::make()->iconButton(),
