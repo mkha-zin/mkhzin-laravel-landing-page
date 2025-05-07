@@ -319,7 +319,10 @@
             <div class="col-md-12" style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important">
                 <h4>{{ __('landing.branch location details') }}</h4>
                 @if($branch->address_ar || $branch->address_en)
-                    <p class="mb-2">{{ $direction === 'rtl' ? $branch->address_ar ?? $branch->address_en: $branch->address_en ?? $branch->address_ar }}</p>
+                    <p class="mb-2">
+                        {{ $direction === 'rtl'
+? $branch->city->name_ar . '، ' . $branch->address_ar ?? $branch->city->name_en . ', ' . $branch->address_en
+: $branch->city->name_en . ', ' . $branch->address_en ?? $branch->city->name_ar . '، ' . $branch->address_ar }}</p>
                 @endif
                 <div id="map" style="height: 400px;" class="rounded shadow-sm"></div>
             </div>
