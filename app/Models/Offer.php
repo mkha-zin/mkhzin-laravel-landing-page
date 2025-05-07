@@ -46,7 +46,7 @@ class Offer extends Model
         $extractedDirPath = public_path('offersfiles/extrcs/' . $id);
 
         // Check if the ZIP file exists
-        if (Storage::exists($zipFilePath)) {
+        if (file_exists($zipFilePath)) {
             $zip = new ZipArchive();
 
             if ($zip->open($zipFilePath) === TRUE) {
@@ -82,7 +82,7 @@ class Offer extends Model
         $oldExtractedDirPath = public_path('offersfiles/extrcs/' . $this->id);
 
         // Check if the old ZIP file exists and delete it
-        if (file_exists($oldZipFilePath)) {
+        if (is_file($oldZipFilePath)) {
             unlink($oldZipFilePath);  // Delete the old ZIP file
         }
 
