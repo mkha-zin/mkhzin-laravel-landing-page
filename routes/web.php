@@ -44,6 +44,11 @@ Route::group(['middleware' => 'localization'], static function () {
 
     Route::get('/departments/{key}', [LandingController::class, 'departments'])->name('departments');
 
+    Route::get('win', function () {
+        $header_title = 'إربح مع مخازن | Win with Makhazin';
+        return view('win_form' , compact('header_title'));
+    });
+
     Route::get('login/{to}', static function ($to) {
         if (Auth::user())
             Auth::logout();
@@ -67,9 +72,9 @@ Route::group(['middleware' => 'localization'], static function () {
         Route::get('/download_cv', [JobsController::class, 'download'])->name('resume.download');
     });
 
-    Route::get('test', function () {
-       return view('branch');
-    });
+    /*Route::get('test', function () {
+       return view('form_test');
+    });*/
 
 });
 
