@@ -31,7 +31,7 @@ return new class extends Migration {
                     'whatsapp',
                     'telegram',
                     'linkedin',
-                    'youtube'
+                    'youtube',
                 ]);
             $table->string('link')->nullable();
             $table->string('stars');

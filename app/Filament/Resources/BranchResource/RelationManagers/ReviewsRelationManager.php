@@ -52,25 +52,30 @@ class ReviewsRelationManager extends RelationManager
                     ->sortable()
                     ->searchable(),
                 TextColumn::make('link')
+                    ->label(__('dashboard.link'))
                     ->searchable()
                     ->limit(10)
                     ->toggleable(isToggledHiddenByDefault: true),
                 RatingColumn::make('stars')
                     ->label(__('dashboard.stars'))
                     ->color('warning')
-                    ->theme(RatingTheme::HalfStars)
-                    ->sortable(),
+                    ->sortable()
+                    ->theme(RatingTheme::HalfStars),
                 TextColumn::make('review')
                     ->label(__('dashboard.customer review'))
                     ->words(3)
                     ->searchable(),
                 TextColumn::make('created_at')
-                    ->dateTime()
+                    ->label(__('dashboard.created at'))
+                    ->date()
                     ->sortable()
+                    ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->label(__('dashboard.updated at'))
+                    ->date()
                     ->sortable()
+                    ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->toggleable(isToggledHiddenByDefault: true),
             ]);
     }

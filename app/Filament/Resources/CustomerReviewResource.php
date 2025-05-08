@@ -6,15 +6,19 @@ use App;
 use App\Filament\Resources\CustomerReviewResource\Pages;
 use App\Filament\Resources\CustomerReviewResource\RelationManagers;
 use App\Models\CustomerReview;
+use BladeUI\Icons\Components\Icon;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 use Mokhosh\FilamentRating\Columns\RatingColumn;
 use Mokhosh\FilamentRating\Components\Rating;
@@ -81,8 +85,10 @@ class CustomerReviewResource extends Resource
                     ->theme(RatingTheme::HalfStars),
                 TextInput::make('link')
                     ->label(__('dashboard.link'))
-                    ->url()
-                    ->columnSpanFull(),
+                    ->url(),
+                Toggle::make('is_active')
+                    ->label(__('dashboard.is_active'))
+                    ->default(true),
                 MarkdownEditor::make('review')
                     ->label(__('dashboard.customer review'))
                     ->required()
@@ -127,6 +133,10 @@ class CustomerReviewResource extends Resource
                     ->label(__('dashboard.customer review'))
                     ->words(3)
                     ->searchable(),
+                ToggleColumn::make('is_active')
+                    ->label(__('dashboard.is_active'))
+                    ->tooltip(fn(CustomerReview $record) => $record->is_active ? __('dashboard.active') : __('dashboard.inactive'))
+                    ->alignCenter(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
