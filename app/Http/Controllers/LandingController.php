@@ -256,7 +256,7 @@ class LandingController extends Controller
             ->where('id', $id)
             ->first();
         if ($offer->pdf_file) {
-            return Redirect::to('offersfiles/extrcs/' . $offer->id . '/' . 'index.html');
+            return Redirect::to('offersfiles/extrcs/' . $offer->id . '/index.html');
         }
 
         return abort(404);

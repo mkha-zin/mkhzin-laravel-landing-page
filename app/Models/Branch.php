@@ -29,4 +29,11 @@ class Branch extends Model
     {
         return $this->hasMany(Offer::class);
     }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(CustomerReview::class);
+    }
+
+
 }

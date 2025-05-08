@@ -3,6 +3,8 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\BranchResource\Pages;
+use App\Filament\Resources\BranchResource\RelationManagers\OfferRelationManager;
+use App\Filament\Resources\BranchResource\RelationManagers\ReviewsRelationManager;
 use App\Models\Branch;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
@@ -252,6 +254,14 @@ class BranchResource extends Resource
                     ->url(fn(Branch $record) => $record->tiktok, true),
             ])->columns(3),
         ]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            OfferRelationManager::class,
+            ReviewsRelationManager::class,
+        ];
     }
 
     public static function getPages(): array

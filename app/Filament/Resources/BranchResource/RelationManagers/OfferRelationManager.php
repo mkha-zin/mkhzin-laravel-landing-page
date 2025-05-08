@@ -11,6 +11,7 @@ use Filament\Infolists\Infolist;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
 
 class OfferRelationManager extends RelationManager
@@ -18,6 +19,11 @@ class OfferRelationManager extends RelationManager
     protected static string $relationship = 'offer';
 
     public static function getNavigationGroup(): ?string
+    {
+        return __('dashboard.offers');
+    }
+
+    public static function getTitle(Model $ownerRecord, string $pageClass): string
     {
         return __('dashboard.offers');
     }
