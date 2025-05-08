@@ -2,7 +2,10 @@
 
 namespace App\Filament\Resources\BranchResource\RelationManagers;
 
+use App\Models\Offer;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\Section;
@@ -12,6 +15,7 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\App;
 
 class OfferRelationManager extends RelationManager
@@ -49,11 +53,20 @@ class OfferRelationManager extends RelationManager
                         ->imageEditor()
                         ->image()
                         ->required(),
-                    Forms\Components\FileUpload::make('pdf_file')
-                        ->acceptedFileTypes(['application/pdf'])
+                    FileUpload::make('pdf_file')
+                        ->helperText(__('dashboard.Only Compressed files are allowed'))
                         ->label(__('dashboard.file'))
-                        ->directory('assets/files/offers')
-                        ->maxSize(10024)
+                        ->getUploadedFileNameForStorageUsing(function (UploadedFile $file, ?Offer $record) {
+                            if ($record) {
+                                return 'offer-' . $record->id . '-' . $record->name_en . '-' . $file->getClientOriginalName();
+                            }
+                            return $file->getClientOriginalName();
+                        })
+                        ->directory('zips')
+                        ->disk('zip')
+                        ->acceptedFileTypes(['zip', 'application/octet-stream', 'application/zip', 'application/x-zip', 'application/x-zip-compressed'])
+                        ->maxSize(50072)
+                        ->downloadable()
                         ->required()
                 ])->columns(2),
                 Forms\Components\Section::make(__(''))->schema([
@@ -84,7 +97,9 @@ class OfferRelationManager extends RelationManager
                     Forms\Components\DatePicker::make('end_date')
                         ->label(__('dashboard.end_date'))
                         ->required(),
-                ])->columns(2),
+                    Toggle::make('is_active')
+                        ->label(__('dashboard.status')),
+                ])->columns(3),
 
             ]);
     }
@@ -117,9 +132,9 @@ class OfferRelationManager extends RelationManager
                     ->sortable(),
                 Tables\Columns\TextColumn::make('end_date')
                     ->label(__('dashboard.end_date'))
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->date()
+                    ->dateTimeTooltip('Y/m/d h:i:s A')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -135,13 +150,6 @@ class OfferRelationManager extends RelationManager
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
             ]);
     }
 
@@ -173,6 +181,5 @@ class OfferRelationManager extends RelationManager
 
         ]);
     }
-
 
 }

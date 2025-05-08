@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\OfferResource\Pages;
 use App\Models\Offer;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Section;
@@ -297,10 +298,10 @@ class OfferResource extends Resource
                 Section::make(
                     __('dashboard.duration')
                 )->schema([
-                    DatePicker::make('start_date')
+                    DateTimePicker::make('start_date')
                         ->label(__('dashboard.start_date'))
                         ->required(),
-                    DatePicker::make('end_date')
+                    DateTimePicker::make('end_date')
                         ->label(__('dashboard.end_date'))
                         ->required(),
                 ])->columns(2),
