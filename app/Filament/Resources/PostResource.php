@@ -119,6 +119,7 @@ class PostResource extends Resource
                     ->label(__('dashboard.tag'))
                     ->words(2)
                     ->sortable()
+                    ->badge()
                     ->searchable(),
                 TextColumn::make(
                     App::currentLocale() === 'ar' ? 'title_ar' : 'title_en'
