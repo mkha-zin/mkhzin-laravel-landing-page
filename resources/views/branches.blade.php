@@ -66,6 +66,7 @@
                         width: 100%;
                         max-width: 100%;
                         min-width: 350px;
+                        border: 1px solid red;
                     }
 
                     .card-image {
@@ -105,7 +106,6 @@
                         display: flex;
                         position: absolute;
                         bottom: 0;
-                        left: 0;
                         width: 100%;
                     }
 
@@ -124,7 +124,6 @@
 
                     .card-buttons a:first-child {
                         background-color: #df2228;
-                        border-right: 1px solid white;
                     }
 
                     .card-buttons a:last-child {
