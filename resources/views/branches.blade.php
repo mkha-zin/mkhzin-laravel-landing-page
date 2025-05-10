@@ -66,7 +66,6 @@
                         width: 100%;
                         max-width: 100%;
                         min-width: 350px;
-                        border: 1px solid red;
                     }
 
                     .card-image {
