@@ -72,8 +72,12 @@ Route::group(['middleware' => 'localization'], static function () {
         Route::get('/download_cv', [JobsController::class, 'download'])->name('resume.download');
     });
 
+    Route::get('evaluate/{branch}', [LandingController::class, 'evaluateBranch'])->name('evaluate-branch');
+    Route::post('evaluate', [LandingController::class, 'evaluatBranch'])->name('evaluate.branch');
+
+
     /*Route::get('test', function () {
-       return view('form_test');
+       return view('evaluate_form');
     });*/
 
 });

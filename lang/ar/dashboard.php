@@ -16,6 +16,11 @@ return [
     'fleet' => 'اسطول النقل',
     'visitor_message' => 'رسائل الزوار',
     'jobs' => 'الوظائف',
+
+    'evaluate_branch' => 'تقييم الفرع',
+    'evaluate_the' => 'تقييم فرع :attribute',
+    'evaluation_submitted' => 'تم إرسال تقييمك بنجاح، شكراً لك!',
+
     'cities' => 'المدن',
     'branches' => 'الفروع',
     'offers' => 'العروض',

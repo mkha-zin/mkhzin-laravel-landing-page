@@ -362,6 +362,29 @@ class LandingController extends Controller
 
         return view('departments', $data);
     }
+
+    function evaluateBranch(string $branch_name)
+    {
+        $data['branch'] = Branch::query()->where('name_en', $branch_name)->first();
+
+        return view('evaluate_form', $data);
+    }
+
+    function evaluatBranch(HttpRequest $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'stars' => 'required|numeric|min:0.5|max:5',
+            'review' => 'required|string|max:2000',
+            'platform' => 'nullable|string|max:15',
+            'branch_id' => 'required|integer'
+        ]);
+
+
+        CustomerReview::create($validated);
+
+        return response()->json(['success' => true, 'message' => __('dashboard.evaluation_submitted')]);
+    }
 }
 
 

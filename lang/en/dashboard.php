@@ -19,6 +19,11 @@ return [
     'fleet' => 'Fleet',
     'visitor_message' => 'Visitor Message',
     'jobs' => 'Jobs',
+
+    'evaluate_branch' => 'Evaluate Branch',
+    'evaluate_the' => 'Evaluate :attribute Branch',
+    'evaluation_submitted' => 'Evaluation submitted successfully, Thank you!',
+
     'Blog' => 'Blog',
     'Posts' => 'Posts',
     'Post' => 'Post',

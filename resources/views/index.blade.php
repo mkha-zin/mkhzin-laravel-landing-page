@@ -712,7 +712,9 @@
                                 style="margin-top: 10px; color: black;">
                                 {{ $direction == 'rtl' ? $post->title_ar : $post->title_en }}
                             </h4>
-                            <p class="{{  $direction == 'rtl' ? 'text-right' : 'text-left' }}">{{ Str::limit($direction == 'rtl' ? $post->article_ar : $post->article_en, 100) }}</p>
+                            <p class="{{  $direction == 'rtl' ? 'text-right' : 'text-left' }}">
+                                {{ Markdown::inline(Str::limit($direction == 'rtl' ? $post->article_ar : $post->article_en, 100)) }}
+                            </p>
                             <a href="{{  url('blog/' . $post->id) }}" style="text-decoration: none; color: #007bff;">
                                 {{ __('landing.Read More') }} {{ $direction == 'rtl' ? '←' : '→' }}
                             </a>

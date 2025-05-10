@@ -37,6 +37,8 @@
                     </li>
                 @endif
             </ol>
+                <a href="{{ route('evaluate-branch', $branch->name_en) }}" target="_blank"
+                   class="btn btn-dark text-white btn-sm mb-2">{{ __('dashboard.evaluate_branch') }}</a>
         </nav>
     </div>
 
@@ -98,7 +100,7 @@
             @if($reviews->isNotEmpty())
                 <!-- Reviews Section -->
                 <div class="col-md-12" style="margin-top: 50px; text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important">
-                    <h4 class="mb-2">{{ __('dashboard.customer reviews') }}</h4>
+                    <h4 class="col-md-6 text-{{ $direction == 'rtl' ? 'end' : 'start' }}">{{ __('dashboard.customer reviews') }}</h4>
                     <style>
                         .slider-wrapper {
                             overflow: hidden;
@@ -221,6 +223,8 @@
                                                              $image = asset('images/icons/linkedin.png');
                                                          elseif ($review->platform == 'youtube')
                                                              $image = asset('images/icons/youtube.png');
+                                                         elseif ($review->platform == 'website')
+                                                             $image = asset('uploads/mkhazin/logo900.png');
                                                 @endphp
                                                 <img src="{{ $image }}"
                                                      alt="{{ $review->platform }}"
