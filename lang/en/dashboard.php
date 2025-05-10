@@ -334,5 +334,6 @@ return [
     'telegram' => 'Telegram',
     'linkedin' => 'Linkedin',
     'youtube' => 'Youtube',
+    'website' => 'Website',
 
 ];

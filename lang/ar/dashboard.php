@@ -331,4 +331,5 @@ return [
     'telegram' => 'تليجرام',
     'linkedin' => 'لينكدان',
     'youtube' => 'يوتيوب',
+    'website' => 'موقع مخازن',
 ];
