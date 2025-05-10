@@ -121,6 +121,7 @@ class CustomerReviewResource extends Resource
                     ->sortable()
                     ->searchable(),
                 TextColumn::make('link')
+                    ->label(__('dashboard.link'))
                     ->searchable()
                     ->limit(10)
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -136,18 +137,20 @@ class CustomerReviewResource extends Resource
                 ToggleColumn::make('is_active')
                     ->label(__('dashboard.is_active'))
                     ->tooltip(fn(CustomerReview $record) => $record->is_active ? __('dashboard.active') : __('dashboard.inactive'))
+                    ->sortable()
                     ->alignCenter(),
                 TextColumn::make('created_at')
+                    ->label(__('dashboard.created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
+                    ->label(__('dashboard.updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->
-            actions([
+            ->actions([
                 EditAction::make()->iconButton(),
                 DeleteAction::make()->iconButton(),
             ])
