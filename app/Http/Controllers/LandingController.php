@@ -194,11 +194,12 @@ class LandingController extends Controller
                             <strong style="color: darkred" class="mb-2">' . e(data_get($branch, App::currentLocale() === 'ar' ? 'name_ar' : 'name_en', '')) . '</strong>
                             <br>
                             <a href="tel:+966920011209">920011209</a>
-                            <br>
-                            <a class="btn btn-sm btn-outline-danger mt-2" style="color: darkred"
-                            href="https://www.google.com/maps?q=' . e($branch->latitude) . ',' . e($branch->longitude) . '" target="_blank" >
+                            <br>' .
+                        (!empty($branch->map_link) ? '
+                                <a class="btn btn-sm btn-outline-danger mt-2" style="color: darkred"
+                            href="' . e($branch->map_link) . '" target="_blank" >
                                 ' . __('landing.View on Google Maps') . '
-                            </a>
+                            </a>' : '') . '
                         </div>',
                 ];
             })

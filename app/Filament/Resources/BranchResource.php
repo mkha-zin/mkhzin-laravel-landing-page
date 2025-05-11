@@ -100,6 +100,14 @@ class BranchResource extends Resource
                     TextInput::make('latitude')
                         ->label(__('dashboard.latitude'))
                         ->required(),
+                    TextInput::make('map_link')
+                        ->label(__('dashboard.map_link'))
+                        ->hint(__('dashboard.map_link_helper'))
+                        ->hintIcon('heroicon-o-information-circle')
+                        ->url()
+                        ->prefixIcon('heroicon-s-link')
+                        ->columnSpanFull()
+                        ->required(),
                 ])->columns(2),
                 Section::make(__('dashboard.social_link'))->schema([
                     TextInput::make('snapchat')

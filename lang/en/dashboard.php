@@ -154,6 +154,8 @@ return [
     'longitude_hint' => 'Longitude on the map',
     'latitude' => 'Latitude',
     'latitude_hint' => 'Latitude on the map',
+    'map_link' => 'Map Link',
+    'map_link_helper' => 'Copy the share link from the Google maps and paste it here',
 
     'city' => 'City',
     'district' => 'District',
