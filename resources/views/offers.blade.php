@@ -28,8 +28,6 @@
                 <div class="elementor-element elementor-element-130ffc67 e-flex e-con-boxed e-con e-parent"
                      data-element_type="container">
 
-                    {{--@dd($offers)--}}
-
                     @if(Request::segment(1) == 'offers' )
                         )
                         <div class="container mt-5" style="margin-bottom: -100px;">
@@ -49,7 +47,7 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <button class="btn text-white form-group col-2" type="submit"
+                                        <button class="btn text-white form-group col-2 rounded" type="submit"
                                                 style="letter-spacing: 0 !important;">{{ __('landing.Search') }}</button>
                                     </div>
                                 </div>

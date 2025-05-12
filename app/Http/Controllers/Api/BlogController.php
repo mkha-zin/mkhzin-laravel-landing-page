@@ -15,13 +15,22 @@ class BlogController extends Controller
 
         $posts = Post::with('tag')
             ->where('status', 'active')
-            ->when($request->has('tag_id'), fn($query) =>
-            $query->where('tag_id', $request->tag_id)
+            ->when($request->has('tag_id'), fn($query) => $query->where('tag_id', $request->tag_id)
             )
             ->latest()
-            ->paginate(5);
+            ->paginate($request->per_page ?? 5);
 
-        return PostResource::collection($posts)->additional(['status' => true]);
+
+        $return = PostResource::collection($posts)->additional(['status' => true, 'message' => 'success']);
+        $empty = response()->json([
+            'status' => false,
+            'message' => 'No posts found',
+        ], 404);
+
+        if ($return->isEmpty()) {
+            return $empty;
+        }
+        return $return;
     }
 
 }
