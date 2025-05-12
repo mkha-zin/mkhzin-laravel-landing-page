@@ -35,6 +35,36 @@ class BlogController extends Controller
         return $return;
     }
 
+    public function show($id)
+    {
+        $post = Post::with('tag')->findOrFail($id);
+        return new PostResource($post);
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $posts = Post::where('status', 'active')
+            ->where(function ($q) use ($query) {
+                $q->where('title_ar', 'like', "%{$query}%")
+                    ->orWhere('title_en', 'like', "%{$query}%")
+                    ->orWhere('article_ar', 'like', "%{$query}%")
+                    ->orWhere('article_en', 'like', "%{$query}%");
+            })
+            ->with('tag')
+            ->get();
+
+        if ($posts->isEmpty()) {
+            return response()->json([
+                'status' => false,
+                'message' => 'No posts found',
+            ], 404);
+        }
+
+        return PostResource::collection($posts);
+    }
+
     public function getTags()
     {
         $tags = Tag::withCount('posts')->where('status', 'active')->get();
