@@ -33,3 +33,4 @@ return new class extends Migration
 };
 
 // php artisan migrate --path=/database/migrations/2025_05_12_100332_create_personal_access_tokens_table.php
+// php artisan migrate:rollback --path=/database/migrations/2025_05_12_100332_create_personal_access_tokens_table.php

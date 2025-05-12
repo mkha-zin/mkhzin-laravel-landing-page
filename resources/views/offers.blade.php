@@ -6,7 +6,8 @@
 @section('content')
 
     @php
-        $direction = app()->currentLocale() == 'ar' ? 'rtl' : 'ltr';
+        $lang = App::currentLocale();
+        $direction = $lang == 'ar' ? 'rtl' : 'ltr';
         $offersHeader = Header::where('key', 'offers')->first();
     @endphp
 
@@ -57,7 +58,7 @@
                         </div>
                     @elseif(Request::segment(1) == 'branch' )
                         <h2 class="text-center mt-5" style="margin-bottom: -60px !important;">
-                            {{App::currentLocale()=='ar'?'عروض ' . trim($offers[0]->branch->name_ar):trim($offers[0]->branch->name_en) . '\'s offers'}}
+                            {{$lang=='ar'?'عروض ' . trim($offers[0]->branch->name_ar):trim($offers[0]->branch->name_en) . '\'s offers'}}
                         </h2>
                     @endif
 
@@ -85,15 +86,17 @@
                                                             <i aria-hidden="true"
                                                                class="rkit-meta-icon rtmicon rtmicon-home mx-1"></i>
                                                             <a rel="author">
-                                                                {{App::currentLocale()=='ar'?$offer->branch->name_ar:$offer->branch->name_en}}
+                                                                {{$lang=='ar'?$offer->branch->name_ar:$offer->branch->name_en}}
                                                                 ,
-                                                                {{App::currentLocale()=='ar'?$offer->branch->city->name_ar:$offer->branch->city->name_en}}
+                                                                {{$lang=='ar'?$offer->branch->city->name_ar:$offer->branch->city->name_en}}
                                                             </a>
                                                         </div>
                                                         <div class="rkit-metadata-item">
                                                             <i aria-hidden="true"
                                                                class="rkit-meta-icon rtmicon rtmicon-calendar mx-1"></i>
-                                                            <span>{{__('landing.end offer') . ' ' . Carbon::parse($offer->end_date)->toFormattedDateString()}}</span>
+                                                            <span>
+                                                                {{__('landing.end offer') . ' ' . Carbon::parse($offer->end_date)->translatedFormat($lang == 'ar' ? 'd F Y' : 'M d Y') }}
+                                                            </span>
                                                         </div>
                                                     </div>
                                                     <div class="rkit-blog-title-container">
@@ -183,15 +186,17 @@
                                                             <i aria-hidden="true"
                                                                class="rkit-meta-icon rtmicon rtmicon-home mx-1"></i>
                                                             <a rel="author">
-                                                                {{App::currentLocale()=='ar'?$offer->branch->name_ar:$offer->branch->name_en}}
+                                                                {{$lang=='ar'?$offer->branch->name_ar:$offer->branch->name_en}}
                                                                 ,
-                                                                {{App::currentLocale()=='ar'?$offer->branch->city->name_ar:$offer->branch->city->name_en}}
+                                                                {{$lang=='ar'?$offer->branch->city->name_ar:$offer->branch->city->name_en}}
                                                             </a>
                                                         </div>
                                                         <div class="rkit-metadata-item">
                                                             <i aria-hidden="true"
                                                                class="rkit-meta-icon rtmicon rtmicon-calendar mx-1"></i>
-                                                            <span>{{__('landing.end offer') . ' ' . Carbon::parse($offer->end_date)->toFormattedDateString()}}</span>
+                                                            <span>
+                                                                {{__('landing.end offer') . ' ' . Carbon::parse($offer->end_date)->translatedFormat($lang == 'ar' ? 'd F Y' : 'M d Y')}}
+                                                            </span>
                                                         </div>
                                                     </div>
                                                     <div class="rkit-blog-title-container">
