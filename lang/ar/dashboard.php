@@ -11,6 +11,8 @@ return [
     'about_cards' => 'بطاقات الشركة التعريفية',
     'sections' => 'الأقسام',
     'section' => 'قسم',
+    'Vision' => 'الرؤية',
+    'Goals' => 'الاهداف',
     'VisionAndGoals' => 'الرؤية والاهداف',
     'storage' => 'التخزين',
     'fleet' => 'اسطول النقل',

@@ -14,6 +14,8 @@ return [
     'about_cards' => 'About Company Cards',
     'sections' => 'Sections',
     'section' => 'Section',
+    'Vision' => 'Vision',
+    'Goals' => 'Goals',
     'VisionAndGoals' => 'Vision and Goals',
     'storage' => 'Storage',
     'fleet' => 'Fleet',

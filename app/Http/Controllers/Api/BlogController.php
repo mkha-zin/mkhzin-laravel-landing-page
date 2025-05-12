@@ -53,7 +53,7 @@ class BlogController extends Controller
                     ->orWhere('article_en', 'like', "%{$query}%");
             })
             ->with('tag')
-            ->get();
+            ->paginate($request->per_page ?? 5);
 
         if ($posts->isEmpty()) {
             return response()->json([
@@ -62,7 +62,7 @@ class BlogController extends Controller
             ], 404);
         }
 
-        return PostResource::collection($posts);
+        return PostResource::collection($posts)->additional(['status' => true, 'message' => 'success']);
     }
 
     public function getTags()

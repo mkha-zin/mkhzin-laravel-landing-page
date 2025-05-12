@@ -12,7 +12,7 @@
     <link rel="profile" href="http/gmpgorg/xfn/11_3604524.html"/>
     <link rel="pingback" href="xmlrpc_php.html"/>
     <title>
-        {{  $header_title  ?? config('app.name') }}
+        {{ $header_title ?  $header_title . ' | ' . config('app.name') : config('app.name') }}
     </title>
     <meta name="name" content="{{ $header_title ?? config('app.name') }}">
     <meta name="author" content="{{ config('app.name') }}">

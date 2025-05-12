@@ -44,7 +44,9 @@ class LandingController extends Controller
 
     public function index(): Factory|View|Application|\Illuminate\View\View
     {
+
         $data = $this->dataFetcherService->fetchData();
+        $data['header_title'] = '';
         $data['posts'] = Post::query()
             ->where('status', 1)
             ->orderBy('created_at', 'desc')
@@ -55,6 +57,7 @@ class LandingController extends Controller
 
     public function sections(): Factory|View|Application|\Illuminate\View\View
     {
+        $data['header_title'] = __('dashboard.sections');
         $data['departments'] = Section::query()->get();
         return view('sections', $data);
     }
@@ -67,6 +70,7 @@ class LandingController extends Controller
 
     public function offers(): Factory|View|Application|\Illuminate\View\View
     {
+        $data['header_title'] = __('dashboard.offers');
         $city = Request::get('city');
         $data['offers'] = $this->dataFetcherService->getActiveOffers($city);
         $data['cities'] = $this->dataFetcherService->getCities();
@@ -106,6 +110,7 @@ class LandingController extends Controller
 
     public function about(): Factory|View|Application|\Illuminate\View\View
     {
+        $data['header_title'] = __('dashboard.about');
         $data['about'] = About::query()->first();
         $data['aboutCards'] = AboutCard::query()->get();
         return view('about_us', $data);
@@ -113,6 +118,7 @@ class LandingController extends Controller
 
     public function jobs(): Factory|View|Application|\Illuminate\View\View
     {
+        $data['header_title'] = __('dashboard.jobs');
         $data['job'] = Career::query()
             ->first();
         return view('jobs', $data);
@@ -120,6 +126,7 @@ class LandingController extends Controller
 
     public function blog(HttpRequest $request)
     {
+        $data['header_title'] = __('landing.News');
         $tagId = $request->query('tag'); // Correct method to get the query parameter
 
         // Fetch posts with their tag details and filter if a tag is selected
@@ -138,6 +145,7 @@ class LandingController extends Controller
     public function post($id)
     {
         $post = Post::with('tag')->findOrFail($id);
+        $header_title = App::currentLocale() === 'ar' ? $post->title_ar : $post->title_en;
 
         $relatedPosts = Post::where('tag_id', $post->tag_id)
             ->where('id', '!=', $id)
@@ -146,6 +154,7 @@ class LandingController extends Controller
             ->get();
 
         return view('post', [
+            'header_title' => $header_title,
             'post' => $post,
             'posts' => $relatedPosts
         ]);
@@ -159,6 +168,7 @@ class LandingController extends Controller
             $return = $return->where('branches.city_id', Request::get('city'));
         }
 
+        $data['header_title'] = __('dashboard.branches');
         $data['cities'] = City::all();
         $data['branches'] = $return->get();
         return view('branches', $data);
@@ -166,6 +176,7 @@ class LandingController extends Controller
 
     public function branchOffers($id): Factory|View|Application|\Illuminate\View\View
     {
+        $data['header_title'] = __('dashboard.offers');
         $data['offers'] = Offer::select('offers.*')
             ->where('offers.is_active', 1)
             ->where('offers.branch_id', $id)
@@ -211,6 +222,7 @@ class LandingController extends Controller
 
     public function contact(): Factory|View|Application|\Illuminate\View\View
     {
+        $data['header_title'] = __('dashboard.contact us');
         $data['contactInfos'] = ContactInfo::query()->get();
         $data['contact_first_image'] = ContactImage::query()->first();
         $data['contact_second_image'] = ContactImage::all()->last();
@@ -219,6 +231,7 @@ class LandingController extends Controller
 
     public function vision(): Factory|View|Application|\Illuminate\View\View
     {
+        $data['header_title'] = __('dashboard.Vision');
         $data['vision'] = VisionAndGoal::query()
             ->where('slug', 'vision')
             ->first();
@@ -227,6 +240,7 @@ class LandingController extends Controller
 
     public function goals(): Factory|View|Application|\Illuminate\View\View
     {
+        $data['header_title'] = __('dashboard.Goals');
         $data['goals'] = VisionAndGoal::query()
             ->where('slug', 'goals')
             ->first();
@@ -235,6 +249,7 @@ class LandingController extends Controller
 
     public function fleet(): Factory|View|Application|\Illuminate\View\View
     {
+        $data['header_title'] = __('dashboard.fleet');
         $data['fleet'] = Fleet::query()
             ->first();
         return view('fleet', $data);
@@ -242,6 +257,7 @@ class LandingController extends Controller
 
     public function storage(): Factory|View|Application|\Illuminate\View\View
     {
+        $data['header_title'] = __('dashboard.storage');
         $data['storage'] = Storage::query()
             ->first();
         return view('storage', $data);
@@ -265,7 +281,8 @@ class LandingController extends Controller
 
     public function vouchers(): Factory|View|Application|\Illuminate\View\View
     {
-        return view('vouchers');
+        $data['header_title'] = __('dashboard.vouchers');
+        return view('vouchers', $data);
     }
 
     public function checkVouchers(): RedirectResponse

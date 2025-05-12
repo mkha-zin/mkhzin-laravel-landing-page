@@ -13,8 +13,9 @@ class JobsController extends Controller
 
     public function index()
     {
-        $jobs = Career::where('is_active', true)->latest()->get();
-        return view('jobs.index', compact('jobs'));
+        $data['header_title'] = __('dashboard.jobs');
+        $data['jobs'] = Career::where('is_active', true)->latest()->get();
+        return view('jobs.index', $data);
     }
 
     public function apply($job)
@@ -22,12 +23,14 @@ class JobsController extends Controller
         if (!($job instanceof Career)) {
             $job = Career::findOrFail($job);
         }
+        $data['header_title'] = __('dashboard.jobs');
+        $data['job'] = $job;
 
         if (is_string($job->questions)) {
             $job->questions = json_decode($job->questions, true);
         }
 
-        return view('jobs.apply', compact('job'));
+        return view('jobs.apply', $data);
     }
 
 

@@ -65,7 +65,8 @@ Route::group(['middleware' => 'localization'], static function () {
         Route::post('/{job}/apply', [JobsController::class, 'store'])->name('jobs.apply.submit');
 
         Route::get('/general-application', function () {
-            return view('jobs.general_application');
+            $data['header_title'] = __('dashboard.jobs');
+            return view('jobs.general_application', $data);
         })->name('jobs.general-application');
         Route::post('/general-application', [JobsController::class, 'storeGeneral'])->name('jobs.general-application.submit');
 
