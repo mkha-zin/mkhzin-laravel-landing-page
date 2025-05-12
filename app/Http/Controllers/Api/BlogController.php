@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
+use App\Http\Resources\TagResource;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -31,6 +33,12 @@ class BlogController extends Controller
             return $empty;
         }
         return $return;
+    }
+
+    public function getTags()
+    {
+        $tags = Tag::withCount('posts')->where('status', 'active')->get();
+        return TagResource::collection($tags);
     }
 
 }
