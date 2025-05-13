@@ -1,6 +1,4 @@
 @php use App\Models\Header; @endphp
-@php
-    @endphp
 @extends('layouts.app')
 
 @section('content')
@@ -8,9 +6,33 @@
     @php
         $lang = app()->currentLocale();
         $direction = $lang == 'ar' ? 'rtl' : 'ltr';
-        $textAlignment = $lang == 'ar' ? 'text-right' : 'text-left'; // For aligning text
+        $textAlignment = $lang == 'ar' ? 'text-right' : 'text-left';
         $newsHeader = Header::where('key', 'news')->first();
     @endphp
+
+    <style>
+        .masonry {
+            column-count: 3;
+            column-gap: 1.5rem;
+        }
+
+        @media (max-width: 992px) {
+            .masonry {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .masonry {
+                column-count: 1;
+            }
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+    </style>
 
     <div dir="{{ $direction }}">
         @include('includes.header_image', ['title' => __('landing.News'), 'image' => $newsHeader->image])
@@ -19,7 +41,7 @@
             <div class="mx-5">
                 <div class="row mx-0 mx-lg-5">
                     <!-- Sidebar -->
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-2 mb-3">
                         <div class="list-group">
                             <a href="{{ url('blog') }}"
                                class="list-group-item list-group-item-action {{ request('tag') ? '' : 'active bg-danger text-white' }} {{ $textAlignment }}">
@@ -28,8 +50,8 @@
                             @foreach($tags as $tag)
                                 <a href="{{ url('blog?tag=' . $tag->id) }}"
                                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center
-                                   {{ request('tag') == $tag->id ? 'active bg-danger text-white' : '' }} {{ $textAlignment }}">
-                                    {{ app()->getLocale() == 'en' ? $tag->tag_en : $tag->tag_ar }}
+                               {{ request('tag') == $tag->id ? 'active bg-danger text-white' : '' }} {{ $textAlignment }}">
+                                    {{ $lang == 'en' ? $tag->tag_en : $tag->tag_ar }}
                                     <span class="badge bg-danger text-white rounded-pill">{{ $tag->posts_count }}</span>
                                 </a>
                             @endforeach
@@ -37,14 +59,13 @@
                     </div>
 
                     <!-- Blog Posts -->
-                    <div class="col-md-9">
-                        <div class="row gy-4">
+                    <div class="col-md-10">
+                        <div class="masonry">
                             @foreach($posts as $post)
-                                <div class="col-12 col-lg-6 mb-3">
+                                <div class="masonry-item">
                                     <article>
                                         <div class="card">
-                                            <figure class="card-img-top m-0 overflow-hidden d-flex align-items-center"
-                                                    style="height: auto;">
+                                            <figure class="card-img-top m-0 overflow-hidden d-flex align-items-center">
                                                 <img class="img-fluid" loading="lazy"
                                                      src="{{ asset('storage/' . $post->image) }}" alt="Business">
                                             </figure>
@@ -56,13 +77,13 @@
                                                     <h4 class="card-title">
                                                         <a href="{{ url('blog/' . $post->id) }}"
                                                            class="text-decoration-none">
-                                                            {{ app()->getLocale() == 'en' ? $post->title_en : $post->title_ar }}
+                                                            {{ $lang == 'en' ? $post->title_en : $post->title_ar }}
                                                         </a>
                                                     </h4>
                                                 </div>
                                                 <p class="text-secondary mb-3"
                                                    style="display: -webkit-box; text-align:justify; word-break:keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 3; color: black; overflow: hidden; text-overflow: ellipsis;">
-                                                    {{ app()->getLocale() == 'en' ? $post->article_en : $post->article_ar }}
+                                                    {{ \Filament\Support\Markdown::inline($lang == 'en' ? $post->article_en : $post->article_ar) }}
                                                 </p>
                                                 <a href="{{ url('blog/' . $post->id) }}"
                                                    class="btn btn-danger text-white">
@@ -75,8 +96,7 @@
                                                     <li>
                                                         <a class="fs-7 link-secondary text-decoration-none d-flex align-items-center"
                                                            href="#!">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14"
-                                                                 height="14"
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
                                                                  fill="currentColor" class="bi bi-calendar3"
                                                                  viewBox="0 0 16 16">
                                                                 <path
@@ -85,8 +105,8 @@
                                                                     d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
                                                             </svg>
                                                             <span class="mx-2 fx-7">
-                                                        {{ $post->created_at->translatedFormat($lang == 'ar' ? 'd F Y' : 'M d Y') }}
-                                                    </span>
+                                                            {{ $post->created_at->translatedFormat($lang == 'ar' ? 'd F Y' : 'M d Y') }}
+                                                        </span>
                                                         </a>
                                                     </li>
                                                 </ul>
