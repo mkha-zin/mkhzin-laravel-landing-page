@@ -13,6 +13,34 @@
     @include('includes.header_image',['title'=>__('landing.About'), 'image' => $about->image])
 
     <div dir="{{$direction}}" data-elementor-type="wp-page" data-elementor-id="1222" class="elementor elementor-1222">
+
+        <!-- Departments -->
+        <div class="container" style="margin-top: 30px; margin-bottom: -80px">
+            <h2 class="main-website-title text-center" style="color: black">
+                {{ __('landing.company name') }}&reg;
+            </h2>
+            <nav class="nav nav-pills flex-column flex-sm-row"
+                 style=" border-radius: 10px;">
+                <a href="{{ url('/departments/super') }}"
+                   class="flex-sm-fill text-sm-center nav-link m-1"
+                   style="background-color: var(--e-global-color-7cfaca3); text-align: center; color: white; z-index: 200">
+                    {{  __('landing.supermarket') }}
+                </a>
+                <a class="flex-sm-fill text-sm-center nav-link m-1"
+                   href="{{ route('departments', ['key' => 'hyper']) }}"
+                   style="background-color: var(--e-global-color-7cfaca3); text-align: center; color: white; z-index: 200">
+                    {{  __('landing.hypermarket') }}
+                </a>
+                <a class="flex-sm-fill text-sm-center nav-link m-1"
+                   href="{{ url('/departments/wholesale') }}"
+                   style="background-color: var(--e-global-color-7cfaca3); text-align: center; color: white; z-index: 200">
+                    {{  __('landing.wholesale') }}
+
+                </a>
+            </nav>
+        </div>
+        <!-- / Departments -->
+
         <!-- About Us -->
         <div class="elementor-element elementor-element-5a2cb0dc e-flex e-con-boxed e-con e-parent"
              id="about-us"

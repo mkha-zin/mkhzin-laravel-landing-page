@@ -65,6 +65,7 @@ class LandingController extends Controller
     public function sectionDetails($id): Factory|View|Application|\Illuminate\View\View
     {
         $data['section'] = Section::query()->where('id', $id)->first();
+        $data['header_title'] = $data['section']->title_ar . ' - ' . $data['section']->title_en;
         return view('section_details', $data);
     }
 
