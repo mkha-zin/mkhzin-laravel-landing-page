@@ -70,10 +70,10 @@
                                                      src="{{ asset('storage/' . $post->image) }}" alt="Business">
                                             </figure>
                                             <div class="card-body bg-white p-4 {{ $textAlignment }}">
-                                                <div class="entry-header mb-3">
-                                                    <a class="link-primary text-decoration-none" href="#!">
+                                                <div class="entry-header mb-1">
+                                                    <span class="badge bg-light text-danger">
                                                         {{ $lang == 'en' ? $post->tag->tag_en : $post->tag->tag_ar }}
-                                                    </a>
+                                                    </span>
                                                     <h4 class="card-title">
                                                         <a href="{{ url('blog/' . $post->id) }}"
                                                            class="text-decoration-none">
@@ -91,12 +91,12 @@
                                                 </a>
                                             </div>
                                             <div
-                                                class="card-footer border border-top-0 bg-light p-4 text-{{ $direction == 'rtl' ? 'end' : 'start' }}">
+                                                class="card-footer border border-top-0 bg-light p-2 text-{{ $direction == 'rtl' ? 'end' : 'start' }}">
                                                 <ul class="entry-meta list-unstyled d-flex align-items-center m-0">
                                                     <li>
-                                                        <a class="fs-7 link-secondary text-decoration-none d-flex align-items-center"
-                                                           href="#!">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                                        <a class="fs-7 link-secondary text-decoration-none d-flex align-items-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14"
+                                                                 height="14"
                                                                  fill="currentColor" class="bi bi-calendar3"
                                                                  viewBox="0 0 16 16">
                                                                 <path
