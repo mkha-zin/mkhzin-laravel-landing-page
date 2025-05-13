@@ -71,7 +71,7 @@
                                             </figure>
                                             <div class="card-body bg-white p-4 {{ $textAlignment }}">
                                                 <div class="entry-header mb-1">
-                                                    <span class="badge bg-light text-danger">
+                                                    <span class="badge text-danger" style="background-color: #ffe8e8">
                                                         {{ $lang == 'en' ? $post->tag->tag_en : $post->tag->tag_ar }}
                                                     </span>
                                                     <h4 class="card-title">
