@@ -16,6 +16,7 @@ use Filament\Navigation\MenuItem;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\View\PanelsRenderHook;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -53,8 +54,7 @@ class AdminPanelProvider extends PanelProvider
                         ->icon('heroicon-o-device-phone-mobile')
                         ->color('info')
                         ->url('/app'),
-                ]
-            )
+                ])
             ->colors([
                 'primary' => Color::hex('#E22128'),
             ])
@@ -89,9 +89,13 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->renderHook(
             // This line tells us where to render it
-                'panels::body.end',
+                PanelsRenderHook::FOOTER,
                 // This is the view that will be rendered
                 fn() => view('filament-panels::components.custom_footer'),
+            )
+            ->renderHook(
+                PanelsRenderHook::GLOBAL_SEARCH_AFTER,
+                fn() => view('filament-panels::components.jobs_nav_item'),
             )
             ->middleware([
                 EncryptCookies::class,
@@ -108,4 +112,6 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ]);
     }
+
+
 }

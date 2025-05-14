@@ -12,6 +12,7 @@ use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\View\PanelsRenderHook;
 use Filament\Widgets;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -54,7 +55,7 @@ class JobsPanelProvider extends PanelProvider
             ])
             ->renderHook(
             // This line tells us where to render it
-                'panels::body.end',
+                PanelsRenderHook::FOOTER,
                 // This is the view that will be rendered
                 fn() => view('filament-panels::components.custom_footer'),
             )
