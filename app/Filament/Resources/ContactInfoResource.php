@@ -64,13 +64,6 @@ class ContactInfoResource extends Resource
                     ->hint(__('dashboard.content_hint'))
                     ->required()
                     ->maxLength(255),
-                /*                Forms\Components\FileUpload::make('icon')
-                                    ->directory('assets/icons')
-                                    ->label(__('dashboard.icon'))
-                                    ->required()
-                                    ->imageEditor()
-                                    ->image()
-                                    ->columnSpanFull(),*/
             ]);
     }
 
@@ -83,20 +76,19 @@ class ContactInfoResource extends Resource
                 )
                     ->numeric()
                     ->sortable(),
-                /*                TextColumn::make('icon')
-                                    ->label(__('dashboard.icon'))
-                                    ->searchable(),*/
                 TextColumn::make('content')
                     ->label(__('dashboard.content'))
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
-                    ->dateTime()
+                    ->date()
+                    ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
                     ->label(__('dashboard.updated at'))
-                    ->dateTime()
+                    ->date()
+                    ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
@@ -109,10 +101,6 @@ class ContactInfoResource extends Resource
     public static function infolist(Infolist $infolist): Infolist
     {
         return $infolist->schema([
-            /*Section::make()->schema([
-                ImageEntry::make('icon')
-                    ->label(__('dashboard.icon')),
-            ])->columns(2),*/
             Section::make(__('dashboard.details'))->schema([
                 TextEntry::make('content')->label(__('dashboard.content')),
                 TextEntry::make(

@@ -100,11 +100,6 @@ class SectionResource extends Resource
                         ->label(__('dashboard.description_en'))
                         ->required(),
                 ])->columns(2),
-                /*Section::make()->schema([
-                    Toggle::make('show_in_home')
-                        ->label(__('dashboard.showInHome'))
-                        ->default(false),
-                ])->columns(1),*/
             ]);
     }
 
@@ -127,19 +122,17 @@ class SectionResource extends Resource
                     ->searchable(),
                 ImageColumn::make('image')
                     ->label(__('dashboard.image')),
-                /*IconColumn::make('show_in_home')
-                    ->label(__('dashboard.showInHome'))
-                    ->boolean()
-                ->alignCenter(),*/
                 ImageColumn::make('image'),
                 TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
-                    ->dateTime()
+                    ->date()
+                    ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
                     ->label(__('dashboard.updated at'))
-                    ->dateTime()
+                    ->date()
+                    ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])

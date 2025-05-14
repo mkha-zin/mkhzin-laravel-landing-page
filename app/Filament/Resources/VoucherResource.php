@@ -120,11 +120,13 @@ class VoucherResource extends Resource
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
-                    ->dateTime()
+                    ->date()
+                    ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated at')
-                    ->dateTime()
+                TextColumn::make(__('dashboard.updated at'))
+                    ->date()
+                    ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])

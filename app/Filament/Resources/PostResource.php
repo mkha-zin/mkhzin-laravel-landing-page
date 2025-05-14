@@ -143,12 +143,14 @@ class PostResource extends Resource
                     ->icon(fn(Post $post) => $post->status === 'active' ? 'heroicon-s-check-circle' : 'heroicon-s-x-circle'),
                 TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
-                    ->dateTime()
+                    ->date()
+                    ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
                     ->label(__('dashboard.updated at'))
-                    ->dateTime()
+                    ->date()
+                    ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])

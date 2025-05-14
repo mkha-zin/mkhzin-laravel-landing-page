@@ -109,18 +109,18 @@ class StorageResource extends Resource
                     ->label(__('dashboard.description'))
                     ->words(5)
                     ->searchable(),
-
                 ImageColumn::make('background_image'),
                 ImageColumn::make('foreground_image'),
-
                 TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
-                    ->dateTime()
+                    ->date()
+                    ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
                     ->label(__('dashboard.updated at'))
-                    ->dateTime()
+                    ->date()
+                    ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
