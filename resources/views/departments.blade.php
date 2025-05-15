@@ -129,7 +129,7 @@
                     }
                 </style>
 
-                <div class="e-con-inner">
+                <div class="e-con-inner" style="justify-content: center; flex: auto; text-align: center;">
                     <div class="card-wrapper">
                         @if(!empty($branches))
                             @foreach($branches as $branch)
