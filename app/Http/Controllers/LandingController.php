@@ -128,7 +128,7 @@ class LandingController extends Controller
     public function blog(HttpRequest $request)
     {
         $data['header_title'] = __('landing.News');
-        $tagId = $request->query('tag'); // Correct method to get the query parameter
+        $tagId = Tag::where('tag_en', $request->query('tag'))->value('id'); // Correct method to get the query parameter
 
         // Fetch posts with their tag details and filter if a tag is selected
         $query = Post::with('tag');

@@ -47,13 +47,15 @@
                     <div class="col-md-2 mb-3">
                         <div class="list-group">
                             <a href="{{ url('blog') }}"
-                               class="list-group-item list-group-item-action {{ request('tag') ? '' : 'active bg-danger text-white' }} {{ $textAlignment }}">
+                               class="list-group-item list-group-item-action
+                                {{ request('tag') ? '' : 'active bg-danger text-white' }}
+                                {{ $textAlignment }}">
                                 {{ __('landing.All Posts') }}
                             </a>
                             @foreach($tags as $tag)
-                                <a href="{{ url('blog?tag=' . $tag->id) }}"
+                                <a href="{{ url('blog?tag=' . $tag->tag_en) }}"
                                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center
-                               {{ request('tag') == $tag->id ? 'active bg-danger text-white' : '' }} {{ $textAlignment }}">
+                               {{ request('tag') == $tag->tag_en ? 'active bg-danger text-white' : '' }} {{ $textAlignment }}">
                                     {{ $lang == 'en' ? $tag->tag_en : $tag->tag_ar }}
                                     <span class="badge bg-danger text-white rounded-pill">{{ $tag->posts_count }}</span>
                                 </a>
