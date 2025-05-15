@@ -199,7 +199,7 @@
                                             <div class="d-flex align-items-center mb-3">
                                                 @php
                                                     if (empty($review->platform))
-                                                         $image = asset('uploads/mkhazin/logo900.png');
+                                                         $image = asset('images/icons/avatar_placeholder.webp');
                                                      else
                                                          if($review->platform == 'google maps')
                                                              $image = asset('images/icons/google maps.png');
@@ -224,7 +224,7 @@
                                                          elseif ($review->platform == 'youtube')
                                                              $image = asset('images/icons/youtube.png');
                                                          elseif ($review->platform == 'website')
-                                                             $image = asset('uploads/mkhazin/logo900.png');
+                                                             $image = asset('images/icons/avatar_placeholder.webp');
                                                 @endphp
                                                 <img src="{{ $image }}"
                                                      alt="{{ $review->platform }}"
