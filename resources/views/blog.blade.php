@@ -31,6 +31,9 @@
         .masonry-item {
             break-inside: avoid;
             margin-bottom: 1.5rem;
+            border: 1px solid #d30000;
+            border-radius: 5px;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
         }
     </style>
 
