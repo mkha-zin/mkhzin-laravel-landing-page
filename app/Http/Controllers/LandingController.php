@@ -384,6 +384,7 @@ class LandingController extends Controller
 
     function evaluateBranch(string $branch_name)
     {
+        $data['header_title'] = '';
         $data['branch'] = Branch::query()->where('name_en', $branch_name)->first();
 
         return view('evaluate_form', $data);
