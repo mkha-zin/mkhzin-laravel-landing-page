@@ -106,6 +106,7 @@ class AboutResource extends Resource
                 )
                     ->label(__('dashboard.first_text'))
                     ->words(5)
+                    ->markdown()
                     ->searchable(),
 
                 TextColumn::make(
@@ -113,6 +114,7 @@ class AboutResource extends Resource
                 )
                     ->label(__('dashboard.second_text'))
                     ->words(5)
+                    ->markdown()
                     ->searchable(),
                 ImageColumn::make('image')
                     ->label(__('dashboard.image')),
