@@ -164,8 +164,6 @@ class AboutResource extends Resource
                     ->label(__('dashboard.second_text_en'))
                     ->markdown(),
             ])->columns(2)
-
-
         ]);
     }
 
