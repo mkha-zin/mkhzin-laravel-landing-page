@@ -151,10 +151,18 @@ class AboutResource extends Resource
                 TextEntry::make('title_en')->label(__('dashboard.title_en')),
             ])->columns(2),
             InfoSection::make(__('dashboard.texts'))->schema([
-                TextEntry::make('first_text_ar')->label(__('dashboard.first_text_ar')),
-                TextEntry::make('first_text_en')->label(__('dashboard.first_text_en')),
-                TextEntry::make('second_text_ar')->label(__('dashboard.second_text_ar')),
-                TextEntry::make('second_text_en')->label(__('dashboard.second_text_en')),
+                TextEntry::make('first_text_ar')
+                    ->label(__('dashboard.first_text_ar'))
+                    ->markdown(),
+                TextEntry::make('first_text_en')
+                    ->label(__('dashboard.first_text_en'))
+                    ->markdown(),
+                TextEntry::make('second_text_ar')
+                    ->label(__('dashboard.second_text_ar'))
+                    ->markdown(),
+                TextEntry::make('second_text_en')
+                    ->label(__('dashboard.second_text_en'))
+                    ->markdown(),
             ])->columns(2)
 
 
