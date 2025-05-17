@@ -35,5 +35,23 @@
             height: 100%;
             border: 0;
         }
+
+        @media (max-width: 767px) {
+            .responsive-iframe-wrapper {
+                padding-top: 180%;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991px) {
+            .responsive-iframe-wrapper {
+                padding-top: 150%;
+            }
+        }
+
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .responsive-iframe-wrapper {
+                padding-top: 120%;
+            }
+        }
     </style>
 @endsection
