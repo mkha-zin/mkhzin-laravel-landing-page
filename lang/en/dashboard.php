@@ -163,6 +163,7 @@ return [
     'designation_en' => 'Job Title in English',
 
     'slug' => 'Slug',
+    'label' => 'Label',
 
     'coordinates' => 'Coordinates',
     'longitude' => 'Longitude',

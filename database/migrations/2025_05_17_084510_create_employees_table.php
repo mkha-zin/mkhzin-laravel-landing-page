@@ -38,3 +38,5 @@ return new class extends Migration
         Schema::dropIfExists('employees');
     }
 };
+
+// php artisan migrate --path=/database/migrations/2025_05_17_084510_create_employees_table.php

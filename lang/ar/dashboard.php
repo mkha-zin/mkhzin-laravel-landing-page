@@ -156,6 +156,7 @@ return [
     'designation_en' => 'المسمى الوظيفي بالانجليزي',
 
     'slug' => 'Slug',
+    'label' => 'التسمية',
 
     'coordinates' => 'الإحداثيات',
     'longitude' => 'خط الطول',

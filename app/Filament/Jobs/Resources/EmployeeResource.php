@@ -78,7 +78,6 @@ class EmployeeResource extends Resource
                                 TextInput::make('slug')
                                     ->label(__('dashboard.slug'))
                                     ->required()
-                                    ->disabled()
                                     ->maxLength(255),
                             ])->columns(2)
                         ])
@@ -122,7 +121,7 @@ class EmployeeResource extends Resource
                         TextInput::make('value')
                             ->label(__('dashboard.value'))
                             ->required(),
-                    ])->columns(2)
+                    ])->columns(3)
                     ->columnSpanFull()
                     ->default([]),
             ]);
