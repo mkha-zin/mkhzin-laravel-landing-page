@@ -1,16 +1,39 @@
 @php
     use Illuminate\Support\Facades\App;
-    use Carbon\Carbon
+    use Carbon\Carbon;
 @endphp
+
 @extends('layouts.app')
+
 @section('content')
-    <div class="container flex justify-content-center align-items-center text-center">
-        <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLSdx-Weegfan_v7AJQPtLT2hGmpco0cdH9O3i0c8u6sESgyqsA/viewform?embedded=true"
-            width="800" height="1320" frameborder="0" marginheight="0" marginwidth="0">
-            Loading…
-        </iframe>
+    <div class="container py-4">
+        <div class="responsive-iframe-wrapper">
+            <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSdx-Weegfan_v7AJQPtLT2hGmpco0cdH9O3i0c8u6sESgyqsA/viewform?embedded=true"
+                frameborder="0"
+                marginheight="0"
+                marginwidth="0"
+                allowfullscreen
+                loading="lazy">
+                Loading…
+            </iframe>
+        </div>
     </div>
+
+    <style>
+        .responsive-iframe-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 140%; /* Adjust for aspect ratio (around 640x1031) */
+        }
+
+        .responsive-iframe-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
 @endsection
-
-
