@@ -14,7 +14,6 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
-use Filament\Tables;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
@@ -117,6 +116,9 @@ class EmployeeResource extends Resource
                                 'email' => __('dashboard.email'),
                                 'whatsapp' => __('dashboard.whatsapp'),
                             ])->required(),
+                        TextInput::make('label')
+                            ->label(__('dashboard.label'))
+                            ->required(),
                         TextInput::make('value')
                             ->label(__('dashboard.value'))
                             ->required(),

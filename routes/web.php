@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppLandingController;
+use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\LandingController;
 use App\Http\Middleware\Localization;
@@ -76,6 +77,9 @@ Route::group(['middleware' => 'localization'], static function () {
     Route::get('evaluate/{branch}', [LandingController::class, 'evaluateBranch'])->name('evaluate-branch');
     Route::post('evaluate', [LandingController::class, 'evaluatBranch'])->name('evaluate.branch');
 
+    Route::group(['prefix' => '/emp'], static function () {
+        Route::get('/{slug}', [EmployeesController::class, 'index'])->name('employees.index');
+    });
 
     /*Route::get('test', function () {
        return view('evaluate_form');
