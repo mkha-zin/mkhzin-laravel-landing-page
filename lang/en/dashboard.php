@@ -125,6 +125,8 @@ return [
     'super admin' => 'Super Admin 👨🏻‍💻',
     'admin' => 'Admin 👮🏻',
     'employee' => 'Employee 🤵🏻',
+    'Employee' => 'Employee',
+    'employees' => 'Employees',
 
     'actions' => 'Actions',
 
@@ -141,15 +143,26 @@ return [
     'start_date' => 'Start Date',
     'end_date' => 'End Date',
 
+    'personal_info' => 'Personal Info',
+    'career_info' => 'Career Info',
+
     'name' => 'Name',
     'name_ar' => 'Arabic Name',
     'name_en' => 'English Name',
 
-    'address' => 'Address',
+    'contacts' => 'Contacts',
+    'value' => 'Value',
 
+    'address' => 'Address',
     'addresses' => 'Addresses',
     'address_ar' => 'Arabic Address',
     'address_en' => 'English Address',
+
+    'designation' => 'Job Title',
+    'designation_ar' => 'Job Title in Arabic',
+    'designation_en' => 'Job Title in English',
+
+    'slug' => 'Slug',
 
     'coordinates' => 'Coordinates',
     'longitude' => 'Longitude',
