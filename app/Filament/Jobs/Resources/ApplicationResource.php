@@ -121,13 +121,13 @@ class ApplicationResource extends Resource
                         return route('resume.download', $data);
                     }),
                 TextColumn::make('created_at')
-                    ->label(__('dashboard.created_at'))
+                    ->label(__('dashboard.created at'))
                     ->date()
                     ->dateTimeTooltip('D Y/M/d H:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
-                    ->label(__('dashboard.updated_at'))
+                    ->label(__('dashboard.updated at'))
                     ->date()
                     ->dateTimeTooltip('D Y/M/d H:i')
                     ->sortable()
