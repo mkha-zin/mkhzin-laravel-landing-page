@@ -37,8 +37,8 @@
         const contacts = employee.contacts;
 
         let vCard = `BEGIN:VCARD\nVERSION:3.0\n`;
-        vCard += `FN:${employee.name}\n`;
-        vCard += `TITLE:${employee.designation}\n`;
+        vCard += `FN:${employee.name_ar}\n`;
+        vCard += `TITLE:${employee.designation_ar}\n`;
 
         contacts.forEach(contact => {
             if (contact.type === 'phone') {
