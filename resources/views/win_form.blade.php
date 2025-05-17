@@ -24,7 +24,7 @@
         .responsive-iframe-wrapper {
             position: relative;
             width: 100%;
-            padding-top: 140%; /* Adjust for aspect ratio (around 640x1031) */
+            padding-top: 105%; /* Adjust for aspect ratio (around 640x1031) */
         }
 
         .responsive-iframe-wrapper iframe {
