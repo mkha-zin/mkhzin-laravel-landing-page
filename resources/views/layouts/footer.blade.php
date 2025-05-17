@@ -44,7 +44,7 @@
                             <div class="elementor-social-icons-wrapper elementor-grid"
                                  style="display: flex; justify-content: center">
                                 @if(!empty($facebook))
-                                    <span class="elementor-grid-item">
+                                    <span class="elementor-grid-item" style="margin-left: -5px; margin-right: -5px">
                                         <a href="{{  $facebook->link }}"
                                            class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-7629fb3"
                                            target="_blank">
@@ -60,7 +60,7 @@
                                     </span>
                                 @endif
                                 @if(!empty($twitter))
-                                    <span class="elementor-grid-item">
+                                    <span class="elementor-grid-item" style="margin-left: -5px; margin-right: -5px">
                                         <a href="{{  $twitter->link }}"
                                            class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-31c56b8"
                                            target="_blank">
@@ -80,7 +80,7 @@
                                     </span>
                                 @endif
                                 @if(!empty($youtube))
-                                    <span class="elementor-grid-item">
+                                    <span class="elementor-grid-item" style="margin-left: -5px; margin-right: -5px">
                                         <a href="{{  $youtube->link }}"
                                            class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-dc60bf3"
                                            target="_blank">
@@ -96,7 +96,7 @@
                                     </span>
                                 @endif
                                 @if(!empty($linkedin))
-                                    <span class="elementor-grid-item">
+                                    <span class="elementor-grid-item" style="margin-left: -5px; margin-right: -5px">
                                         <a href="{{  $linkedin->link }}"
                                            class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-b9b7412"
                                            target="_blank">
@@ -112,7 +112,7 @@
                                     </span>
                                 @endif
                                 @if(!empty($instagram))
-                                    <span class="elementor-grid-item">
+                                    <span class="elementor-grid-item" style="margin-left: -5px; margin-right: -5px">
                                         <a href="{{  $instagram->link }}"
                                            class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-1697c0d"
                                            target="_blank">
@@ -128,7 +128,7 @@
                                     </span>
                                 @endif
                                 @if(!empty($snapchat))
-                                    <span class="elementor-grid-item">
+                                    <span class="elementor-grid-item" style="margin-left: -5px; margin-right: -5px">
                                         <a href="{{  $snapchat->link }}"
                                            class="elementor-icon elementor-social-icon elementor-social-icon-snapchat elementor-repeater-item-1697c0d"
                                            target="_blank">
@@ -146,7 +146,7 @@
                                     </span>
                                 @endif
                                 @if(!empty($tiktok))
-                                    <span class="elementor-grid-item">
+                                    <span class="elementor-grid-item" style="margin-left: -5px; margin-right: -5px">
                                         <a href="{{  $tiktok->link }}"
                                            class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-1697c0d"
                                            target="_blank">
@@ -163,7 +163,7 @@
                                     </span>
                                 @endif
                                 @if(!empty($whatsChannel))
-                                    <span class="elementor-grid-item">
+                                    <span class="elementor-grid-item" style="margin-left: -5px; margin-right: -5px">
                                         <a href="{{  $whatsChannel->link }}"
                                            class="elementor-icon elementor-social-icon elementor-social-icon-snapchat elementor-repeater-item-1697c0d"
                                            target="_blank">
