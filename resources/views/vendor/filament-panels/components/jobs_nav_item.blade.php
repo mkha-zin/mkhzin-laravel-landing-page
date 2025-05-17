@@ -21,8 +21,8 @@
         }
 
         .mkhzin-menu-item:hover {
-            background-color: #e02128;
-            color: white;
+            background-color: rgba(224, 33, 40, 0.05);
+            color: black;
             border-radius: 10px;
         }
     </style>
