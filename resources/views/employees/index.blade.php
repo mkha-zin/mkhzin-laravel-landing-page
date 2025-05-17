@@ -1,7 +1,7 @@
 <div class="container mt-4">
     <div class="card shadow">
         <div class="card-body d-flex align-items-center">
-            <img src="{{ asset($employee->image) }}" alt="Profile Image" class="rounded-circle me-4" width="100">
+            <img src="{{ asset('storage/' . $employee->image) }}" alt="Profile Image" class="rounded-circle me-4" width="100">
             <div>
                 <h4>{{ $employee->name }}</h4>
                 <p class="mb-0 text-muted">{{ $employee->designation }}</p>
@@ -36,25 +36,24 @@
         const employee = @json($employee);
         const contacts = employee.contacts;
 
-        let vCard = `BEGIN:VCARD\r\n`;
-        vCard += `VERSION:3.0\r\n`;
-        vCard += `FN:${employee.name}\r\n`;
-        vCard += `TITLE:${employee.designation}\r\n`;
+        let vCard = `BEGIN:VCARD\nVERSION:3.0\n`;
+        vCard += `FN:${employee.name}\n`;
+        vCard += `TITLE:${employee.designation}\n`;
 
         contacts.forEach(contact => {
             if (contact.type === 'phone') {
-                vCard += `TEL;TYPE=${contact.label}:${contact.value}\r\n`;
+                vCard += `TEL;TYPE=${contact.label}:${contact.value}\n`;
             } else if (contact.type === 'email') {
-                vCard += `EMAIL;TYPE=${contact.label}:${contact.value}\r\n`;
+                vCard += `EMAIL;TYPE=${contact.label}:${contact.value}\n`;
             }
         });
 
-        vCard += `END:VCARD\r\n`;
+        vCard += `END:VCARD`;
 
         const blob = new Blob([vCard], { type: 'text/vcard;charset=utf-8' });
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
-        link.download = `${employee.name.replace(/\s+/g, '_')}.vcf`;
+        link.download = `${employee.name}.vcf`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
