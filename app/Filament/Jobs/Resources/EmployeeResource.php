@@ -105,7 +105,7 @@ class EmployeeResource extends Resource
                             ])
                             ->required(),
                     ])->columns(3),
-                Repeater::make('contacts')
+                /*Repeater::make('contacts')
                     ->label(__('dashboard.contacts'))
                     ->collapsible()
                     ->schema([
@@ -125,7 +125,37 @@ class EmployeeResource extends Resource
                             ->required(),
                     ])->columns(3)
                     ->columnSpanFull()
-                    ->default([]),
+                    ->default([]),*/
+                Repeater::make('contacts')
+                    ->label(__('dashboard.contacts'))
+                    ->collapsible()
+                    ->schema([
+                        Select::make('type')
+                            ->label(__('dashboard.type'))
+                            ->options([
+                                'phone' => __('dashboard.phone'),
+                                'email' => __('dashboard.email'),
+                                'whatsapp' => __('dashboard.whatsapp'),
+                                'website' => __('dashboard.Website'),
+                            ])
+                            ->required()
+                            ->reactive(),
+
+                        TextInput::make('label')
+                            ->label(__('dashboard.label'))
+                            ->required(),
+
+                        TextInput::make('value')
+                            ->label(__('dashboard.value'))
+                            ->required()
+                            ->tel(fn ($get) => in_array($get('type'), ['phone', 'whatsapp']))
+                            ->email(fn ($get) => $get('type') === 'email')
+                            ->url(fn ($get) => $get('type') === 'website')
+                            ->minLength(fn ($get) => in_array($get('type'), ['phone', 'whatsapp']) ? 13 : null),
+                    ])
+                    ->columns(3)
+                    ->columnSpanFull()
+                    ->default([])
             ]);
     }
 

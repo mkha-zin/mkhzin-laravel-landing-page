@@ -77,7 +77,7 @@
                                         {{ ucfirst($contact['type']) }} ({{ $contact['label'] }})
                                         <i class="fa fa-phone mx-2"></i>
                                     </div>
-                                    <span class="text-primary">
+                                    <span class="text-primary" dir="ltr">
                                         <a class="text-decoration-none" href="tel:{{ $contact['value'] }}">
                                             {{ $contact['value'] }}
                                         </a>
@@ -97,7 +97,7 @@
                                         {{ ucfirst($contact['type']) }} ({{ $contact['label'] }})
                                         <i class="fa fa-whatsapp mx-2"></i>
                                     </div>
-                                    <span class="text-primary">
+                                    <span class="text-primary" dir="ltr">
                                         <a class="text-decoration-none" href="https://wa.me/{{ $contact['value'] }}" target="_blank">
                                             {{ $contact['value'] }}
                                         </a>
@@ -108,7 +108,7 @@
                                         <i class="fa fa-globe mx-2"></i>
                                     </div>
                                     <span class="text-primary">
-                                        <a class="text-decoration-none" href="https://{{ $contact['value'] }}" target="_blank">
+                                        <a class="text-decoration-none" href="{{ $contact['value'] }}" target="_blank">
                                             {{ $contact['value'] }}
                                         </a>
                                     </span>
