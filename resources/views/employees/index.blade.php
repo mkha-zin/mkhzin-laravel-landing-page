@@ -11,10 +11,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> {{ $employee ? $lang == 'ar' ? $employee->name_ar : $employee->name_en : ''  }} | {{ config('app.name') }} </title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('uploads/mkhazin/fav.png') }}">
     <!-- Bootstrap 5 RTL -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
     <!-- Google Cairo Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
             font-family: 'Cairo', sans-serif;
@@ -66,8 +68,13 @@
                     <ul class="list-group">
                         @foreach($employee->contacts as $contact)
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                {{ ucfirst($contact['type']) }} ({{ $contact['label'] }})
-                                <span class="text-primary">{{ $contact['value'] }}</span>
+                                @if($contact['type'] === 'phone')
+                                    <div>{{ ucfirst($contact['type']) }} ({{ $contact['label'] }})<i class="fa fa-phone mx-2"></i></div>
+                                    <span class="text-primary"><a class="text-decoration-none" href="tel:{{ $contact['value'] }}">{{ $contact['value'] }}</a></span>
+                                @elseif($contact['type'] === 'email')
+                                    <div>{{ ucfirst($contact['type']) }} ({{ $contact['label'] }})<i class="fa fa-envelope mx-2"></i></div>
+                                    <span class="text-primary"><a class="text-decoration-none" href="mailto:{{ $contact['value'] }}">{{ $contact['value'] }}</a></span>
+                                @endif
                             </li>
                         @endforeach
                     </ul>

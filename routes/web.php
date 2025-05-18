@@ -82,7 +82,8 @@ Route::group(['middleware' => 'localization'], static function () {
     });
 
     /*Route::get('test', function () {
-       return view('evaluate_form');
+        $data['header_title'] = 'Book a Meeting';
+       return view('book_meet', $data);
     });*/
 
 });
