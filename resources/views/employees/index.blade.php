@@ -102,6 +102,16 @@
                                             {{ $contact['value'] }}
                                         </a>
                                     </span>
+                                @elseif($contact['type'] === 'website')
+                                    <div>
+                                        {{ ucfirst($contact['type']) }} ({{ $contact['label'] }})
+                                        <i class="fa fa-globe mx-2"></i>
+                                    </div>
+                                    <span class="text-primary">
+                                        <a class="text-decoration-none" href="https://{{ $contact['value'] }}" target="_blank">
+                                            {{ $contact['value'] }}
+                                        </a>
+                                    </span>
                                 @endif
                             </li>
                         @endforeach
@@ -126,6 +136,8 @@
             vCard += `EMAIL;TYPE=${contact.label}:${contact.value}\n`;
         }else if(contact.type === 'whatsapp'){
             vCard += `TEL;TYPE=${contact.label}-whatsapp:${contact.value}\n`;
+        }else if(contact.type === 'website'){
+            vCard += `URL;TYPE=${contact.label}:${contact.value}\n`;
         }
     });
     vCard += `END:VCARD`;

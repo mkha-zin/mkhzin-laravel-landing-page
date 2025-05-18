@@ -355,5 +355,6 @@ return [
     'linkedin' => 'Linkedin',
     'youtube' => 'Youtube',
     'website' => 'Website',
+    'Website' => 'Website',
 
 ];

@@ -115,6 +115,7 @@ class EmployeeResource extends Resource
                                 'phone' => __('dashboard.phone'),
                                 'email' => __('dashboard.email'),
                                 'whatsapp' => __('dashboard.whatsapp'),
+                                'website' => __('dashboard.Website'),
                             ])->required(),
                         TextInput::make('label')
                             ->label(__('dashboard.label'))
