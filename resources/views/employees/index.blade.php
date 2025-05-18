@@ -50,9 +50,13 @@
                 <h4>{{ $lang === 'ar' ? $employee->name_ar : $employee->name_en }}</h4>
                 <p class="text-muted">{{ $lang === 'ar' ? $employee->designation_ar : $employee->designation_en }}</p>
                 <p class="text-muted small mb-1">
-                    {{ __('dashboard.branch') }}:
                     {{ $lang === 'ar' ? $employee->branch->name_ar : $employee->branch->name_en }}
                 </p>
+                <div class="text-center mt-3">
+                    <button onclick="downloadVCard()" class="btn btn-success">
+                        <i class="fa fa-download"></i> {{ __('dashboard.save to contacts') }}
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -69,22 +73,40 @@
                         @foreach($employee->contacts as $contact)
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 @if($contact['type'] === 'phone')
-                                    <div>{{ ucfirst($contact['type']) }} ({{ $contact['label'] }})<i class="fa fa-phone mx-2"></i></div>
-                                    <span class="text-primary"><a class="text-decoration-none" href="tel:{{ $contact['value'] }}">{{ $contact['value'] }}</a></span>
+                                    <div>
+                                        {{ ucfirst($contact['type']) }} ({{ $contact['label'] }})
+                                        <i class="fa fa-phone mx-2"></i>
+                                    </div>
+                                    <span class="text-primary">
+                                        <a class="text-decoration-none" href="tel:{{ $contact['value'] }}">
+                                            {{ $contact['value'] }}
+                                        </a>
+                                    </span>
                                 @elseif($contact['type'] === 'email')
-                                    <div>{{ ucfirst($contact['type']) }} ({{ $contact['label'] }})<i class="fa fa-envelope mx-2"></i></div>
-                                    <span class="text-primary"><a class="text-decoration-none" href="mailto:{{ $contact['value'] }}">{{ $contact['value'] }}</a></span>
+                                    <div>
+                                        {{ ucfirst($contact['type']) }} ({{ $contact['label'] }})
+                                        <i class="fa fa-envelope mx-2"></i>
+                                    </div>
+                                    <span class="text-primary">
+                                        <a class="text-decoration-none" href="mailto:{{ $contact['value'] }}">
+                                            {{ $contact['value'] }}
+                                        </a>
+                                    </span>
+                                @elseif($contact['type'] === 'whatsapp')
+                                    <div>
+                                        {{ ucfirst($contact['type']) }} ({{ $contact['label'] }})
+                                        <i class="fa fa-whatsapp mx-2"></i>
+                                    </div>
+                                    <span class="text-primary">
+                                        <a class="text-decoration-none" href="https://wa.me/{{ $contact['value'] }}" target="_blank">
+                                            {{ $contact['value'] }}
+                                        </a>
+                                    </span>
                                 @endif
                             </li>
                         @endforeach
                     </ul>
                 </div>
-            </div>
-
-            <div class="text-end mt-3">
-                <button onclick="downloadVCard()" class="btn btn-success">
-                    <i class="fa fa-download"></i> {{ __('dashboard.save to contacts') }}
-                </button>
             </div>
         </div>
     </div>
@@ -102,6 +124,8 @@
             vCard += `TEL;TYPE=${contact.label}:${contact.value}\n`;
         } else if (contact.type === 'email') {
             vCard += `EMAIL;TYPE=${contact.label}:${contact.value}\n`;
+        }else if(contact.type === 'whatsapp'){
+            vCard += `TEL;TYPE=${contact.label}-whatsapp:${contact.value}\n`;
         }
     });
     vCard += `END:VCARD`;
