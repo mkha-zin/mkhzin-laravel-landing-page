@@ -127,9 +127,11 @@ return [
     'employee' => 'Employee 🤵🏻',
     'Employee' => 'Employee',
     'employees' => 'Employees',
+    'view employee' => 'View Employee',
+    'edit employee' => 'Edit Employee',
 
     'actions' => 'Actions',
-
+    'save to contacts' => 'Save to Contacts List',
     'link' => 'Link',
 
     'comment' => 'Comment',
