@@ -186,7 +186,7 @@ return [
 
     // dashboard footer
     'copyright' => 'كل الحقوق محفوظة لدى',
-    'version' => 'الأصدار: 2.15.036',
+    'version' => 'الأصدار: 2.19.065',
 
     //groups
     'aboutCompanySettings' => 'إدارة معلومات عن الشركة',
