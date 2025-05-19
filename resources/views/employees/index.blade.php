@@ -118,6 +118,13 @@
                     </ul>
                 </div>
             </div>
+            <div class="text-end mt-3">
+                <div class="d-flex justify-content-end align-items-center">
+                    <a href="{{ route('locale.setting', 'en') }}" style="color: black; text-decoration: none">English</a>
+                    <span class="mx-1">|</span>
+                    <a href="{{ route('locale.setting', 'ar') }}" style="color: black; text-decoration: none">العربية</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -126,18 +133,35 @@
 <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 <script>
     const employee = @json($employee);
+    const lang = '{{ app()->getLocale() }}';
     const contacts = employee.contacts;
 
-    let vCard = `BEGIN:VCARD\nVERSION:3.0\nFN:${ employee.name_ar }\nTITLE:${ employee.designation_ar }\n`;
+    // Choose name and designation based on language
+    const name = lang === 'ar' ? employee.name_ar : employee.name_en;
+    const title = lang === 'ar' ? employee.designation_ar : employee.designation_en;
+
+    // Full image URL
+    const imageUrl = "{{ asset('storage/' . $employee->image) }}";
+
+    // Start vCard
+    let vCard = `BEGIN:VCARD\nVERSION:3.0\nFN:${name}\nTITLE:${title}\nPHOTO;VALUE=URI:${imageUrl}\n`;
+    // Append contact data
     contacts.forEach(contact => {
-        if (contact.type === 'phone') {
-            vCard += `TEL;TYPE=${contact.label}:${contact.value}\n`;
-        } else if (contact.type === 'email') {
-            vCard += `EMAIL;TYPE=${contact.label}:${contact.value}\n`;
-        }else if(contact.type === 'whatsapp'){
-            vCard += `TEL;TYPE=${contact.label}-whatsapp:${contact.value}\n`;
-        }else if(contact.type === 'website'){
-            vCard += `URL;TYPE=${contact.label}:${contact.value}\n`;
+        const value = contact.value;
+        const label = contact.label;
+        switch (contact.type) {
+            case 'phone':
+                vCard += `TEL;TYPE=${label}:${value}\n`;
+                break;
+            case 'email':
+                vCard += `EMAIL;TYPE=${label}:${value}\n`;
+                break;
+            case 'whatsapp':
+                vCard += `TEL;TYPE=${label}-whatsapp:${value}\n`;
+                break;
+            case 'website':
+                vCard += `URL;TYPE=${label}:${value}\n`;
+                break;
         }
     });
     vCard += `END:VCARD`;
@@ -152,7 +176,7 @@
         const blob = new Blob([vCard.replace(/\\n/g, "\n")], {type: 'text/vcard;charset=utf-8'});
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
-        link.download = `${employee.name}.vcf`;
+        link.download = `${name}.vcf`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);

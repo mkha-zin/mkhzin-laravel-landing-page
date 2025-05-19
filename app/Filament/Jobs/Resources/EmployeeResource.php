@@ -105,30 +105,10 @@ class EmployeeResource extends Resource
                             ])
                             ->required(),
                     ])->columns(3),
-                /*Repeater::make('contacts')
-                    ->label(__('dashboard.contacts'))
-                    ->collapsible()
-                    ->schema([
-                        Select::make('type')
-                            ->label(__('dashboard.type'))
-                            ->options([
-                                'phone' => __('dashboard.phone'),
-                                'email' => __('dashboard.email'),
-                                'whatsapp' => __('dashboard.whatsapp'),
-                                'website' => __('dashboard.Website'),
-                            ])->required(),
-                        TextInput::make('label')
-                            ->label(__('dashboard.label'))
-                            ->required(),
-                        TextInput::make('value')
-                            ->label(__('dashboard.value'))
-                            ->required(),
-                    ])->columns(3)
-                    ->columnSpanFull()
-                    ->default([]),*/
                 Repeater::make('contacts')
                     ->label(__('dashboard.contacts'))
                     ->collapsible()
+                    ->defaultItems(1)
                     ->schema([
                         Select::make('type')
                             ->label(__('dashboard.type'))
@@ -140,11 +120,9 @@ class EmployeeResource extends Resource
                             ])
                             ->required()
                             ->reactive(),
-
                         TextInput::make('label')
                             ->label(__('dashboard.label'))
                             ->required(),
-
                         TextInput::make('value')
                             ->label(__('dashboard.value'))
                             ->required()
