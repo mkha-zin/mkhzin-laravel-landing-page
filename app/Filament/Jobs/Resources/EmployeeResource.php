@@ -22,6 +22,7 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 
@@ -147,6 +148,10 @@ class EmployeeResource extends Resource
                     ->label(__('dashboard.branch'))
                     ->numeric()
                     ->sortable(),
+                ImageColumn::make('image')
+                    ->label(__('dashboard.image'))
+                    ->circular()
+                    ->alignEnd(),
                 TextColumn::make(
                     App::currentLocale() === 'ar' ? 'name_ar' : 'name_en'
                 )
@@ -157,9 +162,6 @@ class EmployeeResource extends Resource
                 )
                     ->label(__('dashboard.designation'))
                     ->searchable()
-                    ->alignCenter(),
-                ImageColumn::make('image')
-                    ->label(__('dashboard.image'))
                     ->alignCenter(),
                 IconColumn::make('status')
                     ->label(__('dashboard.status'))
@@ -206,6 +208,11 @@ class EmployeeResource extends Resource
             ->bulkActions([
                 DeleteBulkAction::make(),
             ]);
+    }
+
+    public static function canView(Model $record): bool
+    {
+        return false;
     }
 
     public static function getPages(): array
