@@ -63,6 +63,7 @@ class CareerResource extends Resource
         return __('dashboard.Jobs Settings');
     }
 
+
     public static function form(Form $form): Form
     {
         return $form
