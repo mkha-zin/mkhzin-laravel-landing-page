@@ -142,6 +142,7 @@ class ApplicationResource extends Resource
                 ExportAction::make()
                     ->label(__('dashboard.export all'))
                     ->exporter(ApplicationExporter::class)
+                    ->fileDisk('public')
                     ->color(Color::Green)
                 ->icon('heroicon-o-newspaper'),
             ])
@@ -153,6 +154,7 @@ class ApplicationResource extends Resource
                     ->label(__('dashboard.export selected'))
                     ->exporter(ApplicationExporter::class)
                     ->button()
+                    ->fileDisk('public')
                     ->color(Color::Green)
                     ->icon('heroicon-o-newspaper')
             ]);
