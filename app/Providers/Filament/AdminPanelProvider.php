@@ -93,10 +93,10 @@ class AdminPanelProvider extends PanelProvider
                 // This is the view that will be rendered
                 fn() => view('filament-panels::components.custom_footer'),
             )
-            ->renderHook(
+            /*->renderHook(
                 PanelsRenderHook::GLOBAL_SEARCH_AFTER,
                 fn() => view('filament-panels::components.jobs_nav_item'),
-            )
+            )*/
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
