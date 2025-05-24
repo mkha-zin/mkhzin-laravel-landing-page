@@ -107,6 +107,7 @@ return [
     'last_name' => 'الاسم الأخير',
     'email' => 'البريد الألكتروني',
     'resume' => 'السيرة الذاتية',
+    'answers' => 'الاجابات',
     'license' => 'الترخيص',
     'password' => 'كلمة المرور',
     'email verified at' => 'تم التحقق من الإيميل في',
@@ -238,6 +239,8 @@ return [
 
     'exports' => 'التصديرات',
     'export' => 'تصدير',
+    'export all' => 'تصدير الكل',
+    'export selected' => 'تصدير المحدد',
     'completed at' => 'انتهى في',
     'file disk' => 'مجلد التصدير',
     'file name' => 'اسم الملف',

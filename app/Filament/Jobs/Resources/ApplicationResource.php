@@ -2,6 +2,7 @@
 
 namespace App\Filament\Jobs\Resources;
 
+use App\Filament\Exports\ApplicationExporter;
 use App\Filament\Jobs\Resources\ApplicationResource\Pages;
 use App\Filament\Jobs\Resources\ApplicationResource\RelationManagers;
 use App\Models\Application;
@@ -14,7 +15,11 @@ use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
+use Filament\Support\Colors\Color;
 use Filament\Support\Enums\IconPosition;
+use Filament\Tables\Actions\ExportAction;
+use Filament\Tables\Actions\ExportBulkAction;
+use Filament\Tables\Actions\HeaderActionsPosition;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
@@ -133,8 +138,23 @@ class ApplicationResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->headerActions([
+                ExportAction::make()
+                    ->label(__('dashboard.export all'))
+                    ->exporter(ApplicationExporter::class)
+                    ->color(Color::Green)
+                ->icon('heroicon-o-newspaper'),
+            ])
+            ->headerActionsPosition(HeaderActionsPosition::Bottom)
             ->actions([
                 ViewAction::make()->icon('heroicon-o-clipboard-document-list'),
+            ])->bulkActions([
+                ExportBulkAction::make()
+                    ->label(__('dashboard.export selected'))
+                    ->exporter(ApplicationExporter::class)
+                    ->button()
+                    ->color(Color::Green)
+                    ->icon('heroicon-o-newspaper')
             ]);
     }
 

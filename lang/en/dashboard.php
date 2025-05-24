@@ -110,6 +110,7 @@ return [
     'last_name' => 'Last Name',
     'email' => 'Email',
     'resume' => 'Resume',
+    'answers' => 'Answers',
     'license' => 'License',
     'password' => 'Password',
     'email verified at' => 'Email Verified At',
@@ -241,6 +242,8 @@ return [
 
     'exports' => 'Exports',
     'export' => 'Export',
+    'export all' => 'Export All',
+    'export selected' => 'Export Selected',
     'completed at' => 'Completed At',
     'file disk' => 'File Disk',
     'file name' => 'File Name',
