@@ -339,6 +339,7 @@ return [
     'Admin Panel' => 'لوحة التحكم',
     'Jobs Portal' => 'منصة الوظائف',
     'App Panel' => 'لوحة التطبيق',
+    'Rating Platform' => 'منصة التقييم',
 
     'stars' => 'التقييم',
     'platform' => 'المنصة',

@@ -44,17 +44,22 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->userMenuItems([
-                    MenuItem::make('jobs')
-                        ->label(__('dashboard.Jobs Portal'))
-                        ->icon('heroicon-o-briefcase')
-                        ->color('warning')
-                        ->url('/jobs-m'),
-                    MenuItem::make('app')
-                        ->label(__('dashboard.App Panel'))
-                        ->icon('heroicon-o-device-phone-mobile')
-                        ->color('info')
-                        ->url('/app'),
-                ])
+                MenuItem::make('jobs')
+                    ->label(__('dashboard.Jobs Portal'))
+                    ->icon('heroicon-o-briefcase')
+                    ->color('success')
+                    ->url('/jobs-m'),
+                MenuItem::make('rate')
+                    ->label(__('dashboard.Rating Platform'))
+                    ->icon('heroicon-o-star')
+                    ->color('warning')
+                    ->url('https://rate.mkhzin.com/admin'),
+                MenuItem::make('app')
+                    ->label(__('dashboard.App Panel'))
+                    ->icon('heroicon-o-device-phone-mobile')
+                    ->color('info')
+                    ->url('/app'),
+            ])
             ->colors([
                 'primary' => Color::hex('#E22128'),
             ])

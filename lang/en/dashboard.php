@@ -341,6 +341,7 @@ return [
     'Admin Panel' => 'Admin Panel',
     'Jobs Portal' => 'Jobs Portal',
     'App Panel' => 'App Panel',
+    'Rating Platform' => 'Rating Platform',
 
     'stars' => 'Evaluation',
     'platform' => 'Platform',

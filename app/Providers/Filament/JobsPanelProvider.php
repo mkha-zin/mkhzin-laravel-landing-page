@@ -36,6 +36,11 @@ class JobsPanelProvider extends PanelProvider
                         ->icon('heroicon-o-home')
                         ->color('primary')
                         ->url('/admin'),
+                    MenuItem::make('rate')
+                        ->label(__('dashboard.Rating Platform'))
+                        ->icon('heroicon-o-star')
+                        ->color('warning')
+                        ->url('https://rate.mkhzin.com/admin'),
                     MenuItem::make('app')
                         ->label(__('dashboard.App Panel'))
                         ->icon('heroicon-o-device-phone-mobile')

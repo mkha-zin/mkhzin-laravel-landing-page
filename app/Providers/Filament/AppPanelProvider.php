@@ -34,10 +34,15 @@ class AppPanelProvider extends PanelProvider
                         ->icon('heroicon-o-home')
                         ->color('primary')
                         ->url('/admin'),
+                    MenuItem::make('rate')
+                        ->label(__('dashboard.Rating Platform'))
+                        ->icon('heroicon-o-star')
+                        ->color('warning')
+                        ->url('https://rate.mkhzin.com/admin'),
                     MenuItem::make('jobs')
                         ->label(__('dashboard.Jobs Portal'))
                         ->icon('heroicon-o-briefcase')
-                        ->color('warning')
+                        ->color('success')
                         ->url('/jobs-m'),
                 ]
             )
