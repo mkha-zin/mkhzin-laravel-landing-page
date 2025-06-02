@@ -115,13 +115,13 @@ class OfferResource extends Resource
                 TextColumn::make('start_date')
                     ->label(__('dashboard.start_date'))
                     ->date()
-                    ->dateTimeTooltip('Y/m/d h:i:s A')
+                    ->dateTimeTooltip('D Y/m/d h:i:s A')
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->sortable(),
                 TextColumn::make('end_date')
                     ->label(__('dashboard.end_date'))
                     ->date()
-                    ->dateTimeTooltip('Y/m/d h:i:s A')
+                    ->dateTimeTooltip('D Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 CheckboxColumn::make('is_active')
