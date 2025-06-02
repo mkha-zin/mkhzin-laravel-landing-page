@@ -335,8 +335,8 @@ class OfferResource extends Resource
                 TextEntry::make('description_en')->label(__('dashboard.description_en'))->markdown(),
             ])->columns(2),
             InfoSection::make(__('dashboard.duration'))->schema([
-                TextEntry::make('start_date')->label(__('dashboard.start_date')),
-                TextEntry::make('end_date')->label(__('dashboard.end_date')),
+                TextEntry::make('start_date')->label(__('dashboard.start_date'))->dateTime(format: 'D d/M/Y h:i A'),
+                TextEntry::make('end_date')->label(__('dashboard.end_date'))->dateTime(format: 'D d/M/Y h:i A'),
             ])->columns(2)
         ]);
     }
