@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\UserResource\Components\UsersForm;
+use App\Filament\Resources\UserResource\Components\UsersTable;
 use App\Filament\Resources\UserResource\Pages;
 use App\Models\User;
 use Filament\Forms\Components\DateTimePicker;
@@ -59,77 +61,12 @@ class UserResource extends Resource
 
     public static function form(Form $form): Form
     {
-        return $form
-            ->schema([
-                Section::make()->schema([
-                    TextInput::make('name')
-                        ->label(__('dashboard.name'))
-                        ->required()
-                        ->maxLength(255),
-                    TextInput::make('email')
-                        ->label(__('dashboard.email'))
-                        ->email()
-                        ->required()
-                        ->maxLength(255),
-                    Select::make('role')
-                        ->label(__('dashboard.role'))
-                        ->options([
-                            'super' => __('dashboard.super admin'),
-                            'admin' => __('dashboard.admin'),
-                            'employee' => __('dashboard.employee'),
-                        ])
-                        ->required(),
-                    DateTimePicker::make('email_verified_at')
-                        ->label(__('dashboard.email verified at')),
-                    TextInput::make('password')
-                        ->label(__('dashboard.password'))
-                        ->password()
-                        ->required()
-                        ->maxLength(255),
-                ])->columns(2),
-
-            ]);
+        return UsersForm::form($form);
     }
 
     public static function table(Table $table): Table
     {
-        return $table
-            ->query(User::where('id', '!=', auth()->id()))
-            ->columns([
-                TextColumn::make('name')
-                    ->label(__('dashboard.name'))
-                    ->searchable(),
-                TextColumn::make('email')
-                    ->label(__('dashboard.email'))
-                    ->searchable(),
-                SelectColumn::make('role')
-                    ->label(__('dashboard.role'))
-                    ->options([
-                        'super' => __('dashboard.super admin'),
-                        'admin' => __('dashboard.admin'),
-                        'employee' => __('dashboard.employee'),
-                    ])
-                    ->sortable(),
-                TextColumn::make('created_at')
-                    ->label(__('dashboard.created at'))
-                    ->date()
-                    ->dateTimeTooltip('Y/m/d h:i:s A')
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->label(__('dashboard.updated at'))
-                    ->date()
-                    ->dateTimeTooltip('Y/m/d h:i:s A')
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-            ])
-            ->actions([
-                ViewAction::make(),
-                EditAction::make(),
-            ])
-            ->bulkActions([
-                DeleteBulkAction::make(),
-            ]);
+        return UsersTable::table($table);
     }
 
     public static function getPages(): array
