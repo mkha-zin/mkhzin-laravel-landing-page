@@ -40,7 +40,7 @@ class JobsPanelProvider extends PanelProvider
                         ->label(__('dashboard.Rating Platform'))
                         ->icon('heroicon-o-star')
                         ->color('warning')
-                        ->url('https://rate.mkhzin.com/admin'),
+                        ->url('https://rate.mkhzin.com/admin', shouldOpenInNewTab: true),
                     MenuItem::make('app')
                         ->label(__('dashboard.App Panel'))
                         ->icon('heroicon-o-device-phone-mobile')
