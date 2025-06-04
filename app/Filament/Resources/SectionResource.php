@@ -3,9 +3,10 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\SectionResource\Pages;
-use App\Models\Section;
+use App\Models\Section as SectionModel;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\ImageEntry;
@@ -26,7 +27,7 @@ use LaraZeus\Delia\Filament\Actions\BookmarkHeaderAction;
 
 class SectionResource extends Resource
 {
-    protected static ?string $model = Section::class;
+    protected static ?string $model = SectionModel::class;
 
     protected static ?int $navigationSort = 2;
 
@@ -72,7 +73,8 @@ class SectionResource extends Resource
     {
         return $form
             ->schema([
-                Section::make(__('dashboard.image'))->schema([
+                Section::make(__('dashboard.image'))
+                    ->schema([
                     FileUpload::make('image')
                         ->label(__('dashboard.image'))
                         ->directory('assets/images/sections')
