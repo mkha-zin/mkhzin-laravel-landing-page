@@ -9,4 +9,4 @@
 
 ### Mkhazin Landing Page - Laravel
 
-#### by: <a href="https://ymnin.com" target="_blank">in Technology</a>
+#### Built by: <a href="https://intechnolgy.com" target="_blank">in Technology</a>
