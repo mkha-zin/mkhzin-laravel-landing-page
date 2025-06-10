@@ -31,23 +31,27 @@ class JobsPanelProvider extends PanelProvider
             ->path('jobs-m')
             ->login()
             ->userMenuItems([
-                    MenuItem::make('admin')
-                        ->label(__('dashboard.Admin Panel'))
-                        ->icon('heroicon-o-home')
-                        ->color('primary')
-                        ->url('/admin'),
-                    MenuItem::make('rate')
-                        ->label(__('dashboard.Rating Platform'))
-                        ->icon('heroicon-o-star')
-                        ->color('warning')
-                        ->url('https://rate.mkhzin.com/admin', shouldOpenInNewTab: true),
-                    MenuItem::make('app')
-                        ->label(__('dashboard.App Panel'))
-                        ->icon('heroicon-o-device-phone-mobile')
-                        ->color('info')
-                        ->url('/app'),
-                ]
-            )
+                MenuItem::make('admin')
+                    ->label(__('dashboard.Admin Panel'))
+                    ->icon('heroicon-o-home')
+                    ->color('primary')
+                    ->url('/admin'),
+                MenuItem::make('rate')
+                    ->label(__('dashboard.Rating Platform'))
+                    ->icon('heroicon-o-star')
+                    ->color('warning')
+                    ->url('https://rate.mkhzin.com/admin', shouldOpenInNewTab: true),
+                MenuItem::make('app')
+                    ->label(__('dashboard.App Panel'))
+                    ->icon('heroicon-o-device-phone-mobile')
+                    ->color('info')
+                    ->url('/app'),
+                MenuItem::make('cards')
+                    ->label(__('dashboard.Purchasing Cards'))
+                    ->icon('heroicon-o-credit-card')
+                    ->color(Color::Fuchsia)
+                    ->url('https://pay.mkhzin.com/admin', shouldOpenInNewTab: true),
+            ])
             ->colors([
                 'primary' => Color::hex('#E22128'),
             ])

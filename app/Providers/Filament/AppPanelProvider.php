@@ -44,6 +44,11 @@ class AppPanelProvider extends PanelProvider
                         ->icon('heroicon-o-briefcase')
                         ->color('success')
                         ->url('/jobs-m'),
+                    MenuItem::make('cards')
+                        ->label(__('dashboard.Purchasing Cards'))
+                        ->icon('heroicon-o-credit-card')
+                        ->color(Color::Fuchsia)
+                        ->url('https://pay.mkhzin.com/admin', shouldOpenInNewTab: true),
                 ]
             )
             ->colors([

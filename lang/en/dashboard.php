@@ -342,6 +342,7 @@ return [
     'Jobs Portal' => 'Jobs Portal',
     'App Panel' => 'App Panel',
     'Rating Platform' => 'Rating Platform',
+    'Purchasing Cards' => 'Purchasing Cards',
 
     'stars' => 'Evaluation',
     'platform' => 'Platform',

@@ -340,6 +340,7 @@ return [
     'Jobs Portal' => 'منصة الوظائف',
     'App Panel' => 'لوحة التطبيق',
     'Rating Platform' => 'منصة التقييم',
+    'Purchasing Cards' => 'البطاقات الشرائية',
 
     'stars' => 'التقييم',
     'platform' => 'المنصة',
