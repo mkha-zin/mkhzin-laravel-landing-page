@@ -29,28 +29,28 @@ class AppPanelProvider extends PanelProvider
             ->path('app')
             ->login()
             ->userMenuItems([
-                    MenuItem::make('admin')
-                        ->label(__('dashboard.Admin Panel'))
-                        ->icon('heroicon-o-home')
-                        ->color('primary')
-                        ->url('/admin'),
-                    MenuItem::make('rate')
-                        ->label(__('dashboard.Rating Platform'))
-                        ->icon('heroicon-o-star')
-                        ->color('warning')
-                        ->url('https://rate.mkhzin.com/admin', shouldOpenInNewTab: true),
-                    MenuItem::make('jobs')
-                        ->label(__('dashboard.Jobs Portal'))
-                        ->icon('heroicon-o-briefcase')
-                        ->color('success')
-                        ->url('/jobs-m'),
-                    MenuItem::make('cards')
-                        ->label(__('dashboard.Purchasing Cards'))
-                        ->icon('heroicon-o-credit-card')
-                        ->color(Color::Fuchsia)
-                        ->url('https://pay.mkhzin.com/admin', shouldOpenInNewTab: true),
-                ]
-            )
+                MenuItem::make('admin')
+                    ->label(__('dashboard.Admin Panel'))
+                    ->icon('heroicon-o-home')
+                    ->color('primary')
+                    ->url('/admin'),
+                MenuItem::make('rate')
+                    ->label(__('dashboard.Rating Platform'))
+                    ->icon('heroicon-o-star')
+                    ->color('warning')
+                    ->url('https://rate.mkhzin.com/admin', shouldOpenInNewTab: true),
+                MenuItem::make('jobs')
+                    ->label(__('dashboard.Jobs Portal'))
+                    ->icon('heroicon-o-briefcase')
+                    ->color('success')
+                    ->url('/jobs-m'),
+                MenuItem::make('cards')
+                    ->label(__('dashboard.Purchasing Cards'))
+                    ->icon('heroicon-o-credit-card')
+                    ->color(Color::Fuchsia)
+                    ->url('https://pay.mkhzin.com/admin', shouldOpenInNewTab: true),
+            ])
+            ->sidebarCollapsibleOnDesktop(true)
             ->colors([
                 'primary' => Color::hex('#E22128'),
             ])
@@ -63,7 +63,7 @@ class AppPanelProvider extends PanelProvider
             ])
             ->renderHook(
             // This line tells us where to render it
-                PanelsRenderHook::FOOTER,
+                PanelsRenderHook::BODY_END,
                 // This is the view that will be rendered
                 fn() => view('filament-panels::components.custom_footer'),
             )

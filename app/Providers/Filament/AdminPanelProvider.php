@@ -65,6 +65,7 @@ class AdminPanelProvider extends PanelProvider
                     ->color(Color::Fuchsia)
                     ->url('https://pay.mkhzin.com/admin', shouldOpenInNewTab: true),
             ])
+            ->sidebarCollapsibleOnDesktop(true)
             ->colors([
                 'primary' => Color::hex('#E22128'),
             ])
@@ -99,7 +100,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->renderHook(
             // This line tells us where to render it
-                PanelsRenderHook::FOOTER,
+                PanelsRenderHook::BODY_END,
                 // This is the view that will be rendered
                 fn() => view('filament-panels::components.custom_footer'),
             )

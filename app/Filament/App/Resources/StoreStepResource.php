@@ -95,7 +95,7 @@ class StoreStepResource extends Resource
             ->columns([
                 TextColumn::make('order')
                     ->label(__('dashboard.order'))
-                    ->numeric()
+                    ->numeric(locale: 'en')
                     ->sortable(),
                 TextColumn::make(
                     App::currentLocale() === 'en' ? 'title_en' : 'title_ar'
