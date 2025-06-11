@@ -392,7 +392,7 @@
         </div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <nav class="navbar navbar-light bg-light">
+                <nav class="navbar navbar-light bg-light" style="box-shadow: none ! important; z-index: 0">
                     <a class="navbar-brand" href="{{url('/')}}">
                         <img src="{{ asset('uploads/mkhazin/logo900.png') }}" width="150" height="150" alt="">
                     </a>
