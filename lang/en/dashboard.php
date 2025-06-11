@@ -135,11 +135,14 @@ return [
     'save to contacts' => 'Save to Contacts List',
     'link' => 'Link',
 
+    'normal' => 'Normal',
+    'animated' => 'Animated',
+
     'comment' => 'Comment',
     'comment_en' => 'English Comment',
     'comment_ar' => 'Arabic Comment',
     'is_active' => 'Is Active?',
-    'status' => 'Status(Active?)',
+    'status' => 'Status (Active?)',
     'active' => 'Active',
     'inactive' => 'Inactive',
 
@@ -343,6 +346,9 @@ return [
     'App Panel' => 'App Panel',
     'Rating Platform' => 'Rating Platform',
     'Purchasing Cards' => 'Purchasing Cards',
+
+    'Image' => 'Image',
+    'gallery' => 'Gallery',
 
     'stars' => 'Evaluation',
     'platform' => 'Platform',

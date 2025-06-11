@@ -132,11 +132,14 @@ return [
     'save to contacts' => 'حفظ في جهات الاتصال',
     'link' => 'الرابط',
 
+    'normal' => 'عادية',
+    'animated' => 'متحركة',
+
     'comment' => 'التعليق',
     'comment_en' => 'التعليق بالانجليزي',
     'comment_ar' => 'التعليق بالعربي',
     'is_active' => 'الحالة(نشط؟)',
-    'status' => 'الحالة(نشط؟)',
+    'status' => 'الحالة (نشط؟)',
     'active' => 'نشط',
     'inactive' => 'غير نشط',
 
@@ -341,6 +344,9 @@ return [
     'App Panel' => 'لوحة التطبيق',
     'Rating Platform' => 'منصة التقييم',
     'Purchasing Cards' => 'البطاقات الشرائية',
+
+    'Image' => 'صورة',
+    'gallery' => 'معرض الصور',
 
     'stars' => 'التقييم',
     'platform' => 'المنصة',

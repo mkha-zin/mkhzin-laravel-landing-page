@@ -5,6 +5,7 @@ use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\LandingController;
 use App\Http\Middleware\Localization;
+use App\Models\Gallery;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -81,10 +82,11 @@ Route::group(['middleware' => 'localization'], static function () {
         Route::get('/{slug}', [EmployeesController::class, 'index'])->name('employees.index');
     });
 
-    /*Route::get('test', function () {
-        $data['header_title'] = 'Book a Meeting';
-       return view('book_meet', $data);
-    });*/
+    Route::get('test', function () {
+        $data['header_title'] = 'Test';
+        $data['images'] = Gallery::all();
+       return view('gallery.gallery', $data);
+    });
 
 });
 
