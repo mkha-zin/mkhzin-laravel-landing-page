@@ -14,6 +14,7 @@ use App\Models\ContactInfo;
 use App\Models\CustomerReview;
 use App\Models\Department;
 use App\Models\Fleet;
+use App\Models\Gallery;
 use App\Models\Offer;
 use App\Models\Post;
 use App\Models\Section;
@@ -404,6 +405,14 @@ class LandingController extends Controller
         CustomerReview::create($validated);
 
         return response()->json(['success' => true, 'message' => __('dashboard.evaluation_submitted')]);
+    }
+
+    public function gallery()
+    {
+        $data['header_title'] = 'Gallery';
+        $data['images'] = Gallery::where('type', 'image')->get();
+        $data['videos'] = Gallery::where('type', 'video')->get();
+        return view('gallery.gallery', $data);
     }
 }
 

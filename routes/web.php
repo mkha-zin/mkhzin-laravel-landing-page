@@ -78,16 +78,16 @@ Route::group(['middleware' => 'localization'], static function () {
     Route::get('evaluate/{branch}', [LandingController::class, 'evaluateBranch'])->name('evaluate-branch');
     Route::post('evaluate', [LandingController::class, 'evaluatBranch'])->name('evaluate.branch');
 
+    Route::get('gallery', [LandingController::class, 'gallery'])->name('gallery');
+
     Route::group(['prefix' => '/emp'], static function () {
         Route::get('/{slug}', [EmployeesController::class, 'index'])->name('employees.index');
     });
 
-    Route::get('test', function () {
+    /*Route::get('test', function () {
         $data['header_title'] = 'Test';
-        $data['images'] = Gallery::where('type', 'image')->limit(6)->get();
-        $data['videos'] = Gallery::where('type', 'video')->get();
        return view('gallery.gallery', $data);
-    });
+    });*/
 
 });
 
