@@ -9,6 +9,7 @@ use App\Models\City;
 use App\Models\ContactImage;
 use App\Models\ContactInfo;
 use App\Models\Fleet;
+use App\Models\Gallery;
 use App\Models\Hero;
 use App\Models\Offer;
 use App\Models\OurValue;
@@ -35,6 +36,7 @@ class DataFetcherService
                 'storage' => Storage::query()->first(),
                 'fleet' => Fleet::query()->first(),
                 'contactInfos' => ContactInfo::query()->get(),
+                'images' => Gallery::where('type', 'image')->get(),
                 'contact_first_image' => ContactImage::query()->first(),
                 'contact_second_image' => ContactImage::query()->orderBy('id', 'desc')->first(),
                 'socialLinks' => SocialLink::query()->get(),
