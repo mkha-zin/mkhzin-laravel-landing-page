@@ -51,7 +51,7 @@ class EmployeeResource extends Resource
                     ->schema([
                         Split::make([
                             FileUpload::make('image')
-                                ->label(__('dashboard.image'))
+                                ->label(__('dashboard.Image'))
                                 ->directory('assets/images/employees')
                                 ->imageEditor()
                                 ->required()
@@ -149,7 +149,7 @@ class EmployeeResource extends Resource
                     ->numeric()
                     ->sortable(),
                 ImageColumn::make('image')
-                    ->label(__('dashboard.image'))
+                    ->label(__('dashboard.Image'))
                     ->circular()
                     ->alignEnd(),
                 TextColumn::make(

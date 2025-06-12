@@ -59,9 +59,9 @@ class VisionAndGoalResource extends Resource
     {
         return $form
             ->schema([
-                Section::make(__('dashboard.image'))->schema([
+                Section::make(__('dashboard.Image'))->schema([
                     FileUpload::make('image')
-                        ->label(__('dashboard.image'))
+                        ->label(__('dashboard.Image'))
                         ->directory('assets/images/visionAndGoals')
                         ->columnSpanFull()
                         ->imageEditor()
@@ -108,7 +108,7 @@ class VisionAndGoalResource extends Resource
                     ->words(5)
                     ->searchable(),
                 ImageColumn::make('image')
-                    ->label(__('dashboard.image')),
+                    ->label(__('dashboard.Image')),
                 ImageColumn::make('image'),
                 TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
@@ -137,9 +137,9 @@ class VisionAndGoalResource extends Resource
     {
         return $infolist->schema([
 
-            InfoSection::make(__('dashboard.imageAndIcon'))->schema([
+            InfoSection::make(__('dashboard.ImageAndIcon'))->schema([
                 ImageEntry::make('image')
-                    ->label(__('dashboard.image')),
+                    ->label(__('dashboard.Image')),
 
             ])->columns(2),
             InfoSection::make(__('dashboard.titles'))->schema([

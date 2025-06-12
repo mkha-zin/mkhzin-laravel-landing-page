@@ -86,7 +86,7 @@ class AboutResource extends Resource
                     FileUpload::make('image')
                         ->directory('assets/images/about')
                         ->imageEditor()
-                        ->label(__('dashboard.image'))
+                        ->label(__('dashboard.Image'))
                         ->image()
                         ->required(),
                 ])
@@ -117,7 +117,7 @@ class AboutResource extends Resource
                     ->markdown()
                     ->searchable(),
                 ImageColumn::make('image')
-                    ->label(__('dashboard.image')),
+                    ->label(__('dashboard.Image')),
                 TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->date()
@@ -143,7 +143,7 @@ class AboutResource extends Resource
 
             InfoSection::make('')->schema([
                 ImageEntry::make('image')
-                    ->label(__('dashboard.image'))->columnSpanFull(),
+                    ->label(__('dashboard.Image'))->columnSpanFull(),
             ])->columnSpanFull(),
 
             InfoSection::make(__('dashboard.titles'))->schema([

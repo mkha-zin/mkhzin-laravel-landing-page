@@ -69,7 +69,7 @@ class BrandResource extends Resource
                         FileUpload::make('image')
                             ->image()
                             ->imageEditor()
-                            ->label(__('dashboard.image'))
+                            ->label(__('dashboard.Image'))
                             ->directory('assets/images/brands')
                             ->required(),
                     ])->columns(1)
@@ -85,7 +85,7 @@ class BrandResource extends Resource
                     ->label(__('dashboard.title'))
                     ->searchable(),
                 ImageColumn::make('image')
-                    ->label(__('dashboard.image')),
+                    ->label(__('dashboard.Image')),
                 TextColumn::make('created_at')
                     ->date()
                     ->dateTimeTooltip(format: 'Y/m/d h:i:s A')
@@ -116,7 +116,7 @@ class BrandResource extends Resource
                     $infolist->record->title
                 )->schema([
                     ImageEntry::make('image')
-                        ->label(__('dashboard.image'))
+                        ->label(__('dashboard.Image'))
                 ])
             ]);
     }

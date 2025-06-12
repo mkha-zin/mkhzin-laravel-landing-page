@@ -50,7 +50,7 @@ class OffersTable
                     ->searchable()
                     ->toggleable(),
                 ImageColumn::make('image')
-                    ->label(__('dashboard.image')),
+                    ->label(__('dashboard.Image')),
                 TextColumn::make('pdf_file')
                     ->label(__('dashboard.files'))
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -111,7 +111,7 @@ class OffersTable
                             ->collapsed()
                             ->schema([
                                 FileUpload::make('image')
-                                    ->label(__('dashboard.image'))
+                                    ->label(__('dashboard.Image'))
                                     ->directory('assets/images/offers')
                                     ->imageEditor()
                                     ->image()

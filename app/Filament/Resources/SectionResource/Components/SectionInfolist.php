@@ -13,9 +13,9 @@ class SectionInfolist
     {
         return $infolist->schema([
 
-            Section::make(__('dashboard.image'))->schema([
+            Section::make(__('dashboard.Image'))->schema([
                 ImageEntry::make('image')
-                    ->label(__('dashboard.image')),
+                    ->label(__('dashboard.Image')),
 
             ])->columns(2),
             Section::make(__('dashboard.titles'))->schema([

@@ -18,9 +18,9 @@ class OffersInfolist
                     App::currentLocale() === 'ar' ? 'branch.name_ar' : 'branch.name_en'
                 )->label(__('dashboard.branch')),
             ])->columns(2),
-            InfoSection::make(__('dashboard.image'))->schema([
+            InfoSection::make(__('dashboard.Image'))->schema([
                 ImageEntry::make('image')
-                    ->label(__('dashboard.image')),
+                    ->label(__('dashboard.Image')),
                 TextEntry::make('pdf_file')
                     ->label(__('dashboard.file')),
             ])->columns(2),

@@ -61,7 +61,7 @@ return [
     //forms and titles
     'imageAndIcon' => 'الصورة والايقونة',
     'images' => 'الصورة',
-    'image' => 'الصورة',
+    'Image' => 'الصورة',
     'background_image' => 'الصورة الخلفية',
     'foreground_image' => 'الصورة الأمامية',
     'icon' => 'الايقونة',
@@ -132,8 +132,7 @@ return [
     'save to contacts' => 'حفظ في جهات الاتصال',
     'link' => 'الرابط',
 
-    'normal' => 'عادية',
-    'animated' => 'متحركة',
+    'video' => 'فيديو',
 
     'comment' => 'التعليق',
     'comment_en' => 'التعليق بالانجليزي',
@@ -345,7 +344,7 @@ return [
     'Rating Platform' => 'منصة التقييم',
     'Purchasing Cards' => 'البطاقات الشرائية',
 
-    'Image' => 'صورة',
+    'image' => 'صورة',
     'gallery' => 'معرض الصور',
 
     'stars' => 'التقييم',

@@ -52,9 +52,9 @@ class OurValueResource extends Resource
     {
         return $form
             ->schema([
-                Section::make(__('dashboard.imageAndIcon'))->schema([
+                Section::make(__('dashboard.ImageAndIcon'))->schema([
                     FileUpload::make('image')
-                        ->label(__('dashboard.image'))
+                        ->label(__('dashboard.Image'))
                         ->directory('assets/images/ourValues')
                         ->imageEditor()
                         ->image()
@@ -106,7 +106,7 @@ class OurValueResource extends Resource
                     ->words(5)
                     ->searchable(),
                 ImageColumn::make('image')
-                    ->label(__('dashboard.image')),
+                    ->label(__('dashboard.Image')),
                 ImageColumn::make('icon')
                     ->label(__('dashboard.icon')),
                 TextColumn::make('created_at')
@@ -136,9 +136,9 @@ class OurValueResource extends Resource
     {
         return $infolist->schema([
 
-            InfoSection::make(__('dashboard.imageAndIcon'))->schema([
+            InfoSection::make(__('dashboard.ImageAndIcon'))->schema([
                 ImageEntry::make('image')
-                    ->label(__('dashboard.image')),
+                    ->label(__('dashboard.Image')),
                 ImageEntry::make('icon')
                     ->label(__('dashboard.icon')),
             ])->columns(2),

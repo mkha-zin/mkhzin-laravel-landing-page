@@ -66,7 +66,7 @@ return [
     //forms and titles
     'imageAndIcon' => 'Image and Icon',
     'images' => 'Images',
-    'image' => 'Image',
+    'Image' => 'Image',
     'background_image' => 'Background Image',
     'foreground_image' => 'Foreground Image',
     'icon' => 'Icon',
@@ -135,8 +135,7 @@ return [
     'save to contacts' => 'Save to Contacts List',
     'link' => 'Link',
 
-    'normal' => 'Normal',
-    'animated' => 'Animated',
+    'video' => 'Video',
 
     'comment' => 'Comment',
     'comment_en' => 'English Comment',
@@ -347,7 +346,7 @@ return [
     'Rating Platform' => 'Rating Platform',
     'Purchasing Cards' => 'Purchasing Cards',
 
-    'Image' => 'Image',
+    'image' => 'Image',
     'gallery' => 'Gallery',
 
     'stars' => 'Evaluation',

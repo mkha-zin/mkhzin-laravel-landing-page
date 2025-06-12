@@ -67,7 +67,7 @@ class HeaderResource extends Resource
                         ->required()
                         ->maxLength(255),
                     FileUpload::make('image')
-                        ->label(__('dashboard.image'))
+                        ->label(__('dashboard.Image'))
                         ->directory('assets/images/headers')
                         ->image()
                         ->imageEditor()
@@ -87,7 +87,7 @@ class HeaderResource extends Resource
                     ->searchable()
                     ->sortable(),
                 ImageColumn::make('image')
-                    ->label(__('dashboard.image')),
+                    ->label(__('dashboard.Image')),
                 TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->date()

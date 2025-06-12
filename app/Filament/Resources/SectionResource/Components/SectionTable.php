@@ -31,7 +31,7 @@ class SectionTable
                     ->words(5)
                     ->searchable(),
                 ImageColumn::make('image')
-                    ->label(__('dashboard.image')),
+                    ->label(__('dashboard.Image')),
                 ImageColumn::make('image'),
                 TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))

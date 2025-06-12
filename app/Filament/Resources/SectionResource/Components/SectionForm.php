@@ -14,10 +14,10 @@ class SectionForm
     {
         return $form
             ->schema([
-                Section::make(__('dashboard.image'))
+                Section::make(__('dashboard.Image'))
                     ->schema([
                         FileUpload::make('image')
-                            ->label(__('dashboard.image'))
+                            ->label(__('dashboard.Image'))
                             ->directory('assets/images/sections')
                             ->columnSpanFull()
                             ->imageEditor()

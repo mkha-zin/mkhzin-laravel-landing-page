@@ -66,7 +66,7 @@ class AppScreenResource extends Resource
                             ->required()
                             ->maxLength(255),
                         FileUpload::make('image')
-                            ->label(__('dashboard.image'))
+                            ->label(__('dashboard.Image'))
                             ->image()
                             ->imageEditor()
                             ->directory('assets/images/screens')
@@ -84,7 +84,7 @@ class AppScreenResource extends Resource
                     ->sortable()
                     ->searchable(),
                 ImageColumn::make('image')
-                    ->label(__('dashboard.image')),
+                    ->label(__('dashboard.Image')),
                 TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->date()

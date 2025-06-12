@@ -17,7 +17,7 @@ class BranchInfolist
 
             InfoSection::make(__('dashboard.details'))->schema([
                 ImageEntry::make('image')
-                    ->label(__('dashboard.image')),
+                    ->label(__('dashboard.Image')),
                 TextEntry::make(
                     App::currentLocale() === 'ar' ? 'city.name_ar' : 'city.name_en'
                 )->label(__('dashboard.city')),

@@ -80,7 +80,7 @@ class BranchTable
                     ->description(fn(Branch $record) => $record->latitude)
                     ->toggleable(isToggledHiddenByDefault: true),
                 ImageColumn::make('image')
-                    ->label(__('dashboard.image'))
+                    ->label(__('dashboard.Image'))
                     ->alignCenter()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('created_at')

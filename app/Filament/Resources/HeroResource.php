@@ -51,7 +51,7 @@ class HeroResource extends Resource
         return $form
             ->schema([
                 Section::make('')->schema([
-                    FileUpload::make('image')->label(__('dashboard.image'))
+                    FileUpload::make('image')->label(__('dashboard.Image'))
                         ->directory('assets/images/heroes')
                         ->image()
                         ->imageEditor()
@@ -79,7 +79,7 @@ class HeroResource extends Resource
                 )->label(__('dashboard.title')),
 
                 ImageColumn::make('image')
-                    ->label(__('dashboard.image')),
+                    ->label(__('dashboard.Image')),
 
                 TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
@@ -109,7 +109,7 @@ class HeroResource extends Resource
         return $infolist->schema([
 
 
-            ImageEntry::make('image')->label(__('dashboard.image')),
+            ImageEntry::make('image')->label(__('dashboard.Image')),
             Section::make(__('dashboard.titles'))->schema([
                 TextEntry::make('title_ar')->label(__('dashboard.title_ar')),
                 TextEntry::make('title_en')->label(__('dashboard.title_en')),

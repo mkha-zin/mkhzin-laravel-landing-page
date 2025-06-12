@@ -54,7 +54,7 @@ class ContactImageResource extends Resource
         return $form
             ->schema([
                 FileUpload::make('image')
-                    ->label(__('dashboard.image'))
+                    ->label(__('dashboard.Image'))
                     ->directory('assets/images/contactImages')
                     ->image()
                     ->imageEditor()
@@ -68,7 +68,7 @@ class ContactImageResource extends Resource
         return $table
             ->columns([
                 ImageColumn::make('image')
-                    ->label(__('dashboard.image')),
+                    ->label(__('dashboard.Image')),
 
                 TextColumn::make(
                     App::currentLocale() === 'ar' ? 'view_title_ar' : 'view_title_en'
@@ -99,7 +99,7 @@ class ContactImageResource extends Resource
         return $infolist->schema([
 
             Section::make()->schema([
-                ImageEntry::make('image')->label(__('dashboard.image')),
+                ImageEntry::make('image')->label(__('dashboard.Image')),
                 TextEntry::make(
                     App::currentLocale() === 'ar' ? 'view_title_ar' : 'view_title_en'
                 )->label(__('dashboard.title')),

@@ -64,7 +64,7 @@ class PostResource extends Resource
             ->schema([
                 Section::make()->schema([
                     FileUpload::make('image')
-                        ->label(__('dashboard.image'))
+                        ->label(__('dashboard.Image'))
                         ->directory('assets/images/posts')
                         ->imageEditor()
                         ->image()

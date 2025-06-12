@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('description_ar')->nullable();
             $table->string('description_en')->nullable();
             $table->string('link')->nullable();
-            $table->enum('type', ['normal', 'animated'])->default('normal');
+            $table->enum('type', ['image', 'video'])->default('image');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });

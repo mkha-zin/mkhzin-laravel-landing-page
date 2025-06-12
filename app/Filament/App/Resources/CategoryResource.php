@@ -71,10 +71,10 @@ class CategoryResource extends Resource
                             ->required()
                             ->maxLength(20),
                     ])->columns(2),
-                Section::make(__('dashboard.image'))
+                Section::make(__('dashboard.Image'))
                     ->schema([
                         FileUpload::make('image')
-                            ->label(__('dashboard.image'))
+                            ->label(__('dashboard.Image'))
                             ->directory('assets/images/categories')
                             ->image()
                             ->imageEditor()
@@ -94,7 +94,7 @@ class CategoryResource extends Resource
                     ->sortable()
                     ->searchable(),
                 ImageColumn::make('image')
-                    ->label(__('dashboard.image')),
+                    ->label(__('dashboard.Image')),
                 TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->date()

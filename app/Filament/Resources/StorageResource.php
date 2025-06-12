@@ -56,7 +56,7 @@ class StorageResource extends Resource
     {
         return $form
             ->schema([
-                Section::make(__('dashboard.images'))->schema([
+                Section::make(__('dashboard.Images'))->schema([
                     FileUpload::make('background_image')
                         ->label(__('dashboard.background_image'))
                         ->directory('assets/images/storage')
@@ -135,7 +135,7 @@ class StorageResource extends Resource
     {
         return $infolist->schema([
 
-            Section::make(__('dashboard.images'))->schema([
+            Section::make(__('dashboard.Images'))->schema([
                 ImageEntry::make('background_image')
                     ->label(__('dashboard.background_image')),
                 ImageEntry::make('foreground_image')

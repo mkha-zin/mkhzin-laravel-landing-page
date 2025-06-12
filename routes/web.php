@@ -84,7 +84,8 @@ Route::group(['middleware' => 'localization'], static function () {
 
     Route::get('test', function () {
         $data['header_title'] = 'Test';
-        $data['images'] = Gallery::all();
+        $data['images'] = Gallery::where('type', 'image')->limit(6)->get();
+        $data['videos'] = Gallery::where('type', 'video')->get();
        return view('gallery.gallery', $data);
     });
 

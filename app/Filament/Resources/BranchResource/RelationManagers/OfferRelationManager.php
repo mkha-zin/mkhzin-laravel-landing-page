@@ -54,9 +54,9 @@ class OfferRelationManager extends RelationManager
     {
         return $form
             ->schema([
-                Section::make(__('dashboard.image'))->schema([
+                Section::make(__('dashboard.Image'))->schema([
                     FileUpload::make('image')
-                        ->label(__('dashboard.image'))
+                        ->label(__('dashboard.Image'))
                         ->directory('assets/images/offers')
                         ->imageEditor()
                         ->image()
@@ -129,7 +129,7 @@ class OfferRelationManager extends RelationManager
                     ->words(5)
                     ->searchable(),
                 ImageColumn::make('image')
-                    ->label(__('dashboard.image')),
+                    ->label(__('dashboard.Image')),
                 TextColumn::make('pdf_file')
                     ->label(__('dashboard.files'))
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -167,9 +167,9 @@ class OfferRelationManager extends RelationManager
     {
         return $infolist->schema([
 
-            InfoSection::make(__('dashboard.image'))->schema([
+            InfoSection::make(__('dashboard.Image'))->schema([
                 ImageEntry::make('image')
-                    ->label(__('dashboard.image')),
+                    ->label(__('dashboard.Image')),
                 TextEntry::make('pdf_file')
                     ->label(__('dashboard.file')),
             ])->columns(2),

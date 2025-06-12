@@ -88,7 +88,7 @@ class BranchForm
                 ])->columns(3),
                 Section::make(__('dashboard.files'))->schema([
                     FileUpload::make('image')
-                        ->label(__('dashboard.image'))
+                        ->label(__('dashboard.Image'))
                         ->directory('assets/images/branches')
                         ->imageEditor()
                         ->image()

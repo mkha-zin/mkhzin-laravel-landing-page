@@ -32,7 +32,7 @@ class OffersForm
 
                 Section::make(__('dashboard.files'))->schema([
                     FileUpload::make('image')
-                        ->label(__('dashboard.image'))
+                        ->label(__('dashboard.Image'))
                         ->directory('assets/images/offers')
                         ->imageEditor()
                         ->image()

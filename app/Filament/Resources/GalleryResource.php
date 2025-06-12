@@ -9,6 +9,9 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\App;
 
@@ -54,13 +57,14 @@ class GalleryResource extends Resource
                 Forms\Components\Select::make('type')
                     ->label(__('dashboard.type'))
                     ->options([
-                        'normal' => __('dashboard.normal'),
-                        'animated' => __('dashboard.animated'),
+                        'image' => __('dashboard.image'),
+                        'video' => __('dashboard.video'),
                     ]),
 
                 Forms\Components\FileUpload::make('image')
-                    ->label(__('dashboard.image'))
-                    ->image()
+                    ->label(__('dashboard.Image'))
+                    ->editableSvgs()
+                    ->directory('assets/videos/gallery')
                     ->columnSpanFull()
                     ->required(),
                 Forms\Components\TextInput::make('title_ar')
@@ -91,7 +95,7 @@ class GalleryResource extends Resource
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\ImageColumn::make('image')
-                    ->label(__('dashboard.image')),
+                    ->label(__('dashboard.Image')),
                 Tables\Columns\TextColumn::make('title_' . App::currentLocale())
                     ->label(__('dashboard.title'))
                     ->words(5)
@@ -132,17 +136,12 @@ class GalleryResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                EditAction::make()->iconButton(),
+                DeleteAction::make()->iconButton(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                 DeleteBulkAction::make(),
             ]);
     }
 
