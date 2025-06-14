@@ -36,7 +36,7 @@ class DataFetcherService
                 'storage' => Storage::query()->first(),
                 'fleet' => Fleet::query()->first(),
                 'contactInfos' => ContactInfo::query()->get(),
-                'images' => Gallery::where('type', 'image')->get(),
+//                'images' => Gallery::where('type', 'image')->get(),
                 'contact_first_image' => ContactImage::query()->first(),
                 'contact_second_image' => ContactImage::query()->orderBy('id', 'desc')->first(),
                 'socialLinks' => SocialLink::query()->get(),

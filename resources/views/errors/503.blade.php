@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>403 &#8211; {{ config('app.name') }}</title>
+    <title>503 &#8211; {{ config('app.name') }}</title>
     <style>
         * {
             position: relative;
@@ -106,9 +106,13 @@
 <div class="lock mb-1"></div>
 <div class="message my-1">
     <div class="flex justify-content-center text-center">
-        <h1 class="my-3">403</h1>
-        <h3 class="my-3">{{ __('landing.403') }}</h3>
+        <h1 class="my-3">503</h1>
+        <h3 class="my-3">{{ __('landing.503') }}</h3>
         <p>{{ __('landing.check mistake') }}</p>
+        <a href="mailto:admin@mkhzin.com" style="text-decoration: none">admin@mkhzin.com</a>
+
+        <br>
+        <br>
 
         <a href="{{ route('login.reset', 'home') }}" class="btn btn-danger">{{ __('landing.Back To Home') }}</a>
         <a href="{{ route('login.reset', 'login') }}" class="btn btn-dark">{{ __('landing.Back To Login') }}</a>

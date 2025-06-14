@@ -90,6 +90,8 @@ return [
 
     '404' => 'Dear customer, This Page is Not Found.',
     '403' => 'Access Denied, You Don\'t Have Permission To Access This Page',
+    '503' => 'Dear customer, This Page is Under Maintenance',
+
     'check mistake' => 'Please check with the site admin if you believe this is a mistake',
     'Back To Home' => 'Back To Home',
     'Back To Login' => 'Back To Login',

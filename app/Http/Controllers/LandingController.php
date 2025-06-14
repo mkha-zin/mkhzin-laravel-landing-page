@@ -409,10 +409,12 @@ class LandingController extends Controller
 
     public function gallery()
     {
-        $data['header_title'] = 'Gallery';
+        /*$data['header_title'] = 'Gallery';
         $data['images'] = Gallery::where('type', 'image')->get();
         $data['videos'] = Gallery::where('type', 'video')->get();
-        return view('gallery.gallery', $data);
+        return view('gallery.gallery', $data);*/
+
+        return abort(503);
     }
 }
 
