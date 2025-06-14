@@ -726,11 +726,11 @@
         <!-- /Posts Section -->
 
         <!-- Sections -->
-        @if(!empty($images))
+        {{--@if(!empty($images))
             <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
             <!------ Include the above in your HEAD tag ---------->
 
-            {{--Gallery CSS--}}
+            --}}{{--Gallery CSS--}}{{--
             <style>
                 .MultiCarousel {
                     float: left;
@@ -788,7 +788,7 @@
                     background: #ccc;
                 }
             </style>
-            {{--Gallery CSS--}}
+            --}}{{--Gallery CSS--}}{{--
 
             <div class="container">
                 <div class="row">
@@ -809,7 +809,7 @@
                     </div>
                 </div>
             </div>
-        @endif
+        @endif--}}
         {{--Gallery JS--}}
         <script>
             $(document).ready(function () {
