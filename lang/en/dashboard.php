@@ -145,6 +145,8 @@ return [
     'active' => 'Active',
     'inactive' => 'Inactive',
 
+    'color' => 'Color',
+
     'start_date' => 'Start Date',
     'end_date' => 'End Date',
 

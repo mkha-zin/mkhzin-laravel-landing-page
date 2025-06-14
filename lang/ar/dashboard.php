@@ -142,6 +142,8 @@ return [
     'active' => 'نشط',
     'inactive' => 'غير نشط',
 
+    'color' => 'اللون',
+
     'personal_info' => 'المعلومات الشخصية',
     'career_info' => 'المعلومات الوظيفية',
 

@@ -1,6 +1,5 @@
 @if(!empty($images) && count($images) >= 1)
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-
     <style>
         .MultiCarousel {
             overflow: hidden;
@@ -74,7 +73,6 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <script>
         $(document).ready(function () {
             const $carousel = $("#MultiCarousel");

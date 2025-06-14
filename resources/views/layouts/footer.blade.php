@@ -1,5 +1,9 @@
 @php
-    use App\Models\Department;use App\Models\Section;use App\Models\SocialLink;$facebook = SocialLink::query()->where('title_en', 'Facebook')->where('is_active', 1)->first();
+    use App\Models\Department;
+    use App\Models\Section;
+    use App\Models\SocialLink;
+
+    $facebook = SocialLink::query()->where('title_en', 'Facebook')->where('is_active', 1)->first();
     $twitter = SocialLink::query()->where('title_en', 'Twitter(X)')->where('is_active', 1)->first();
     $linkedin = SocialLink::query()->where('title_en', 'Linkedin')->where('is_active', 1)->first();
     $youtube = SocialLink::query()->where('title_en', 'Youtube')->where('is_active', 1)->first();
@@ -25,8 +29,11 @@
                         <div class="elementor-widget-container" style="display: flex; justify-content: center">
                             <img width="900" height="257" src="{{ asset('uploads/mkhazin/logo900.png') }}"
                                  class="attachment-full size-full wp-image-1148" alt=""
-                                 srcset="{{ asset('uploads/mkhazin/logo900.png') }} 900w,{{ asset('uploads/mkhazin/logo700.png') }} 768w,{{ asset('uploads/mkhazin/logo800.png') }} 800w"
-                                 sizes="(max-width: 900px) 100vw, 900px"/></div>
+                                 srcset="{{ asset('uploads/mkhazin/logo900.png') }} 900w,
+                                 {{ asset('uploads/mkhazin/logo700.png') }} 768w,
+                                 {{ asset('uploads/mkhazin/logo800.png') }} 800w"
+                                 sizes="(max-width: 900px) 100vw, 900px"/>
+                        </div>
                     </div>
                     <div
                         class="elementor-element elementor-element-332dd94 elementor-widget elementor-widget-text-editor"

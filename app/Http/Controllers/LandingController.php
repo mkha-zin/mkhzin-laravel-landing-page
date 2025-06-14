@@ -18,6 +18,7 @@ use App\Models\Gallery;
 use App\Models\Offer;
 use App\Models\Post;
 use App\Models\Section;
+use App\Models\SocialLink;
 use App\Models\Storage;
 use App\Models\Subscription;
 use App\Models\Tag;
@@ -412,6 +413,15 @@ class LandingController extends Controller
 
         return abort(503);
     }
+
+    // SocialHubController.php
+    public function platforms()
+    {
+        $socialLinks = SocialLink::where('is_active', true)->get();
+
+        return view('social_hub', compact('socialLinks'));
+    }
+
 }
 
 

@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\SocialLinkResource\Pages;
 use App\Models\SocialLink;
+use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
@@ -15,6 +16,7 @@ use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\CheckboxColumn;
+use Filament\Tables\Columns\ColorColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
@@ -54,6 +56,9 @@ class SocialLinkResource extends Resource
     {
         return $form
             ->schema([
+                TextInput::make('key')
+                    ->label(__('dashboard.key'))
+                    ->required(),
                 TextInput::make('title_ar')
                     ->label(__('dashboard.title_ar'))
                     ->required(),
@@ -63,8 +68,10 @@ class SocialLinkResource extends Resource
                 TextInput::make('link')
                     ->label(__('dashboard.link'))
                     ->required()
-                    ->url()
-                    ->columnSpanFull(),
+                    ->url(),
+                ColorPicker::make('color')
+                    ->label(__('dashboard.color'))
+                    ->required(),
                 TextInput::make('comment_en')
                     ->label(__('dashboard.comment_en'))
                     ->maxValue(255),
@@ -94,6 +101,8 @@ class SocialLinkResource extends Resource
                 )
                     ->limit(30)
                     ->label(__('dashboard.comment')),
+                ColorColumn::make('color')
+                    ->label(__('dashboard.color')),
                 CheckboxColumn::make('is_active')
                     ->label(__('dashboard.status')),
                 TextColumn::make('created_at')
