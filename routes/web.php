@@ -84,10 +84,10 @@ Route::group(['middleware' => 'localization'], static function () {
         Route::get('/{slug}', [EmployeesController::class, 'index'])->name('employees.index');
     });
 
-    /*Route::get('test', function () {
+    Route::get('test', function () {
         $data['header_title'] = 'Test';
-       return view('gallery.gallery', $data);
-    });*/
+       return view('social_hub', $data);
+    });
 
 });
 

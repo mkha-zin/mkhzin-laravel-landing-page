@@ -14,6 +14,11 @@ class Post extends Model
 
     protected $guarded = [];
 
+    public static function getLast3Posts()
+    {
+        return Post::where('status', 1)->orderBy('created_at', 'desc')->limit(3)->get();
+    }
+
     public function tag(): BelongsTo
     {
         return $this->belongsTo(Tag::class);

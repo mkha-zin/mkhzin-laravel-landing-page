@@ -13,6 +13,7 @@ use App\Models\Gallery;
 use App\Models\Hero;
 use App\Models\Offer;
 use App\Models\OurValue;
+use App\Models\Post;
 use App\Models\Section;
 use App\Models\SocialLink;
 use App\Models\Storage;
@@ -31,12 +32,11 @@ class DataFetcherService
                 'about' => About::query()->first(),
                 'aboutCards' => AboutCard::query()->get(),
                 'departments' => Section::query()->get(),
-                'vision' => VisionAndGoal::query()->where('slug', 'vision')->first(),
-                'goals' => VisionAndGoal::query()->where('slug', 'goals')->first(),
+                'vision' => VisionAndGoal::getData('vision'),
+                'goals' => VisionAndGoal::getData('goals'),
                 'storage' => Storage::query()->first(),
                 'fleet' => Fleet::query()->first(),
                 'contactInfos' => ContactInfo::query()->get(),
-//                'images' => Gallery::where('type', 'image')->get(),
                 'contact_first_image' => ContactImage::query()->first(),
                 'contact_second_image' => ContactImage::query()->orderBy('id', 'desc')->first(),
                 'socialLinks' => SocialLink::query()->get(),

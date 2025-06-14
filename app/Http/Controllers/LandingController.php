@@ -45,14 +45,10 @@ class LandingController extends Controller
 
     public function index(): Factory|View|Application|\Illuminate\View\View
     {
-
         $data = $this->dataFetcherService->fetchData();
         $data['header_title'] = '';
-        $data['posts'] = Post::query()
-            ->where('status', 1)
-            ->orderBy('created_at', 'desc')
-            ->limit(3)
-            ->get();
+        $data['posts'] = Post::getLast3Posts();
+        $data['images'] = Gallery::where('type', 'image')->get();
         return view('index', $data);
     }
 
@@ -383,7 +379,7 @@ class LandingController extends Controller
         return view('departments', $data);
     }
 
-    function evaluateBranch(string $branch_name)
+    public function evaluateBranch(string $branch_name)
     {
         $data['header_title'] = '';
         $data['branch'] = Branch::query()->where('name_en', $branch_name)->first();
@@ -391,7 +387,7 @@ class LandingController extends Controller
         return view('evaluate_form', $data);
     }
 
-    function evaluatBranch(HttpRequest $request)
+    public function evaluatBranch(HttpRequest $request)
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
