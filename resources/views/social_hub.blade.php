@@ -3,7 +3,7 @@
     $dir = $lang == 'ar' ? 'rtl' : 'ltr';
 @endphp
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="{{ $lang }}" dir="{{ $dir }}">
 <head>
     <meta charset="UTF-8" />
@@ -18,14 +18,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
-
-
 </head>
 <body style="font-family: Alexandria, sans-serif" class="bg-gray-50 min-h-screen flex flex-col items-center justify-center p-6">
 
 <div style="color: #bd0000; font-weight: bold" class="w-full max-w-4xl bg-white shadow-md rounded-2xl p-4 mb-6 flex flex-col md:flex-row items-center justify-center">
-    <h2>{{ config('app.name') }}</h2>
+    <a href="{{ url('/') }}">
+        <h2>{{ config('app.name') }}</h2>
+    </a>
 </div>
+
 <!-- Selected Card -->
 <div id="selectedCard" class="w-full max-w-4xl bg-white shadow-lg rounded-2xl p-6 mb-10 flex flex-col md:flex-row items-center justify-center gap-6 transition-all duration-300">
     <div class="w-full md:w-1/2">
@@ -50,17 +51,18 @@
 
 <!-- Social Cards Grid -->
 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 w-full max-w-4xl">
-    @foreach ($socialLinks as $social)
+    @foreach ($socialLinks as $index => $social)
         <div
+            id="socialCard{{ $index }}"
             onclick="selectPlatform(
                     '{{ $lang === 'ar' ? $social->title_ar : $social->title_en }}',
                     '{{ $lang === 'ar' ? $social->comment_ar ?? 'لا يوجد وصف.' : $social->comment_en ?? 'No description available.' }}',
                     '{{ $social->color ?? '#4F46E5' }}',
                     '{{ $social->link }}',
-                    'ph-bold ph-{{ strtolower($social->key) }}-logo'
+                    'ph-bold ph-{{ strtolower($social->key) }}-logo',
+                    'socialCard{{ $index }}'
                 )"
-
-            class="cursor-pointer rounded-xl shadow hover:shadow-lg p-4 text-center text-white"
+            class="cursor-pointer rounded-xl shadow hover:shadow-lg p-4 text-center text-white transition-all duration-300 transform"
             style="background-color: {{ $social->color ?? '#4F46E5' }}"
         >
             <i class="ph-bold ph-{{ strtolower($social->key) }}-logo text-3xl"></i>
@@ -70,20 +72,30 @@
 </div>
 
 <script>
-    function selectPlatform(name, desc, color, link, iconClass) {
+    function selectPlatform(name, desc, color, link, iconClass, cardId) {
+        // Update main card text
         document.getElementById('platformName').textContent = name;
         document.getElementById('platformDesc').textContent = desc;
         document.getElementById('platformLink').href = link;
         document.getElementById('platformLink').style.backgroundColor = color;
 
+        // Update SVG with icon
         document.getElementById('platformSVG').innerHTML = `
             <circle cx="100" cy="100" r="80" fill="${color}" />
             <foreignObject x="60" y="60" width="80" height="80">
                 <div xmlns="http://www.w3.org/1999/xhtml" class="${iconClass}" style="color: white; font-size: 80px; display: flex; justify-content: center; align-items: center; height: 80px; width: 80px;"></div>
             </foreignObject>
         `;
+
+        // Remove animation from all cards
+        document.querySelectorAll('[id^="socialCard"]').forEach(card => {
+            card.classList.remove('scale-105', '-translate-y-1', 'ring', 'ring-white', 'ring-offset-2');
+        });
+
+        // Add animation to the selected card
+        const selectedCard = document.getElementById(cardId);
+        selectedCard.classList.add('scale-105', '-translate-y-1', 'ring', 'ring-black', 'ring-offset-2');
     }
 </script>
-
 </body>
 </html>
