@@ -23,6 +23,9 @@
 </head>
 <body style="font-family: Alexandria, sans-serif" class="bg-gray-50 min-h-screen flex flex-col items-center justify-center p-6">
 
+<div style="color: #bd0000; font-weight: bold" class="w-full max-w-4xl bg-white shadow-md rounded-2xl p-4 mb-6 flex flex-col md:flex-row items-center justify-center">
+    <h2>{{ config('app.name') }}</h2>
+</div>
 <!-- Selected Card -->
 <div id="selectedCard" class="w-full max-w-4xl bg-white shadow-lg rounded-2xl p-6 mb-10 flex flex-col md:flex-row items-center justify-center gap-6 transition-all duration-300">
     <div class="w-full md:w-1/2">
