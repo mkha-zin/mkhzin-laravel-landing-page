@@ -33,7 +33,7 @@
             {{ __('landing.Click any of the cards below to see more details.') }}
         </p>
         <div class="mt-4 flex gap-4">
-            <a id="platformLink" href="#" class="text-white px-4 py-2 rounded-xl shadow transition"
+            <a id="platformLink" href="#" target="_blank" class="text-white px-4 py-2 rounded-xl shadow transition"
                style="background-color: #4F46E5;">{{ __('landing.Agree') }}</a>
         </div>
     </div>
