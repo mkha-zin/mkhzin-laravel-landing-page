@@ -60,11 +60,12 @@
         <div
             id="socialCard{{ $index }}"
             onclick="selectPlatform(
-                    '{{ $lang === 'ar' ? $social->title_ar : $social->title_en }}',
-                    '{{ $lang === 'ar' ? $social->comment_ar ?? 'لا يوجد وصف.' : $social->comment_en ?? 'No description available.' }}',
+                    '{{ addslashes($lang === 'ar' ? $social->title_ar : $social->title_en) }}',
+                    '{{ addslashes($lang === 'ar' ? ($social->comment_ar ?? 'لا يوجد وصف.') : ($social->comment_en ?? 'No description available.')) }}',
                     '{{ $social->color ?? '#bd0000' }}',
                     '{{ strtolower($social->key) === 'snapchat' ? '#000000' : '#ffffff' }}',
                     '{{ $social->link }}',
+                    '{{ addslashes(__('landing.Go to') . ' ' . ($lang === 'ar' ? $social->title_ar : $social->title_en)) }}',
                     'ph-bold ph-{{ strtolower($social->key) }}-logo',
                     'socialCard{{ $index }}'
                 )"
@@ -78,7 +79,7 @@
 </div>
 
 <script>
-    function selectPlatform(name, desc, color, fontColor, link, iconClass, cardId) {
+    function selectPlatform(name, desc, color, fontColor, link, btnTxt, iconClass, cardId) {
 
         // Update main card text
         document.getElementById('platformName').textContent = name;
@@ -86,6 +87,7 @@
         document.getElementById('platformLink').href = link;
         document.getElementById('platformLink').style.backgroundColor = color;
         document.getElementById('platformLink').style.color = fontColor;
+        document.getElementById('platformLink').textContent = btnTxt;
 
 
         // Update SVG with icon

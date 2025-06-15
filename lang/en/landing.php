@@ -112,4 +112,5 @@ return [
     'Select a Platform' => 'Select a Platform',
     'Click any of the cards below to see more details.' => 'Click any of the cards below to see more details.',
     'Agree' => 'Agree',
+    'Go to' => 'Go to ',
 ];
