@@ -135,7 +135,7 @@ class GalleryResource extends Resource
                     ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-            ])
+            ])->extremePaginationLinks()
             ->actions([
                 EditAction::make()->iconButton(),
                 DeleteAction::make()->iconButton(),

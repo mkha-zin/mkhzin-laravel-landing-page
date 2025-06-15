@@ -80,6 +80,7 @@ class SubscriptionResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->extremePaginationLinks()
             ->actions([
                 ViewAction::make(),
                 EditAction::make(),

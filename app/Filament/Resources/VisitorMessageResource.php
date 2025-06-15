@@ -142,6 +142,7 @@ class VisitorMessageResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->extremePaginationLinks()
             ->actions([
                 ViewAction::make(),
                 EditAction::make(),

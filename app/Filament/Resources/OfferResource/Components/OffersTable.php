@@ -80,7 +80,9 @@ class OffersTable
                     ->dateTimeTooltip('D Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-            ])->defaultSort('created_at', 'desc')
+            ])
+            ->extremePaginationLinks()
+            ->defaultSort('created_at', 'desc')
             ->filters([
                 BooleanFilter::make('is_active')
                     ->label(__('dashboard.status')),

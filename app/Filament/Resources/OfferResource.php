@@ -7,35 +7,13 @@ use App\Filament\Resources\OfferResource\Components\OffersInfolist;
 use App\Filament\Resources\OfferResource\Components\OffersTable;
 use App\Filament\Resources\OfferResource\Pages;
 use App\Models\Offer;
-use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\DateTimePicker;
-use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\MarkdownEditor;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
-use Filament\Infolists\Components\ImageEntry;
-use Filament\Infolists\Components\Section as InfoSection;
-use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Actions\ReplicateAction;
-use Filament\Tables\Actions\ViewAction;
-use Filament\Tables\Columns\CheckboxColumn;
-use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\App;
 use LaraZeus\Delia\Filament\Actions\BookmarkHeaderAction;
-use Webbingbrasil\FilamentAdvancedFilter\Filters\BooleanFilter;
-use Webbingbrasil\FilamentAdvancedFilter\Filters\DateFilter;
 
 class OfferResource extends Resource
 {
