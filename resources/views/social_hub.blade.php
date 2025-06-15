@@ -43,7 +43,7 @@
         </p>
         <div class="mt-4 flex gap-4">
             <a id="platformLink" href="#" target="_blank" class="text-white px-4 py-2 rounded-xl shadow transition"
-               style="background-color: #bd0000;">{{ __('landing.Agree') }}</a>
+               style="background-color: #bd0000; display: none">{{ __('landing.Agree') }}</a>
         </div>
     </div>
     <div class="w-full md:w-1/2 flex items-center">
@@ -87,6 +87,7 @@
         document.getElementById('platformLink').href = link;
         document.getElementById('platformLink').style.backgroundColor = color;
         document.getElementById('platformLink').style.color = fontColor;
+        document.getElementById('platformLink').style.display = 'block';
         document.getElementById('platformLink').textContent = btnTxt;
 
 
