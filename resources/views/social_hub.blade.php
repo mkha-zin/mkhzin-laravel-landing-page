@@ -69,7 +69,7 @@
                     'socialCard{{ $index }}'
                 )"
             class="cursor-pointer rounded-xl shadow hover:shadow-lg p-4 text-center transition-all duration-300 transform"
-            style="background-color: {{ $social->color ?? '#4F46E5' }}; color: {{ $social->key === 'snapchat' ? '#000000' : '#ffffff' }}"
+            style="background-color: {{ $social->color ?? '#4F46E5' }}; color: {{ strtolower($social->key) === 'snapchat' ? '#000000' : '#ffffff' }}"
         >
             <i class="ph-bold ph-{{ strtolower($social->key) }}-logo text-3xl"></i>
             <p class="mt-2 font-semibold">{{ $lang === 'ar' ? $social->title_ar : $social->title_en }}</p>
