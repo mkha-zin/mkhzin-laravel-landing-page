@@ -5,12 +5,13 @@
     $dir = $lang == 'ar' ? 'rtl' : 'ltr';
 @endphp
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en" dir="{{ $dir }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> {{ $employee ? $lang == 'ar' ? $employee->name_ar : $employee->name_en : ''  }} | {{ config('app.name') }} </title>
+    <title> {{ $employee ? $lang == 'ar' ? $employee->name_ar : $employee->name_en : ''  }}
+        | {{ config('app.name') }} </title>
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('uploads/mkhazin/fav.png') }}">
     <!-- Bootstrap 5 RTL -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
@@ -98,7 +99,8 @@
                                         <i class="fa fa-whatsapp mx-2"></i>
                                     </div>
                                     <span class="text-primary" dir="ltr">
-                                        <a class="text-decoration-none" href="https://wa.me/{{ $contact['value'] }}" target="_blank">
+                                        <a class="text-decoration-none" href="https://wa.me/{{ $contact['value'] }}"
+                                           target="_blank">
                                             {{ $contact['value'] }}
                                         </a>
                                     </span>
@@ -120,9 +122,11 @@
             </div>
             <div class="text-end mt-3">
                 <div class="d-flex justify-content-end align-items-center">
-                    <a href="{{ route('locale.setting', 'en') }}" style="color: black; text-decoration: none">English</a>
+                    <a href="{{ route('locale.setting', 'en') }}"
+                       style="color: black; text-decoration: none">English</a>
                     <span class="mx-1">|</span>
-                    <a href="{{ route('locale.setting', 'ar') }}" style="color: black; text-decoration: none">العربية</a>
+                    <a href="{{ route('locale.setting', 'ar') }}"
+                       style="color: black; text-decoration: none">العربية</a>
                 </div>
             </div>
         </div>

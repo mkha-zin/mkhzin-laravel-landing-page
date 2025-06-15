@@ -107,7 +107,7 @@ class GalleryResource extends Resource
                 Tables\Columns\TextColumn::make('link')
                     ->label(__('dashboard.link'))
                     ->limit(12)
-                    ->url(fn($record) => $record->link,true)
+                    ->url(fn($record) => $record->link, true)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('type')
                     ->label(__('dashboard.type'))
@@ -141,7 +141,7 @@ class GalleryResource extends Resource
                 DeleteAction::make()->iconButton(),
             ])
             ->bulkActions([
-                 DeleteBulkAction::make(),
+                DeleteBulkAction::make(),
             ]);
     }
 

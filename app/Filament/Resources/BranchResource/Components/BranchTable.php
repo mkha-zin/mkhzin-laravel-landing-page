@@ -11,8 +11,6 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\FiltersLayout;
-use Filament\Tables\Filters\BaseFilter;
-use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\App;
@@ -23,12 +21,12 @@ class BranchTable
     {
         return $table
             ->filters([
-                SelectFilter::make('city')
-                    ->relationship('city', App::currentLocale() === 'ar' ? 'name_ar' : 'name_en')
-                    ->label(__('dashboard.city'))
-                    ->columnSpan(2)
-            ]
-            , layout: FiltersLayout::AboveContentCollapsible)
+                    SelectFilter::make('city')
+                        ->relationship('city', App::currentLocale() === 'ar' ? 'name_ar' : 'name_en')
+                        ->label(__('dashboard.city'))
+                        ->columnSpan(2)
+                ]
+                , layout: FiltersLayout::AboveContentCollapsible)
             ->columns([
                 TextColumn::make(
                     App::currentLocale() === 'ar' ? 'city.name_ar' : 'city.name_en'

@@ -17,7 +17,6 @@ use Filament\Resources\Resource;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
@@ -127,10 +126,10 @@ class EmployeeResource extends Resource
                         TextInput::make('value')
                             ->label(__('dashboard.value'))
                             ->required()
-                            ->tel(fn ($get) => in_array($get('type'), ['phone', 'whatsapp']))
-                            ->email(fn ($get) => $get('type') === 'email')
-                            ->url(fn ($get) => $get('type') === 'website')
-                            ->minLength(fn ($get) => in_array($get('type'), ['phone', 'whatsapp']) ? 13 : null),
+                            ->tel(fn($get) => in_array($get('type'), ['phone', 'whatsapp']))
+                            ->email(fn($get) => $get('type') === 'email')
+                            ->url(fn($get) => $get('type') === 'website')
+                            ->minLength(fn($get) => in_array($get('type'), ['phone', 'whatsapp']) ? 13 : null),
                     ])
                     ->columns(3)
                     ->columnSpanFull()

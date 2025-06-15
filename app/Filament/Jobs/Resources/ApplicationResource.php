@@ -144,7 +144,7 @@ class ApplicationResource extends Resource
                     ->exporter(ApplicationExporter::class)
                     ->fileDisk('public')
                     ->color(Color::Green)
-                ->icon('heroicon-o-newspaper'),
+                    ->icon('heroicon-o-newspaper'),
             ])
             ->headerActionsPosition(HeaderActionsPosition::Bottom)
             ->actions([

@@ -107,6 +107,7 @@ return [
 
     'features_for_you' => 'مميزات نقدمها لكم',
 
+    'Makhazin SuperMarket' => 'مخازن سوبر ماركت',
     'Social Hub' => 'حساباتنا على مواقع التواصل الاجتماعي',
     'Select a Platform' => 'اختر منصة',
     'Click any of the cards below to see more details.' => 'انقر على البطاقات التالية للحصول على المزيد من التفاصيل.',

@@ -42,19 +42,30 @@
             z-index: 10;
         }
 
-        .MultiCarousel .leftLst { right: 0; }
-        .MultiCarousel .rightLst { left: 0; }
+        .MultiCarousel .leftLst {
+            right: 0;
+        }
+
+        .MultiCarousel .rightLst {
+            left: 0;
+        }
 
         @media (max-width: 767.98px) {
-            .MultiCarousel .item { flex: 0 0 100%; }
+            .MultiCarousel .item {
+                flex: 0 0 100%;
+            }
         }
 
         @media (min-width: 768px) and (max-width: 991.98px) {
-            .MultiCarousel .item { flex: 0 0 50%; }
+            .MultiCarousel .item {
+                flex: 0 0 50%;
+            }
         }
 
         @media (min-width: 992px) {
-            .MultiCarousel .item { flex: 0 0 33.3333%; }
+            .MultiCarousel .item {
+                flex: 0 0 33.3333%;
+            }
         }
     </style>
 

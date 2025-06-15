@@ -118,7 +118,7 @@ class PostResource extends Resource
                     SelectFilter::make('tag')
                         ->relationship('tag', App::currentLocale() === 'ar' ? 'tag_ar' : 'tag_en')
                         ->label(__('dashboard.city'))
-                    ->columnSpan(2)
+                        ->columnSpan(2)
                 ]
                 , layout: FiltersLayout::AboveContent)
             ->columns([

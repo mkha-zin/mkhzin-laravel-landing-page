@@ -14,14 +14,14 @@ class VisionAndGoal extends Model
         'id'
     ];
 
+    public static function getData($slug): VisionAndGoal
+    {
+        return VisionAndGoal::where('slug', $slug)->first();
+    }
+
     protected static function booted()
     {
         static::saved(fn() => Cache::forget('index_data'));
         static::deleted(fn() => Cache::forget('index_data'));
-    }
-
-    public static function getData($slug): VisionAndGoal
-    {
-        return VisionAndGoal::where('slug', $slug)->first();
     }
 }

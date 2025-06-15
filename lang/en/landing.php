@@ -107,6 +107,7 @@ return [
 
     'features_for_you' => 'Features For You',
 
+    'Makhazin SuperMarket' => 'Makhazin SuperMarket',
     'Social Hub' => 'Social Hub',
     'Select a Platform' => 'Select a Platform',
     'Click any of the cards below to see more details.' => 'Click any of the cards below to see more details.',

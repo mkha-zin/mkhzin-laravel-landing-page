@@ -1,4 +1,4 @@
-@php use App\Models\Header; @endphp
+@php use App\Models\Header;use Filament\Support\Markdown; @endphp
 @extends('layouts.app')
 
 @section('content')
@@ -88,7 +88,7 @@
                                                 </div>
                                                 <p class="text-secondary mb-3"
                                                    style="display: -webkit-box; text-align:justify; word-break:keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 3; color: black; overflow: hidden; text-overflow: ellipsis;">
-                                                    {{ \Filament\Support\Markdown::inline($lang == 'en' ? $post->article_en : $post->article_ar) }}
+                                                    {{ Markdown::inline($lang == 'en' ? $post->article_en : $post->article_ar) }}
                                                 </p>
                                                 <a href="{{ url('blog/' . $post->id) }}"
                                                    class="btn btn-danger text-white">

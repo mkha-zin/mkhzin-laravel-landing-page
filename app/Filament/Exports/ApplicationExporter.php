@@ -34,7 +34,6 @@ class ApplicationExporter extends Exporter
                 }),
             ExportColumn::make('answers')
                 ->label(__('dashboard.QaA'))
-
                 ->formatStateUsing(function ($state) {
                     $decoded = json_decode($state, true);
 

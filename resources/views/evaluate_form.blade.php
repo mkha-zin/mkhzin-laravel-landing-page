@@ -11,8 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
-        body{
-            direction: {{ $dir }} !important;
+        body {
+            direction: {{ $dir }}  !important;
         }
     </style>
 
@@ -20,7 +20,8 @@
     <div class="container">
         <div class="card my-5 text-{{ $dir == 'ar'? 'right' : 'left' }}">
             @if(!empty($branch))
-                <form id="reviewForm" method="POST" action="{{ route('evaluate.branch') }}" class="card-content text-{{ $dir == 'ar'? 'right' : 'left' }}">
+                <form id="reviewForm" method="POST" action="{{ route('evaluate.branch') }}"
+                      class="card-content text-{{ $dir == 'ar'? 'right' : 'left' }}">
                     @csrf
 
                     <input type="hidden" name="platform" value="website">
@@ -96,7 +97,8 @@
                                 }
                             </style>
 
-                            <div class="col-md-6 mb-3 d-flex justify-content-center align-items-center gap-2" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
+                            <div class="col-md-6 mb-3 d-flex justify-content-center align-items-center gap-2"
+                                 dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
                                 <label for="rating" class="form-label">{{ __('dashboard.stars') }}</label>
                                 <input
                                     name="stars"
@@ -121,7 +123,8 @@
 
 
                     <div class="card-footer d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary text-white">{{ __('dashboard.evaluate_branch') }}</button>
+                        <button type="submit"
+                                class="btn btn-primary text-white">{{ __('dashboard.evaluate_branch') }}</button>
                     </div>
                 </form>
             @endif
