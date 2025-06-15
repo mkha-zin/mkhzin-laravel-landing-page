@@ -34,12 +34,12 @@
         </p>
         <div class="mt-4 flex gap-4">
             <a id="platformLink" href="#" target="_blank" class="text-white px-4 py-2 rounded-xl shadow transition"
-               style="background-color: #4F46E5;">{{ __('landing.Agree') }}</a>
+               style="background-color: #bd0000;">{{ __('landing.Agree') }}</a>
         </div>
     </div>
     <div class="w-full md:w-1/2 flex items-center">
         <svg id="platformSVG" class="w-full h-48" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="100" cy="100" r="80" fill="#4F46E5" />
+            <circle cx="100" cy="100" r="80" fill="#bd0000" />
             <text x="100" y="115" text-anchor="middle" fill="white" font-size="36" font-family="Arial">?</text>
         </svg>
     </div>
