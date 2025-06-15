@@ -1,23 +1,40 @@
-<!-- Blade Template: resources/views/social-hub.blade.php -->
+@php
+    $lang = App::currentLocale();
+    $dir = $lang == 'ar' ? 'rtl' : 'ltr';
+@endphp
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ $lang }}" dir="{{ $dir }}">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Social Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!--Favicon-->
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('uploads/mkhazin/fav.png') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+
+
 </head>
-<body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center p-6">
+<body style="font-family: Alexandria, sans-serif" class="bg-gray-50 min-h-screen flex flex-col items-center justify-center p-6">
 
 <!-- Selected Card -->
 <div id="selectedCard" class="w-full max-w-4xl bg-white shadow-lg rounded-2xl p-6 mb-10 flex flex-col md:flex-row items-center justify-center gap-6 transition-all duration-300">
     <div class="w-full md:w-1/2">
-        <h2 id="platformName" class="text-2xl font-bold text-gray-800">Select a Platform</h2>
-        <p id="platformDesc" class="text-gray-600 mt-2">Click any of the cards below to see more details.</p>
+        <h2 id="platformName" class="text-2xl font-bold text-gray-800">
+            {{ __('landing.Select a Platform') }}
+        </h2>
+        <p id="platformDesc" class="text-gray-600 mt-2">
+            {{ __('landing.Click any of the cards below to see more details.') }}
+        </p>
         <div class="mt-4 flex gap-4">
             <a id="platformLink" href="#" class="text-white px-4 py-2 rounded-xl shadow transition"
-               style="background-color: #4F46E5;">Follow</a>
+               style="background-color: #4F46E5;">{{ __('landing.Agree') }}</a>
         </div>
     </div>
     <div class="w-full md:w-1/2 flex items-center">
@@ -33,11 +50,13 @@
     @foreach ($socialLinks as $social)
         <div
             onclick="selectPlatform(
-                '{{ $social->title_en }}',
-                '{{ $social->comment_en ?? 'No description available.' }}',
-                '{{ $social->color ?? '#4F46E5' }}',
-                '{{ $social->link }}'
-            )"
+                    '{{ $lang === 'ar' ? $social->title_ar : $social->title_en }}',
+                    '{{ $lang === 'ar' ? $social->comment_ar ?? 'لا يوجد وصف.' : $social->comment_en ?? 'No description available.' }}',
+                    '{{ $social->color ?? '#4F46E5' }}',
+                    '{{ $social->link }}',
+                    'ph-bold ph-{{ strtolower($social->key) }}-logo'
+                )"
+
             class="cursor-pointer rounded-xl shadow hover:shadow-lg p-4 text-center text-white"
             style="background-color: {{ $social->color ?? '#4F46E5' }}"
         >
@@ -48,7 +67,7 @@
 </div>
 
 <script>
-    function selectPlatform(name, desc, color, link) {
+    function selectPlatform(name, desc, color, link, iconClass) {
         document.getElementById('platformName').textContent = name;
         document.getElementById('platformDesc').textContent = desc;
         document.getElementById('platformLink').href = link;
@@ -56,8 +75,10 @@
         document.getElementById('platformLink').textContent = name.includes('Join') ? 'Join' : 'Follow';
 
         document.getElementById('platformSVG').innerHTML = `
-            <circle cx=\"100\" cy=\"100\" r=\"80\" fill=\"${color}\" />
-            <text x=\"100\" y=\"115\" text-anchor=\"middle\" fill=\"white\" font-size=\"36\" font-family=\"Arial\">${name.charAt(0)}</text>
+            <circle cx="100" cy="100" r="80" fill="${color}" />
+            <foreignObject x="60" y="60" width="80" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="${iconClass}" style="color: white; font-size: 80px; display: flex; justify-content: center; align-items: center; height: 80px; width: 80px;"></div>
+            </foreignObject>
         `;
     }
 </script>

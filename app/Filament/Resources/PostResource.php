@@ -21,6 +21,8 @@ use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Enums\FiltersLayout;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\App;
 
@@ -112,6 +114,13 @@ class PostResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->filters([
+                    SelectFilter::make('tag')
+                        ->relationship('tag', App::currentLocale() === 'ar' ? 'tag_ar' : 'tag_en')
+                        ->label(__('dashboard.city'))
+                    ->columnSpan(2)
+                ]
+                , layout: FiltersLayout::AboveContent)
             ->columns([
                 TextColumn::make(
                     App::currentLocale() === 'ar' ? 'tag.tag_ar' : 'tag.tag_en'

@@ -106,4 +106,8 @@ return [
     'Read More Posts' => 'المزيد من المنشورات',
 
     'features_for_you' => 'مميزات نقدمها لكم',
+
+    'Select a Platform' => 'اختر منصة',
+    'Click any of the cards below to see more details.' => 'انقر على البطاقات التالية للحصول على المزيد من التفاصيل.',
+    'Agree' => 'موافق',
 ];

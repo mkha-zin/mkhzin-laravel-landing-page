@@ -106,4 +106,8 @@ return [
     'Read More Posts' => 'Read More Posts',
 
     'features_for_you' => 'Features For You',
+
+    'Select a Platform' => 'Select a Platform',
+    'Click any of the cards below to see more details.' => 'Click any of the cards below to see more details.',
+    'Agree' => 'Agree',
 ];
