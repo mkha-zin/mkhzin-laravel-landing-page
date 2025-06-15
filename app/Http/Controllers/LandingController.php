@@ -417,7 +417,7 @@ class LandingController extends Controller
     // SocialHubController.php
     public function platforms()
     {
-        $socialLinks = SocialLink::where('is_active', true)->get();
+        $socialLinks = SocialLink::where('is_active', true)->orderBy('order')->get();
 
         return view('social_hub', compact('socialLinks'));
     }

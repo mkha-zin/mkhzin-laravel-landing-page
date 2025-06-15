@@ -86,6 +86,7 @@ class SocialLinkResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->reorderable('order')
             ->columns([
                 TextColumn::make(
                     App::currentLocale() === 'ar' ? 'title_ar' : 'title_en'
