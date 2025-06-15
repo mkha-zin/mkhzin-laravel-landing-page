@@ -72,7 +72,6 @@
         document.getElementById('platformDesc').textContent = desc;
         document.getElementById('platformLink').href = link;
         document.getElementById('platformLink').style.backgroundColor = color;
-        document.getElementById('platformLink').textContent = name.includes('Join') ? 'Join' : 'Follow';
 
         document.getElementById('platformSVG').innerHTML = `
             <circle cx="100" cy="100" r="80" fill="${color}" />
