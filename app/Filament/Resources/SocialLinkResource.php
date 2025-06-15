@@ -86,6 +86,7 @@ class SocialLinkResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('order')
             ->reorderable('order')
             ->columns([
                 TextColumn::make(
