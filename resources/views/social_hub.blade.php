@@ -61,7 +61,7 @@
             style="background-color: {{ $social->color ?? '#4F46E5' }}"
         >
             <i class="ph-bold ph-{{ strtolower($social->key) }}-logo text-3xl"></i>
-            <p class="mt-2 font-semibold">{{ $social->title_en }}</p>
+            <p class="mt-2 font-semibold">{{ $lang === 'ar' ? $social->title_ar : $social->title_en }}</p>
         </div>
     @endforeach
 </div>
