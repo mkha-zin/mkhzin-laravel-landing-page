@@ -24,7 +24,7 @@
 <body style="font-family: Alexandria, sans-serif"
       class="bg-gray-50 min-h-screen flex flex-col items-center justify-center p-6">
 
-<div style="color: #bd0000; font-weight: bold"
+<div style="color: white; background-image: url({{ asset('images/svg/Overlay.svg') }}); font-weight: bold"
      class="w-full max-w-4xl bg-white shadow-md rounded-2xl p-4 mb-6 flex flex-col md:flex-row items-center justify-center">
     <a href="{{ url('/') }}">
         <h2>{{ __('landing.Makhazin SuperMarket') }}</h2>
