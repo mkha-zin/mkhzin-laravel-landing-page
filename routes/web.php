@@ -79,6 +79,7 @@ Route::group(['middleware' => 'localization'], static function () {
     Route::post('evaluate', [LandingController::class, 'evaluatBranch'])->name('evaluate.branch');
 
     Route::get('gallery', [LandingController::class, 'gallery'])->name('gallery');
+    Route::get('social', [LandingController::class, 'platforms'])->name('social');
 
     Route::group(['prefix' => '/emp'], static function () {
         Route::get('/{slug}', [EmployeesController::class, 'index'])->name('employees.index');
@@ -87,9 +88,8 @@ Route::group(['middleware' => 'localization'], static function () {
     /*Route::get('test', function () {
         $data['header_title'] = 'Test';
        return view('social_hub', $data);
-    });*/
-    Route::get('test', [LandingController::class, 'platforms'])->name('test');
-
+    });
+    Route::get('test', [LandingController::class, 'platforms'])->name('test');*/
 });
 
 

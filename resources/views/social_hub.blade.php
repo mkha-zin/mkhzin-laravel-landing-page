@@ -16,7 +16,8 @@
         <h2 id="platformName" class="text-2xl font-bold text-gray-800">Select a Platform</h2>
         <p id="platformDesc" class="text-gray-600 mt-2">Click any of the cards below to see more details.</p>
         <div class="mt-4 flex gap-4">
-            <a id="platformLink" href="#" class="text-white px-4 py-2 rounded-xl shadow transition" style="background-color: #4F46E5;">Follow</a>
+            <a id="platformLink" href="#" class="text-white px-4 py-2 rounded-xl shadow transition"
+               style="background-color: #4F46E5;">Follow</a>
         </div>
     </div>
     <div class="w-full md:w-1/2 flex items-center">

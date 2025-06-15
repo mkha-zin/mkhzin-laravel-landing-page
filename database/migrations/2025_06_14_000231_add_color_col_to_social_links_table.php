@@ -27,3 +27,5 @@ return new class extends Migration {
         });
     }
 };
+
+// php artisan migrate --path=database/migrations/2025_06_14_000231_add_color_col_to_social_links_table.php
