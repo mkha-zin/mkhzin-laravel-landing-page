@@ -63,7 +63,7 @@
                     '{{ $lang === 'ar' ? $social->title_ar : $social->title_en }}',
                     '{{ $lang === 'ar' ? $social->comment_ar ?? 'لا يوجد وصف.' : $social->comment_en ?? 'No description available.' }}',
                     '{{ $social->color ?? '#bd0000' }}',
-                    '{{ $social->key === 'snapchat' ? '#000000' : '#ffffff' }}',
+                    '{{ strtolower($social->key) === 'snapchat' ? '#000000' : '#ffffff' }}',
                     '{{ $social->link }}',
                     'ph-bold ph-{{ strtolower($social->key) }}-logo',
                     'socialCard{{ $index }}'
