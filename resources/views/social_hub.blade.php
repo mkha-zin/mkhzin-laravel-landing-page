@@ -62,13 +62,14 @@
             onclick="selectPlatform(
                     '{{ $lang === 'ar' ? $social->title_ar : $social->title_en }}',
                     '{{ $lang === 'ar' ? $social->comment_ar ?? 'لا يوجد وصف.' : $social->comment_en ?? 'No description available.' }}',
-                    '{{ $social->color ?? '#4F46E5' }}',
+                    '{{ $social->color ?? '#bd0000' }}',
+                    '{{ $social->key === 'snapchat' ? '#000000' : '#ffffff' }}',
                     '{{ $social->link }}',
                     'ph-bold ph-{{ strtolower($social->key) }}-logo',
                     'socialCard{{ $index }}'
                 )"
-            class="cursor-pointer rounded-xl shadow hover:shadow-lg p-4 text-center text-white transition-all duration-300 transform"
-            style="background-color: {{ $social->color ?? '#4F46E5' }}"
+            class="cursor-pointer rounded-xl shadow hover:shadow-lg p-4 text-center transition-all duration-300 transform"
+            style="background-color: {{ $social->color ?? '#4F46E5' }}; color: {{ $social->key === 'snapchat' ? '#000000' : '#ffffff' }}"
         >
             <i class="ph-bold ph-{{ strtolower($social->key) }}-logo text-3xl"></i>
             <p class="mt-2 font-semibold">{{ $lang === 'ar' ? $social->title_ar : $social->title_en }}</p>
@@ -77,18 +78,21 @@
 </div>
 
 <script>
-    function selectPlatform(name, desc, color, link, iconClass, cardId) {
+    function selectPlatform(name, desc, color, fontColor, link, iconClass, cardId) {
+
         // Update main card text
         document.getElementById('platformName').textContent = name;
         document.getElementById('platformDesc').textContent = desc;
         document.getElementById('platformLink').href = link;
         document.getElementById('platformLink').style.backgroundColor = color;
+        document.getElementById('platformLink').style.color = fontColor;
+
 
         // Update SVG with icon
         document.getElementById('platformSVG').innerHTML = `
             <circle cx="100" cy="100" r="80" fill="${color}" />
             <foreignObject x="60" y="60" width="80" height="80">
-                <div xmlns="http://www.w3.org/1999/xhtml" class="${iconClass}" style="color: white; font-size: 80px; display: flex; justify-content: center; align-items: center; height: 80px; width: 80px;"></div>
+                <div xmlns="http://www.w3.org/1999/xhtml" class="${iconClass}" style="color: ${fontColor}; font-size: 80px; display: flex; justify-content: center; align-items: center; height: 80px; width: 80px;"></div>
             </foreignObject>
         `;
 
