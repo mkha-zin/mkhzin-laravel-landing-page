@@ -726,7 +726,7 @@
         <!-- /Posts Section -->
 
         <!-- Gallery Section -->
-        @if(!empty($images))
+        @if(false)
             @include('includes.gallery', ['images', $images])
         @endif
         <!--Gallery-->

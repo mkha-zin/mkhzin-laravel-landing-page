@@ -95,7 +95,8 @@
         document.getElementById('platformSVG').innerHTML = `
             <circle cx="100" cy="100" r="80" fill="${color}" />
             <foreignObject x="60" y="60" width="80" height="80">
-                <div xmlns="http://www.w3.org/1999/xhtml" class="${iconClass}" style="color: ${fontColor}; font-size: 80px; display: flex; justify-content: center; align-items: center; height: 80px; width: 80px;"></div>
+                <div xmlns="http://www.w3.org/1999/xhtml" class="${iconClass}" style="color: ${fontColor}; font-size: 80px;
+                display: flex; justify-content: center; align-items: center; height: 80px; width: 80px;"></div>
             </foreignObject>
         `;
 
