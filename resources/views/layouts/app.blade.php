@@ -25,7 +25,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('uploads/mkhazin/fav.png') }}">
 
     <link rel='stylesheet' href='{{ asset('css/landing.css') }}'/>
-    <script src="{{ asset('js/landing.js') }}"></script>
+
 
     <link rel='stylesheet' id='rkit-offcanvas-style-css'
           href='{{ asset('plugins/rometheme-for-elementor/widgets/assets/css/offcanvas_8323160.css') }}' media='all'/>
@@ -134,11 +134,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+
     <link rel='stylesheet' id='elementor-icons-rtmicons-css'
           href='{{ asset('plugins/rometheme-for-elementor/assets/css/rtmicons_5963864.css') }}' media='all'/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <script src="{{ asset('js/landing.js') }}"></script>
     <script src="{{ asset('plugins/rometheme-for-elementor/widgets/assets/js/offcanvas_65571.js') }}"
             id="rkit-offcanvas-script-js"></script>
     <script src="{{ asset('plugins/rometheme-for-elementor/widgets/assets/js/navmenu_6553675.js') }}"
@@ -257,10 +260,6 @@
             color: whitesmoke;
         }
     </style>
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <meta name="google-site-verification" content="gOAvYgjJkpiE7MXHMfifJ_lGGLHnpJwDBjxU2o4TQI4"/>
 

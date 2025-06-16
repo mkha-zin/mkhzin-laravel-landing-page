@@ -103,9 +103,6 @@
                 const visibleCount = getVisibleCount();
                 const cloneCount = visibleCount + 1;
 
-                // Remove any previous clones
-                $inner.find(".clone").remove();
-
                 // Clone first n to end
                 $items.slice(0, cloneCount).clone(true).addClass("clone").appendTo($inner);
             }
