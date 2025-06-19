@@ -23,7 +23,7 @@ class JobsController extends Controller
         if (!($job instanceof Career)) {
             $job = Career::findOrFail($job);
         }
-        $data['header_title'] = __('dashboard.jobs');
+        $data['header_title'] = $job->title;
         $data['job'] = $job;
 
         if (is_string($job->questions)) {
