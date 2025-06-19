@@ -85,6 +85,12 @@ Route::group(['middleware' => 'localization'], static function () {
         Route::get('/{slug}', [EmployeesController::class, 'index'])->name('employees.index');
     });
 
+    Route::get('/gallery', function () {
+        $data['images'] = Gallery::where('type', 'image')->where('status', 'active')->get();
+
+        return view('includes.gallery', $data);
+    })->name('gallery.view');
+
     /*Route::get('test', function () {
         $data['header_title'] = 'Test';
        return view('social_hub', $data);

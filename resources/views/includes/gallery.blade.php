@@ -1,75 +1,65 @@
-@if(!empty($images) && count($images) >= 1)
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <style>
-        .MultiCarousel {
-            overflow: hidden;
-            padding: 15px 0;
-            width: 100%;
-            position: relative;
-            direction: rtl;
-        }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Carousel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Carousel Styles -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        .container {
+            width: 100%;
+            overflow: hidden;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .MultiCarousel {
+            position: relative;
+            width: 100%;
+        }
         .MultiCarousel-inner {
             display: flex;
             transition: transform 0.5s ease;
         }
-
         .MultiCarousel .item {
-            padding: 10px;
-            box-sizing: border-box;
-            flex: 0 0 33.3333%;
+            flex: 0 0 auto;
+            padding: 5px;
         }
-
         .MultiCarousel .item img {
             width: 100%;
-            height: 380px;
-            object-fit: cover;
+            height: 370px;
             border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
         }
-
-        .MultiCarousel .leftLst,
-        .MultiCarousel .rightLst {
+        .MultiCarousel button {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             background: #000;
             color: #fff;
             border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 2;
             opacity: 0.7;
-            z-index: 10;
+            font-size: 16px;
         }
-
         .MultiCarousel .leftLst {
-            right: 0;
-        }
-
-        .MultiCarousel .rightLst {
             left: 0;
         }
-
-        @media (max-width: 767.98px) {
-            .MultiCarousel .item {
-                flex: 0 0 100%;
-            }
-        }
-
-        @media (min-width: 768px) and (max-width: 991.98px) {
-            .MultiCarousel .item {
-                flex: 0 0 50%;
-            }
-        }
-
-        @media (min-width: 992px) {
-            .MultiCarousel .item {
-                flex: 0 0 33.3333%;
-            }
+        .MultiCarousel .rightLst {
+            right: 0;
         }
     </style>
+</head>
+<body>
 
-    <div class="container">
+@if(!empty($images) && count($images) >= 1)
         <div class="MultiCarousel" id="MultiCarousel" data-slide="1">
             <div class="MultiCarousel-inner">
                 @foreach($images as $image)
@@ -81,75 +71,80 @@
             <button class="leftLst">&lt;</button>
             <button class="rightLst">&gt;</button>
         </div>
-    </div>
+@endif
+<!-- jQuery (required) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            const $carousel = $("#MultiCarousel");
-            const $inner = $carousel.find(".MultiCarousel-inner");
-            let $items = $inner.children(".item");
-            const slide = parseInt($carousel.attr("data-slide")) || 1;
+<!-- Carousel Script -->
+<script>
+    $(document).ready(function () {
+        const $carousel = $("#MultiCarousel");
+        const $inner = $carousel.find(".MultiCarousel-inner");
+        let $items = $inner.children(".item");
+        const slide = parseInt($carousel.attr("data-slide")) || 1;
 
-            function getItemWidth() {
-                const winWidth = $(window).width();
-                if (winWidth >= 992) return $carousel.width() / 3;
-                if (winWidth >= 768) return $carousel.width() / 2;
-                return $carousel.width();
-            }
+        function getItemWidth() {
+            const winWidth = $(window).width();
+            if (winWidth >= 992) return $carousel.width() / 2;
+            if (winWidth >= 768) return $carousel.width() / 2;
+            return $carousel.width();
+        }
 
-            function cloneItems() {
-                $items = $inner.children(".item"); // refresh items
-                const visibleCount = getVisibleCount();
-                const cloneCount = visibleCount + 1;
+        function getVisibleCount() {
+            const width = $(window).width();
+            if (width >= 992) return 2;
+            if (width >= 768) return 2;
 
-                // Clone first n to end
-                $items.slice(0, cloneCount).clone(true).addClass("clone").appendTo($inner);
-            }
+            return 1;
+        }
 
-            function getVisibleCount() {
-                const width = $(window).width();
-                if (width >= 992) return 3;
-                if (width >= 768) return 2;
-                return 1;
-            }
+        function cloneItems() {
+            $inner.find(".clone").remove(); // remove old clones
+            $items = $inner.children(".item"); // refresh items
+            const visibleCount = getVisibleCount();
+            const cloneCount = visibleCount + 1;
 
-            let itemWidth = getItemWidth();
+            $items.slice(0, cloneCount).clone(true).addClass("clone").appendTo($inner);
+        }
+
+        let itemWidth = getItemWidth();
+        $inner.children(".item").outerWidth(itemWidth);
+        cloneItems();
+
+        $(window).resize(() => {
+            itemWidth = getItemWidth();
             $inner.children(".item").outerWidth(itemWidth);
             cloneItems();
+        });
 
-            $(window).resize(() => {
-                itemWidth = getItemWidth();
-                $inner.children(".item").outerWidth(itemWidth);
-                cloneItems();
-            });
+        let translateX = 0;
 
-            let translateX = 0;
+        function move(direction) {
+            const step = itemWidth * slide;
+            const totalItems = $inner.children(".item").length;
+            const maxOffset = itemWidth * (totalItems - getVisibleCount());
 
-            function move(direction) {
-                const step = itemWidth * slide;
-                const totalItems = $inner.children(".item").length;
-                const maxOffset = itemWidth * (totalItems - getVisibleCount());
-
-                if (direction === "left") {
-                    translateX -= step;
-                    if (Math.abs(translateX) >= maxOffset) {
-                        translateX = 0;
-                    }
-                } else {
-                    translateX += step;
-                    if (translateX > 0) {
-                        translateX = -itemWidth * ($items.length);
-                    }
+            if (direction === "left") {
+                translateX -= step;
+                if (Math.abs(translateX) >= maxOffset) {
+                    translateX = 0;
                 }
-
-                $inner.css("transform", `translateX(${translateX}px)`);
+            } else {
+                translateX += step;
+                if (translateX > 0) {
+                    translateX = -itemWidth * ($items.length);
+                }
             }
 
-            $(".leftLst").click(() => move("left"));
-            $(".rightLst").click(() => move("right"));
+            $inner.css("transform", `translateX(${translateX}px)`);
+        }
 
-            setInterval(() => move("left"), 5000);
-        });
-    </script>
-@endif
+        $(".leftLst").click(() => move("left"));
+        $(".rightLst").click(() => move("right"));
+
+        setInterval(() => move("left"), 5000);
+    });
+</script>
+
+</body>
+</html>

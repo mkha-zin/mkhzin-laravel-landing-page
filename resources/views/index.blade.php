@@ -727,8 +727,10 @@
 
         <!-- Gallery Section -->
         {{-- count($images) > 0 --}}
-        @if( false )
-            @include('includes.gallery', ['images', $images])
+        @if( count($images) > 0 )
+            <div class="container my-4">
+                <iframe src="{{ route('gallery.view') }}" width="100%" height="400"></iframe>
+            </div>
         @endif
         <!--Gallery-->
 
