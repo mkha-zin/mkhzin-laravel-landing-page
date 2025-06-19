@@ -140,12 +140,12 @@
         <div class="card job-details-card">
             <h2 class="mb-2">{{ $job->title }}</h2>
             <p class="mb-3">{{ Markdown::block($job->description) }}</p>
-            <ul class="list-unstyled">
+            {{--<ul class="list-unstyled">
                 <li><strong>{{ __('home.Job Type:') }}</strong> {{ ucfirst(__('home.' . $job->type )) }} </li>
                 <li><strong>{{ __('home.Published on:') }}</strong> {{ $job->created_at->translatedFormat('j F Y') }}
                 </li>
                 <li><strong>{{ __('home.Applicants so far:') }}</strong> {{ $job->applicants }}</li>
-            </ul>
+            </ul>--}}
         </div>
 
         <!-- Application Form -->
