@@ -85,14 +85,14 @@
 
         function getItemWidth() {
             const winWidth = $(window).width();
-            if (winWidth >= 992) return $carousel.width() / 2;
+            if (winWidth >= 992) return $carousel.width() / 3;
             if (winWidth >= 768) return $carousel.width() / 2;
             return $carousel.width();
         }
 
         function getVisibleCount() {
             const width = $(window).width();
-            if (width >= 992) return 2;
+            if (width >= 992) return 3;
             if (width >= 768) return 2;
 
             return 1;
