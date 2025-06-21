@@ -22,6 +22,7 @@ return [
 
     'features' => 'المميزات',
     'gallery' => 'المعرض',
+    'photo gallery' => 'معرض الصور',
     'app_screens' => 'شاشات التطبيق',
     'Download' => 'حمل التطبيق',
     'English' => 'English',

@@ -729,6 +729,7 @@
         {{-- count($images) > 0 --}}
         @if( count($images) > 0 )
             <div class="container my-4">
+                <h2 class="text-{{ App::currentLocale() === 'ar' ? 'right' : 'left' }}">{{ __('landing.photo gallery') }}</h2>
                 <iframe src="{{ route('gallery.view') }}" width="100%" height="400"></iframe>
             </div>
         @endif

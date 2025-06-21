@@ -21,6 +21,7 @@ return [
 
     'features' => 'Features',
     'gallery' => 'Gallery',
+    'photo gallery' => 'Photo Gallery',
     'app_screens' => 'App Screenshots',
     'Download' => 'Download',
     'English' => 'English',
