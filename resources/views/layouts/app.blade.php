@@ -261,10 +261,26 @@
         }
     </style>
 
+
     <meta name="google-site-verification" content="gOAvYgjJkpiE7MXHMfifJ_lGGLHnpJwDBjxU2o4TQI4"/>
 
-</head>
+    <!-- Snap Pixel Code -->
+    <script type='text/javascript'>
+        (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
+        {a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+            a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
+            r.src=n;var u=t.getElementsByTagName(s)[0];
+            u.parentNode.insertBefore(r,u);})(window,document,
+            'https://sc-static.net/scevent.min.js');
 
+        snaptr('init', '5ff4e03c-f581-4e96-aba7-7722eb834fa8', {});
+
+        snaptr('track', 'PAGE_VIEW');
+
+    </script>
+    <!-- End Snap Pixel Code -->
+
+</head>
 <body
     class="home page-template page-template-elementor_header_footer page page-id-1222 elementor-default elementor-template-full-width elementor-kit-4 elementor-page elementor-page-1222"
     style="font-family: Cairo, sans-serif !important;">
