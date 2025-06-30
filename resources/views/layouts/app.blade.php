@@ -272,11 +272,8 @@
             r.src=n;var u=t.getElementsByTagName(s)[0];
             u.parentNode.insertBefore(r,u);})(window,document,
             'https://sc-static.net/scevent.min.js');
-
         snaptr('init', '5ff4e03c-f581-4e96-aba7-7722eb834fa8', {});
-
         snaptr('track', 'PAGE_VIEW');
-
     </script>
     <!-- End Snap Pixel Code -->
 

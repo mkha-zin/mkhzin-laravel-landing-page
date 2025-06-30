@@ -422,6 +422,15 @@ class LandingController extends Controller
         return view('social_hub', compact('socialLinks'));
     }
 
+    public function platform()
+    {
+        $socialLink = SocialLink::where('is_active', true)
+            ->where('title_en', 'Whatsapp Channel')
+            ->first();
+
+        return view('social_one', compact('socialLink'));
+    }
+
 }
 
 

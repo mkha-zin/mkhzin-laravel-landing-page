@@ -79,7 +79,8 @@ Route::group(['middleware' => 'localization'], static function () {
     Route::post('evaluate', [LandingController::class, 'evaluatBranch'])->name('evaluate.branch');
 
     Route::get('gallery', [LandingController::class, 'gallery'])->name('gallery');
-    Route::get('social', [LandingController::class, 'platforms'])->name('social');
+    Route::get('social-hub', [LandingController::class, 'platforms'])->name('social');
+    Route::get('social', [LandingController::class, 'platform']);
 
     Route::group(['prefix' => '/emp'], static function () {
         Route::get('/{slug}', [EmployeesController::class, 'index'])->name('employees.index');
