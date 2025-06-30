@@ -7,7 +7,7 @@
     }
 @endphp
 
-        <!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="{{ $lang }}" dir="{{ $dir }}">
 <head>
     <meta charset="UTF-8"/>
@@ -27,7 +27,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Cairo:wght@200..1000&display=swap"
+        rel="stylesheet">
 </head>
 <body style="font-family: Alexandria, sans-serif"
       class="bg-gray-50 min-h-screen flex flex-col items-center justify-center p-6">

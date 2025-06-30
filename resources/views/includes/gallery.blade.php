@@ -12,30 +12,36 @@
             padding: 0;
             font-family: sans-serif;
         }
+
         .container {
             width: 100%;
             overflow: hidden;
             padding: 20px;
             box-sizing: border-box;
         }
+
         .MultiCarousel {
             position: relative;
             width: 100%;
         }
+
         .MultiCarousel-inner {
             display: flex;
             transition: transform 0.5s ease;
         }
+
         .MultiCarousel .item {
             flex: 0 0 auto;
             padding: 5px;
         }
+
         .MultiCarousel .item img {
             width: 100%;
             height: 370px;
             border-radius: 8px;
-            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
+
         .MultiCarousel button {
             position: absolute;
             top: 50%;
@@ -49,9 +55,11 @@
             opacity: 0.7;
             font-size: 16px;
         }
+
         .MultiCarousel .leftLst {
             left: 0;
         }
+
         .MultiCarousel .rightLst {
             right: 0;
         }
@@ -60,17 +68,17 @@
 <body>
 
 @if(!empty($images) && count($images) >= 1)
-        <div class="MultiCarousel" id="MultiCarousel" data-slide="1">
-            <div class="MultiCarousel-inner">
-                @foreach($images as $image)
-                    <div class="item">
-                        <img src="{{ asset('storage/' . $image->image) }}" alt="image">
-                    </div>
-                @endforeach
-            </div>
-            <button class="leftLst">&lt;</button>
-            <button class="rightLst">&gt;</button>
+    <div class="MultiCarousel" id="MultiCarousel" data-slide="1">
+        <div class="MultiCarousel-inner">
+            @foreach($images as $image)
+                <div class="item">
+                    <img src="{{ asset('storage/' . $image->image) }}" alt="image">
+                </div>
+            @endforeach
         </div>
+        <button class="leftLst">&lt;</button>
+        <button class="rightLst">&gt;</button>
+    </div>
 @endif
 <!-- jQuery (required) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

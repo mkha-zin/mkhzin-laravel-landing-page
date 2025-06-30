@@ -45,6 +45,5 @@
         </a>
     @endforeach
 </div>
-
 </body>
 </html>
