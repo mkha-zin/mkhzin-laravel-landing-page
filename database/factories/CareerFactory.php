@@ -18,8 +18,7 @@ class CareerFactory extends Factory
     public function definition(): array
     {
         return [
-            'title_ar' => 'العنوان بالعربي',
-            'title_en' => fake()->sentence(),
+            'title' => 'العنوان بالعربي',
             'description_ar' => 'الوصف بالعربي',
             'description_en' => fake()->paragraph(),
             'email' => fake()->email,

@@ -48,7 +48,11 @@ Route::group(['middleware' => 'localization'], static function () {
 
     Route::get('win', function () {
         $header_title = 'إربح مع مخازن | Win with Makhazin';
-        return view('win_form' , compact('header_title'));
+        return view('win_form', compact('header_title'));
+    });
+    Route::get('win/tabuk', function () {
+        $header_title = 'إربح مع مخازن | Win with Makhazin';
+        return view('win_tabuk_form', compact('header_title'));
     });
 
     Route::get('login/{to}', static function ($to) {

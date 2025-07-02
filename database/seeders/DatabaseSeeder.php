@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
             'role' => 'super',
         ]);
 
-        Career::factory()->create();
+        // Career::factory()->create();
         City::factory(5)->has(Branch::factory(2)->has(Offer::factory(5)))->create();
 
         $actions = [
@@ -66,9 +66,9 @@ class DatabaseSeeder extends Seeder
         }
 
         Hero::factory(3)->create();
-        OurValue::factory(5)->create();
+        // OurValue::factory(5)->create();
         About::factory(1)->create();
-        AboutCard::factory(6)->create();
+        // AboutCard::factory(6)->create();
         Section::factory(8)->create();
         VisionAndGoal::factory()->create([
             'slug' => 'vision',
