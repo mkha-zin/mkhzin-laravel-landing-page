@@ -182,5 +182,12 @@ class DatabaseSeeder extends Seeder
                 'content' => 'https://test.com',
             ]
         );
+
+        // Seed Headers, Tags, and Posts
+        $this->call([
+            HeaderSeeder::class,
+            TagSeeder::class,
+            PostSeeder::class,
+        ]);
     }
 }
