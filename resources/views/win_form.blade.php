@@ -97,7 +97,7 @@
                         <h4>علق على المنشور</h4>
                     </div>
                     <div class="step-content">
-                        <p>اذهب إلى المنشور المخصص للمسابقة وقم بالتعليق عليه</p>
+                        <p>اذهب إلى المنشور المخصص للمسابقة، قم بالتعليق عليه، ولا تنسَ أخذ لقطة شاشة للتعليق.</p>
                         <button class="btn-step btn-comment" onclick="openStep2()">
                             <i class="fas fa-comment-dots"></i>
                             فتح المنشور
@@ -499,12 +499,12 @@
 
         .btn-tiktok {
             background: linear-gradient(135deg, #e12228, #ff4444);
-            color: white;
+            color: white !important;
         }
 
         .btn-comment {
             background: linear-gradient(135deg, #e12228, #ff4444);
-            color: white;
+            color: white !important;
         }
 
         .btn-step:hover {
@@ -695,12 +695,12 @@
                     const file = e.target.files[0];
                     if (file) {
                         uploadArea.innerHTML = `
-                                                    <div class="upload-icon">
-                                                        <i class="fas fa-check-circle" style="color: #28a745;"></i>
-                                                    </div>
-                                                    <p class="upload-text" style="color: #28a745;">تم اختيار الملف: ${file.name}</p>
-                                                    <p class="upload-hint">اضغط لتغيير الملف</p>
-                                                `;
+                                                                                                                                                    <div class="upload-icon">
+                                                                                                                                                        <i class="fas fa-check-circle" style="color: #28a745;"></i>
+                                                                                                                                                    </div>
+                                                                                                                                                    <p class="upload-text" style="color: #28a745;">تم اختيار الملف: ${file.name}</p>
+                                                                                                                                                    <p class="upload-hint">اضغط لتغيير الملف</p>
+                                                                                                                                                `;
                     }
                 });
             }
