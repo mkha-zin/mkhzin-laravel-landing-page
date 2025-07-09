@@ -671,13 +671,13 @@
     {{-- JavaScript --}}
     <script>
         function openStep1() {
-            window.open('https://www.tiktok.com/@your_tiktok_account', '_blank');
+            window.open('https://www.tiktok.com/@mkhzin?_t=ZS-8xszKvMY2YD&_r=1', '_blank');
             document.getElementById('step-2').classList.remove('d-none');
             document.getElementById('progress-2').classList.add('active');
         }
 
         function openStep2() {
-            window.open('https://www.tiktok.com/@your_tiktok_account/video/your_post_id', '_blank');
+            window.open('https://www.tiktok.com/@mkhzin?_t=ZS-8xszKvMY2YD&_r=1', '_blank');
             document.getElementById('step-3').classList.remove('d-none');
             document.getElementById('progress-3').classList.add('active');
         }
