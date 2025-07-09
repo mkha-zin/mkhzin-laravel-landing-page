@@ -671,7 +671,7 @@
     {{-- JavaScript --}}
     <script>
         function openStep1() {
-            window.open('https://www.tiktok.com/@your_tiktok_account', '_blank');
+            window.open('https://www.tiktok.com/@mkhzin?_t=ZS-8xszKvMY2YD&_r=1', '_blank');
             document.getElementById('step-2').classList.remove('d-none');
             document.getElementById('progress-2').classList.add('active');
         }
@@ -694,12 +694,12 @@
                     const file = e.target.files[0];
                     if (file) {
                         uploadArea.innerHTML = `
-                                                                                                                                    <div class="upload-icon">
-                                                                                                                                        <i class="fas fa-check-circle" style="color: #28a745;"></i>
-                                                                                                                                    </div>
-                                                                                                                                    <p class="upload-text" style="color: #28a745;">تم اختيار الملف: ${file.name}</p>
-                                                                                                                                    <p class="upload-hint">اضغط لتغيير الملف</p>
-                                                                                                                                `;
+                                                                                                                                        <div class="upload-icon">
+                                                                                                                                            <i class="fas fa-check-circle" style="color: #28a745;"></i>
+                                                                                                                                        </div>
+                                                                                                                                        <p class="upload-text" style="color: #28a745;">تم اختيار الملف: ${file.name}</p>
+                                                                                                                                        <p class="upload-hint">اضغط لتغيير الملف</p>
+                                                                                                                                    `;
                     }
                 });
             }
