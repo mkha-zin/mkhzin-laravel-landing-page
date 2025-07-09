@@ -46,6 +46,7 @@ Route::group(['middleware' => 'localization'], static function () {
 
     Route::get('/departments/{key}', [LandingController::class, 'departments'])->name('departments');
 
+    Route::post('/win', [LandingController::class, 'saveJoiner'])->name('win.save');
     Route::get('win', function () {
         $header_title = 'إربح مع مخازن | Win with Makhazin';
         return view('win_form', compact('header_title'));

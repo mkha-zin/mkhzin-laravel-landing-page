@@ -15,6 +15,7 @@ use App\Models\CustomerReview;
 use App\Models\Department;
 use App\Models\Fleet;
 use App\Models\Gallery;
+use App\Models\Joiner;
 use App\Models\Offer;
 use App\Models\Post;
 use App\Models\Section;
@@ -429,6 +430,29 @@ class LandingController extends Controller
             ->first();
 
         return view('social_one', compact('socialLink'));
+    }
+
+    public function saveJoiner(Request $request): RedirectResponse
+    {
+        $validated = Request::validate([
+            'name'           => 'required|string|max:255',
+            'phone'          => 'required|string|max:20',
+            'tiktok_user'    => 'required|string|max:255',
+            'comment_image'  => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:4096',
+        ]);
+
+        // Store image
+        $path = Request::file('comment_image')->store('assets/images/comment_images', 'public');
+
+        // Save to DB
+        Joiner::create([
+            'name'          => $validated['name'],
+            'phone'         => $validated['phone'],
+            'tiktok_user'   => $validated['tiktok_user'],
+            'comment_image' => $path,
+        ]);
+
+        return redirect()->back()->with('success', 'تم إرسال المشاركة بنجاح! ✅');
     }
 
 }

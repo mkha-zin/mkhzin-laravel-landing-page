@@ -210,6 +210,12 @@ return [
     'contactImages' => 'Contact Images',
     'our customers' => 'Our Customers',
 
+    'joiners' => 'Competition Joiners',
+    'joiner' => 'Competition Joiner',
+    'tiktok_user' => 'Tiktok User',
+    'comment_image' => 'Comment Image',
+    'deleted at' => 'Deleted At',
+
     'All Branches in the database' => 'The Number of Makhazin International\'s Branches ',
     'All Sections in the database' => 'The Number of All Sections in our Branches',
     'All Cities in the database' => 'The Number of Cities Where we Serve',

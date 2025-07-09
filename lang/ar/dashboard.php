@@ -203,6 +203,12 @@ return [
     'contactImages' => 'صور قسم التواصل',
     'our customers' => 'عملائنا',
 
+    'joiners' => 'مشتركين المسابقة',
+    'joiner' => 'مشترك في المسابقة',
+    'tiktok_user' => 'يوزر التيك توك',
+    'comment_image' => 'صورة التعليق',
+    'deleted at' => 'تاريخ الحذف',
+
     'All Branches in the database' => 'عدد فروع شركة مخازن العالمية',
     'All Sections in the database' => 'عدد الأقسام المتنوعة في فروعنا',
     'All Cities in the database' => 'عدد المدن التي نتواجد فيها',
