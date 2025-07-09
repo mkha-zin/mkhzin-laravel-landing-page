@@ -319,7 +319,7 @@
             align-items: center;
             gap: 15px;
             margin-bottom: 25px;
-            color: #black !important;
+            color: black !important;
             direction: rtl;
         }
 
