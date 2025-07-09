@@ -6,812 +6,702 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container py-4">
-
-        <div class="form-container">
-            <div class="competition-info">
-                <p class="main-text">
-                    مع مخازن سوبرماركت يمكنك ربح جوال آيفون 16، قم بتسجيل بياناتك ادناه واكمل شروط المسابقة
-                    لتدخل السحب على الآيفون.
-                </p>
-
-                <div class="conditions-box">
-                    <h3 class="conditions-title">شروط المسابقة:</h3>
-                    <ul class="conditions-list">
-                        <li>متابعة حسابنا على منصة التيك توك.</li>
-                        <li>عمل اعجاب على منشور المسابقة.</li>
-                        <li>التعليق على المنشور بعمل منشن لثلاثة من اصدقائك.</li>
-                    </ul>
+    <div class="contest-wrapper">
+        <div class="contest-container">
+            <!-- Header Section -->
+            <div class="contest-header">
+                <div class="header-content">
+                    <div class="prize-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h1 class="contest-title">مسابقة آيفون 16</h1>
+                    <p class="contest-subtitle">مع مخازن سوبرماركت يمكنك ربح جوال آيفون 16 الجديد!</p>
                 </div>
-
-                <p class="call-to-action">
-                    لا تدع الفرصة تفوتك. سجل الأن
-                </p>
-            </div>
-            <!-- Progress Indicator -->
-            <div class="progress-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-                <div class="progress-steps">
-                    <div class="step active" id="step1Indicator">1</div>
-                    <div class="step" id="step2Indicator">2</div>
+                <div class="header-decoration">
+                    <div class="sparkle"></div>
+                    <div class="sparkle"></div>
+                    <div class="sparkle"></div>
                 </div>
             </div>
 
-            <form id="tiktokForm" method="POST" action="" enctype="multipart/form-data">
-                @csrf
-
-                <!-- Step 1 -->
-                <div class="form-step active" id="step1">
-                    <div class="step-content">
-
-                        <h2 class="step-title">تابع حسابنا على التيك توك</h2>
-                        <div class="button-group">
-                            <a href="https://www.tiktok.com/@example" target="_blank" class="btn btn-tiktok"
-                                onclick="followTikTok()">
-                                <i class="fab fa-tiktok"></i>
-                                زيارة حساب تيك توك
-                            </a>
+            <!-- Contest Rules -->
+            <div class="rules-section">
+                <div class="rules-header">
+                    <i class="fas fa-list-check"></i>
+                    <h3>شروط المشاركة</h3>
+                </div>
+                <div class="rules-grid">
+                    <div class="rule-item">
+                        <div class="rule-icon">
+                            <i class="fab fa-tiktok"></i>
                         </div>
+                        <p>يجب متابعة حسابنا على TikTok</p>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-icon">
+                            <i class="fas fa-comment"></i>
+                        </div>
+                        <p>قم بالتعليق على المنشور المخصص</p>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <p>ارفع صورة لتعليقك وأدخل بياناتك</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-wrapper">
+                <div class="progress-bar-custom">
+                    <div class="progress-step active" id="progress-1">
+                        <div class="step-circle">1</div>
+                        <span>متابعة الحساب</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" id="progress-2">
+                        <div class="step-circle">2</div>
+                        <span>التعليق</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" id="progress-3">
+                        <div class="step-circle">3</div>
+                        <span>إرسال البيانات</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Steps Content -->
+            <div class="steps-container">
+                <!-- Step 1 -->
+                <div id="step-1" class="step-card active">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <h4>تابع حسابنا على TikTok</h4>
+                    </div>
+                    <div class="step-content">
+                        <p>اضغط على الزر أدناه لزيارة حسابنا على TikTok ومتابعتنا</p>
+                        <button class="btn-step btn-tiktok" onclick="openStep1()">
+                            <i class="fab fa-tiktok"></i>
+                            زيارة الحساب
+                        </button>
                     </div>
                 </div>
 
                 <!-- Step 2 -->
-                <div class="form-step" id="step2">
+                <div id="step-2" class="step-card d-none">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <h4>علق على المنشور</h4>
+                    </div>
                     <div class="step-content">
-                        <h2 class="step-title">حط لايك وتعليق على المنشور </h2>
-
-                        <div class="button-group">
-                            <a href="https://www.tiktok.com/@example/video/123456789" target="_blank"
-                                class="btn btn-tiktok">
-                                <i class="fab fa-tiktok"></i>
-                                زيارة المنشور
-                            </a>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="screenshot" class="form-label">سكرين شوت من التعليق</label>
-                            <div class="file-upload-area" onclick="document.getElementById('screenshot').click()">
-                                <i class="fas fa-cloud-upload-alt upload-icon"></i>
-                                <div class="upload-text">اختر صورة أو اسحبها هنا</div>
-                                <div class="upload-hint">PNG, JPG, GIF حتى 10MB</div>
-                                <div class="upload-animations">
-                                    <i class="fas fa-sparkles"></i>
-                                </div>
-                                <input type="file" id="screenshot" name="screenshot" accept="image/*" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone" class="form-label">رقم الجوال</label>
-                            <input type="tel" id="phone" name="phone" class="form-input" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="tiktok_username" class="form-label">يوزر حسابك على التيك توك</label>
-                            <input type="text" id="tiktok_username" name="tiktok_username" class="form-input" required>
-                        </div>
-
-                        <div class="button-group">
-                            <button type="submit" class="btn btn-submit">حفظ</button>
-                        </div>
+                        <p>اذهب إلى المنشور المخصص للمسابقة وقم بالتعليق عليه</p>
+                        <button class="btn-step btn-comment" onclick="openStep2()">
+                            <i class="fas fa-comment-dots"></i>
+                            فتح المنشور
+                        </button>
                     </div>
                 </div>
-            </form>
+
+                <!-- Step 3 -->
+                <div id="step-3" class="step-card d-none">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <h4>أرسل صورة التعليق وبياناتك</h4>
+                    </div>
+                    <div class="step-content">
+                        <form method="POST" enctype="multipart/form-data" class="contest-form">
+                            @csrf
+
+                            <div class="form-group">
+                                <label for="name" class="form-label">
+                                    <i class="fas fa-user"></i>
+                                    الاسم الكامل
+                                </label>
+                                <input type="text" name="name" id="name" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone" class="form-label">
+                                    <i class="fas fa-phone"></i>
+                                    رقم الجوال
+                                </label>
+                                <input type="text" name="phone" id="phone" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tiktok_user" class="form-label">
+                                    <i class="fab fa-tiktok"></i>
+                                    اسم المستخدم في TikTok
+                                </label>
+                                <input type="text" name="tiktok_user" id="tiktok_user" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="comment_image" class="form-label">
+                                    <i class="fas fa-image"></i>
+                                    صورة التعليق (لقطة شاشة)
+                                </label>
+                                <div class="file-upload-wrapper">
+                                    <input type="file" name="comment_image" id="comment_image" class="file-input"
+                                        accept="image/*" required>
+                                    <div class="file-upload-area">
+                                        <div class="upload-icon">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                        </div>
+                                        <p class="upload-text" style="text-align: center;">اسحب الصورة هنا أو اضغط للاختيار
+                                        </p>
+                                        <p class="upload-hint" style="text-align: center;">PNG, JPG, GIF حتى 10MB</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn-submit">
+                                <i class="fas fa-paper-plane"></i>
+                                إرسال المشاركة
+                                <div class="btn-glow"></div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <style>
-        body {
-            min-height: 100vh;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            direction: rtl;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             padding: 20px 0;
         }
 
-        .form-container {
-            max-width: 850px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 25px;
-            box-shadow: 0 20px 60px rgba(225, 34, 40, 0.3);
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        .contest-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
-        .progress-container {
-            padding: 35px;
-            background: linear-gradient(135deg, #e12228 0%, #c41e3a 50%, #a01729 100%);
+        .contest-container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(20px);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Header Styles */
+        .contest-header {
+            background: linear-gradient(135deg, #e12228, #ff4444, #e12228);
             color: white;
+            padding: 40px 30px;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .progress-container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        .progress-bar {
-            background: rgba(255, 255, 255, 0.25);
-            height: 6px;
-            border-radius: 3px;
-            margin-bottom: 25px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .progress-fill {
-            background: linear-gradient(90deg, #ffffff 0%, #fff3f3 50%, #ffffff 100%);
-            height: 100%;
-            width: 50%;
-            border-radius: 3px;
-            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
-        }
-
-        .progress-steps {
-            display: flex;
-            justify-content: center;
-            gap: 80px;
+        .header-content {
             position: relative;
             z-index: 2;
         }
 
-        .step {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.25);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+        .prize-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
         }
 
-        .step.active {
-            background: white;
-            color: #e12228;
-            transform: scale(1.15);
-            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
-            border-color: white;
-        }
+        @keyframes bounce {
 
-        .form-step {
-            display: none;
-            padding: 45px;
-            min-height: 450px;
-            position: relative;
-        }
-
-        .form-step.active {
-            display: block;
-            animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.95);
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
             }
 
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
             }
         }
 
-        .step-title {
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 35px;
-            position: relative;
-            background: linear-gradient(135deg, #e12228, #c41e3a);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 4px rgba(225, 34, 40, 0.2);
+        .contest-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .step-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, #e12228, #ff6b6b);
-            border-radius: 2px;
+        .contest-subtitle {
+            text-align: right;
+            direction: rtl;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 500;
         }
 
-        .button-group {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 16px 35px;
-            border-radius: 15px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: none;
-            cursor: pointer;
-            margin: 8px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
+        .header-decoration {
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.6s;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
         }
 
-        .btn:hover::before {
-            left: 100%;
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 3s infinite;
         }
 
-        .btn-tiktok {
-            background: linear-gradient(135deg, #e12228, #ff6b6b, #e12228);
-            background-size: 200% 200%;
-            color: white !important;
-            margin-bottom: 25px;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 8px 25px rgba(225, 34, 40, 0.3);
-            animation: gradientShift 3s ease infinite;
+        .sparkle:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
         }
 
-        @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
+        .sparkle:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .sparkle:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 2s;
+        }
+
+        @keyframes sparkle {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(0);
             }
 
             50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
+                opacity: 1;
+                transform: scale(1);
             }
         }
 
-        .btn-tiktok:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 35px rgba(225, 34, 40, 0.4);
+        /* Rules Section */
+        .rules-section {
+            padding: 30px;
+            background: #f8f9fa;
         }
 
-        .btn-next,
-        .btn-submit {
-            background: linear-gradient(135deg, #e12228, #ff6b6b, #e12228);
-            background-size: 200% 200%;
+        .rules-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            color: #black !important;
+            direction: rtl;
+        }
+
+        .rules-header i {
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            color: #000 !important;
+        }
+
+        .rules-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #000 !important;
+
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .rule-item {
+            background: white;
+            text-align: right;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .rule-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .rule-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #e12228, #ff4444);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            width: 100%;
-            box-shadow: 0 8px 25px rgba(225, 34, 40, 0.3);
-            animation: gradientShift 4s ease infinite;
+            font-size: 1.2rem;
         }
 
-        .btn-next:hover,
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(225, 34, 40, 0.4);
+        /* Progress Bar */
+        .progress-wrapper {
+            padding: 30px;
+            background: white;
         }
 
-        .btn-back {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            color: #6c757d;
-            border: 2px solid #dee2e6;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        .progress-bar-custom {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
         }
 
-        .btn-back:hover {
-            background: linear-gradient(135deg, #e9ecef, #dee2e6);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        /* RTL Support */
-        body {
-            direction: rtl;
-        }
-
-        .form-container,
-        .form-step,
-        .step-content,
-        .form-group,
-        .button-group {
-            direction: rtl;
-            text-align: right;
-        }
-
-        .step-title,
-        .button-group {
-            text-align: center;
-        }
-
-        .form-input {
-            text-align: right;
-            padding: 16px 20px;
-        }
-
-        .form-label {
-            text-align: right;
-        }
-
-        .file-upload-area {
-            direction: rtl;
-        }
-
-        .progress-steps {
-            direction: rtl;
-            /* Keep progress indicators LTR */
-        }
-
-        /* Required field styling */
-        .form-label::after {
-            content: ' *';
-            color: #e12228;
-            font-weight: bold;
-        }
-
-        .form-input:invalid {
-            border-color: #dc3545;
-        }
-
-        .form-input:valid {
-            border-color: #28a745;
-        }
-
-        .error-message {
-            color: #dc3545;
-            font-size: 0.9rem;
-            margin-top: 5px;
-            display: none;
-        }
-
-        /* Enhanced image upload field */
-        .file-upload-area {
-            border: 3px dashed #e9ecef;
-            border-radius: 20px;
-            padding: 50px 30px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            color: #6c757d;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.9) 100%);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-            min-height: 200px;
+        .progress-step {
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 10px;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.active {
+            opacity: 1;
+        }
+
+        .step-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 15px;
-            direction: rtl;
+            font-weight: 700;
+            color: #6c757d;
+            transition: all 0.3s ease;
         }
 
-        .file-upload-area::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg, transparent, rgba(225, 34, 40, 0.1), transparent);
+        .progress-step.active .step-circle {
+            background: linear-gradient(135deg, #e12228, #ff4444);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .progress-line {
+            width: 80px;
+            height: 3px;
+            background: #e9ecef;
+            border-radius: 2px;
+        }
+
+        /* Steps Content */
+        .steps-container {
+            padding: 30px;
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .step-card.active {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .step-header {
+            background: linear-gradient(135deg, #e12228, #c41e3a);
+            color: white !important;
+            padding: 25px 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .step-header h4 {
+            color: white !important;
+
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .step-content {
+            padding: 30px;
+        }
+
+        .step-content p {
+            margin-bottom: 25px;
+            text-align: right;
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Buttons */
+        .btn-step {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-tiktok {
+            background: linear-gradient(135deg, #e12228, #ff4444);
+            color: white;
+        }
+
+        .btn-comment {
+            background: linear-gradient(135deg, #e12228, #ff4444);
+            color: white;
+        }
+
+        .btn-step:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Form Styles */
+        .contest-form {
+            display: grid;
+            gap: 25px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #e12228;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(225, 34, 40, 0.1);
+        }
+
+        /* File Upload */
+        .file-upload-wrapper {
+            position: relative;
+        }
+
+        .file-input {
             opacity: 0;
-            transition: all 0.4s ease;
-            animation: rotate 4s linear infinite;
+            position: absolute;
+            z-index: -1;
         }
 
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
+        .file-upload-area {
+            border: 3px dashed #e9ecef;
+            border-radius: 15px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
         }
 
         .file-upload-area:hover {
             border-color: #e12228;
-            background: linear-gradient(135deg, rgba(225, 34, 40, 0.05) 0%, rgba(255, 107, 107, 0.05) 100%);
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(225, 34, 40, 0.2);
-        }
-
-        .file-upload-area:hover::before {
-            opacity: 1;
-        }
-
-        .file-upload-area.dragover {
-            border-color: #e12228;
-            background: linear-gradient(135deg, rgba(225, 34, 40, 0.1) 0%, rgba(255, 107, 107, 0.1) 100%);
-            transform: scale(1.05);
-        }
-
-        .file-upload-area.file-selected {
-            border-color: #28a745;
-            background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(72, 187, 120, 0.1) 100%);
+            background: rgba(225, 34, 40, 0.05);
         }
 
         .upload-icon {
-            font-size: 3.5rem;
-            margin-bottom: 15px;
+            font-size: 3rem;
             color: #e12228;
-            transition: all 0.3s ease;
-        }
-
-        .file-upload-area:hover .upload-icon {
-            transform: scale(1.1) rotate(5deg);
+            margin-bottom: 15px;
         }
 
         .upload-text {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-
-        .upload-hint {
-            font-size: 0.9rem;
-            color: #6c757d;
-            opacity: 0.8;
-        }
-
-        .file-preview {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .file-preview.show {
-            display: flex;
-        }
-
-        .preview-image {
-            max-width: 150px;
-            max-height: 150px;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            border: 3px solid #28a745;
-        }
-
-        .file-info {
-            text-align: center;
-        }
-
-        .file-name {
-            font-weight: 600;
-            color: #28a745;
+            color: #333;
             margin-bottom: 5px;
         }
 
-        .file-size {
-            font-size: 0.85rem;
-            color: #6c757d;
+        .upload-hint {
+            color: #666;
+            font-size: 0.9rem;
         }
 
-        .change-file-btn {
-            background: linear-gradient(135deg, #6c757d, #495057);
+        /* Submit Button */
+        .btn-submit {
+            background: linear-gradient(135deg, #e12228, #ff4444);
             color: white;
             border: none;
-            padding: 8px 16px;
-            border-radius: 10px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .change-file-btn:hover {
-            background: linear-gradient(135deg, #5a6268, #3d4449);
-            transform: translateY(-1px);
-        }
-
-        .upload-animations {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1.2rem;
-            color: #e12228;
-            opacity: 0;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-
-            50% {
-                opacity: 1;
-                transform: scale(1.2);
-            }
-        }
-
-        .file-upload-area:hover .upload-animations {
-            opacity: 1;
-        }
-
-        .file-upload-area input[type="file"] {
-            display: none;
-        }
-
-        /* Competition info styling */
-        .competition-info {
-            max-width: 850px;
-            background: linear-gradient(135deg, rgba(225, 34, 40, 0.05) 0%, rgba(255, 107, 107, 0.05) 100%);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 0px;
-            border: 2px solid rgba(225, 34, 40, 0.1);
-            backdrop-filter: blur(5px);
-        }
-
-        .main-text {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #2c3e50;
-            text-align: center;
-            line-height: 1.8;
-            margin-bottom: 25px;
-        }
-
-        .conditions-box {
-            background: rgba(255, 255, 255, 0.8);
+            padding: 18px 40px;
             border-radius: 15px;
-            padding: 25px;
-            margin: 20px 0;
-            border-right: 5px solid #e12228;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .conditions-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: black !important;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .conditions-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .conditions-list li {
-            font-size: 1.1rem;
-            color: #2c3e50;
-            margin-bottom: 12px;
-            padding-right: 25px;
-            position: relative;
-            line-height: 1.6;
-        }
-
-        .conditions-list li::before {
-            content: '✓';
-            position: absolute;
-            right: 0;
-            color: #28a745;
-            font-weight: bold;
             font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 0 auto;
+            min-width: 250px;
         }
 
-        .call-to-action {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #e12228;
-            text-align: center;
-            margin-top: 20px;
-            text-shadow: 0 2px 4px rgba(225, 34, 40, 0.2);
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(225, 34, 40, 0.4);
+        }
+
+        .btn-glow {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .btn-submit:hover .btn-glow {
+            left: 100%;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contest-title {
+                font-size: 2rem;
+            }
+
+            .contest-subtitle {
+                font-size: 1rem;
+            }
+
+            .rules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-bar-custom {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .progress-line {
+                width: 3px;
+                height: 30px;
+            }
+
+            .step-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+
+        .d-none {
+            display: none !important;
         }
     </style>
 
+    {{-- JavaScript --}}
     <script>
-        let currentStep = 1;
-
-        function followTikTok() {
-            // Automatically advance to step 2 after a short delay
-            setTimeout(function () {
-                nextStep();
-            }, 500);
+        function openStep1() {
+            window.open('https://www.tiktok.com/@your_tiktok_account', '_blank');
+            document.getElementById('step-2').classList.remove('d-none');
+            document.getElementById('progress-2').classList.add('active');
         }
 
-        function nextStep() {
-            if (currentStep < 2) {
-                document.getElementById('step' + currentStep).classList.remove('active');
-                document.getElementById('step' + currentStep + 'Indicator').classList.remove('active');
-
-                currentStep++;
-
-                document.getElementById('step' + currentStep).classList.add('active');
-                document.getElementById('step' + currentStep + 'Indicator').classList.add('active');
-
-                updateProgressBar();
-            }
+        function openStep2() {
+            window.open('https://www.tiktok.com/@your_tiktok_account/video/your_post_id', '_blank');
+            document.getElementById('step-3').classList.remove('d-none');
+            document.getElementById('progress-3').classList.add('active');
         }
 
-        function updateProgressBar() {
-            const progressFill = document.getElementById('progressFill');
-            const percentage = (currentStep / 2) * 100;
-            progressFill.style.width = percentage + '%';
-        }
-
-        // Form validation
-        document.getElementById('tiktokForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Validate required fields
-            const screenshot = document.getElementById('screenshot').files[0];
-            const phone = document.getElementById('phone').value.trim();
-            const tiktokUsername = document.getElementById('tiktok_username').value.trim();
-
-            let isValid = true;
-
-            // Clear previous error messages
-            document.querySelectorAll('.error-message').forEach(msg => msg.style.display = 'none');
-
-            // Validate screenshot
-            if (!screenshot) {
-                showError('screenshot', 'يرجى اختيار صورة');
-                isValid = false;
-            }
-
-            // Validate phone
-            if (!phone) {
-                showError('phone', 'يرجى إدخال رقم الجوال');
-                isValid = false;
-            } else if (phone.length < 10) {
-                showError('phone', 'رقم الجوال يجب أن يكون 10 أرقام على الأقل');
-                isValid = false;
-            }
-
-            // Validate TikTok username
-            if (!tiktokUsername) {
-                showError('tiktok_username', 'يرجى إدخال اسم المستخدم على تيك توك');
-                isValid = false;
-            }
-
-            if (isValid) {
-                // Submit form or show success message
-                alert('تم إرسال الطلب بنجاح!');
-                // this.submit(); // Uncomment to actually submit
-            }
-        });
-
-        function showError(fieldName, message) {
-            const field = document.getElementById(fieldName);
-            let errorDiv = field.parentNode.querySelector('.error-message');
-
-            if (!errorDiv) {
-                errorDiv = document.createElement('div');
-                errorDiv.className = 'error-message';
-                field.parentNode.appendChild(errorDiv);
-            }
-
-            errorDiv.textContent = message;
-            errorDiv.style.display = 'block';
-            field.style.borderColor = '#dc3545';
-        }
-
-        // Real-time validation
-        document.getElementById('phone').addEventListener('input', function () {
-            this.style.borderColor = this.value.trim() ? '#28a745' : '#e9ecef';
-        });
-
-        document.getElementById('tiktok_username').addEventListener('input', function () {
-            this.style.borderColor = this.value.trim() ? '#28a745' : '#e9ecef';
-        });
-
-        // Enhanced file upload with preview
-        document.getElementById('screenshot').addEventListener('change', function (e) {
-            const file = e.target.files[0];
+        // File upload functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const fileInput = document.getElementById('comment_image');
             const uploadArea = document.querySelector('.file-upload-area');
 
-            if (file) {
-                uploadArea.classList.add('file-selected');
+            if (uploadArea && fileInput) {
+                uploadArea.addEventListener('click', () => fileInput.click());
 
-                // Create file reader for image preview
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    const fileSize = (file.size / 1024 / 1024).toFixed(2); // Size in MB
-
-                    uploadArea.innerHTML = `
-                                                                                        <div class="file-preview show">
-                                                                                            <img src="${e.target.result}" alt="Preview" class="preview-image">
-                                                                                            <div class="file-info">
-                                                                                                <div class="file-name">${file.name}</div>
-                                                                                                <div class="file-size">${fileSize} ميجابايت</div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="upload-animations">
-                                                                                            <i class="fas fa-check-circle"></i>
-                                                                                        </div>
-                                                                                    `;
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        // Function to change file
-        function changeFile() {
-            const uploadArea = document.querySelector('.file-upload-area');
-            uploadArea.classList.remove('file-selected');
-            uploadArea.innerHTML = `
-                                                                                <i class="fas fa-cloud-upload-alt upload-icon"></i>
-                                                                                <div class="upload-text">اختر صورة أو اسحبها هنا</div>
-                                                                                <div class="upload-hint">PNG, JPG, GIF حتى 10MB</div>
-                                                                                <div class="upload-animations">
-                                                                                    <i class="fas fa-sparkles"></i>
-                                                                                </div>
-                                                                                <input type="file" id="screenshot" name="screenshot" accept="image/*" required>
-                                                                            `;
-
-            // Re-attach event listener
-            document.getElementById('screenshot').addEventListener('change', arguments.callee);
-        }
-
-        // Enhanced drag and drop functionality
-        const uploadArea = document.querySelector('.file-upload-area');
-
-        uploadArea.addEventListener('dragover', function (e) {
-            e.preventDefault();
-            this.classList.add('dragover');
-        });
-
-        uploadArea.addEventListener('dragleave', function (e) {
-            e.preventDefault();
-            this.classList.remove('dragover');
-        });
-
-        uploadArea.addEventListener('drop', function (e) {
-            e.preventDefault();
-            this.classList.remove('dragover');
-            const files = e.dataTransfer.files;
-            if (files.length > 0 && files[0].type.startsWith('image/')) {
-                document.getElementById('screenshot').files = files;
-                document.getElementById('screenshot').dispatchEvent(new Event('change'));
+                fileInput.addEventListener('change', function (e) {
+                    const file = e.target.files[0];
+                    if (file) {
+                        uploadArea.innerHTML = `
+                                                                                                                                <div class="upload-icon">
+                                                                                                                                    <i class="fas fa-check-circle" style="color: #28a745;"></i>
+                                                                                                                                </div>
+                                                                                                                                <p class="upload-text" style="color: #28a745;">تم اختيار الملف: ${file.name}</p>
+                                                                                                                                <p class="upload-hint">اضغط لتغيير الملف</p>
+                                                                                                                            `;
+                    }
+                });
             }
         });
     </script>
