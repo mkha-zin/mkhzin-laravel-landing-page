@@ -19,8 +19,7 @@ class JoinerExporter extends Exporter
             ExportColumn::make('name')->label(__('dashboard.name')),
             ExportColumn::make('phone')->label(__('dashboard.phone')),
             ExportColumn::make('tiktok_user')->label(__('dashboard.tiktok_user')),
-            ExportColumn::make('comment_image')->label(__('dashboard.comment_image')),
-            ExportColumn::make('deleted_at')->label(__('dashboard.deleted at')),
+            ExportColumn::make('comment_image')->label(__('dashboard.comment_image'))->prefix(asset('storage') . '/'),
             ExportColumn::make('created_at')->label(__('dashboard.created at')),
             ExportColumn::make('updated_at')->label(__('dashboard.updated at')),
         ];
