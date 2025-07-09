@@ -16,6 +16,7 @@
                     </div>
                     <h1 class="contest-title">مسابقة آيفون 16</h1>
                     <p class="contest-subtitle">مع مخازن سوبرماركت يمكنك ربح جوال آيفون 16 الجديد!</p>
+                    @include('includes._message')
                 </div>
                 <div class="header-decoration">
                     <div class="sparkle"></div>
@@ -694,12 +695,12 @@
                     const file = e.target.files[0];
                     if (file) {
                         uploadArea.innerHTML = `
-                                                                                                                                    <div class="upload-icon">
-                                                                                                                                        <i class="fas fa-check-circle" style="color: #28a745;"></i>
-                                                                                                                                    </div>
-                                                                                                                                    <p class="upload-text" style="color: #28a745;">تم اختيار الملف: ${file.name}</p>
-                                                                                                                                    <p class="upload-hint">اضغط لتغيير الملف</p>
-                                                                                                                                `;
+                                                    <div class="upload-icon">
+                                                        <i class="fas fa-check-circle" style="color: #28a745;"></i>
+                                                    </div>
+                                                    <p class="upload-text" style="color: #28a745;">تم اختيار الملف: ${file.name}</p>
+                                                    <p class="upload-hint">اضغط لتغيير الملف</p>
+                                                `;
                     }
                 });
             }

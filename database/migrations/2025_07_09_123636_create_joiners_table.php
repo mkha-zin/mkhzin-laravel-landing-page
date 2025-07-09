@@ -30,3 +30,4 @@ return new class extends Migration
         Schema::dropIfExists('joiners');
     }
 };
+// php artisan migrate --path=/database/migrations/2025_07_09_123636_create_joiners_table.php
