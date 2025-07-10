@@ -252,7 +252,7 @@
         }
 
         .contest-subtitle {
-            text-align: right;
+            text-align: center;
             direction: rtl;
             font-size: 1.2rem;
             opacity: 0.9;
@@ -695,12 +695,12 @@
                     const file = e.target.files[0];
                     if (file) {
                         uploadArea.innerHTML = `
-                                                                                                                                                    <div class="upload-icon">
-                                                                                                                                                        <i class="fas fa-check-circle" style="color: #28a745;"></i>
-                                                                                                                                                    </div>
-                                                                                                                                                    <p class="upload-text" style="color: #28a745;">تم اختيار الملف: ${file.name}</p>
-                                                                                                                                                    <p class="upload-hint">اضغط لتغيير الملف</p>
-                                                                                                                                                `;
+                                                                                                                                                        <div class="upload-icon">
+                                                                                                                                                            <i class="fas fa-check-circle" style="color: #28a745;"></i>
+                                                                                                                                                        </div>
+                                                                                                                                                        <p class="upload-text" style="color: #28a745;">تم اختيار الملف: ${file.name}</p>
+                                                                                                                                                        <p class="upload-hint">اضغط لتغيير الملف</p>
+                                                                                                                                                    `;
                     }
                 });
             }
