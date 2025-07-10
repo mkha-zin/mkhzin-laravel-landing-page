@@ -17,7 +17,7 @@
                     </div>
                     <h1 class="contest-title">{{ __('competition.title') }}</h1>
                     <p class="contest-subtitle">{{ __('competition.subtitle') }}</p>
-                    @include('includes._message')
+
                 </div>
                 <div class="header-decoration">
                     <div class="sparkle"></div>
@@ -369,7 +369,7 @@
 
         .rule-icon {
             /* width: 50px;
-                            height: 50px; */
+                                height: 50px; */
             padding: 10px;
             background: linear-gradient(135deg, #e12228, #ff4444);
             border-radius: 50%;
@@ -707,12 +707,12 @@
                     const file = e.target.files[0];
                     if (file) {
                         uploadArea.innerHTML = `
-                                                            <div class="upload-icon">
-                                                                <i class="fas fa-check-circle" style="color: #28a745;"></i>
-                                                            </div>
-                                                            <p class="upload-text" style="color: #28a745;">{{ __('competition.file_selected') }} ${file.name}</p>
-                                                            <p class="upload-hint">{{ __('competition.change_file') }}</p>
-                                                        `;
+                                                                <div class="upload-icon">
+                                                                    <i class="fas fa-check-circle" style="color: #28a745;"></i>
+                                                                </div>
+                                                                <p class="upload-text" style="color: #28a745;">{{ __('competition.file_selected') }} ${file.name}</p>
+                                                                <p class="upload-hint">{{ __('competition.change_file') }}</p>
+                                                            `;
                     }
                 });
             }
@@ -730,6 +730,9 @@
             @foreach ($errors->all() as $error)
                 toastr.error("{{ $error }}");
             @endforeach
+        @endif
+        @if(session('success'))
+            toastr.success("{{ session('success') }}");
         @endif
     </script>
 @endsection

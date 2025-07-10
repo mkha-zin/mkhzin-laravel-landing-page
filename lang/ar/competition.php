@@ -34,5 +34,5 @@ return [
     'validation_comment_image_image' => 'يجب أن تكون الصورة من نوع صورة.',
     'validation_comment_image_mimes' => 'يجب أن تكون الصورة بصيغة: jpeg, png, jpg, gif, webp.',
     'validation_comment_image_max' => 'يجب ألا يتجاوز حجم الصورة 4 ميغابايت.',
-    'success_message' => 'تم إرسال المشاركة بنجاح! ✅',
+    'success_message' => 'تم إرسال المشاركة بنجاح!',
 ];
