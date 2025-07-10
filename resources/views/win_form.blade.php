@@ -6,6 +6,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <div class="contest-wrapper">
         <div class="contest-container">
             <!-- Header Section -->
@@ -17,15 +18,6 @@
                     <h1 class="contest-title">{{ __('competition.title') }}</h1>
                     <p class="contest-subtitle">{{ __('competition.subtitle') }}</p>
                     @include('includes._message')
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul class="mb-0">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
                 </div>
                 <div class="header-decoration">
                     <div class="sparkle"></div>
@@ -68,9 +60,7 @@
                     </div>
                     <div class="step-content">
                         <p>{{ __('competition.step_1_description') }}</p>
-                        <button class="btn-step btn-tiktok"
-                                style="border-radius: 5px;"
-                                onclick="openStep1()">
+                        <button class="btn-step btn-tiktok" style="border-radius: 5px;" onclick="openStep1()">
                             <i class="fab fa-tiktok"></i>
                             {{ __('competition.step_1_button') }}
                         </button>
@@ -85,9 +75,7 @@
                     </div>
                     <div class="step-content">
                         <p>{{ __('competition.step_2_description') }}</p>
-                        <button class="btn-step btn-comment"
-                                style="border-radius: 5px;"
-                                onclick="openStep2()">
+                        <button class="btn-step btn-comment" style="border-radius: 5px;" onclick="openStep2()">
                             <i class="fas fa-comment-dots"></i>
                             {{ __('competition.step_2_button') }}
                         </button>
@@ -109,9 +97,10 @@
                                     <i class="fas fa-user"></i>
                                     {{ __('competition.form_name') }}
                                 </label>
-                                <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-input" required>
+                                <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-input"
+                                    required>
                                 @error('name')
-                                <small class="text-danger d-block mt-1">{{ $message }}</small>
+                                    <small class="text-danger d-block mt-1">{{ $message }}</small>
                                 @enderror
                             </div>
 
@@ -120,9 +109,10 @@
                                     <i class="fas fa-phone"></i>
                                     {{ __('competition.form_phone') }}
                                 </label>
-                                <input type="text" name="phone" id="phone" value="{{ old('phone') }}"  class="form-input" required>
+                                <input type="text" name="phone" id="phone" value="{{ old('phone') }}" class="form-input"
+                                    required>
                                 @error('phone')
-                                <small class="text-danger d-block mt-1">{{ $message }}</small>
+                                    <small class="text-danger d-block mt-1">{{ $message }}</small>
                                 @enderror
                             </div>
 
@@ -131,9 +121,10 @@
                                     <i class="fab fa-tiktok"></i>
                                     {{ __('competition.form_tiktok_user') }}
                                 </label>
-                                <input type="text" name="tiktok_user" value="{{ old('tiktok_user') }}"  id="tiktok_user" class="form-input" required>
+                                <input type="text" name="tiktok_user" value="{{ old('tiktok_user') }}" id="tiktok_user"
+                                    class="form-input" required>
                                 @error('tiktok_user')
-                                <small class="text-danger d-block mt-1">{{ $message }}</small>
+                                    <small class="text-danger d-block mt-1">{{ $message }}</small>
                                 @enderror
                             </div>
 
@@ -157,14 +148,12 @@
                                         </p>
                                     </div>
                                     @error('comment_image')
-                                    <small class="text-danger d-block mt-1">{{ $message }}</small>
+                                        <small class="text-danger d-block mt-1">{{ $message }}</small>
                                     @enderror
                                 </div>
                             </div>
 
-                            <button type="submit"
-                                    class="btn-submit"
-                                    style="color: white !important; border-radius: 5px;">
+                            <button type="submit" class="btn-submit" style="color: white !important; border-radius: 5px;">
                                 <i class="fas fa-paper-plane"></i>
                                 {{ __('competition.form_submit_button') }}
                                 <div class="btn-glow"></div>
@@ -380,7 +369,7 @@
 
         .rule-icon {
             /* width: 50px;
-                height: 50px; */
+                            height: 50px; */
             padding: 10px;
             background: linear-gradient(135deg, #e12228, #ff4444);
             border-radius: 50%;
@@ -494,7 +483,9 @@
 
         .step-content p {
             margin-bottom: 25px;
-            text-align: {{ App::isLocale('ar') ? 'right' : 'left' }};
+            text-align:
+                {{ App::isLocale('ar') ? 'right' : 'left' }}
+            ;
             color: #666;
             font-size: 1.1rem;
             line-height: 1.6;
@@ -689,6 +680,8 @@
     </style>
 
     {{-- JavaScript --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
         function openStep1() {
             window.open('https://www.tiktok.com/@mkhzin?_t=ZS-8xszKvMY2YD&_r=1', '_blank');
@@ -714,15 +707,29 @@
                     const file = e.target.files[0];
                     if (file) {
                         uploadArea.innerHTML = `
-                                                <div class="upload-icon">
-                                                    <i class="fas fa-check-circle" style="color: #28a745;"></i>
-                                                </div>
-                                                <p class="upload-text" style="color: #28a745;">{{ __('competition.file_selected') }} ${file.name}</p>
-                                                <p class="upload-hint">{{ __('competition.change_file') }}</p>
-                                            `;
+                                                            <div class="upload-icon">
+                                                                <i class="fas fa-check-circle" style="color: #28a745;"></i>
+                                                            </div>
+                                                            <p class="upload-text" style="color: #28a745;">{{ __('competition.file_selected') }} ${file.name}</p>
+                                                            <p class="upload-hint">{{ __('competition.change_file') }}</p>
+                                                        `;
                     }
                 });
             }
         });
+
+        toastr.options = {
+            "positionClass": "toast-top-left",
+            "rtl": {{ App::isLocale('ar') ? 'true' : 'false' }},
+            "timeOut": "5000",
+            "extendedTimeOut": "1000"
+
+        };
+
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                toastr.error("{{ $error }}");
+            @endforeach
+        @endif
     </script>
 @endsection
