@@ -369,7 +369,7 @@
 
         .rule-icon {
             /* width: 50px;
-                                height: 50px; */
+                                    height: 50px; */
             padding: 10px;
             background: linear-gradient(135deg, #e12228, #ff4444);
             border-radius: 50%;
@@ -707,12 +707,12 @@
                     const file = e.target.files[0];
                     if (file) {
                         uploadArea.innerHTML = `
-                                                                <div class="upload-icon">
-                                                                    <i class="fas fa-check-circle" style="color: #28a745;"></i>
-                                                                </div>
-                                                                <p class="upload-text" style="color: #28a745;">{{ __('competition.file_selected') }} ${file.name}</p>
-                                                                <p class="upload-hint">{{ __('competition.change_file') }}</p>
-                                                            `;
+                                                                    <div class="upload-icon">
+                                                                        <i class="fas fa-check-circle" style="color: #28a745;"></i>
+                                                                    </div>
+                                                                    <p class="upload-text" style="color: #28a745;">{{ __('competition.file_selected') }} ${file.name}</p>
+                                                                    <p class="upload-hint">{{ __('competition.change_file') }}</p>
+                                                                `;
                     }
                 });
             }
@@ -721,8 +721,8 @@
         toastr.options = {
             "positionClass": "toast-top-left",
             "rtl": {{ App::isLocale('ar') ? 'true' : 'false' }},
-            "timeOut": "5000",
-            "extendedTimeOut": "1000"
+            "timeOut": "10000",
+            "extendedTimeOut": "10000"
 
         };
 
