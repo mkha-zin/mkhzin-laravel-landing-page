@@ -201,8 +201,8 @@ class LandingController extends Controller
             ->get()
             ->map(function ($branch) {
                 return [
-                    'lat' => (float)$branch->latitude,
-                    'lng' => (float)$branch->longitude,
+                    'lat' => (float) $branch->latitude,
+                    'lng' => (float) $branch->longitude,
                     'popup' => '
                         <div style="text-align: center; font-family: Cairo, sans-serif">
                             <strong style="color: darkred" class="mb-2">' . e(data_get($branch, App::currentLocale() === 'ar' ? 'name_ar' : 'name_en', '')) . '</strong>
@@ -360,7 +360,7 @@ class LandingController extends Controller
     {
         $filePath = public_path("storage/filament_exports/" . request()->key . "/" . request()->record . ".xlsx");
 
-//        dd($filePath . " - " . file_exists($filePath));
+        //        dd($filePath . " - " . file_exists($filePath));
         if (!file_exists($filePath)) {
             Notification::make()
                 ->title(__('dashboard.file not found'))
@@ -437,7 +437,7 @@ class LandingController extends Controller
 
 
 
-    public function saveJoiner(): RedirectResponse
+    public function saveJoiner(HttpRequest $request): RedirectResponse
     {
         $validator = Validator::make(request()->all(), [
             'name' => 'required|string|max:255',
@@ -445,15 +445,15 @@ class LandingController extends Controller
             'tiktok_user' => 'required|string|max:255|unique:joiners,tiktok_user|regex:/^\S*$/',
             'comment_image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:4096',
         ], [
-            'name.required' => 'الاسم مطلوب.',
-            'phone.required' => 'رقم الجوال مطلوب.',
-            'tiktok_user.required' => 'اسم مستخدم تيك توك مطلوب.',
-            'tiktok_user.unique' => 'تم التسجيل في المابقة بهذا الحساب مسبقاً.',
-            'tiktok_user.regex' => 'اسم مستخدم تيك توك يجب ألا يحتوي على مسافات.',
-            'comment_image.required' => 'الصورة مطلوبة.',
-            'comment_image.image' => 'يجب أن تكون الصورة من نوع صورة.',
-            'comment_image.mimes' => 'يجب أن تكون الصورة بصيغة: jpeg, png, jpg, gif, webp.',
-            'comment_image.max' => 'يجب ألا يتجاوز حجم الصورة 4 ميغابايت.',
+            'name.required' => __('competition.validation_name_required'),
+            'phone.required' => __('competition.validation_phone_required'),
+            'tiktok_user.required' => __('competition.validation_tiktok_user_required'),
+            'tiktok_user.unique' => __('competition.validation_tiktok_user_unique'),
+            'tiktok_user.regex' => __('competition.validation_tiktok_user_regex'),
+            'comment_image.required' => __('competition.validation_comment_image_required'),
+            'comment_image.image' => __('competition.validation_comment_image_image'),
+            'comment_image.mimes' => __('competition.validation_comment_image_mimes'),
+            'comment_image.max' => __('competition.validation_comment_image_max'),
         ]);
 
         if ($validator->fails()) {
@@ -473,7 +473,7 @@ class LandingController extends Controller
             'comment_image' => $path,
         ]);
 
-        return redirect()->back()->with('success', 'تم إرسال المشاركة بنجاح! ✅');
+        return redirect()->back()->with('success', __('competition.success_message'));
     }
 
 
