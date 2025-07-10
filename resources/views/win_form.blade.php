@@ -61,7 +61,7 @@
             <!-- Steps Content -->
             <div class="steps-container">
                 <!-- Step 1 -->
-                <div id="step-1" class="step-card active">
+                <div id="step-1" class="step-card {{ $errors->any() ? 'd-none' : 'active' }}">
                     <div class="step-header">
                         <div class="step-number">1</div>
                         <h4>{{ __('competition.step_1_title') }}</h4>
