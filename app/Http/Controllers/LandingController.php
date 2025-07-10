@@ -37,6 +37,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Redirect;
 use Request;
+use Illuminate\Support\Facades\Validator;
 
 class LandingController extends Controller
 {
@@ -434,28 +435,47 @@ class LandingController extends Controller
         return view('social_one', compact('socialLink'));
     }
 
+
+
     public function saveJoiner(): RedirectResponse
     {
-        $validated = Request::validate([
+        $validator = Validator::make(request()->all(), [
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
-            'tiktok_user' => 'required|string|max:255',
+            'tiktok_user' => 'required|string|max:255|unique:joiners,tiktok_user|regex:/^\S*$/',
             'comment_image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:4096',
+        ], [
+            'name.required' => 'الاسم مطلوب.',
+            'phone.required' => 'رقم الجوال مطلوب.',
+            'tiktok_user.required' => 'اسم مستخدم تيك توك مطلوب.',
+            'tiktok_user.unique' => 'تم التسجيل في المابقة بهذا الحساب مسبقاً.',
+            'tiktok_user.regex' => 'اسم مستخدم تيك توك يجب ألا يحتوي على مسافات.',
+            'comment_image.required' => 'الصورة مطلوبة.',
+            'comment_image.image' => 'يجب أن تكون الصورة من نوع صورة.',
+            'comment_image.mimes' => 'يجب أن تكون الصورة بصيغة: jpeg, png, jpg, gif, webp.',
+            'comment_image.max' => 'يجب ألا يتجاوز حجم الصورة 4 ميغابايت.',
         ]);
 
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         // Store image
-        $path = Request::file('comment_image')->store('assets/images/comment_images', 'public');
+        $path = $request->file('comment_image')->store('assets/images/comment_images', 'public');
 
         // Save to DB
         Joiner::create([
-            'name' => $validated['name'],
-            'phone' => $validated['phone'],
-            'tiktok_user' => $validated['tiktok_user'],
+            'name' => $request->input('name'),
+            'phone' => $request->input('phone'),
+            'tiktok_user' => $request->input('tiktok_user'),
             'comment_image' => $path,
         ]);
 
         return redirect()->back()->with('success', 'تم إرسال المشاركة بنجاح! ✅');
     }
+
 
 }
 

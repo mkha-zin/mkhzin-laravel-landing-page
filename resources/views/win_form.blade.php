@@ -17,6 +17,15 @@
                     <h1 class="contest-title">{{ __('competition.title') }}</h1>
                     <p class="contest-subtitle">{{ __('competition.subtitle') }}</p>
                     @include('includes._message')
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul class="mb-0">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 </div>
                 <div class="header-decoration">
                     <div class="sparkle"></div>
@@ -37,12 +46,12 @@
                         <span>{{ __('competition.step_1_progress') }}</span>
                     </div>
                     <div class="progress-line"></div>
-                    <div class="progress-step" id="progress-2">
+                    <div class="progress-step {{ $errors->any() ? 'active' : '' }}" id="progress-2">
                         <div class="step-circle">2</div>
                         <span>{{ __('competition.step_2_progress') }}</span>
                     </div>
                     <div class="progress-line"></div>
-                    <div class="progress-step" id="progress-3">
+                    <div class="progress-step {{ $errors->any() ? 'active' : '' }}" id="progress-3">
                         <div class="step-circle">3</div>
                         <span>{{ __('competition.step_3_progress') }}</span>
                     </div>
@@ -86,13 +95,13 @@
                 </div>
 
                 <!-- Step 3 -->
-                <div id="step-3" class="step-card d-none">
+                <div id="step-3" class="step-card {{ $errors->any() ? 'active' : 'd-none' }}">
                     <div class="step-header">
                         <div class="step-number">3</div>
                         <h4>{{ __('competition.step_3_title') }}</h4>
                     </div>
                     <div class="step-content">
-                        <form method="POST" enctype="multipart/form-data" class="contest-form">
+                        <form method="POST" enctype="multipart/form-data" class="contest-form" novalidate>
                             @csrf
 
                             <div class="form-group">
@@ -100,7 +109,10 @@
                                     <i class="fas fa-user"></i>
                                     {{ __('competition.form_name') }}
                                 </label>
-                                <input type="text" name="name" id="name" class="form-input" required>
+                                <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-input" required>
+                                @error('name')
+                                <small class="text-danger d-block mt-1">{{ $message }}</small>
+                                @enderror
                             </div>
 
                             <div class="form-group">
@@ -108,7 +120,10 @@
                                     <i class="fas fa-phone"></i>
                                     {{ __('competition.form_phone') }}
                                 </label>
-                                <input type="text" name="phone" id="phone" class="form-input" required>
+                                <input type="text" name="phone" id="phone" value="{{ old('phone') }}"  class="form-input" required>
+                                @error('phone')
+                                <small class="text-danger d-block mt-1">{{ $message }}</small>
+                                @enderror
                             </div>
 
                             <div class="form-group">
@@ -116,7 +131,10 @@
                                     <i class="fab fa-tiktok"></i>
                                     {{ __('competition.form_tiktok_user') }}
                                 </label>
-                                <input type="text" name="tiktok_user" id="tiktok_user" class="form-input" required>
+                                <input type="text" name="tiktok_user" value="{{ old('tiktok_user') }}"  id="tiktok_user" class="form-input" required>
+                                @error('tiktok_user')
+                                <small class="text-danger d-block mt-1">{{ $message }}</small>
+                                @enderror
                             </div>
 
                             <div class="form-group">
@@ -138,6 +156,9 @@
                                             {{ __('competition.form_image_upload_hint') }}
                                         </p>
                                     </div>
+                                    @error('comment_image')
+                                    <small class="text-danger d-block mt-1">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -513,7 +534,7 @@
         /* Form Styles */
         .contest-form {
             display: grid;
-            gap: 25px;
+            gap: 15px;
         }
 
         .form-group {
@@ -693,12 +714,12 @@
                     const file = e.target.files[0];
                     if (file) {
                         uploadArea.innerHTML = `
-                                                                                                                                                                <div class="upload-icon">
-                                                                                                                                                                    <i class="fas fa-check-circle" style="color: #28a745;"></i>
-                                                                                                                                                                </div>
-                                                                                                                                                                <p class="upload-text" style="color: #28a745;">{{ __('competition.file_selected') }} ${file.name}</p>
-                                                                                                                                                                <p class="upload-hint">{{ __('competition.change_file') }}</p>
-                                                                                                                                                            `;
+                                                <div class="upload-icon">
+                                                    <i class="fas fa-check-circle" style="color: #28a745;"></i>
+                                                </div>
+                                                <p class="upload-text" style="color: #28a745;">{{ __('competition.file_selected') }} ${file.name}</p>
+                                                <p class="upload-hint">{{ __('competition.change_file') }}</p>
+                                            `;
                     }
                 });
             }
