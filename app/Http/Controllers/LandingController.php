@@ -1,5 +1,7 @@
 <?php
 
+/** @noinspection ALL */
+
 namespace App\Http\Controllers;
 
 use App;
@@ -432,13 +434,13 @@ class LandingController extends Controller
         return view('social_one', compact('socialLink'));
     }
 
-    public function saveJoiner(Request $request): RedirectResponse
+    public function saveJoiner(): RedirectResponse
     {
         $validated = Request::validate([
-            'name'           => 'required|string|max:255',
-            'phone'          => 'required|string|max:20',
-            'tiktok_user'    => 'required|string|max:255',
-            'comment_image'  => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:4096',
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'tiktok_user' => 'required|string|max:255',
+            'comment_image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:4096',
         ]);
 
         // Store image
@@ -446,9 +448,9 @@ class LandingController extends Controller
 
         // Save to DB
         Joiner::create([
-            'name'          => $validated['name'],
-            'phone'         => $validated['phone'],
-            'tiktok_user'   => $validated['tiktok_user'],
+            'name' => $validated['name'],
+            'phone' => $validated['phone'],
+            'tiktok_user' => $validated['tiktok_user'],
             'comment_image' => $path,
         ]);
 

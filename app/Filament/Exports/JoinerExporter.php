@@ -16,21 +16,36 @@ class JoinerExporter extends Exporter
         return [
             ExportColumn::make('id')
                 ->label('#'),
-            ExportColumn::make('name')->label(__('dashboard.name')),
-            ExportColumn::make('phone')->label(__('dashboard.phone')),
-            ExportColumn::make('tiktok_user')->label(__('dashboard.tiktok_user')),
-            ExportColumn::make('comment_image')->label(__('dashboard.comment_image'))->prefix(asset('storage') . '/'),
-            ExportColumn::make('created_at')->label(__('dashboard.created at')),
-            ExportColumn::make('updated_at')->label(__('dashboard.updated at')),
+            ExportColumn::make('name')
+                ->label(__('dashboard.name')),
+            ExportColumn::make('phone')
+                ->label(__('dashboard.phone')),
+            ExportColumn::make('tiktok_user')
+                ->label(__('dashboard.tiktok_user')),
+            ExportColumn::make('comment_image')
+                ->label(__('dashboard.comment_image'))
+                ->prefix(asset('storage') . '/'),
+            ExportColumn::make('created_at')
+                ->label(__('dashboard.created at')),
+            ExportColumn::make('updated_at')
+                ->label(__('dashboard.updated at')),
         ];
     }
 
     public static function getCompletedNotificationBody(Export $export): string
     {
-        $body = 'Your joiner export has completed and ' . number_format($export->successful_rows) . ' ' . str('row')->plural($export->successful_rows) . ' exported.';
+        $body = 'Your joiner export has completed and '
+            . number_format($export->successful_rows)
+            . ' '
+            . str('row')->plural($export->successful_rows)
+            . ' exported.';
 
         if ($failedRowsCount = $export->getFailedRowsCount()) {
-            $body .= ' ' . number_format($failedRowsCount) . ' ' . str('row')->plural($failedRowsCount) . ' failed to export.';
+            $body .= ' '
+                . number_format($failedRowsCount)
+                . ' '
+                . str('row')->plural($failedRowsCount)
+                . ' failed to export.';
         }
 
         return $body;

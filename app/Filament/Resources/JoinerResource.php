@@ -7,7 +7,15 @@ use App\Filament\Resources\JoinerResource\Pages;
 use App\Filament\Resources\JoinerResource\RelationManagers;
 use App\Models\Joiner;
 use Filament\Resources\Resource;
-use Filament\Tables;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ExportBulkAction;
+use Filament\Tables\Actions\ForceDeleteBulkAction;
+use Filament\Tables\Actions\RestoreBulkAction;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -51,30 +59,30 @@ class JoinerResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->label(__('dashboard.name'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('phone')
+                TextColumn::make('phone')
                     ->label(__('dashboard.phone'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('tiktok_user')
+                TextColumn::make('tiktok_user')
                     ->label(__('dashboard.tiktok_user'))
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('comment_image')
+                ImageColumn::make('comment_image')
                     ->label(__('dashboard.comment_image')),
-                Tables\Columns\TextColumn::make('deleted_at')
+                TextColumn::make('deleted_at')
                     ->label(__('dashboard.deleted at'))
                     ->date()
                     ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->date()
                     ->dateTimeTooltip('Y/m/d h:i:s A')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label(__('dashboard.updated at'))
                     ->date()
                     ->dateTimeTooltip('Y/m/d h:i:s A')
@@ -82,18 +90,17 @@ class JoinerResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                Tables\Filters\TrashedFilter::make(),
+                TrashedFilter::make(),
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                ViewAction::make()->button(),
             ])
             ->bulkActions([
-                Tables\Actions\ExportBulkAction::make()
+                ExportBulkAction::make()
                     ->exporter(JoinerExporter::class),
-                    Tables\Actions\DeleteBulkAction::make(),
-                    Tables\Actions\ForceDeleteBulkAction::make(),
-                    Tables\Actions\RestoreBulkAction::make(),
+                DeleteBulkAction::make(),
+                ForceDeleteBulkAction::make(),
+                RestoreBulkAction::make(),
             ]);
     }
 
@@ -101,9 +108,7 @@ class JoinerResource extends Resource
     {
         return [
             'index' => Pages\ListJoiners::route('/'),
-            'create' => Pages\CreateJoiner::route('/create'),
             'view' => Pages\ViewJoiner::route('/{record}'),
-            'edit' => Pages\EditJoiner::route('/{record}/edit'),
         ];
     }
 
