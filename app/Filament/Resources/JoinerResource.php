@@ -7,12 +7,17 @@ use App\Filament\Resources\JoinerResource\Pages;
 use App\Filament\Resources\JoinerResource\RelationManagers;
 use App\Models\Joiner;
 use Filament\Resources\Resource;
+use Filament\Support\Enums\ActionSize;
+use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ExportBulkAction;
+use Filament\Tables\Actions\ForceDeleteAction;
 use Filament\Tables\Actions\ForceDeleteBulkAction;
+use Filament\Tables\Actions\RestoreAction;
 use Filament\Tables\Actions\RestoreBulkAction;
 use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
@@ -70,11 +75,12 @@ class JoinerResource extends Resource
                     ->searchable(),
                 ImageColumn::make('comment_image')
                     ->label(__('dashboard.comment_image')),
-                TextColumn::make('deleted_at')
-                    ->label(__('dashboard.deleted at'))
-                    ->date()
-                    ->dateTimeTooltip('Y/m/d h:i:s A')
+                IconColumn::make('deleted_at')
+                    ->label(__('dashboard.deleted'))
+                    ->icon(fn($record) => $record->deleted_at ? 'heroicon-s-trash' : '')
+                    ->color(fn($record) => $record->deleted_at ? 'danger' : '')
                     ->sortable()
+                    ->alignCenter()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
@@ -90,7 +96,12 @@ class JoinerResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                TrashedFilter::make(),
+                TrashedFilter::make()->default('withTrashed'),
+            ])
+            ->actions([
+                RestoreAction::make()->button()->size(ActionSize::ExtraSmall),
+                DeleteAction::make()->button()->size(ActionSize::ExtraSmall),
+                ForceDeleteAction::make()->button()->size(ActionSize::ExtraSmall),
             ])
             ->bulkActions([
                 ExportBulkAction::make()

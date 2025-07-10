@@ -264,6 +264,7 @@ return [
     'user id' => 'User Id',
     'username' => 'Username',
     'download' => 'Download',
+    'deleted' => 'Deleted',
     'created at' => 'Created At',
     'updated at' => 'Updated At',
     'file not found' => 'File Not Found',
