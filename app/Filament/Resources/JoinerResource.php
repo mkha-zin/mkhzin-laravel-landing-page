@@ -92,9 +92,6 @@ class JoinerResource extends Resource
             ->filters([
                 TrashedFilter::make(),
             ])
-            ->actions([
-                ViewAction::make()->button(),
-            ])
             ->bulkActions([
                 ExportBulkAction::make()
                     ->exporter(JoinerExporter::class),
@@ -108,7 +105,6 @@ class JoinerResource extends Resource
     {
         return [
             'index' => Pages\ListJoiners::route('/'),
-            'view' => Pages\ViewJoiner::route('/{record}'),
         ];
     }
 
