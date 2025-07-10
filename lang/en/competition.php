@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'title' => 'iPhone 16 Contest',
-    'subtitle' => 'With Mkhzin Supermarket, you can win the new iPhone 16!',
-    'conditions_title' => 'Participation Conditions',
+    'title' => 'Win iPhone 16',
+    'subtitle' => 'With Mkhzin Supermarket, You can win the new iPhone 16!',
+    'conditions_title' => 'To participate, follow the steps below:',
     'condition_1' => 'You must follow our TikTok account',
     'condition_2' => 'Comment on the dedicated post',
     'condition_3' => 'Upload a picture of your comment and enter your data',

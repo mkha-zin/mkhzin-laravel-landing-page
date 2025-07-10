@@ -25,36 +25,12 @@
                 </div>
             </div>
 
-            <!-- Contest Rules -->
-            <div class="rules-section">
+            <!-- Progress Bar -->
+            <div class="progress-wrapper">
                 <div class="rules-header">
                     <i class="fas fa-list-check"></i>
                     <h3>{{ __('competition.conditions_title') }}</h3>
                 </div>
-                <div class="rules-grid">
-                    <div class="rule-item">
-                        <div class="rule-icon">
-                            <i class="fab fa-tiktok"></i>
-                        </div>
-                        <p>{{ __('competition.condition_1') }}</p>
-                    </div>
-                    <div class="rule-item">
-                        <div class="rule-icon">
-                            <i class="fas fa-comment"></i>
-                        </div>
-                        <p>{{ __('competition.condition_2') }}</p>
-                    </div>
-                    <div class="rule-item">
-                        <div class="rule-icon">
-                            <i class="fas fa-camera"></i>
-                        </div>
-                        <p>{{ __('competition.condition_3') }}</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Progress Bar -->
-            <div class="progress-wrapper">
                 <div class="progress-bar-custom">
                     <div class="progress-step active" id="progress-1">
                         <div class="step-circle">1</div>
@@ -83,7 +59,9 @@
                     </div>
                     <div class="step-content">
                         <p>{{ __('competition.step_1_description') }}</p>
-                        <button class="btn-step btn-tiktok" onclick="openStep1()">
+                        <button class="btn-step btn-tiktok"
+                                style="border-radius: 5px;"
+                                onclick="openStep1()">
                             <i class="fab fa-tiktok"></i>
                             {{ __('competition.step_1_button') }}
                         </button>
@@ -98,7 +76,9 @@
                     </div>
                     <div class="step-content">
                         <p>{{ __('competition.step_2_description') }}</p>
-                        <button class="btn-step btn-comment" onclick="openStep2()">
+                        <button class="btn-step btn-comment"
+                                style="border-radius: 5px;"
+                                onclick="openStep2()">
                             <i class="fas fa-comment-dots"></i>
                             {{ __('competition.step_2_button') }}
                         </button>
@@ -161,7 +141,9 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn-submit">
+                            <button type="submit"
+                                    class="btn-submit"
+                                    style="color: white !important; border-radius: 5px;">
                                 <i class="fas fa-paper-plane"></i>
                                 {{ __('competition.form_submit_button') }}
                                 <div class="btn-glow"></div>
@@ -491,9 +473,7 @@
 
         .step-content p {
             margin-bottom: 25px;
-            text-align:
-                {{ App::isLocale('ar') ? 'right' : 'left' }}
-            ;
+            text-align: {{ App::isLocale('ar') ? 'right' : 'left' }};
             color: #666;
             font-size: 1.1rem;
             line-height: 1.6;
