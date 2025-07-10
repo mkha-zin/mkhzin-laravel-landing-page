@@ -14,8 +14,8 @@
                     <div class="prize-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h1 class="contest-title">مسابقة آيفون 16</h1>
-                    <p class="contest-subtitle">مع مخازن سوبرماركت يمكنك ربح جوال آيفون 16 الجديد!</p>
+                    <h1 class="contest-title">{{ __('competition.title') }}</h1>
+                    <p class="contest-subtitle">{{ __('competition.subtitle') }}</p>
                     @include('includes._message')
                 </div>
                 <div class="header-decoration">
@@ -29,26 +29,26 @@
             <div class="rules-section">
                 <div class="rules-header">
                     <i class="fas fa-list-check"></i>
-                    <h3>شروط المشاركة</h3>
+                    <h3>{{ __('competition.conditions_title') }}</h3>
                 </div>
                 <div class="rules-grid">
                     <div class="rule-item">
                         <div class="rule-icon">
                             <i class="fab fa-tiktok"></i>
                         </div>
-                        <p>يجب متابعة حسابنا على TikTok</p>
+                        <p>{{ __('competition.condition_1') }}</p>
                     </div>
                     <div class="rule-item">
                         <div class="rule-icon">
                             <i class="fas fa-comment"></i>
                         </div>
-                        <p>قم بالتعليق على المنشور المخصص</p>
+                        <p>{{ __('competition.condition_2') }}</p>
                     </div>
                     <div class="rule-item">
                         <div class="rule-icon">
                             <i class="fas fa-camera"></i>
                         </div>
-                        <p>ارفع صورة لتعليقك وأدخل بياناتك</p>
+                        <p>{{ __('competition.condition_3') }}</p>
                     </div>
                 </div>
             </div>
@@ -58,17 +58,17 @@
                 <div class="progress-bar-custom">
                     <div class="progress-step active" id="progress-1">
                         <div class="step-circle">1</div>
-                        <span>متابعة الحساب</span>
+                        <span>{{ __('competition.step_1_progress') }}</span>
                     </div>
                     <div class="progress-line"></div>
                     <div class="progress-step" id="progress-2">
                         <div class="step-circle">2</div>
-                        <span>التعليق</span>
+                        <span>{{ __('competition.step_2_progress') }}</span>
                     </div>
                     <div class="progress-line"></div>
                     <div class="progress-step" id="progress-3">
                         <div class="step-circle">3</div>
-                        <span>إرسال البيانات</span>
+                        <span>{{ __('competition.step_3_progress') }}</span>
                     </div>
                 </div>
             </div>
@@ -79,13 +79,13 @@
                 <div id="step-1" class="step-card active">
                     <div class="step-header">
                         <div class="step-number">1</div>
-                        <h4>تابع حسابنا على TikTok</h4>
+                        <h4>{{ __('competition.step_1_title') }}</h4>
                     </div>
                     <div class="step-content">
-                        <p>اضغط على الزر أدناه لزيارة حسابنا على TikTok ومتابعتنا</p>
+                        <p>{{ __('competition.step_1_description') }}</p>
                         <button class="btn-step btn-tiktok" onclick="openStep1()">
                             <i class="fab fa-tiktok"></i>
-                            زيارة الحساب
+                            {{ __('competition.step_1_button') }}
                         </button>
                     </div>
                 </div>
@@ -94,13 +94,13 @@
                 <div id="step-2" class="step-card d-none">
                     <div class="step-header">
                         <div class="step-number">2</div>
-                        <h4>علق على المنشور</h4>
+                        <h4>{{ __('competition.step_2_title') }}</h4>
                     </div>
                     <div class="step-content">
-                        <p>اذهب إلى المنشور المخصص للمسابقة، قم بالتعليق عليه، ولا تنسَ أخذ لقطة شاشة للتعليق.</p>
+                        <p>{{ __('competition.step_2_description') }}</p>
                         <button class="btn-step btn-comment" onclick="openStep2()">
                             <i class="fas fa-comment-dots"></i>
-                            فتح المنشور
+                            {{ __('competition.step_2_button') }}
                         </button>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                 <div id="step-3" class="step-card d-none">
                     <div class="step-header">
                         <div class="step-number">3</div>
-                        <h4>أرسل صورة التعليق وبياناتك</h4>
+                        <h4>{{ __('competition.step_3_title') }}</h4>
                     </div>
                     <div class="step-content">
                         <form method="POST" enctype="multipart/form-data" class="contest-form">
@@ -118,7 +118,7 @@
                             <div class="form-group">
                                 <label for="name" class="form-label">
                                     <i class="fas fa-user"></i>
-                                    الاسم الكامل
+                                    {{ __('competition.form_name') }}
                                 </label>
                                 <input type="text" name="name" id="name" class="form-input" required>
                             </div>
@@ -126,7 +126,7 @@
                             <div class="form-group">
                                 <label for="phone" class="form-label">
                                     <i class="fas fa-phone"></i>
-                                    رقم الجوال
+                                    {{ __('competition.form_phone') }}
                                 </label>
                                 <input type="text" name="phone" id="phone" class="form-input" required>
                             </div>
@@ -134,7 +134,7 @@
                             <div class="form-group">
                                 <label for="tiktok_user" class="form-label">
                                     <i class="fab fa-tiktok"></i>
-                                    اسم المستخدم في TikTok
+                                    {{ __('competition.form_tiktok_user') }}
                                 </label>
                                 <input type="text" name="tiktok_user" id="tiktok_user" class="form-input" required>
                             </div>
@@ -142,7 +142,7 @@
                             <div class="form-group">
                                 <label for="comment_image" class="form-label">
                                     <i class="fas fa-image"></i>
-                                    صورة التعليق (لقطة شاشة)
+                                    {{ __('competition.form_comment_image') }}
                                 </label>
                                 <div class="file-upload-wrapper">
                                     <input type="file" name="comment_image" id="comment_image" class="file-input"
@@ -151,16 +151,19 @@
                                         <div class="upload-icon">
                                             <i class="fas fa-cloud-upload-alt"></i>
                                         </div>
-                                        <p class="upload-text" style="text-align: center;">اسحب الصورة هنا أو اضغط للاختيار
+                                        <p class="upload-text" style="text-align: center;">
+                                            {{ __('competition.form_image_upload_text') }}
                                         </p>
-                                        <p class="upload-hint" style="text-align: center;">PNG, JPG, GIF حتى 10MB</p>
+                                        <p class="upload-hint" style="text-align: center;">
+                                            {{ __('competition.form_image_upload_hint') }}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
 
                             <button type="submit" class="btn-submit">
                                 <i class="fas fa-paper-plane"></i>
-                                إرسال المشاركة
+                                {{ __('competition.form_submit_button') }}
                                 <div class="btn-glow"></div>
                             </button>
                         </form>
@@ -179,7 +182,9 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            direction: rtl;
+            direction:
+                {{ App::isLocale('ar') ? 'rtl' : 'ltr' }}
+            ;
             /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
             min-height: 100vh;
             padding: 20px 0;
@@ -253,7 +258,9 @@
 
         .contest-subtitle {
             text-align: center;
-            direction: rtl;
+            direction:
+                {{ App::isLocale('ar') ? 'rtl' : 'ltr' }}
+            ;
             font-size: 1.2rem;
             opacity: 0.9;
             font-weight: 500;
@@ -321,13 +328,19 @@
             gap: 15px;
             margin-bottom: 25px;
             color: black !important;
-            direction: rtl;
+            direction:
+                {{ App::isLocale('ar') ? 'rtl' : 'ltr' }}
+            ;
         }
 
         .rules-header i {
             font-size: 1.5rem;
-            text-align: right;
-            direction: rtl;
+            text-align:
+                {{ App::isLocale('ar') ? 'right' : 'left' }}
+            ;
+            direction:
+                {{ App::isLocale('ar') ? 'rtl' : 'ltr' }}
+            ;
             color: #000 !important;
         }
 
@@ -346,7 +359,9 @@
 
         .rule-item {
             background: white;
-            text-align: right;
+            text-align:
+                {{ App::isLocale('ar') ? 'right' : 'left' }}
+            ;
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -475,7 +490,9 @@
 
         .step-content p {
             margin-bottom: 25px;
-            text-align: right;
+            text-align:
+                {{ App::isLocale('ar') ? 'right' : 'left' }}
+            ;
             color: #666;
             font-size: 1.1rem;
             line-height: 1.6;
@@ -695,12 +712,12 @@
                     const file = e.target.files[0];
                     if (file) {
                         uploadArea.innerHTML = `
-                                                                                                                                                        <div class="upload-icon">
-                                                                                                                                                            <i class="fas fa-check-circle" style="color: #28a745;"></i>
-                                                                                                                                                        </div>
-                                                                                                                                                        <p class="upload-text" style="color: #28a745;">تم اختيار الملف: ${file.name}</p>
-                                                                                                                                                        <p class="upload-hint">اضغط لتغيير الملف</p>
-                                                                                                                                                    `;
+                                                                                                                                                            <div class="upload-icon">
+                                                                                                                                                                <i class="fas fa-check-circle" style="color: #28a745;"></i>
+                                                                                                                                                            </div>
+                                                                                                                                                            <p class="upload-text" style="color: #28a745;">{{ __('competition.file_selected') }} ${file.name}</p>
+                                                                                                                                                            <p class="upload-hint">{{ __('competition.change_file') }}</p>
+                                                                                                                                                        `;
                     }
                 });
             }
