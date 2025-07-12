@@ -29,32 +29,12 @@
                 </div>
             </div>
 
-            <!-- Progress Bar -->
-            <div class="progress-wrapper">
+            <!-- Steps Content -->
+            <div class="steps-container">
                 <div class="rules-header">
                     <i class="fas fa-list-check"></i>
                     <h3>{{ __('competition.conditions_title') }}</h3>
                 </div>
-                <div class="progress-bar-custom">
-                    <div class="progress-step active" id="progress-1">
-                        <div class="step-circle">1</div>
-                        <span>{{ __('competition.step_1_progress') }}</span>
-                    </div>
-                    <div class="progress-line"></div>
-                    <div class="progress-step {{ $errors->any() ? 'active' : '' }}" id="progress-2">
-                        <div class="step-circle">2</div>
-                        <span>{{ __('competition.step_2_progress') }}</span>
-                    </div>
-                    <div class="progress-line"></div>
-                    <div class="progress-step {{ $errors->any() ? 'active' : '' }}" id="progress-3">
-                        <div class="step-circle">3</div>
-                        <span>{{ __('competition.step_3_progress') }}</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Steps Content -->
-            <div class="steps-container">
                 <!-- Step 1 -->
                 <div id="step-1" class="step-card {{ $errors->any() ? 'active' : 'active' }}">
                     <div class="step-header">
