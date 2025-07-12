@@ -711,7 +711,7 @@
         }
 
         function openStep2() {
-            window.open('https://www.tiktok.com/@mkhzin/video/7440888681554152712?_r=1&_t=ZS-8xszKvMY2YD', '_blank');
+            window.open('https://vt.tiktok.com/ZSBXr5Sko/', '_blank');
             document.getElementById('step-3').classList.remove('d-none');
             document.getElementById('progress-3').classList.add('active');
         }

@@ -36,5 +36,5 @@ return [
     'validation_comment_image_mimes' => 'The image must be a file of type: jpeg, png, jpg, gif, webp.',
     'validation_comment_image_max' => 'The image may not be greater than 4 megabytes.',
     'success_message' => 'Participation sent successfully!',
-    'customer_service' => 'For inquiries, contact customer service at: 558888381',
+    'customer_service' => 'For inquiries, contact customer service at: 920011209',
 ];
