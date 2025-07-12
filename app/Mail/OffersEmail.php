@@ -50,6 +50,7 @@ class OffersEmail extends Mailable
                 'offerUrl' => $this->offerUrl,
                 'offerImageUrl' => $this->offerImageUrl,
                 'unsubscribeUrl' => $this->unsubscribeUrl,
+                'emailSubject' => $this->emailSubject,
             ]
         );
     }

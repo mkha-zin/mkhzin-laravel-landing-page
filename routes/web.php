@@ -108,6 +108,7 @@ Route::group(['middleware' => 'localization'], static function () {
        return view('social_hub', $data);
     });
     Route::get('test', [LandingController::class, 'platforms'])->name('test');*/
+    Route::get('/remove-duplicate-subscriptions', [OfferController::class, 'removeDuplicates']);
 });
 
 

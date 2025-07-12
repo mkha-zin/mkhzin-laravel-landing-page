@@ -201,6 +201,7 @@ class OffersTable
                         Select::make('selected_subscribers')
                             ->label('Select specific subscribers')
                             ->multiple()
+                            ->maxItems(199)
                             ->searchable()
                             ->preload()
                             ->options(
