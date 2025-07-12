@@ -128,7 +128,7 @@ class JoinerResource extends Resource
                     ->label(__('dashboard.tiktok_user')),
                 ImageEntry::make('comment_image')
                     ->label(__('dashboard.comment_image'))
-                ->columnSpanFull(),
+                    ->columnSpanFull(),
             ])->columns(2)
         ]);
     }

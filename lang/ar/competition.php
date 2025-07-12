@@ -35,5 +35,5 @@ return [
     'validation_comment_image_mimes' => 'يجب أن تكون الصورة بصيغة: jpeg, png, jpg, gif, webp.',
     'validation_comment_image_max' => 'يجب ألا يتجاوز حجم الصورة 4 ميغابايت.',
     'success_message' => 'تم إرسال المشاركة بنجاح!',
-    'customer_service' => 'للاستفسار، تواصل مع خدمة العملاء على الرقم: 920011209',
+    'customer_service' => 'للمزيد من المعلومات، تواصل مع خدمة العملاء على الرقم المجاني: 920011209',
 ];

@@ -16,8 +16,11 @@
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <h1 class="contest-title">{{ __('competition.title') }}</h1>
-                    <p class="contest-subtitle">{{ __('competition.subtitle') }}</p>
-                    <p class="contest-subtitle" style="margin-top: 10px;">
+                    <p class="contest-subtitle">
+                        {{ __('competition.subtitle') }}
+                        أحرص على الإشتراك قبل السحب في يوم 1-8-2025
+                    </p>
+                    <p class="contest-subtitle" style="margin-top: 5px;">
                         {{ __(key: 'competition.customer_service') }}
                     </p>
 
