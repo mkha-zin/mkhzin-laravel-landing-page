@@ -17,6 +17,9 @@
                     </div>
                     <h1 class="contest-title">{{ __('competition.title') }}</h1>
                     <p class="contest-subtitle">{{ __('competition.subtitle') }}</p>
+                    <p class="contest-subtitle" style="margin-top: 10px;">
+                        {{ __(key: 'competition.customer_service') }}
+                    </p>
 
                 </div>
                 <div class="header-decoration">
@@ -369,7 +372,7 @@
 
         .rule-icon {
             /* width: 50px;
-                                    height: 50px; */
+                                                                                                                height: 50px; */
             padding: 10px;
             background: linear-gradient(135deg, #e12228, #ff4444);
             border-radius: 50%;
@@ -658,13 +661,12 @@
             }
 
             .progress-bar-custom {
-                flex-direction: column;
                 gap: 15px;
             }
 
             .progress-line {
-                width: 3px;
-                height: 30px;
+                width: 30px;
+                height: 3px;
             }
 
             .step-header {
@@ -672,6 +674,25 @@
                 text-align: center;
                 gap: 15px;
             }
+
+            .rules-header h3 {
+                font-size: 1rem !important;
+
+
+            }
+
+            .progress-step span {
+                font-size: 12px !important;
+
+
+            }
+
+            .step-circle {
+                width: 32px;
+                height: 32px;
+
+            }
+
         }
 
         .d-none {
@@ -707,12 +728,12 @@
                     const file = e.target.files[0];
                     if (file) {
                         uploadArea.innerHTML = `
-                                                                    <div class="upload-icon">
-                                                                        <i class="fas fa-check-circle" style="color: #28a745;"></i>
-                                                                    </div>
-                                                                    <p class="upload-text" style="color: #28a745;">{{ __('competition.file_selected') }} ${file.name}</p>
-                                                                    <p class="upload-hint">{{ __('competition.change_file') }}</p>
-                                                                `;
+                                                                                                                                                <div class="upload-icon">
+                                                                                                                                                    <i class="fas fa-check-circle" style="color: #28a745;"></i>
+                                                                                                                                                </div>
+                                                                                                                                                <p class="upload-text" style="color: #28a745;">{{ __('competition.file_selected') }} ${file.name}</p>
+                                                                                                                                                <p class="upload-hint">{{ __('competition.change_file') }}</p>
+                                                                                                                                            `;
                     }
                 });
             }
