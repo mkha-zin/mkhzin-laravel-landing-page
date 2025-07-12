@@ -941,12 +941,16 @@ $direction = app()->currentLocale() == 'ar' ? 'rtl' : 'ltr'
                                 </div>
                             </form>
                         </div>
-                        @include('includes._message')
                     </div>
                 </div>
             </div>
         </div>
         <!-- / Contact Us Aside -->
+
+        <!-- Toast Container (Can go in layout) -->
+        <div class="toast-container position-fixed top-0 start-0 p-3" style="z-index: 9999">
+            @include('includes._message')
+        </div>
 
         <!-- Contact Us Form -->
         <div class="elementor-element elementor-element-57ddf455 e-flex e-con-boxed e-con e-parent">

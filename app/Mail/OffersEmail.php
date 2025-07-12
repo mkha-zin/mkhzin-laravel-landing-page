@@ -16,15 +16,17 @@ class OffersEmail extends Mailable
     public string $offerUrl;
     public string $offerImageUrl;
     public string $unsubscribeUrl;
+    public string $emailSubject;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(string $offerUrl, string $offerImageUrl, string $unsubscribeUrl)
+    public function __construct(string $offerUrl, string $offerImageUrl, string $unsubscribeUrl, string $emailSubject)
     {
         $this->offerUrl = $offerUrl;
         $this->offerImageUrl = $offerImageUrl;
         $this->unsubscribeUrl = $unsubscribeUrl;
+        $this->emailSubject = $emailSubject;
     }
 
     /**
@@ -33,7 +35,7 @@ class OffersEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: '🎉 Special Offer Just for You!'
+            subject: $this->emailSubject
         );
     }
 
@@ -48,6 +50,7 @@ class OffersEmail extends Mailable
                 'offerUrl' => $this->offerUrl,
                 'offerImageUrl' => $this->offerImageUrl,
                 'unsubscribeUrl' => $this->unsubscribeUrl,
+                'emailSubject' => $this->emailSubject,
             ]
         );
     }

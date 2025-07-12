@@ -155,5 +155,6 @@ return [
     'starts_with' => 'يجب أن يبدأ حقل :attribute بأحد القيم التالية: :values.',
     'string' => 'يجب أن يكون حقل :attribute نصًا.',
     'timezone' => 'يجب أن يكون حقل :attribute منطقة زمنية صحيحة.',
-
+    'unique' => 'قيمة حقل :attribute مستخدمة من قبل.',
+    'unique_email' => 'هذا البريد الالكتروني مستخدم من قبل.',
 ];

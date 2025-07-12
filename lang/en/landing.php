@@ -39,6 +39,8 @@ return [
 
     'hero_title' => 'We Always seek to make our clients satisfied and happy',
     'Subscribe Now' => 'Subscribe Now',
+    'Subscribed' => 'You have already subscribed',
+    'subscription activated' => 'Your Subscription has been Activated, you will receive our offers via email',
     'Success Message' => 'Your message has been Received successfully, we will contact you ASAP.',
     'Subscribed Successfully' => 'Subscribed Successfully',
     'Send Message' => 'Send Message',
