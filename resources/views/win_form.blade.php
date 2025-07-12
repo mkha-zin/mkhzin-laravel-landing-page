@@ -56,7 +56,7 @@
             <!-- Steps Content -->
             <div class="steps-container">
                 <!-- Step 1 -->
-                <div id="step-1" class="step-card {{ $errors->any() ? 'd-none' : 'active' }}">
+                <div id="step-1" class="step-card {{ $errors->any() ? 'active' : 'active' }}">
                     <div class="step-header">
                         <div class="step-number">1</div>
                         <h4>{{ __('competition.step_1_title') }}</h4>
@@ -86,7 +86,7 @@
                 </div>
 
                 <!-- Step 3 -->
-                <div id="step-3" class="step-card {{ $errors->any() ? 'active' : 'd-none' }}">
+                <div id="step-3" class="step-card {{ $errors->any() ? 'active' : 'active' }}">
                     <div class="step-header">
                         <div class="step-number">3</div>
                         <h4>{{ __('competition.step_3_title') }}</h4>
