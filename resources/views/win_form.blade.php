@@ -71,7 +71,7 @@
                 </div>
 
                 <!-- Step 2 -->
-                <div id="step-2" class="step-card d-none">
+                <div id="step-2" class="step-card active">
                     <div class="step-header">
                         <div class="step-number">2</div>
                         <h4>{{ __('competition.step_2_title') }}</h4>
