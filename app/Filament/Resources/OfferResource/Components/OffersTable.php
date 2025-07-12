@@ -26,7 +26,6 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Webbingbrasil\FilamentAdvancedFilter\Filters\BooleanFilter;
 use Webbingbrasil\FilamentAdvancedFilter\Filters\DateFilter;
@@ -182,52 +181,34 @@ class OffersTable
                     ->beforeReplicaSaved(function (Model $replica, array $data): void {
                         $replica->fill($data);
                     }),
-                /*Action::make('send-offer')
-                    ->iconButton()
-                    ->label(__('dashboard.Send Offer'))
-                    ->icon('heroicon-o-paper-airplane')
-                    ->color('success')
-                    ->requiresConfirmation()
-                    ->action(function (Offer $record) {
-                        $subscribers = Subscription::where('is_active', true)->get();
-
-                        foreach ($subscribers as $subscriber) {
-                            $unsubscribeUrl = route('unsubscribe', ['email' => $subscriber->email]);
-
-                            Mail::to($subscriber->email)->queue(new OffersEmail(
-                                offerUrl: url('/view-pdf/' . $record->id),
-                                offerImageUrl: asset('storage/' . $record->image),
-                                unsubscribeUrl: $unsubscribeUrl
-                            ));
-                        }
-
-                        Notification::make()
-                            ->title(__('dashboard.Offer email sent to subscribers.'))
-                            ->success()
-                            ->send();
-                    })
-                    ->tooltip(__('dashboard.Send this offer to all active subscribers')),*/
                 Action::make('send-offer')
                     ->label(__('dashboard.Send Offer'))
                     ->icon('heroicon-o-paper-airplane')
                     ->iconButton()
                     ->color('success')
                     ->form([
+                        TextInput::make('email_subject')
+                            ->label('Email Subject')
+                            ->placeholder('Enter a subject for the email')
+                            ->required()
+                            ->default('Check out our latest offer!'),
+
                         Toggle::make('send_to_all')
                             ->label('Send to all subscribers')
                             ->default(true)
                             ->reactive(),
+
                         Select::make('selected_subscribers')
                             ->label('Select specific subscribers')
                             ->multiple()
                             ->searchable()
                             ->preload()
                             ->options(
-                                fn () => Subscription::where('is_active', true)
-                                ->pluck('email', 'id')
-                                ->toArray()
+                                fn() => Subscription::where('is_active', true)
+                                    ->pluck('email', 'id')
+                                    ->toArray()
                             )
-                            ->hidden(fn (callable $get) => $get('send_to_all')),
+                            ->hidden(fn(callable $get) => $get('send_to_all')),
                     ])
                     ->requiresConfirmation()
                     ->action(function (array $data, Offer $record) {
@@ -245,7 +226,8 @@ class OffersTable
                             Mail::to($email)->queue(new OffersEmail(
                                 offerUrl: url('/view-pdf/' . $record->id),
                                 offerImageUrl: asset('storage/' . $record->image),
-                                unsubscribeUrl: $unsubscribeUrl
+                                unsubscribeUrl: $unsubscribeUrl,
+                                emailSubject: $data['email_subject']
                             ));
                         }
 
@@ -255,6 +237,7 @@ class OffersTable
                             ->send();
                     })
                     ->tooltip('Send this offer to all or selected subscribers'),
+
 
             ])
             ->bulkActions([

@@ -343,43 +343,6 @@
 
         }
 
-        .rules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .rule-item {
-            background: white;
-            text-align:
-                {{ App::isLocale('ar') ? 'right' : 'left' }}
-            ;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            transition: transform 0.3s ease;
-        }
-
-        .rule-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .rule-icon {
-            /* width: 50px;
-                                    height: 50px; */
-            padding: 10px;
-            background: linear-gradient(135deg, #e12228, #ff4444);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-        }
-
         /* Progress Bar */
         .progress-wrapper {
             padding: 30px;
@@ -707,12 +670,12 @@
                     const file = e.target.files[0];
                     if (file) {
                         uploadArea.innerHTML = `
-                                                                    <div class="upload-icon">
-                                                                        <i class="fas fa-check-circle" style="color: #28a745;"></i>
-                                                                    </div>
-                                                                    <p class="upload-text" style="color: #28a745;">{{ __('competition.file_selected') }} ${file.name}</p>
-                                                                    <p class="upload-hint">{{ __('competition.change_file') }}</p>
-                                                                `;
+                                                <div class="upload-icon">
+                                                    <i class="fas fa-check-circle" style="color: #28a745;"></i>
+                                                </div>
+                                                <p class="upload-text" style="color: #28a745;">{{ __('competition.file_selected') }} ${file.name}</p>
+                                                <p class="upload-hint">{{ __('competition.change_file') }}</p>
+                                            `;
                     }
                 });
             }
@@ -723,7 +686,6 @@
             "rtl": {{ App::isLocale('ar') ? 'true' : 'false' }},
             "timeOut": "10000",
             "extendedTimeOut": "10000"
-
         };
 
         @if ($errors->any())
