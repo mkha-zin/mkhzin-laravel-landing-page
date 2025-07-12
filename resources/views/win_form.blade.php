@@ -18,7 +18,7 @@
                     <h1 class="contest-title">{{ __('competition.title') }}</h1>
                     <p class="contest-subtitle">
                         {{ __('competition.subtitle') }}
-                        أحرص على الإشتراك قبل السحب في يوم 1-8-2025
+                        {{ __('competition.subscribe before') }}
                     </p>
                     <p class="contest-subtitle" style="margin-top: 5px;">
                         {{ __(key: 'competition.customer_service') }}
