@@ -118,8 +118,12 @@ class JobsController extends Controller
             'phone.regex' => __('validation.phone_format', ['attribute' => __('home.Phone Number')]),
         ]);
 
-        // Handle resume file upload
-        $resumePath = $request->file('resume')->store('resumes', 'public');
+        if ($request->hasFile('resume')) {
+            // Handle resume file upload
+            $resumePath = $request->file('resume')->store('resumes', 'public');
+        }else{
+            $resumePath = null;
+        }
 
         // Create Job Application record
         $application = Application::create([
