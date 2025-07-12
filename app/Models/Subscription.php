@@ -11,5 +11,7 @@ class Subscription extends Model
 
     protected $fillable = [
         'email',
+        'is_active',
+        'unsubscribed_at',
     ];
 }

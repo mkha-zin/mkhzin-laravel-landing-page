@@ -98,11 +98,23 @@ class LandingController extends Controller
 
     public function subscribe(HttpRequest $request): RedirectResponse
     {
+
+        if (Subscription::query()->where('email', $request->email)->exists()) {
+            $subscriper = Subscription::where('email', $request->email)->first();
+
+            if ($subscriper->is_active) {
+                return redirect('/#subscribe')->with('success', __('landing.Subscribed'));
+            }else{
+                $subscriper->update(['is_active' => true]);
+                return redirect('/#subscribe')->with('success', __('landing.subscription activated'));
+            }
+        }
+
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|unique:subscriptions',
         ], [
-            'email.required' => __('landing.validation_email_required'),
-            'email.email' => __('landing.validation_email_email'),
+            'email.required' => __('validation.required', ['attribute' => 'Email']),
+            'email.email' => __('validation.email', ['attribute' => 'Email']),
             'email.unique' => __('validation.unique_email'),
         ]);
 
