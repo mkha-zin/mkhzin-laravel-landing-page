@@ -4,8 +4,10 @@ use App\Http\Controllers\AppLandingController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\OfferController;
 use App\Http\Middleware\Localization;
 use App\Models\Gallery;
+use App\Models\Subscription;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +31,10 @@ Route::group(['middleware' => 'localization'], static function () {
     });
 
     Route::get('view-pdf/{id}', [LandingController::class, 'viewPdf']);
+    Route::post('/admin/offers/{offer}/send', [OfferController::class, 'sendOffer'])
+        ->name('admin.offers.send');
+    Route::get('/unsubscribe', [OfferController::class, 'unsubscribe'])->name('unsubscribe');
+
 
     Route::get('contact', [LandingController::class, 'contact']);
     Route::get('vision', [LandingController::class, 'vision']);

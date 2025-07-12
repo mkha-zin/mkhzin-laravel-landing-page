@@ -15,6 +15,7 @@ use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ExportBulkAction;
 use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
@@ -67,6 +68,18 @@ class SubscriptionResource extends Resource
                 TextColumn::make('email')
                     ->label(__('dashboard.email'))
                     ->searchable(),
+                IconColumn::make('is_active')
+                    ->label(__('dashboard.status'))
+                    ->icon(fn($record) => $record->is_active ? 'heroicon-s-check-circle' : 'heroicon-s-x-circle')
+                    ->color(fn($record) => $record->is_active ? 'success' : 'danger')
+                    ->sortable()
+                    ->alignCenter(),
+                TextColumn::make('unsubscribed_at')
+                    ->label(__('dashboard.unsubscribed at'))
+                    ->date()
+                    ->dateTimeTooltip('Y/m/d h:i:s A')
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('created_at')
                     ->label(__('dashboard.created at'))
                     ->date()

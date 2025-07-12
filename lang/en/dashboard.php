@@ -265,6 +265,7 @@ return [
     'username' => 'Username',
     'download' => 'Download',
     'deleted' => 'Deleted',
+    'unsubscribed at' => 'Unsubscribed At',
     'created at' => 'Created At',
     'updated at' => 'Updated At',
     'file not found' => 'File Not Found',

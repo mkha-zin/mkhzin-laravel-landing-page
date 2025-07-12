@@ -261,6 +261,7 @@ return [
     'username' => 'اسم المستخدم',
     'download' => 'تحميل',
     'deleted' => 'محذوف',
+    'unsubscribed at' => 'ألغى الاشتراك في',
     'created at' => 'انشئ في',
     'updated at' => 'تم التحديث في',
     'file not found' => 'الملف غير موجود',

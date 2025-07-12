@@ -2,7 +2,9 @@
 
 namespace App\Filament\Resources\OfferResource\Components;
 
+use App\Mail\OffersEmail;
 use App\Models\Offer;
+use App\Models\Subscription;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
@@ -10,6 +12,8 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use Filament\Notifications\Notification;
+use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
@@ -22,6 +26,8 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Webbingbrasil\FilamentAdvancedFilter\Filters\BooleanFilter;
 use Webbingbrasil\FilamentAdvancedFilter\Filters\DateFilter;
 
@@ -175,7 +181,81 @@ class OffersTable
                     ])
                     ->beforeReplicaSaved(function (Model $replica, array $data): void {
                         $replica->fill($data);
+                    }),
+                /*Action::make('send-offer')
+                    ->iconButton()
+                    ->label(__('dashboard.Send Offer'))
+                    ->icon('heroicon-o-paper-airplane')
+                    ->color('success')
+                    ->requiresConfirmation()
+                    ->action(function (Offer $record) {
+                        $subscribers = Subscription::where('is_active', true)->get();
+
+                        foreach ($subscribers as $subscriber) {
+                            $unsubscribeUrl = route('unsubscribe', ['email' => $subscriber->email]);
+
+                            Mail::to($subscriber->email)->queue(new OffersEmail(
+                                offerUrl: url('/view-pdf/' . $record->id),
+                                offerImageUrl: asset('storage/' . $record->image),
+                                unsubscribeUrl: $unsubscribeUrl
+                            ));
+                        }
+
+                        Notification::make()
+                            ->title(__('dashboard.Offer email sent to subscribers.'))
+                            ->success()
+                            ->send();
                     })
+                    ->tooltip(__('dashboard.Send this offer to all active subscribers')),*/
+                Action::make('send-offer')
+                    ->label(__('dashboard.Send Offer'))
+                    ->icon('heroicon-o-paper-airplane')
+                    ->iconButton()
+                    ->color('success')
+                    ->form([
+                        Toggle::make('send_to_all')
+                            ->label('Send to all subscribers')
+                            ->default(true)
+                            ->reactive(),
+                        Select::make('selected_subscribers')
+                            ->label('Select specific subscribers')
+                            ->multiple()
+                            ->searchable()
+                            ->preload()
+                            ->options(
+                                fn () => Subscription::where('is_active', true)
+                                ->pluck('email', 'id')
+                                ->toArray()
+                            )
+                            ->hidden(fn (callable $get) => $get('send_to_all')),
+                    ])
+                    ->requiresConfirmation()
+                    ->action(function (array $data, Offer $record) {
+                        $emails = [];
+
+                        if ($data['send_to_all']) {
+                            $emails = Subscription::where('is_active', true)->pluck('email')->toArray();
+                        } else {
+                            $emails = Subscription::whereIn('id', $data['selected_subscribers'])->pluck('email')->toArray();
+                        }
+
+                        foreach ($emails as $email) {
+                            $unsubscribeUrl = route('unsubscribe', ['email' => $email]);
+
+                            Mail::to($email)->queue(new OffersEmail(
+                                offerUrl: url('/view-pdf/' . $record->id),
+                                offerImageUrl: asset('storage/' . $record->image),
+                                unsubscribeUrl: $unsubscribeUrl
+                            ));
+                        }
+
+                        Notification::make()
+                            ->title('Offer email sent successfully.')
+                            ->success()
+                            ->send();
+                    })
+                    ->tooltip('Send this offer to all or selected subscribers'),
+
             ])
             ->bulkActions([
                 DeleteBulkAction::make(),
