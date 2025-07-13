@@ -36,6 +36,8 @@ return [
     'validation_comment_image_image' => 'The file must be an image.',
     'validation_comment_image_mimes' => 'The image must be a file of type: jpeg, png, jpg, gif, webp.',
     'validation_comment_image_max' => 'The image may not be greater than 4 megabytes.',
+    'no_changes' => 'No changes were made.',
+    'updated_successfully' => 'Your data was Updated successfully!',
     'success_message' => 'Participation sent successfully!',
     'customer_service' => 'For inquiries, contact customer service at: 920011209',
 ];

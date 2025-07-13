@@ -462,16 +462,15 @@ class LandingController extends Controller
 
     public function saveJoiner(HttpRequest $request): RedirectResponse
     {
-        $validator = Validator::make(request()->all(), [
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
-            'tiktok_user' => 'required|string|max:255|unique:joiners,tiktok_user|regex:/^\S*$/',
+            'tiktok_user' => 'required|string|max:255|regex:/^\S*$/',
             'comment_image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:4096',
         ], [
             'name.required' => __('competition.validation_name_required'),
             'phone.required' => __('competition.validation_phone_required'),
             'tiktok_user.required' => __('competition.validation_tiktok_user_required'),
-            'tiktok_user.unique' => __('competition.validation_tiktok_user_unique'),
             'tiktok_user.regex' => __('competition.validation_tiktok_user_regex'),
             'comment_image.required' => __('competition.validation_comment_image_required'),
             'comment_image.image' => __('competition.validation_comment_image_image'),
@@ -485,10 +484,31 @@ class LandingController extends Controller
                 ->withInput();
         }
 
-        // Store image
+        $existingJoiner = Joiner::where('tiktok_user', $request->input('tiktok_user'))->first();
+
+        // Store uploaded image
         $path = $request->file('comment_image')->store('assets/images/comment_images', 'public');
 
-        // Save to DB
+        if ($existingJoiner) {
+            // Check if existing data is different
+            if (
+                $existingJoiner->name !== $request->input('name') ||
+                $existingJoiner->phone !== $request->input('phone') ||
+                $existingJoiner->comment_image !== $path
+            ) {
+                $existingJoiner->update([
+                    'name' => $request->input('name'),
+                    'phone' => $request->input('phone'),
+                    'comment_image' => $path,
+                ]);
+
+                return redirect()->back()->with('success', __('competition.updated_successfully'));
+            }
+
+            return redirect()->back()->with('info', __('competition.no_changes'));
+        }
+
+        // Create new entry
         Joiner::create([
             'name' => $request->input('name'),
             'phone' => $request->input('phone'),
