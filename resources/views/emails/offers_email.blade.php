@@ -83,12 +83,6 @@
             margin-bottom: 0px;
         }
 
-
-
-
-
-
-
         .button {
             display: inline-block;
             background-color: #28a745;
@@ -110,7 +104,7 @@
             /* Identity red gradient for CTA */
             color: #ffffff !important;
             display: block;
-            width: "100%";
+            width: 100%;
             margin: 0 0 0;
             padding: 15px;
             font-size: 20px;
