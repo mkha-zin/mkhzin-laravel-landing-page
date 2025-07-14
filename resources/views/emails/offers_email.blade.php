@@ -184,7 +184,7 @@
         </div>
         <div class="email-body">
             <div class="intro-text">
-                <h3>تخفيضات نهاية العام وصلت!</h3>
+                <h3>{{ $emailSubject }}</h3>
                 <p>
                     استعد لأقوى العروض الحصرية على مجموعة واسعة من المنتجات. هذه فرصتك المثالية لتجد كل ما تحتاجه بأسعار
                     لم يسبق لها مثيل. لا تدع الفرصة تفوتك، تسوق الآن قبل نفاذ الكمية!
@@ -193,14 +193,14 @@
 
             {{-- Static Offer Example --}}
             <div class="offer-card">
-                <a href="#" target="_blank" style="text-decoration: none;">
-                    <img src="https://mkhzin.com/storage/assets/images/offers/01JZRPYH6B2QYRTTSNEXFGJV30.jpg"
+                <a href="{{ $offerUrl }}" target="_blank" style="text-decoration: none;">
+                    <img src="{{ $offerImageUrl }}"
                         alt="عرض خاص">
                 </a>
 
             </div>
 
-            <a href="#" target="_blank" class="button main-button">شاهد العروض</a>
+            <a href="{{ $offerUrl }}" target="_blank" class="button main-button">شاهد العرض</a>
 
         </div>
         <div class="email-footer">
@@ -222,7 +222,7 @@
         </div>
         <p class="unsubscribe">
             إذا كنت لا ترغب في استقبال هذه الرسائل مجدداً، يمكنك
-            <a href="#">إلغاء الاشتراك</a>.
+            <a href="{{ $unsubscribeUrl }}">إلغاء الاشتراك</a>.
         </p>
     </div>
 </body>
