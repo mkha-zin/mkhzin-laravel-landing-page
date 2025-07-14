@@ -73,6 +73,7 @@ class SubscriptionResource extends Resource
                     ->icon(fn($record) => $record->is_active ? 'heroicon-s-check-circle' : 'heroicon-s-x-circle')
                     ->color(fn($record) => $record->is_active ? 'success' : 'danger')
                     ->sortable()
+                    ->action(fn($record) => Subscription::changeStatus($record))
                     ->alignCenter(),
                 TextColumn::make('unsubscribed_at')
                     ->label(__('dashboard.unsubscribed at'))
