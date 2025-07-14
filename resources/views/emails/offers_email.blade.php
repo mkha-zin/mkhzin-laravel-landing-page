@@ -179,9 +179,10 @@
 <body>
     <div class="email-container">
         <div class="email-header">
-            <img src="https://mkhzin.com/storage/assets/images/headers/01JZD3Z47R6PG6XNGGGCXHPXAH.png"
+            <img src="{{ asset('storage/assets/images/headers/01JZD3Z47R6PG6XNGGGCXHPXAH.png') }}"
                 alt="تخفيضات نهاية العام الكبرى">
         </div>
+
         <div class="email-body">
             <div class="intro-text">
                 <h3>{{ $emailSubject }}</h3>
