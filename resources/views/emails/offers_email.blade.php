@@ -171,7 +171,7 @@
 <body>
     <div class="email-container">
         <div class="email-header">
-            <img src="{{ asset('storage/assets/images/headers/01JZD3Z47R6PG6XNGGGCXHPXAH.png') }}"
+            <img src="{{ $offerImageUrl }}"
                 alt="تخفيضات نهاية العام الكبرى">
         </div>
 
@@ -179,19 +179,18 @@
             <div class="intro-text">
                 <h3>{{ $emailSubject }}</h3>
                 <p>
-                    استعد لأقوى العروض الحصرية على مجموعة واسعة من المنتجات. هذه فرصتك المثالية لتجد كل ما تحتاجه بأسعار
-                    لم يسبق لها مثيل. لا تدع الفرصة تفوتك، تسوق الآن قبل نفاذ الكمية!
+                    {{ $offerDescription }}
                 </p>
             </div>
 
             {{-- Static Offer Example --}}
-            <div class="offer-card">
+            {{--<div class="offer-card">
                 <a href="{{ $offerUrl }}" target="_blank" style="text-decoration: none;">
                     <img src="{{ $offerImageUrl }}"
                         alt="عرض خاص">
                 </a>
 
-            </div>
+            </div>--}}
 
             <a href="{{ $offerUrl }}" target="_blank" class="button main-button">شاهد العرض</a>
 

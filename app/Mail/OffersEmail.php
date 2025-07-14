@@ -17,16 +17,18 @@ class OffersEmail extends Mailable
     public string $offerImageUrl;
     public string $unsubscribeUrl;
     public string $emailSubject;
+    public string $offerDescription;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(string $offerUrl, string $offerImageUrl, string $unsubscribeUrl, string $emailSubject)
+    public function __construct(string $offerUrl, string $offerImageUrl, string $unsubscribeUrl, string $emailSubject, string $offerDescription)
     {
         $this->offerUrl = $offerUrl;
         $this->offerImageUrl = $offerImageUrl;
         $this->unsubscribeUrl = $unsubscribeUrl;
         $this->emailSubject = $emailSubject;
+        $this->offerDescription = $offerDescription;
     }
 
     /**
@@ -51,6 +53,7 @@ class OffersEmail extends Mailable
                 'offerImageUrl' => $this->offerImageUrl,
                 'unsubscribeUrl' => $this->unsubscribeUrl,
                 'emailSubject' => $this->emailSubject,
+                'offerDescription' => $this->offerDescription,
             ]
         );
     }

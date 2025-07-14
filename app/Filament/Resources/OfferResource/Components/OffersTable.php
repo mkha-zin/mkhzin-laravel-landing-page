@@ -191,7 +191,12 @@ class OffersTable
                             ->label('Email Subject')
                             ->placeholder('Enter a subject for the email')
                             ->required()
-                            ->default('Check out our latest offer!'),
+                            ->default(fn(Offer $record) => $record->name_ar ?? 'Check out our latest offer!'),
+                        TextInput::make('email_description')
+                            ->label('Email Description')
+                            ->placeholder('Enter a description for the email')
+                            ->required()
+                            ->default(fn(Offer $record) => $record->description_ar ?? 'We have a new offer for you!'),
 
                         Toggle::make('send_to_all')
                             ->label('Send to all subscribers')
@@ -228,7 +233,8 @@ class OffersTable
                                 offerUrl: url('/view-pdf/' . $record->id),
                                 offerImageUrl: asset('storage/' . $record->image),
                                 unsubscribeUrl: $unsubscribeUrl,
-                                emailSubject: $data['email_subject']
+                                emailSubject: $data['email_subject'],
+                                offerDescription: $record->description_ar,
                             ));
                         }
 
