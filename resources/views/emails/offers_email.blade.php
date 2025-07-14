@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <title>تخفيضات نهاية العام الكبرى! لا تفوتها!</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
-
         body {
             font-family: 'Cairo', Arial, sans-serif;
             background-color: #f4f4f4;
