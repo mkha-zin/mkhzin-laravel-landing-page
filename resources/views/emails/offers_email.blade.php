@@ -44,7 +44,6 @@
         .intro-text {
             padding-bottom: 25px;
             margin-bottom: 25px;
-            border-bottom: 2px solid #f0f0f0;
         }
 
         .intro-text h3 {
@@ -103,7 +102,7 @@
             color: #ffffff !important;
             display: block;
             width: 100%;
-            margin: 0 0 0;
+            margin: 0;
             padding: 15px;
             font-size: 20px;
             /* Larger font */
@@ -172,26 +171,16 @@
     <div class="email-container">
         <div class="email-header">
             <img src="{{ $offerImageUrl }}"
-                alt="تخفيضات نهاية العام الكبرى">
+                alt="{{ $emailSubject }}">
         </div>
 
         <div class="email-body">
             <div class="intro-text">
                 <h3>{{ $emailSubject }}</h3>
                 <p>
-                    {{ $offerDescription }}
+                    {{ \Filament\Support\Markdown::block($offerDescription) }}
                 </p>
             </div>
-
-            {{-- Static Offer Example --}}
-            {{--<div class="offer-card">
-                <a href="{{ $offerUrl }}" target="_blank" style="text-decoration: none;">
-                    <img src="{{ $offerImageUrl }}"
-                        alt="عرض خاص">
-                </a>
-
-            </div>--}}
-
             <a href="{{ $offerUrl }}" target="_blank" class="button main-button">شاهد العرض</a>
 
         </div>
