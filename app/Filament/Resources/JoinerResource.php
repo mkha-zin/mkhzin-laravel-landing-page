@@ -66,6 +66,8 @@ class JoinerResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->striped()
+            ->extremePaginationLinks()
             ->columns([
                 TextColumn::make('name')
                     ->label(__('dashboard.name'))
