@@ -1,4 +1,17 @@
-<!DOCTYPE html>
+<?php
+
+use App\Models\SocialLink;
+
+$facebook = SocialLink::getPlatform('Facebook');
+$twitter = SocialLink::getPlatform('Twitter(X)');
+$instagram = SocialLink::getPlatform('Instagram');
+$snapchat = SocialLink::getPlatform('Snapchat');
+$tiktok = SocialLink::getPlatform('TikTok');
+$whatsChannel = SocialLink::getPlatform('Whatsapp Channel');
+
+?>
+
+    <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
@@ -168,44 +181,57 @@
 </head>
 
 <body>
-    <div class="email-container">
-        <div class="email-header">
-            <img src="{{ $offerImageUrl }}"
-                alt="{{ $emailSubject }}">
-        </div>
+<div class="email-container">
+    <div class="email-header">
+        <img src="{{ $offerImageUrl }}"
+             alt="{{ $emailSubject }}">
+    </div>
 
-        <div class="email-body">
-            <div class="intro-text">
-                <h3>{{ $emailSubject }}</h3>
-                <p>
-                    {{ \Filament\Support\Markdown::block($offerDescription) }}
-                </p>
-            </div>
-            <a href="{{ $offerUrl }}" target="_blank" class="button main-button">شاهد العرض</a>
-
-        </div>
-        <div class="email-footer">
-            <div class="footer-logo">
-                <a href="#" target="_blank"><img src="{{ asset('uploads/mkhazin/logo900.png') }}"
-                        alt="شعار مخازن العالمية"></a>
-            </div>
-            <div class="social-icons">
-                <a href="#" target="_blank"><img src="{{ asset('images/icons/facebook.png') }}" alt="Facebook"></a>
-                <a href="#" target="_blank"><img src="{{ asset('images/icons/twitter.png') }}" alt="Twitter"></a>
-                <a href="#" target="_blank"><img src="{{ asset('images/icons/instagram.png') }}" alt="Instagram"></a>
-                <a href="#" target="_blank"><img src="{{ asset('images/icons/snapchat.png') }}" alt="Snapchat"></a>
-                <a href="#" target="_blank"><img src="{{ asset('images/icons/tik-tok.png') }}" alt="TikTok"></a>
-                <a href="#" target="_blank"><img src="{{ asset('images/icons/whatsapp.png') }}" alt="WhatsApp"></a>
-            </div>
-            <p class="footer-text">
-                © {{ date('Y') }} مخازن العالمية. جميع الحقوق محفوظة.<br>
+    <div class="email-body">
+        <div class="intro-text">
+            <h3>{{ $emailSubject }}</h3>
+            <p>
+                {{ \Filament\Support\Markdown::block($offerDescription) }}
             </p>
         </div>
-        <p class="unsubscribe">
-            إذا كنت لا ترغب في استقبال هذه الرسائل مجدداً، يمكنك
-            <a href="{{ $unsubscribeUrl }}">إلغاء الاشتراك</a>.
+        <a href="{{ $offerUrl }}" target="_blank" class="button main-button">شاهد العرض</a>
+
+    </div>
+    <div class="email-footer">
+        <div class="footer-logo">
+            <a href="https://mkhzin.com" target="_blank">
+                <img src="{{ asset('uploads/mkhazin/logo900.png') }}" alt="شعار مخازن العالمية">
+            </a>
+        </div>
+        <div class="social-icons">
+            <a href="{{ $facebook->link }}" target="_blank">
+                <img src="{{ asset('images/icons/facebook.png') }}" alt="Facebook">
+            </a>
+            <a href="{{ $twitter->link }}" target="_blank">
+                <img src="{{ asset('images/icons/twitter.png') }}" alt="Twitter">
+            </a>
+            <a href="{{ $instagram->link }}" target="_blank">
+                <img src="{{ asset('images/icons/instagram.png') }}" alt="Instagram">
+            </a>
+            <a href="{{ $snapchat->link }}" target="_blank">
+                <img src="{{ asset('images/icons/snapchat.png') }}" alt="Snapchat">
+            </a>
+            <a href="{{ $tiktok->link }}" target="_blank">
+                <img src="{{ asset('images/icons/tik-tok.png') }}" alt="TikTok">
+            </a>
+            <a href="{{ $whatsChannel->link }}" target="_blank">
+                <img src="{{ asset('images/icons/whatsapp.png') }}" alt="WhatsApp">
+            </a>
+        </div>
+        <p class="footer-text">
+            © {{ date('Y') }} مخازن العالمية. جميع الحقوق محفوظة.<br>
         </p>
     </div>
+    <p class="unsubscribe">
+        إذا كنت لا ترغب في استقبال هذه الرسائل مجدداً، يمكنك
+        <a href="{{ $unsubscribeUrl }}">إلغاء الاشتراك</a>.
+    </p>
+</div>
 </body>
 
 </html>

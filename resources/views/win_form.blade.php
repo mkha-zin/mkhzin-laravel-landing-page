@@ -39,7 +39,7 @@
                     <h3>{{ __('competition.conditions_title') }}</h3>
                 </div>
                 <!-- Step 1 -->
-                <div id="step-1" class="step-card {{ $errors->any() ? 'active' : 'active' }}">
+                <div id="step-1" class="step-card active">
                     <div class="step-header">
                         <div class="step-number">1</div>
                         <h4>{{ __('competition.step_1_title') }}</h4>
@@ -69,7 +69,7 @@
                 </div>
 
                 <!-- Step 3 -->
-                <div id="step-3" class="step-card {{ $errors->any() ? 'active' : 'active' }}">
+                <div id="step-3" class="step-card active">
                     <div class="step-header">
                         <div class="step-number">3</div>
                         <h4>{{ __('competition.step_3_title') }}</h4>
@@ -121,7 +121,7 @@
                                 </label>
                                 <div class="file-upload-wrapper">
                                     <input type="file" name="comment_image" id="comment_image" class="file-input"
-                                        accept="image/*" required>
+                                        accept="image/*">
                                     <div class="file-upload-area">
                                         <div class="upload-icon">
                                             <i class="fas fa-cloud-upload-alt"></i>

@@ -3,14 +3,14 @@
     use App\Models\Section;
     use App\Models\SocialLink;
 
-    $facebook = SocialLink::query()->where('title_en', 'Facebook')->where('is_active', 1)->first();
-    $twitter = SocialLink::query()->where('title_en', 'Twitter(X)')->where('is_active', 1)->first();
-    $linkedin = SocialLink::query()->where('title_en', 'Linkedin')->where('is_active', 1)->first();
-    $youtube = SocialLink::query()->where('title_en', 'Youtube')->where('is_active', 1)->first();
-    $instagram = SocialLink::query()->where('title_en', 'Instagram')->where('is_active', 1)->first();
-    $snapchat = SocialLink::query()->where('title_en', 'Snapchat')->where('is_active', 1)->first();
-    $tiktok = SocialLink::query()->where('title_en', 'TikTok')->where('is_active', 1)->first();
-    $whatsChannel = SocialLink::query()->where('title_en', 'Whatsapp Channel')->where('is_active', 1)->first();
+    $facebook = SocialLink::getPlatform('Facebook');
+    $twitter = SocialLink::getPlatform('Twitter(X)');
+    $linkedin = SocialLink::getPlatform('Linkedin');
+    $youtube = SocialLink::getPlatform('Youtube');
+    $instagram = SocialLink::getPlatform('Instagram');
+    $snapchat = SocialLink::getPlatform('Snapchat');
+    $tiktok = SocialLink::getPlatform('TikTok');
+    $whatsChannel = SocialLink::getPlatform('Whatsapp Channel');
     $sections = Section::query()->inRandomOrder()->limit(6)->get();
     $depars = Department::query()->get();
 

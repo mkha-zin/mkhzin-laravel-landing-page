@@ -466,13 +466,12 @@ class LandingController extends Controller
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
             'tiktok_user' => 'required|string|max:255|regex:/^\S*$/',
-            'comment_image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:4096',
+            'comment_image' => 'image|mimes:jpeg,png,jpg,gif,webp|max:4096',
         ], [
             'name.required' => __('competition.validation_name_required'),
             'phone.required' => __('competition.validation_phone_required'),
             'tiktok_user.required' => __('competition.validation_tiktok_user_required'),
             'tiktok_user.regex' => __('competition.validation_tiktok_user_regex'),
-            'comment_image.required' => __('competition.validation_comment_image_required'),
             'comment_image.image' => __('competition.validation_comment_image_image'),
             'comment_image.mimes' => __('competition.validation_comment_image_mimes'),
             'comment_image.max' => __('competition.validation_comment_image_max'),
@@ -487,7 +486,10 @@ class LandingController extends Controller
         $existingJoiner = Joiner::where('tiktok_user', $request->input('tiktok_user'))->first();
 
         // Store uploaded image
-        $path = $request->file('comment_image')->store('assets/images/comment_images', 'public');
+        $path = null;
+        if ($request->hasFile('comment_image')) {
+            $path = $request->file('comment_image')->store('assets/images/comment_images', 'public');
+        }
 
         if ($existingJoiner) {
             // Check if existing data is different
