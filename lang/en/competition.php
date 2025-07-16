@@ -21,7 +21,7 @@ return [
     'form_name' => 'Full Name',
     'form_phone' => 'Phone Number',
     'form_tiktok_user' => 'TikTok Username',
-    'form_comment_image' => 'Comment Picture (Screenshot)',
+    'form_comment_image' => 'Comment Picture - Screenshot (Optional)',
     'form_image_upload_text' => 'Drag the image here or click to select',
     'form_image_upload_hint' => 'PNG, JPG, GIF up to 10MB',
     'form_submit_button' => 'Submit Participation',

@@ -20,7 +20,7 @@ return [
     'form_name' => 'الاسم الكامل',
     'form_phone' => 'رقم الجوال',
     'form_tiktok_user' => 'اسم المستخدم (يوزر حسابك) في TikTok',
-    'form_comment_image' => 'صورة التعليق (لقطة شاشة)',
+    'form_comment_image' => 'صورة التعليق - لقطة شاشة (اختياري)',
     'form_image_upload_text' => 'اسحب الصورة هنا أو اضغط للاختيار',
     'form_image_upload_hint' => 'PNG, JPG, GIF حتى 10MB',
     'form_submit_button' => 'إرسال المشاركة',
