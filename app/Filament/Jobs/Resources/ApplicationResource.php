@@ -24,6 +24,7 @@ use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
 class ApplicationResource extends Resource
@@ -145,6 +146,13 @@ class ApplicationResource extends Resource
                     ->fileDisk('public')
                     ->color(Color::Green)
                     ->icon('heroicon-o-newspaper'),
+            ])->filters([
+                SelectFilter::make('job_id')
+                    ->relationship('job', 'title')
+                    ->label(__('dashboard.Career'))
+                    ->searchable()
+                    ->preload()
+                    ->placeholder(__('dashboard.all careers')),
             ])
             ->headerActionsPosition(HeaderActionsPosition::Bottom)
             ->actions([
