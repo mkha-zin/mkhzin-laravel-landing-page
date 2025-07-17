@@ -121,7 +121,7 @@ class JobsController extends Controller
         if ($request->hasFile('resume')) {
             // Handle resume file upload
             $resumePath = $request->file('resume')->store('resumes', 'public');
-        }else{
+        } else {
             $resumePath = null;
         }
 

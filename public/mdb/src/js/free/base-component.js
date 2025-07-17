@@ -6,7 +6,7 @@
  */
 
 import Data from '../mdb/dom/data';
-import { getElement } from '../mdb/util/index';
+import {getElement} from '../mdb/util/index';
 import EventHandler from '../mdb/dom/event-handler';
 
 /**
@@ -18,49 +18,49 @@ import EventHandler from '../mdb/dom/event-handler';
 // const VERSION = '5.1.3';
 
 class BaseComponent {
-  constructor(element) {
-    element = getElement(element);
+    constructor(element) {
+        element = getElement(element);
 
-    if (!element) {
-      return;
+        if (!element) {
+            return;
+        }
+
+        this._element = element;
+        Data.setData(this._element, this.constructor.DATA_KEY, this);
     }
 
-    this._element = element;
-    Data.setData(this._element, this.constructor.DATA_KEY, this);
-  }
+    static get NAME() {
+        throw new Error('You have to implement the static method "NAME", for each component!');
+    }
 
-  dispose() {
-    Data.removeData(this._element, this.constructor.DATA_KEY);
-    EventHandler.off(this._element, this.constructor.EVENT_KEY);
+    static get DATA_KEY() {
+        return `mdb.${this.NAME}`;
+    }
 
-    Object.getOwnPropertyNames(this).forEach((propertyName) => {
-      this[propertyName] = null;
-    });
-  }
+    static get EVENT_KEY() {
+        return `.${this.DATA_KEY}`;
+    }
 
-  /** Static */
+    /** Static */
 
-  static getInstance(element) {
-    return Data.getData(getElement(element), this.DATA_KEY);
-  }
+    static getInstance(element) {
+        return Data.getData(getElement(element), this.DATA_KEY);
+    }
 
-  static getOrCreateInstance(element, config = {}) {
-    return (
-      this.getInstance(element) || new this(element, typeof config === 'object' ? config : null)
-    );
-  }
+    static getOrCreateInstance(element, config = {}) {
+        return (
+            this.getInstance(element) || new this(element, typeof config === 'object' ? config : null)
+        );
+    }
 
-  static get NAME() {
-    throw new Error('You have to implement the static method "NAME", for each component!');
-  }
+    dispose() {
+        Data.removeData(this._element, this.constructor.DATA_KEY);
+        EventHandler.off(this._element, this.constructor.EVENT_KEY);
 
-  static get DATA_KEY() {
-    return `mdb.${this.NAME}`;
-  }
-
-  static get EVENT_KEY() {
-    return `.${this.DATA_KEY}`;
-  }
+        Object.getOwnPropertyNames(this).forEach((propertyName) => {
+            this[propertyName] = null;
+        });
+    }
 }
 
 export default BaseComponent;

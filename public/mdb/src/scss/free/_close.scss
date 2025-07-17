@@ -4,7 +4,7 @@
 // See https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
 
 .btn-close {
-  &:focus {
-    box-shadow: none;
-  }
+    &:focus {
+        box-shadow: none;
+    }
 }

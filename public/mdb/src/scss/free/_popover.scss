@@ -3,16 +3,15 @@
 //
 
 .popover {
-  // scss-docs-start popover-css-vars
-  --#{$prefix}popover-border-bottom-width: #{$popover-border-bottom-width};
-  // scss-docs-end popover-css-vars
+    // scss-docs-start popover-css-vars
+    --#{$prefix}popover-border-bottom-width: #{$popover-border-bottom-width};
+    // scss-docs-end popover-css-vars
 
-  .popover-arrow {
-    display: none;
-  }
+    .popover-arrow {
+        display: none;
+    }
 }
 
 .popover-header {
-  border-bottom: var(--#{$prefix}popover-border-bottom-width) solid
-    var(--#{$prefix}popover-border-color);
+    border-bottom: var(--#{$prefix}popover-border-bottom-width) solid var(--#{$prefix}popover-border-color);
 }

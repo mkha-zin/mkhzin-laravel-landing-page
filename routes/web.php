@@ -7,7 +7,6 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\OfferController;
 use App\Http\Middleware\Localization;
 use App\Models\Gallery;
-use App\Models\Subscription;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -105,7 +104,7 @@ Route::group(['middleware' => 'localization'], static function () {
 
     Route::get('test', function () {
         $data['header_title'] = 'Test';
-       return view('emails.offers_email', $data);
+        return view('emails.offers_email', $data);
     });/*
     Route::get('test', [LandingController::class, 'platforms'])->name('test');*/
     /*Route::get('/remove-duplicate-subscriptions', [OfferController::class, 'removeDuplicates']);*/

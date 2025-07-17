@@ -36,8 +36,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Redirect;
-use Request;
 use Illuminate\Support\Facades\Validator;
+use Request;
 
 class LandingController extends Controller
 {
@@ -104,7 +104,7 @@ class LandingController extends Controller
 
             if ($subscriper->is_active) {
                 return redirect('/#subscribe')->with('success', __('landing.Subscribed'));
-            }else{
+            } else {
                 $subscriper->update(['is_active' => true]);
                 return redirect('/#subscribe')->with('success', __('landing.subscription activated'));
             }
@@ -224,8 +224,8 @@ class LandingController extends Controller
             ->get()
             ->map(function ($branch) {
                 return [
-                    'lat' => (float) $branch->latitude,
-                    'lng' => (float) $branch->longitude,
+                    'lat' => (float)$branch->latitude,
+                    'lng' => (float)$branch->longitude,
                     'popup' => '
                         <div style="text-align: center; font-family: Cairo, sans-serif">
                             <strong style="color: darkred" class="mb-2">' . e(data_get($branch, App::currentLocale() === 'ar' ? 'name_ar' : 'name_en', '')) . '</strong>
@@ -457,7 +457,6 @@ class LandingController extends Controller
 
         return view('social_one', compact('socialLink'));
     }
-
 
 
     public function saveJoiner(HttpRequest $request): RedirectResponse

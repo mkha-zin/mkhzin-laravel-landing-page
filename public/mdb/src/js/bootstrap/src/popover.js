@@ -6,7 +6,7 @@
  */
 
 import Tooltip from './tooltip.js';
-import { defineJQueryPlugin } from './util/index.js';
+import {defineJQueryPlugin} from './util/index.js';
 
 /**
  * Constants
@@ -18,22 +18,22 @@ const SELECTOR_TITLE = '.popover-header';
 const SELECTOR_CONTENT = '.popover-body';
 
 const Default = {
-  ...Tooltip.Default,
-  content: '',
-  offset: [0, 8],
-  placement: 'right',
-  template:
-    '<div class="popover" role="tooltip">' +
-    '<div class="popover-arrow"></div>' +
-    '<h3 class="popover-header"></h3>' +
-    '<div class="popover-body"></div>' +
-    '</div>',
-  trigger: 'click',
+    ...Tooltip.Default,
+    content: '',
+    offset: [0, 8],
+    placement: 'right',
+    template:
+        '<div class="popover" role="tooltip">' +
+        '<div class="popover-arrow"></div>' +
+        '<h3 class="popover-header"></h3>' +
+        '<div class="popover-body"></div>' +
+        '</div>',
+    trigger: 'click',
 };
 
 const DefaultType = {
-  ...Tooltip.DefaultType,
-  content: '(null|string|element|function)',
+    ...Tooltip.DefaultType,
+    content: '(null|string|element|function)',
 };
 
 /**
@@ -41,52 +41,52 @@ const DefaultType = {
  */
 
 class Popover extends Tooltip {
-  // Getters
-  static get Default() {
-    return Default;
-  }
+    // Getters
+    static get Default() {
+        return Default;
+    }
 
-  static get DefaultType() {
-    return DefaultType;
-  }
+    static get DefaultType() {
+        return DefaultType;
+    }
 
-  static get NAME() {
-    return NAME;
-  }
+    static get NAME() {
+        return NAME;
+    }
 
-  // Overrides
-  _isWithContent() {
-    return this._getTitle() || this._getContent();
-  }
+    // Static
+    static jQueryInterface(config) {
+        return this.each(function () {
+            const data = Popover.getOrCreateInstance(this, config);
 
-  // Private
-  _getContentForTemplate() {
-    return {
-      [SELECTOR_TITLE]: this._getTitle(),
-      [SELECTOR_CONTENT]: this._getContent(),
-    };
-  }
+            if (typeof config !== 'string') {
+                return;
+            }
 
-  _getContent() {
-    return this._resolvePossibleFunction(this._config.content);
-  }
+            if (typeof data[config] === 'undefined') {
+                throw new TypeError(`No method named "${config}"`);
+            }
 
-  // Static
-  static jQueryInterface(config) {
-    return this.each(function () {
-      const data = Popover.getOrCreateInstance(this, config);
+            data[config]();
+        });
+    }
 
-      if (typeof config !== 'string') {
-        return;
-      }
+    // Overrides
+    _isWithContent() {
+        return this._getTitle() || this._getContent();
+    }
 
-      if (typeof data[config] === 'undefined') {
-        throw new TypeError(`No method named "${config}"`);
-      }
+    // Private
+    _getContentForTemplate() {
+        return {
+            [SELECTOR_TITLE]: this._getTitle(),
+            [SELECTOR_CONTENT]: this._getContent(),
+        };
+    }
 
-      data[config]();
-    });
-  }
+    _getContent() {
+        return this._resolvePossibleFunction(this._config.content);
+    }
 }
 
 /**

@@ -1,17 +1,17 @@
 // Tooltip
 
 .tooltip {
-  --#{$prefix}tooltip-font-size: #{$tooltip-font-size};
+    --#{$prefix}tooltip-font-size: #{$tooltip-font-size};
 
-  &.show {
-    opacity: 1;
-  }
+    &.show {
+        opacity: 1;
+    }
 
-  .tooltip-arrow {
-    display: none;
-  }
+    .tooltip-arrow {
+        display: none;
+    }
 }
 
 .tooltip-inner {
-  font-size: var(--#{$prefix}tooltip-font-size);
+    font-size: var(--#{$prefix}tooltip-font-size);
 }

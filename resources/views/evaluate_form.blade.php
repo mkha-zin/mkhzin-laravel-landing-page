@@ -12,7 +12,7 @@
 
     <style>
         body {
-            direction: {{ $dir }}    !important;
+            direction: {{ $dir }}     !important;
         }
     </style>
 

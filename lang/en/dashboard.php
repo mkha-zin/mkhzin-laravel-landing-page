@@ -194,7 +194,7 @@ return [
 
     'branch' => 'Branch',
 
-
+    
     // dashboard footer
     'copyright' => 'All Rights Reserved For',
     'version' => 'version: 3.01.012',

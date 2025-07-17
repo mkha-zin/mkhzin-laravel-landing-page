@@ -8,7 +8,7 @@
 import BaseComponent from './base-component.js';
 import EventHandler from './dom/event-handler.js';
 import SelectorEngine from './dom/selector-engine.js';
-import { defineJQueryPlugin, getNextActiveElement, isDisabled } from './util/index.js';
+import {defineJQueryPlugin, getNextActiveElement, isDisabled} from './util/index.js';
 
 /**
  * Constants
@@ -46,7 +46,7 @@ const SELECTOR_TAB_PANEL = '.list-group, .nav, [role="tablist"]';
 const SELECTOR_OUTER = '.nav-item, .list-group-item';
 const SELECTOR_INNER = `.nav-link${NOT_SELECTOR_DROPDOWN_TOGGLE}, .list-group-item${NOT_SELECTOR_DROPDOWN_TOGGLE}, [role="tab"]${NOT_SELECTOR_DROPDOWN_TOGGLE}`;
 const SELECTOR_DATA_TOGGLE =
-  '[data-bs-toggle="tab"], [data-bs-toggle="pill"], [data-bs-toggle="list"]'; // TODO: could only be `tab` in v6
+    '[data-bs-toggle="tab"], [data-bs-toggle="pill"], [data-bs-toggle="list"]'; // TODO: could only be `tab` in v6
 const SELECTOR_INNER_ELEM = `${SELECTOR_INNER}, ${SELECTOR_DATA_TOGGLE}`;
 
 const SELECTOR_DATA_TOGGLE_ACTIVE = `.${CLASS_NAME_ACTIVE}[data-bs-toggle="tab"], .${CLASS_NAME_ACTIVE}[data-bs-toggle="pill"], .${CLASS_NAME_ACTIVE}[data-bs-toggle="list"]`;
@@ -56,239 +56,239 @@ const SELECTOR_DATA_TOGGLE_ACTIVE = `.${CLASS_NAME_ACTIVE}[data-bs-toggle="tab"]
  */
 
 class Tab extends BaseComponent {
-  constructor(element) {
-    super(element);
-    this._parent = this._element.closest(SELECTOR_TAB_PANEL);
+    constructor(element) {
+        super(element);
+        this._parent = this._element.closest(SELECTOR_TAB_PANEL);
 
-    if (!this._parent) {
-      return;
-      // TODO: should throw exception in v6
-      // throw new TypeError(`${element.outerHTML} has not a valid parent ${SELECTOR_INNER_ELEM}`)
+        if (!this._parent) {
+            return;
+            // TODO: should throw exception in v6
+            // throw new TypeError(`${element.outerHTML} has not a valid parent ${SELECTOR_INNER_ELEM}`)
+        }
+
+        // Set up initial aria attributes
+        this._setInitialAttributes(this._parent, this._getChildren());
+
+        EventHandler.on(this._element, EVENT_KEYDOWN, (event) => this._keydown(event));
     }
 
-    // Set up initial aria attributes
-    this._setInitialAttributes(this._parent, this._getChildren());
-
-    EventHandler.on(this._element, EVENT_KEYDOWN, (event) => this._keydown(event));
-  }
-
-  // Getters
-  static get NAME() {
-    return NAME;
-  }
-
-  // Public
-  show() {
-    // Shows this elem and deactivate the active sibling if exists
-    const innerElem = this._element;
-    if (this._elemIsActive(innerElem)) {
-      return;
+    // Getters
+    static get NAME() {
+        return NAME;
     }
 
-    // Search for active tab on same parent to deactivate it
-    const active = this._getActiveElem();
+    // Static
+    static jQueryInterface(config) {
+        return this.each(function () {
+            const data = Tab.getOrCreateInstance(this);
 
-    const hideEvent = active
-      ? EventHandler.trigger(active, EVENT_HIDE, { relatedTarget: innerElem })
-      : null;
+            if (typeof config !== 'string') {
+                return;
+            }
 
-    const showEvent = EventHandler.trigger(innerElem, EVENT_SHOW, { relatedTarget: active });
+            if (data[config] === undefined || config.startsWith('_') || config === 'constructor') {
+                throw new TypeError(`No method named "${config}"`);
+            }
 
-    if (showEvent.defaultPrevented || (hideEvent && hideEvent.defaultPrevented)) {
-      return;
+            data[config]();
+        });
     }
 
-    this._deactivate(active, innerElem);
-    this._activate(innerElem, active);
-  }
+    // Public
+    show() {
+        // Shows this elem and deactivate the active sibling if exists
+        const innerElem = this._element;
+        if (this._elemIsActive(innerElem)) {
+            return;
+        }
 
-  // Private
-  _activate(element, relatedElem) {
-    if (!element) {
-      return;
+        // Search for active tab on same parent to deactivate it
+        const active = this._getActiveElem();
+
+        const hideEvent = active
+            ? EventHandler.trigger(active, EVENT_HIDE, {relatedTarget: innerElem})
+            : null;
+
+        const showEvent = EventHandler.trigger(innerElem, EVENT_SHOW, {relatedTarget: active});
+
+        if (showEvent.defaultPrevented || (hideEvent && hideEvent.defaultPrevented)) {
+            return;
+        }
+
+        this._deactivate(active, innerElem);
+        this._activate(innerElem, active);
     }
 
-    element.classList.add(CLASS_NAME_ACTIVE);
+    // Private
+    _activate(element, relatedElem) {
+        if (!element) {
+            return;
+        }
 
-    this._activate(SelectorEngine.getElementFromSelector(element)); // Search and activate/show the proper section
+        element.classList.add(CLASS_NAME_ACTIVE);
 
-    const complete = () => {
-      if (element.getAttribute('role') !== 'tab') {
-        element.classList.add(CLASS_NAME_SHOW);
-        return;
-      }
+        this._activate(SelectorEngine.getElementFromSelector(element)); // Search and activate/show the proper section
 
-      element.removeAttribute('tabindex');
-      element.setAttribute('aria-selected', true);
-      this._toggleDropDown(element, true);
-      EventHandler.trigger(element, EVENT_SHOWN, {
-        relatedTarget: relatedElem,
-      });
-    };
+        const complete = () => {
+            if (element.getAttribute('role') !== 'tab') {
+                element.classList.add(CLASS_NAME_SHOW);
+                return;
+            }
 
-    this._queueCallback(complete, element, element.classList.contains(CLASS_NAME_FADE));
-  }
+            element.removeAttribute('tabindex');
+            element.setAttribute('aria-selected', true);
+            this._toggleDropDown(element, true);
+            EventHandler.trigger(element, EVENT_SHOWN, {
+                relatedTarget: relatedElem,
+            });
+        };
 
-  _deactivate(element, relatedElem) {
-    if (!element) {
-      return;
+        this._queueCallback(complete, element, element.classList.contains(CLASS_NAME_FADE));
     }
 
-    element.classList.remove(CLASS_NAME_ACTIVE);
-    element.blur();
+    _deactivate(element, relatedElem) {
+        if (!element) {
+            return;
+        }
 
-    this._deactivate(SelectorEngine.getElementFromSelector(element)); // Search and deactivate the shown section too
+        element.classList.remove(CLASS_NAME_ACTIVE);
+        element.blur();
 
-    const complete = () => {
-      if (element.getAttribute('role') !== 'tab') {
-        element.classList.remove(CLASS_NAME_SHOW);
-        return;
-      }
+        this._deactivate(SelectorEngine.getElementFromSelector(element)); // Search and deactivate the shown section too
 
-      element.setAttribute('aria-selected', false);
-      element.setAttribute('tabindex', '-1');
-      this._toggleDropDown(element, false);
-      EventHandler.trigger(element, EVENT_HIDDEN, { relatedTarget: relatedElem });
-    };
+        const complete = () => {
+            if (element.getAttribute('role') !== 'tab') {
+                element.classList.remove(CLASS_NAME_SHOW);
+                return;
+            }
 
-    this._queueCallback(complete, element, element.classList.contains(CLASS_NAME_FADE));
-  }
+            element.setAttribute('aria-selected', false);
+            element.setAttribute('tabindex', '-1');
+            this._toggleDropDown(element, false);
+            EventHandler.trigger(element, EVENT_HIDDEN, {relatedTarget: relatedElem});
+        };
 
-  _keydown(event) {
-    if (
-      ![ARROW_LEFT_KEY, ARROW_RIGHT_KEY, ARROW_UP_KEY, ARROW_DOWN_KEY, HOME_KEY, END_KEY].includes(
-        event.key
-      )
-    ) {
-      return;
+        this._queueCallback(complete, element, element.classList.contains(CLASS_NAME_FADE));
     }
 
-    event.stopPropagation(); // stopPropagation/preventDefault both added to support up/down keys without scrolling the page
-    event.preventDefault();
+    _keydown(event) {
+        if (
+            ![ARROW_LEFT_KEY, ARROW_RIGHT_KEY, ARROW_UP_KEY, ARROW_DOWN_KEY, HOME_KEY, END_KEY].includes(
+                event.key
+            )
+        ) {
+            return;
+        }
 
-    const children = this._getChildren().filter((element) => !isDisabled(element));
-    let nextActiveElement;
+        event.stopPropagation(); // stopPropagation/preventDefault both added to support up/down keys without scrolling the page
+        event.preventDefault();
 
-    if ([HOME_KEY, END_KEY].includes(event.key)) {
-      nextActiveElement = children[event.key === HOME_KEY ? 0 : children.length - 1];
-    } else {
-      const isNext = [ARROW_RIGHT_KEY, ARROW_DOWN_KEY].includes(event.key);
-      nextActiveElement = getNextActiveElement(children, event.target, isNext, true);
+        const children = this._getChildren().filter((element) => !isDisabled(element));
+        let nextActiveElement;
+
+        if ([HOME_KEY, END_KEY].includes(event.key)) {
+            nextActiveElement = children[event.key === HOME_KEY ? 0 : children.length - 1];
+        } else {
+            const isNext = [ARROW_RIGHT_KEY, ARROW_DOWN_KEY].includes(event.key);
+            nextActiveElement = getNextActiveElement(children, event.target, isNext, true);
+        }
+
+        if (nextActiveElement) {
+            nextActiveElement.focus({preventScroll: true});
+            Tab.getOrCreateInstance(nextActiveElement).show();
+        }
     }
 
-    if (nextActiveElement) {
-      nextActiveElement.focus({ preventScroll: true });
-      Tab.getOrCreateInstance(nextActiveElement).show();
-    }
-  }
-
-  _getChildren() {
-    // collection of inner elements
-    return SelectorEngine.find(SELECTOR_INNER_ELEM, this._parent);
-  }
-
-  _getActiveElem() {
-    return this._getChildren().find((child) => this._elemIsActive(child)) || null;
-  }
-
-  _setInitialAttributes(parent, children) {
-    this._setAttributeIfNotExists(parent, 'role', 'tablist');
-
-    for (const child of children) {
-      this._setInitialAttributesOnChild(child);
-    }
-  }
-
-  _setInitialAttributesOnChild(child) {
-    child = this._getInnerElement(child);
-    const isActive = this._elemIsActive(child);
-    const outerElem = this._getOuterElement(child);
-    child.setAttribute('aria-selected', isActive);
-
-    if (outerElem !== child) {
-      this._setAttributeIfNotExists(outerElem, 'role', 'presentation');
+    _getChildren() {
+        // collection of inner elements
+        return SelectorEngine.find(SELECTOR_INNER_ELEM, this._parent);
     }
 
-    if (!isActive) {
-      child.setAttribute('tabindex', '-1');
+    _getActiveElem() {
+        return this._getChildren().find((child) => this._elemIsActive(child)) || null;
     }
 
-    this._setAttributeIfNotExists(child, 'role', 'tab');
+    _setInitialAttributes(parent, children) {
+        this._setAttributeIfNotExists(parent, 'role', 'tablist');
 
-    // set attributes to the related panel too
-    this._setInitialAttributesOnTargetPanel(child);
-  }
-
-  _setInitialAttributesOnTargetPanel(child) {
-    const target = SelectorEngine.getElementFromSelector(child);
-
-    if (!target) {
-      return;
+        for (const child of children) {
+            this._setInitialAttributesOnChild(child);
+        }
     }
 
-    this._setAttributeIfNotExists(target, 'role', 'tabpanel');
+    _setInitialAttributesOnChild(child) {
+        child = this._getInnerElement(child);
+        const isActive = this._elemIsActive(child);
+        const outerElem = this._getOuterElement(child);
+        child.setAttribute('aria-selected', isActive);
 
-    if (child.id) {
-      this._setAttributeIfNotExists(target, 'aria-labelledby', `${child.id}`);
+        if (outerElem !== child) {
+            this._setAttributeIfNotExists(outerElem, 'role', 'presentation');
+        }
+
+        if (!isActive) {
+            child.setAttribute('tabindex', '-1');
+        }
+
+        this._setAttributeIfNotExists(child, 'role', 'tab');
+
+        // set attributes to the related panel too
+        this._setInitialAttributesOnTargetPanel(child);
     }
-  }
 
-  _toggleDropDown(element, open) {
-    const outerElem = this._getOuterElement(element);
-    if (!outerElem.classList.contains(CLASS_DROPDOWN)) {
-      return;
+    _setInitialAttributesOnTargetPanel(child) {
+        const target = SelectorEngine.getElementFromSelector(child);
+
+        if (!target) {
+            return;
+        }
+
+        this._setAttributeIfNotExists(target, 'role', 'tabpanel');
+
+        if (child.id) {
+            this._setAttributeIfNotExists(target, 'aria-labelledby', `${child.id}`);
+        }
     }
 
-    const toggle = (selector, className) => {
-      const element = SelectorEngine.findOne(selector, outerElem);
-      if (element) {
-        element.classList.toggle(className, open);
-      }
-    };
+    _toggleDropDown(element, open) {
+        const outerElem = this._getOuterElement(element);
+        if (!outerElem.classList.contains(CLASS_DROPDOWN)) {
+            return;
+        }
 
-    toggle(SELECTOR_DROPDOWN_TOGGLE, CLASS_NAME_ACTIVE);
-    toggle(SELECTOR_DROPDOWN_MENU, CLASS_NAME_SHOW);
-    outerElem.setAttribute('aria-expanded', open);
-  }
+        const toggle = (selector, className) => {
+            const element = SelectorEngine.findOne(selector, outerElem);
+            if (element) {
+                element.classList.toggle(className, open);
+            }
+        };
 
-  _setAttributeIfNotExists(element, attribute, value) {
-    if (!element.hasAttribute(attribute)) {
-      element.setAttribute(attribute, value);
+        toggle(SELECTOR_DROPDOWN_TOGGLE, CLASS_NAME_ACTIVE);
+        toggle(SELECTOR_DROPDOWN_MENU, CLASS_NAME_SHOW);
+        outerElem.setAttribute('aria-expanded', open);
     }
-  }
 
-  _elemIsActive(elem) {
-    return elem.classList.contains(CLASS_NAME_ACTIVE);
-  }
+    _setAttributeIfNotExists(element, attribute, value) {
+        if (!element.hasAttribute(attribute)) {
+            element.setAttribute(attribute, value);
+        }
+    }
 
-  // Try to get the inner element (usually the .nav-link)
-  _getInnerElement(elem) {
-    return elem.matches(SELECTOR_INNER_ELEM)
-      ? elem
-      : SelectorEngine.findOne(SELECTOR_INNER_ELEM, elem);
-  }
+    _elemIsActive(elem) {
+        return elem.classList.contains(CLASS_NAME_ACTIVE);
+    }
 
-  // Try to get the outer element (usually the .nav-item)
-  _getOuterElement(elem) {
-    return elem.closest(SELECTOR_OUTER) || elem;
-  }
+    // Try to get the inner element (usually the .nav-link)
+    _getInnerElement(elem) {
+        return elem.matches(SELECTOR_INNER_ELEM)
+            ? elem
+            : SelectorEngine.findOne(SELECTOR_INNER_ELEM, elem);
+    }
 
-  // Static
-  static jQueryInterface(config) {
-    return this.each(function () {
-      const data = Tab.getOrCreateInstance(this);
-
-      if (typeof config !== 'string') {
-        return;
-      }
-
-      if (data[config] === undefined || config.startsWith('_') || config === 'constructor') {
-        throw new TypeError(`No method named "${config}"`);
-      }
-
-      data[config]();
-    });
-  }
+    // Try to get the outer element (usually the .nav-item)
+    _getOuterElement(elem) {
+        return elem.closest(SELECTOR_OUTER) || elem;
+    }
 }
 
 /**
@@ -296,24 +296,24 @@ class Tab extends BaseComponent {
  */
 
 EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
-  if (['A', 'AREA'].includes(this.tagName)) {
-    event.preventDefault();
-  }
+    if (['A', 'AREA'].includes(this.tagName)) {
+        event.preventDefault();
+    }
 
-  if (isDisabled(this)) {
-    return;
-  }
+    if (isDisabled(this)) {
+        return;
+    }
 
-  Tab.getOrCreateInstance(this).show();
+    Tab.getOrCreateInstance(this).show();
 });
 
 /**
  * Initialize on focus
  */
 EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
-  for (const element of SelectorEngine.find(SELECTOR_DATA_TOGGLE_ACTIVE)) {
-    Tab.getOrCreateInstance(element);
-  }
+    for (const element of SelectorEngine.find(SELECTOR_DATA_TOGGLE_ACTIVE)) {
+        Tab.getOrCreateInstance(element);
+    }
 });
 /**
  * jQuery

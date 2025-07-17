@@ -84,9 +84,9 @@
                                     {{ __('competition.form_name') }}
                                 </label>
                                 <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-input"
-                                    required>
+                                       required>
                                 @error('name')
-                                    <small class="text-danger d-block mt-1">{{ $message }}</small>
+                                <small class="text-danger d-block mt-1">{{ $message }}</small>
                                 @enderror
                             </div>
 
@@ -96,9 +96,9 @@
                                     {{ __('competition.form_phone') }}
                                 </label>
                                 <input type="text" name="phone" id="phone" value="{{ old('phone') }}" class="form-input"
-                                    required>
+                                       required>
                                 @error('phone')
-                                    <small class="text-danger d-block mt-1">{{ $message }}</small>
+                                <small class="text-danger d-block mt-1">{{ $message }}</small>
                                 @enderror
                             </div>
 
@@ -108,9 +108,9 @@
                                     {{ __('competition.form_tiktok_user') }}
                                 </label>
                                 <input type="text" name="tiktok_user" value="{{ old('tiktok_user') }}" id="tiktok_user"
-                                    class="form-input" required>
+                                       class="form-input" required>
                                 @error('tiktok_user')
-                                    <small class="text-danger d-block mt-1">{{ $message }}</small>
+                                <small class="text-danger d-block mt-1">{{ $message }}</small>
                                 @enderror
                             </div>
 
@@ -121,7 +121,7 @@
                                 </label>
                                 <div class="file-upload-wrapper">
                                     <input type="file" name="comment_image" id="comment_image" class="file-input"
-                                        accept="image/*">
+                                           accept="image/*">
                                     <div class="file-upload-area">
                                         <div class="upload-icon">
                                             <i class="fas fa-cloud-upload-alt"></i>
@@ -134,12 +134,13 @@
                                         </p>
                                     </div>
                                     @error('comment_image')
-                                        <small class="text-danger d-block mt-1">{{ $message }}</small>
+                                    <small class="text-danger d-block mt-1">{{ $message }}</small>
                                     @enderror
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn-submit" style="color: white !important; border-radius: 5px;">
+                            <button type="submit" class="btn-submit"
+                                    style="color: white !important; border-radius: 5px;">
                                 <i class="fas fa-paper-plane"></i>
                                 {{ __('competition.form_submit_button') }}
                                 <div class="btn-glow"></div>
@@ -160,8 +161,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            direction:
-                {{ App::isLocale('ar') ? 'rtl' : 'ltr' }}
+            direction: {{ App::isLocale('ar') ? 'rtl' : 'ltr' }}
             ;
             /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
             min-height: 100vh;
@@ -236,8 +236,7 @@
 
         .contest-subtitle {
             text-align: center;
-            direction:
-                {{ App::isLocale('ar') ? 'rtl' : 'ltr' }}
+            direction: {{ App::isLocale('ar') ? 'rtl' : 'ltr' }}
             ;
             font-size: 1.2rem;
             opacity: 0.9;
@@ -306,18 +305,15 @@
             gap: 15px;
             margin-bottom: 25px;
             color: black !important;
-            direction:
-                {{ App::isLocale('ar') ? 'rtl' : 'ltr' }}
+            direction: {{ App::isLocale('ar') ? 'rtl' : 'ltr' }}
             ;
         }
 
         .rules-header i {
             font-size: 1.5rem;
-            text-align:
-                {{ App::isLocale('ar') ? 'right' : 'left' }}
+            text-align: {{ App::isLocale('ar') ? 'right' : 'left' }}
             ;
-            direction:
-                {{ App::isLocale('ar') ? 'rtl' : 'ltr' }}
+            direction: {{ App::isLocale('ar') ? 'rtl' : 'ltr' }}
             ;
             color: #000 !important;
         }
@@ -328,6 +324,7 @@
             color: #000 !important;
 
         }
+
         .rules-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -336,8 +333,7 @@
 
         .rule-item {
             background: white;
-            text-align:
-                {{ App::isLocale('ar') ? 'right' : 'left' }}
+            text-align: {{ App::isLocale('ar') ? 'right' : 'left' }}
             ;
             padding: 20px;
             border-radius: 15px;
@@ -469,8 +465,7 @@
 
         .step-content p {
             margin-bottom: 25px;
-            text-align:
-                {{ App::isLocale('ar') ? 'right' : 'left' }}
+            text-align: {{ App::isLocale('ar') ? 'right' : 'left' }}
             ;
             color: #666;
             font-size: 1.1rem;
@@ -732,12 +727,12 @@
         };
 
         @if ($errors->any())
-            @foreach ($errors->all() as $error)
-                toastr.error("{{ $error }}");
-            @endforeach
+        @foreach ($errors->all() as $error)
+        toastr.error("{{ $error }}");
+        @endforeach
         @endif
         @if(session('success'))
-            toastr.success("{{ session('success') }}");
+        toastr.success("{{ session('success') }}");
         @endif
     </script>
 @endsection

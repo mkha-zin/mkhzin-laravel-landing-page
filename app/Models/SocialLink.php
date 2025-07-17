@@ -12,14 +12,14 @@ class SocialLink extends Model
 
     protected $guarded = ['id'];
 
+    public static function getPlatform($platformTitle)
+    {
+        return self::query()->where('title_en', $platformTitle)->where('is_active', 1)->first();
+    }
+
     protected static function booted()
     {
         static::saved(fn() => Cache::forget('index_data'));
         static::deleted(fn() => Cache::forget('index_data'));
-    }
-
-    public static function getPlatform($platformTitle)
-    {
-        return self::query()->where('title_en', $platformTitle)->where('is_active', 1)->first();
     }
 }
