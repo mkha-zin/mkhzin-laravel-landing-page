@@ -43,6 +43,7 @@ return [
     'remote' => 'Remote',
     'on-site' => 'On-site',
     'Submit Application' => 'Submit Application',
+    'Application submitted successfully!' => 'Your Application has been submitted successfully!',
 
     // General Application
     'Send a General Application' => 'Send a General Application',

@@ -707,12 +707,12 @@
                     if (file) {
                         uploadArea.innerHTML = `
 
-                                                                                                                                                <div class="upload-icon">
-                                                                                                                                                    <i class="fas fa-check-circle" style="color: #28a745;"></i>
-                                                                                                                                                </div>
-                                                                                                                                                <p class="upload-text" style="color: #28a745;">{{ __('competition.file_selected') }} ${file.name}</p>
-                                                                                                                                                <p class="upload-hint">{{ __('competition.change_file') }}</p>
-                                                                                                                                            `;
+                                                    <div class="upload-icon">
+                                                        <i class="fas fa-check-circle" style="color: #28a745;"></i>
+                                                    </div>
+                                                    <p class="upload-text" style="color: #28a745;">{{ __('competition.file_selected') }} ${file.name}</p>
+                                                    <p class="upload-hint">{{ __('competition.change_file') }}</p>
+                                                `;
 
                     }
                 });

@@ -40,6 +40,7 @@ return [
     'remote' => 'عن بعد',
     'on-site' => 'في مقر الشركة',
     'Submit Application' => 'رفع الطلب',
+    'Application submitted successfully!' => 'تم تقديم طلبك بنجاح!',
 
     // General Application
     'Send a General Application' => 'أرسل طلب توظيف عام',

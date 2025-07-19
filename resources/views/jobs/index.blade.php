@@ -7,6 +7,7 @@
 @endphp
 
 @section('content')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <style>
         /* Custom Styles */
         body {
@@ -194,5 +195,25 @@
 
     <!-- Bootstrap JS Bundle via CDN (optional) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        toastr.options = {
+            "positionClass": "toast-top-left",
+            "rtl": {{ App::isLocale('ar') ? 'true' : 'false' }},
+            "timeOut": "10000",
+            "extendedTimeOut": "10000"
+        };
+
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+              toastr.error("{{ $error }}");
+            @endforeach
+        @endif
+        @if(session('success'))
+            toastr.success("{{ session('success') }}");
+        @endif
+    </script>
 
 @endsection
