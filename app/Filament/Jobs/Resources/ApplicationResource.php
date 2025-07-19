@@ -27,6 +27,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 
 class ApplicationResource extends Resource
 {
@@ -167,8 +168,12 @@ class ApplicationResource extends Resource
                     ->fileDisk('public')
                     ->color(Color::Green)
                     ->icon('heroicon-o-newspaper'),
-                DeleteBulkAction::make(),
             ]);
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return false;
     }
 
     public static function infolist(Infolist $infolist): Infolist
