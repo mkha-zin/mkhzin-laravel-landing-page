@@ -17,6 +17,7 @@ use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Support\Colors\Color;
 use Filament\Support\Enums\IconPosition;
+use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\ExportAction;
 use Filament\Tables\Actions\ExportBulkAction;
 use Filament\Tables\Actions\HeaderActionsPosition;
@@ -154,6 +155,7 @@ class ApplicationResource extends Resource
                     ->preload()
                     ->placeholder(__('dashboard.all careers')),
             ])
+            ->extremePaginationLinks()
             ->headerActionsPosition(HeaderActionsPosition::Bottom)
             ->actions([
                 ViewAction::make()->icon('heroicon-o-clipboard-document-list'),
@@ -164,7 +166,8 @@ class ApplicationResource extends Resource
                     ->button()
                     ->fileDisk('public')
                     ->color(Color::Green)
-                    ->icon('heroicon-o-newspaper')
+                    ->icon('heroicon-o-newspaper'),
+                DeleteBulkAction::make(),
             ]);
     }
 
