@@ -606,7 +606,7 @@ Markdown::block($direction == 'rtl' ? $about->first_text_ar : $about->first_text
                             class="elementor-element elementor-element-469ae9c elementor-widget elementor-widget-text-editor"
                             data-element_type="widget" data-widget_type="text-editor.default">
                             <div class="elementor-widget-container"
-                                 style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important">
+                                 style="text-align:justify; word-break:keep-all;">
                                 <p>
                                     {{ Markdown::block($direction == 'rtl' ? $storage->description_ar : $storage->description_en) }}
                                 </p>

@@ -62,12 +62,14 @@ class StorageResource extends Resource
                         ->directory('assets/images/storage')
                         ->imageEditor()
                         ->image()
+                        ->downloadable()
                         ->required(),
                     FileUpload::make('foreground_image')
                         ->label(__('dashboard.foreground_image'))
                         ->directory('assets/images/storage')
                         ->imageEditor()
                         ->image()
+                        ->downloadable()
                         ->required(),
                 ])->columns(2),
                 Section::make(__('dashboard.titles'))->schema([
