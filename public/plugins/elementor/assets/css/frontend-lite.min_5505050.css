@@ -4512,7 +4512,7 @@ body.rtl .elementor-widget-n-tabs {
 
 .e-contact-buttons__content {
     border-radius: var(--e-contact-buttons-border-radius);
-    font-family: var(--e-global-typography-text-font-family, "Cairo"), Sans-serif;
+    font-family: var(--e-global-typography-text-font-family, "IBM Plex Sans Arabic"), Sans-serif;
     overflow: hidden
 }
 
@@ -6471,7 +6471,7 @@ body.rtl .elementor-widget-n-tabs {
     color: #1c2448;
     display: flex;
     flex-direction: column;
-    font-family: var(--e-global-typography-text-font-family, "Cairo"), Sans-serif;
+    font-family: var(--e-global-typography-text-font-family, "IBM Plex Sans Arabic"), Sans-serif;
     max-width: 100%;
     text-align: center;
     width: var(--e-link-in-bio-content-width);

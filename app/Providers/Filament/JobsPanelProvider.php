@@ -56,7 +56,7 @@ class JobsPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::hex('#E22128'),
             ])
-            ->font('Cairo', provider: GoogleFontProvider::class)
+            ->font('IBM Plex Sans Arabic', provider: GoogleFontProvider::class)
             ->favicon(asset('uploads/mkhazin/fav.png'))
             ->discoverResources(in: app_path('Filament/Jobs/Resources'), for: 'App\\Filament\\Jobs\\Resources')
             ->discoverPages(in: app_path('Filament/Jobs/Pages'), for: 'App\\Filament\\Jobs\\Pages')

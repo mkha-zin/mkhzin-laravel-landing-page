@@ -54,7 +54,7 @@ class AppPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::hex('#E22128'),
             ])
-            ->font('Cairo', provider: GoogleFontProvider::class)
+            ->font('IBM Plex Sans Arabic', provider: GoogleFontProvider::class)
             ->favicon(asset('uploads/mkhazin/fav.png'))
             ->discoverResources(in: app_path('Filament/App/Resources'), for: 'App\\Filament\\App\\Resources')
             ->discoverPages(in: app_path('Filament/App/Pages'), for: 'App\\Filament\\App\\Pages')

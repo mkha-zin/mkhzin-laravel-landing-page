@@ -19,7 +19,7 @@ $whatsChannel = SocialLink::getPlatform('Whatsapp Channel');
     <title>تخفيضات نهاية العام الكبرى! لا تفوتها!</title>
     <style>
         body {
-            font-family: 'Cairo', Arial, sans-serif;
+            font-family: 'IBM Plex Sans Arabic', Arial, sans-serif;
             background-color: #f4f4f4;
             padding: 20px;
             margin: 0;
