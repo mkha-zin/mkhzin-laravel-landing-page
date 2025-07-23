@@ -133,7 +133,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel='stylesheet' id='elementor-icons-rtmicons-css'
           href='{{ asset('plugins/rometheme-for-elementor/assets/css/rtmicons_5963864.css') }}' media='all'/>
@@ -288,7 +288,7 @@
 </head>
 <body
     class="home page-template page-template-elementor_header_footer page page-id-1222 elementor-default elementor-template-full-width elementor-kit-4 elementor-page elementor-page-1222"
-    style="font-family: Cairo, sans-serif !important;">
+    style="font-family: IBM Plex Sans Arabic, sans-serif !important;">
 <div id="page">
 
     <!-- Navbar -->

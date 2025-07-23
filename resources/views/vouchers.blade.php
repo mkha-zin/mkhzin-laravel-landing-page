@@ -30,7 +30,7 @@
 
 </head>
 <body
-    style="font-family: Cairo, sans-serif;background-image:url('{{ asset('uploads/mkhazin/offers_background.jpg') }}'); background-attachment:fixed; background-repeat: no-repeat; background-size: cover;">
+    style="font-family: Noto Naskh Arabic, serif;background-image:url('{{ asset('uploads/mkhazin/offers_background.jpg') }}'); background-attachment:fixed; background-repeat: no-repeat; background-size: cover;">
 <div class="container">
     <div class="container mt-5">
 

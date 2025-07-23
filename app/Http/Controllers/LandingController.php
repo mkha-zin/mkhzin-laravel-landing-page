@@ -227,7 +227,7 @@ class LandingController extends Controller
                     'lat' => (float)$branch->latitude,
                     'lng' => (float)$branch->longitude,
                     'popup' => '
-                        <div style="text-align: center; font-family: Cairo, sans-serif">
+                        <div style="text-align: center; font-family: Noto Naskh Arabic, serif">
                             <strong style="color: darkred" class="mb-2">' . e(data_get($branch, App::currentLocale() === 'ar' ? 'name_ar' : 'name_en', '')) . '</strong>
                             <br>
                             <a href="tel:+966920011209">920011209</a>

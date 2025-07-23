@@ -86,7 +86,7 @@ class AdminPanelProvider extends PanelProvider
                 FilamentPWAPlugin::make()
                     ->allowPWASettings(),
             ])
-            ->font('Cairo', provider: GoogleFontProvider::class)
+            ->font('IBM Plex Sans Arabic', provider: GoogleFontProvider::class)
             ->favicon(asset('uploads/mkhazin/fav.png'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')

@@ -11,7 +11,7 @@
     <style>
         /* Custom Styles */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Noto Naskh Arabic, serif;
             background-image: url({{ asset('images/svg/Sprinkle.svg') }});
         }
 

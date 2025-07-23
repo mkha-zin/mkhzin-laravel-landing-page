@@ -417,7 +417,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 </head>
 
-<body style="font-family: Cairo, sans-serif !important;"
+<body style="font-family: Noto Naskh Arabic, serif !important;"
       class="envato_tk_templates-template envato_tk_templates-template-elementor_canvas single single-envato_tk_templates postid-1246 elementor-default elementor-template-canvas elementor-kit-4 elementor-page elementor-page-1246">
 <div data-elementor-type="wp-post" data-elementor-id="1246" class="elementor elementor-1246">
     <div class="elementor-element elementor-element-5a23dd4 e-flex e-con-boxed e-con e-parent" data-id="5a23dd4"
