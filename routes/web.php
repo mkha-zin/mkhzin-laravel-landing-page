@@ -102,10 +102,10 @@ Route::group(['middleware' => 'localization'], static function () {
         return view('includes.gallery', $data);
     })->name('gallery.view');
 
-    Route::get('test', function () {
+    /*Route::get('test', function () {
         $data['header_title'] = 'Test';
         return view('emails.offers_email', $data);
-    });/*
+    });
     Route::get('test', [LandingController::class, 'platforms'])->name('test');*/
     /*Route::get('/remove-duplicate-subscriptions', [OfferController::class, 'removeDuplicates']);*/
 });

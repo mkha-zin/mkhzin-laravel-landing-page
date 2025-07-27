@@ -77,6 +77,7 @@ class JoinerResource extends Resource
                     ->searchable(),
                 TextColumn::make('tiktok_user')
                     ->label(__('dashboard.tiktok_user'))
+                    ->limit(10)
                     ->searchable(),
                 ImageColumn::make('comment_image')
                     ->label(__('dashboard.comment_image')),
