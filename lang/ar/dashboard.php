@@ -329,6 +329,13 @@ return [
     'optional' => 'اختياري',
     'not_wanted' => 'غير مطلوب',
 
+    'Subscribers' => 'الكل',
+    'Subscribers Last Day' => 'اليوم الماضي',
+    'Subscribers Last Week' => 'الاسبوع الماضي',
+    'Subscribers Desc' => 'العدد الكلي للمشتركين في النظام',
+    'Subscribers Last Day Desc' => 'عدد المشتركين الجدد في اليوم الماضي',
+    'Subscribers Last Week Desc' => 'عدد المشتركين الجدد في الاسبوع الماضي',
+
 
     // Settings
     'Home' => 'الرئيسية',

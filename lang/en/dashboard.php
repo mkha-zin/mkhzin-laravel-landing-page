@@ -194,7 +194,7 @@ return [
 
     'branch' => 'Branch',
 
-    
+
     // dashboard footer
     'copyright' => 'All Rights Reserved For',
     'version' => 'version: 3.01.012',
@@ -333,6 +333,13 @@ return [
     'optional' => 'Optional',
     'not_wanted' => 'Not Wanted',
 
+    'Subscribers' => 'All',
+    'Subscribers Last Day' => 'Last Day',
+    'Subscribers Last Week' => 'Last Week',
+    'Subscribers Desc' => 'Total number of Subscribers in the system',
+    'Subscribers Last Day Desc' => 'Number of new Subscribers in the last day',
+    'Subscribers Last Week Desc' => 'Number of new Subscribers in the last week',
+
     // Settings
     'Home' => 'Home',
     'home_desc' => 'Home page settings',
@@ -346,7 +353,7 @@ return [
     'Total Applicants' => 'Total Applicants',
     'Applicants Ratio' => 'Applicants Ratio',
 
-    'Avg. Applicants per Job' => 'Avg. Applicants per Job',
+    'Avg . Applicants per Job' => 'Avg . Applicants per Job',
     'Number of applications' => 'Number of applications',
     'Total job postings' => 'Total job postings',
 
