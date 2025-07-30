@@ -8,6 +8,8 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class JoinersStatsOverview extends BaseWidget
 {
+
+
     protected function getStats(): array
     {
         return [
@@ -28,6 +30,12 @@ class JoinersStatsOverview extends BaseWidget
                 ->label(__('dashboard.Subscribers Last Week'))
                 ->description(__('dashboard.Subscribers Last Week Desc'))
                 ->color('success'),
+
+            // all joiners stats last month
+            Stat::make('Subscribers Last Month', Joiner::query()->where('created_at', '>=', now()->subMonth())->count())
+                ->label(__('dashboard.Subscribers Last Month'))
+                ->description(__('dashboard.Subscribers Last Month Desc'))
+                ->color('danger'),
         ];
     }
 }

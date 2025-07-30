@@ -336,9 +336,11 @@ return [
     'Subscribers' => 'All',
     'Subscribers Last Day' => 'Last Day',
     'Subscribers Last Week' => 'Last Week',
+    'Subscribers Last Month' => 'Last Month',
     'Subscribers Desc' => 'Total number of Subscribers in the system',
     'Subscribers Last Day Desc' => 'Number of new Subscribers in the last day',
     'Subscribers Last Week Desc' => 'Number of new Subscribers in the last week',
+    'Subscribers Last Month Desc' => 'Number of new Subscribers in the last month',
 
     // Settings
     'Home' => 'Home',

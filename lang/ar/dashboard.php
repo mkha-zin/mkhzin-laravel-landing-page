@@ -332,9 +332,11 @@ return [
     'Subscribers' => 'الكل',
     'Subscribers Last Day' => 'اليوم الماضي',
     'Subscribers Last Week' => 'الاسبوع الماضي',
+    'Subscribers Last Month' => 'الشهر الماضي',
     'Subscribers Desc' => 'العدد الكلي للمشتركين في النظام',
     'Subscribers Last Day Desc' => 'عدد المشتركين الجدد في اليوم الماضي',
     'Subscribers Last Week Desc' => 'عدد المشتركين الجدد في الاسبوع الماضي',
+    'Subscribers Last Month Desc' => 'عدد المشتركين الجدد في الشهر الماضي',
 
 
     // Settings
