@@ -54,7 +54,7 @@ Route::group(['middleware' => 'localization'], static function () {
     Route::post('/win', [LandingController::class, 'saveJoiner'])->name('win.save');
     Route::get('win', function () {
         $header_title = 'إربح مع مخازن | Win with Makhazin';
-        return view('win_form', compact('header_title'));
+        return view('win_over', compact('header_title'));
     });
     Route::get('win/tabuk', function () {
         $header_title = 'إربح مع مخازن | Win with Makhazin';
