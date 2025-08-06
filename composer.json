@@ -18,7 +18,8 @@
         "laravel/tinker": "^2.9",
         "mokhosh/filament-rating": "^1.4",
         "tomatophp/filament-pwa": "^1.0",
-        "webbingbrasil/filament-advancedfilter": "3.0"
+        "webbingbrasil/filament-advancedfilter": "3.0",
+        "webbingbrasil/filament-maps": "^3.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

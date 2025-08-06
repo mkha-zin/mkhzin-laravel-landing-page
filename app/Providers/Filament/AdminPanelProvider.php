@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\Dashboard;
+use App\Filament\Widgets\BranchesMap;
 use Awcodes\Curator\CuratorPlugin;
 use Awcodes\FilamentGravatar\GravatarPlugin;
 use BezhanSalleh\FilamentExceptions\FilamentExceptionsPlugin;
@@ -96,6 +97,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
+                BranchesMap::class,
 //                Widgets\AccountWidget::class,
             ])
             ->renderHook(
