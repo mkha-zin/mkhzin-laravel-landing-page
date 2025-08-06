@@ -131,6 +131,7 @@ class CustomerReviewResource extends Resource
                 TextColumn::make('review')
                     ->label(__('dashboard.customer review'))
                     ->words(3)
+                    ->tooltip(fn(CustomerReview $record) => $record->review)
                     ->searchable(),
                 ToggleColumn::make('is_active')
                     ->label(__('dashboard.is_active'))
