@@ -47,11 +47,4 @@ class BranchesMap extends MapWidget
             Actions\CenterMapAction::make()->zoom(3),
         ];
     }
-
-    protected function setUp(): void
-    {
-        $this
-            ->rounded();
-
-    }
 }
