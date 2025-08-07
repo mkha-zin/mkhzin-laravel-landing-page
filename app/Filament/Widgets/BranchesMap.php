@@ -17,6 +17,11 @@ class BranchesMap extends MapWidget
 
     protected bool $hasBorder = false;
 
+    public array $mapOptions = [
+        'center' => ['lat' => 24.7136, 'lng' => 46.6753],
+        'zoom' => 5,
+    ];
+
     public function getMarkers(): array
     {
         $branches = Branch::all();
