@@ -17,6 +17,7 @@ class BranchesMap extends MapWidget
 
     protected bool $hasBorder = false;
 
+
     public array $mapOptions = [
         'center' => ['lat' => 24.7136, 'lng' => 46.6753],
         'zoom' => 5,
@@ -32,7 +33,19 @@ class BranchesMap extends MapWidget
                 $markers[] = Marker::make('pos' . $branch->id)
                     ->lat($branch->latitude)
                     ->lng($branch->longitude)
-                    ->popup(App::currentLocale() == 'ar' ? $branch->name_ar : $branch->name_en);
+                    ->popup(
+                        '
+                        <div style="text-align: center; font-weight: bold; font-family: Noto Naskh Arabic, serif">
+                            <strong style="color: darkred; margin-top: 5px">' . e(data_get($branch, App::currentLocale() === 'ar' ? 'name_ar' : 'name_en', '')) . '</strong>
+                            <br>
+                            <a href="tel:+966920011209">920011209</a>
+                            <br>' .
+                        (!empty($branch->map_link) ? '
+                                <a style="color: darkred; border: 1px solid darkred; border-radius: 5px; padding: 5px; margin-top: 5px; display: inline-block"
+                            href="' . e($branch->map_link) . '" target="_blank" >
+                                ' . __('landing.View on Google Maps') . '
+                            </a>' : '') . '
+                        </div>');
             }
             return $markers;
         }

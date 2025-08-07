@@ -353,7 +353,8 @@
             }
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors'
+                attribution: '© ' +
+                    '<a href="https://mkhzin.com">{{ config('app.name') }}</a>'
             }).addTo(map);
 
             // Example array of markers
