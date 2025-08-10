@@ -1,5 +1,6 @@
 @php
-    use App\Models\Header;use Illuminate\Support\Facades\App;
+    use App\Models\Header;
+    use Illuminate\Support\Facades\App;
     use Carbon\Carbon
 @endphp
 @extends('layouts.app')
@@ -10,36 +11,39 @@
         $branchHeader = Header::where('key', 'branches')->first();
     @endphp
 
+    <!-- Add Leaflet CSS and JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    @include('includes.header_image',[
-    'title'=>__('landing.Branches'),
-    'image' => $branchHeader->image,
-    ])
+    <!-- Map Section for All Branches -->
+    <div class="col-md-12" style="text-align: {{ $direction == 'rtl' ? 'right' : 'left' }} !important">
+        <div id="map" style="height: 400px;" class="rounded shadow-sm"></div>
+    </div>
 
     <div dir="{{$direction}}" data-elementor-type="wp-page" data-elementor-id="1222" class="elementor elementor-1222">
         <div data-elementor-type="wp-post" data-elementor-id="1244" class="elementor elementor-1244">
             <div class="elementor-element elementor-element-46f2bc0 e-flex e-con-boxed e-con e-parent" data-id="46f2bc0"
-                 data-element_type="container">
+                data-element_type="container">
 
                 <div class="container mt-5" style="margin-bottom: -100px;">
                     <!-- form start -->
                     <form method="get" action="">
                         <div class="card-body">
                             <div class="row"
-                                 style="display: flex; justify-content: center; align-items: center; text-align: center">
+                                style="display: flex; justify-content: center; align-items: center; text-align: center">
                                 <div class="form-group col-5">
                                     <select name="city">
                                         <option value="all">{{ __('landing.All Cities') }}</option>
                                         @foreach($cities as $citiy)
-                                            <option
-                                                {{ (Request::get('city') == $citiy->id)? 'selected' : '' }} value="{{ $citiy->id }}">
+                                            <option {{ (Request::get('city') == $citiy->id) ? 'selected' : '' }}
+                                                value="{{ $citiy->id }}">
                                                 {{ $direction == 'rtl' ? $citiy->name_ar : $citiy->name_en }}
                                             </option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <button class="btn text-white form-group col-2" type="submit"
-                                        style="letter-spacing: 0 !important; border-radius: 5px">{{ __('landing.Search') }}</button>
+                                    style="letter-spacing: 0 !important; border-radius: 5px">{{ __('landing.Search') }}</button>
                             </div>
                         </div>
                         <!-- /.card-body -->
@@ -133,19 +137,22 @@
                     /* Responsive columns */
                     @media (min-width: 992px) {
                         .card-container {
-                            flex: 0 0 calc(33.333% - 20px); /* 3 per row */
+                            flex: 0 0 calc(33.333% - 20px);
+                            /* 3 per row */
                         }
                     }
 
                     @media (min-width: 768px) and (max-width: 991.98px) {
                         .card-container {
-                            flex: 0 0 calc(50% - 20px); /* 2 per row */
+                            flex: 0 0 calc(50% - 20px);
+                            /* 2 per row */
                         }
                     }
 
                     @media (max-width: 767.98px) {
                         .card-container {
-                            flex: 0 0 100%; /* 1 per row */
+                            flex: 0 0 100%;
+                            /* 1 per row */
                         }
                     }
                 </style>
@@ -157,7 +164,7 @@
                                 <div class="card-container">
                                     <!-- Image -->
                                     <div class="card-image">
-                                        <img src="{{ asset('storage/'.$branch->image) }}" alt="">
+                                        <img src="{{ asset('storage/' . $branch->image) }}" alt="">
                                     </div>
 
                                     <!-- Info -->
@@ -185,6 +192,53 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Collect all branch coordinates
+            @php
+                            $branchMarkers = [];
+                            foreach($branches as $branch) {
+                                if ($branch->latitude && $branch->longitude) {
+                                    $branchMarkers[] = [
+                                        'lat' => $branch->latitude,
+                                        'lng' => $branch->longitude,
+                                        'popup' => 
+                '<div style="min-width:180px;text-align:center;">' .
+                    '<strong>' . ($direction == 'rtl' ? $branch->name_ar : $branch->name_en) . '</strong><br>' .
+                    '<span>' . __('landing.Phone') . ': ' . $branch->phone . '</span><br>' .
+                    '<a href="' . route('branch.details', $branch->id) . '" style="display:inline-block;margin:4px 0;width:100%;padding:4px 8px;background:#df2228;color:#fff;border-radius:3px;text-decoration:none;">' .
+                        __('landing.Go to Branch') .
+                    '</a><br>' .
+                    '<a href="https://www.google.com/maps/search/?api=1&query=' . $branch->latitude . ',' . $branch->longitude . '" target="_blank" style="display:inline-block;margin:4px 0;width:100%;padding:4px 8px;background:#a72828;color:#fff;border-radius:3px;text-decoration:none;">' .
+                        __('landing.Show on Google Map') .
+                    '</a>' .
+                '</div>'
+                                    ];
+                                }
+                            }
+            @endphp
+            var markers = @json($branchMarkers);
+
+            // Default center (first branch or fallback)
+            var mapCenter = markers.length ? [markers[0].lat, markers[0].lng] : [24.7136, 46.6753]; // Riyadh fallback
+            var map = L.map('map').setView(mapCenter, 6);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© ' +
+                    '<a href="https://mkhzin.com">{{ config('app.name') }}</a>'
+            }).addTo(map);
+
+            var bounds = [];
+            markers.forEach(function (markerData) {
+                var marker = L.marker([markerData.lat, markerData.lng])
+                    .addTo(map)
+                    .bindPopup(markerData.popup);
+                bounds.push([markerData.lat, markerData.lng]);
+            });
+
+            if (bounds.length) {
+                map.fitBounds(bounds, {padding: [30, 30]});
+            }
+        });
+    </script>
 @endsection
-
-

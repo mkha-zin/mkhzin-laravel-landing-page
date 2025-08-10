@@ -18,7 +18,8 @@ return [
     'brows offers' => 'Browse Offers',
     'Our Vision' => 'Our Vision',
     'Quick Links' => 'Quick Links',
-
+    "Go to Branch" => "Go to Branch",
+    "Show on Google Map" => "Show on Google Map",
     'features' => 'Features',
     'gallery' => 'Gallery',
     'photo gallery' => 'Photo Gallery',

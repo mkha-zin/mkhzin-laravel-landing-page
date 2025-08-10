@@ -19,7 +19,8 @@ return [
     'Quick Links' => 'روابط سريعة',
     'brows offers' => 'تصفح العروض',
     'end offer' => 'العرض لغاية',
-
+    'Go to Branch' => 'اذهب إلى الفرع',
+    'Show on Google Map' => 'عرض على خريطة جوجل',
     'features' => 'المميزات',
     'gallery' => 'المعرض',
     'photo gallery' => 'معرض الصور',
