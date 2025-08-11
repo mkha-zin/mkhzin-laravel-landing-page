@@ -202,10 +202,10 @@
                                     $branchMarkers[] = [
                                         'lat' => $branch->latitude,
                                         'lng' => $branch->longitude,
-                                        'popup' => 
+                                        'popup' =>
                 '<div style="min-width:180px;text-align:center;">' .
                     '<strong>' . ($direction == 'rtl' ? $branch->name_ar : $branch->name_en) . '</strong><br>' .
-                    '<span>' . __('landing.Phone') . ': ' . $branch->phone . '</span><br>' .
+                    '<a href="tel:+966920011209">' . __('landing.Phone') . ': 920011209 </a><br>' .
                     '<a href="' . route('branch.details', $branch->id) . '" style="display:inline-block;margin:4px 0;width:100%;padding:4px 8px;background:#df2228;color:#fff;border-radius:3px;text-decoration:none;">' .
                         __('landing.Go to Branch') .
                     '</a><br>' .
