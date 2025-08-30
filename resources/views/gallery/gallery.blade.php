@@ -13,6 +13,20 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"/>
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"/>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHRLHQREYM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-JHRLHQREYM');
+    </script>
+    {{--Google Console--}}
+    <meta name="google-site-verification" content="gOAvYgjJkpiE7MXHMfifJ_lGGLHnpJwDBjxU2o4TQI4"/>
+
+
     <!-- MDB -->
     <link rel="stylesheet" href="{{ asset('mdb/css/mdb.min.css') }}"/>
 </head>

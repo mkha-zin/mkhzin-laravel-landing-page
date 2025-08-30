@@ -43,6 +43,19 @@
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHRLHQREYM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-JHRLHQREYM');
+    </script>
+    {{--Google Console--}}
+    <meta name="google-site-verification" content="gOAvYgjJkpiE7MXHMfifJ_lGGLHnpJwDBjxU2o4TQI4"/>
+
+
     <!-- Demo styles -->
     <style>
         .categories-carousel {
