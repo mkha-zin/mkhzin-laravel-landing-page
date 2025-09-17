@@ -1,5 +1,6 @@
 @php
-    use App\Models\SocialLink;$facebook = SocialLink::query()->where('title_en', 'Facebook')->where('is_active', 1)->first();
+    use App\Models\SocialLink;
+    $facebook = SocialLink::query()->where('title_en', 'Facebook')->where('is_active', 1)->first();
     $twitter = SocialLink::query()->where('title_en', 'Twitter(X)')->where('is_active', 1)->first();
     $linkedin = SocialLink::query()->where('title_en', 'Linkedin')->where('is_active', 1)->first();
     $youtube = SocialLink::query()->where('title_en', 'Youtube')->where('is_active', 1)->first();
@@ -13,14 +14,14 @@
 <header id="masthead" itemscope="itemscope">
     <div data-elementor-type="wp-post" data-elementor-id="1060" class="elementor elementor-1060">
         <div class="elementor-element elementor-element-72ea40c e-flex e-con-boxed e-con e-parent"
-             data-element_type="container" style="background-color: white">
+            data-element_type="container" style="background-color: white">
             <div class="e-con-inner">
                 <div class="elementor-element elementor-element-7127bdc e-con-inner e-flex e-con e-child">
                     <a href="{{ route('locale.setting', 'en') }}" style="color: black">English</a>
                     <span class="mx-1">|</span>
                     <a href="{{ route('locale.setting', 'ar') }}" style="color: black">العربية</a>
                 </div>
-                <div class="elementor-element elementor-element-7127bdc e-con-full e-flex e-con e-child"
+                <!-- <div class="elementor-element elementor-element-7127bdc e-con-full e-flex e-con e-child"
                      data-element_type="container">
                     <div
                         class="elementor-element elementor-element-8154df2 elementor-shape-rounded elementor-grid-0 e-grid-align-center elementor-widget elementor-widget-social-icons"
@@ -387,7 +388,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -398,8 +399,8 @@
                     </a>
                 </nav>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <style>
@@ -444,56 +445,55 @@
                     <ul class="nav-hover-ul navbar-nav mx-auto">
                         <li class="nav-hover nav-item flex">
                             <a class="nav-link {{ request()->segment(1) == null ? 'active active1' : '' }}"
-                               href="{{ url('/') }}">
+                                href="{{ url('/') }}">
                                 {{ __('landing.Home') }}
                             </a>
                         </li>
                         <li class="nav-hover nav-item">
                             <a class="nav-link {{ request()->segment(1) == 'about' ? 'active active1' : '' }}"
-                               href="{{ url('about') }}">
+                                href="{{ url('about') }}">
                                 {{ __('landing.About') }}
                             </a>
                         </li>
                         <li class="nav-hover nav-item ">
                             <a class="nav-link {{ request()->segment(1) == 'sections' ? 'active active1' : '' }}"
-                               href="{{ url('sections') }}">
+                                href="{{ url('sections') }}">
                                 {{ __('landing.Departments') }}
                             </a>
                         </li>
                         <li class="nav-hover nav-item">
                             <a href="{{ url('estore') }}"
-                               class="nav-link {{ request()->segment(1) == 'store' ? 'active active1' : '' }}">
+                                class="nav-link {{ request()->segment(1) == 'store' ? 'active active1' : '' }}">
                                 {{  __('landing.Store')}}
                             </a>
                         </li>
                         <li class="nav-hover nav-item">
                             <a class="nav-link {{ request()->segment(1) == 'blog' ? 'active active1' : '' }}"
-                               href="{{ url('blog') }}">
+                                href="{{ url('blog') }}">
                                 {{ __('landing.News') }}
                             </a>
                         </li>
                         <li class="nav-hover nav-item">
                             <a class="nav-link {{ request()->segment(1) == 'branches' ? 'active active1' : '' }}"
-                               href="{{ url('branches') }}">
+                                href="{{ url('branches') }}">
                                 {{ __('landing.Branches') }}
                             </a>
                         </li>
                         <li class="nav-hover nav-item">
                             <a class="nav-link {{ request()->segment(1) == 'jobs' ? 'active active1' : '' }}"
-                               href="{{ route('jobs.index') }}">
+                                href="{{ route('jobs.index') }}">
                                 {{ __('landing.Jobs') }}
                             </a>
                         </li>
                         <li class="nav-hover nav-item">
                             <a class="nav-link {{ request()->segment(1) == 'contact' ? 'active active1' : '' }}"
-                               href="{{ url('/contact') }}">
+                                href="{{ url('/contact') }}">
                                 {{ __('landing.Contact Us') }}
                             </a>
                         </li>
                     </ul>
                     <a href="{{ url('offers') }}" style="background-color: #e12228"
-                       class="btn flex justify-self-center my-2 my-sm-0 text-white"
-                       type="button">
+                        class="btn flex justify-self-center my-2 my-sm-0 text-white" type="button">
                         {{ __('landing.Offers') }}
                     </a>
                 </div>
