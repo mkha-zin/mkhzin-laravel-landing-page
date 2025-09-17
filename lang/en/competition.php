@@ -5,6 +5,7 @@ return [
     'subtitle' => 'With Mkhzin Supermarket, You can win the new iPhone 16!',
     'subscribe before' => 'Make sure to subscribe before the draw at 1-8-2025.',
     'conditions_title' => 'To participate, follow the steps below:',
+    'snap_conditions_title' => 'To participate:',
     'condition_1' => 'You must follow our TikTok account',
     'condition_2' => 'Comment on the dedicated post',
     'condition_3' => 'Upload a picture of your comment and enter your data',
