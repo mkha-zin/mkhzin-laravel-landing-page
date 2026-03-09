@@ -462,7 +462,7 @@
                             </a>
                         </li>
                         <li class="nav-hover nav-item">
-                            <a href="{{ url('estore') }}"
+                            <a href="https://www.mkhzin-store.com/ar/download/v1"
                                 class="nav-link {{ request()->segment(1) == 'store' ? 'active active1' : '' }}">
                                 {{  __('landing.Store')}}
                             </a>
