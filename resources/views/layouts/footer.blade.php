@@ -315,7 +315,7 @@
                                         </svg>
                                     </span>
                                     <span class="elementor-icon-list-text">
-                                        <a href="{{ url('estore') }}" target="_blank">
+                                        <a href="https://www.mkhzin-store.com/ar/download/v1">
                                             {{ __('landing.Store') }}
                                         </a>
                                     </span>
