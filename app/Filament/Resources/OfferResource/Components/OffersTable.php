@@ -106,7 +106,8 @@ class OffersTable
                         Section::make()->schema([
                             Select::make('branch_id')
                                 ->label(__('dashboard.branch'))
-                                ->relationship('branch',
+                                ->relationship(
+                                    'branch',
                                     App::currentLocale() === 'ar' ? 'name_ar' : 'name_en'
                                 )
                                 ->columnSpanFull()
@@ -135,7 +136,7 @@ class OffersTable
                                     ->directory('zips')
                                     ->disk('zip')
                                     ->acceptedFileTypes(['zip', 'application/octet-stream', 'application/zip', 'application/x-zip', 'application/x-zip-compressed'])
-                                    ->maxSize(50072)
+                                    ->maxSize(102400)
                                     ->downloadable()
                                     ->required()
                             ])->columns(2),
@@ -167,13 +168,13 @@ class OffersTable
                         Section::make(
                             __('dashboard.duration')
                         )->schema([
-                            DatePicker::make('start_date')
-                                ->label(__('dashboard.start_date'))
-                                ->required(),
-                            DatePicker::make('end_date')
-                                ->label(__('dashboard.end_date'))
-                                ->required(),
-                        ])->columns(2),
+                                    DatePicker::make('start_date')
+                                        ->label(__('dashboard.start_date'))
+                                        ->required(),
+                                    DatePicker::make('end_date')
+                                        ->label(__('dashboard.end_date'))
+                                        ->required(),
+                                ])->columns(2),
 
                         Toggle::make('is_active')
                             ->label(__('dashboard.status')),

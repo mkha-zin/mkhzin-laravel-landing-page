@@ -71,7 +71,7 @@ class OfferRelationManager extends RelationManager
                         ->directory('zips')
                         ->disk('zip')
                         ->acceptedFileTypes(['zip', 'application/octet-stream', 'application/zip', 'application/x-zip', 'application/x-zip-compressed'])
-                        ->maxSize(50072)
+                        ->maxSize(102400)
                         ->downloadable()
                         ->required()
                 ])->columns(2),

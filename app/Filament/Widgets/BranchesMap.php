@@ -25,14 +25,17 @@ class BranchesMap extends MapWidget
 
     public function getMarkers(): array
     {
-        $branches = Branch::all();
+        $branches = Branch::query()
+            ->whereNotNull('latitude')
+            ->whereNotNull('longitude')
+            ->get();
         $markers = [];
 
         if (!empty($branches)) {
             foreach ($branches as $branch) {
                 $markers[] = Marker::make('pos' . $branch->id)
-                    ->lat($branch->latitude)
-                    ->lng($branch->longitude)
+                    ->lat((float) $branch->latitude)
+                    ->lng((float) $branch->longitude)
                     ->popup(
                         '
                         <div style="text-align: center; font-weight: bold; font-family: Noto Naskh Arabic, serif">
@@ -45,7 +48,8 @@ class BranchesMap extends MapWidget
                             href="' . e($branch->map_link) . '" target="_blank" >
                                 ' . __('landing.View on Google Maps') . '
                             </a>' : '') . '
-                        </div>');
+                        </div>'
+                    );
             }
             return $markers;
         }
